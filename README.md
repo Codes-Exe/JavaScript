@@ -112,8 +112,10 @@ uses: actions/javascript-action@v1
 with:
   milliseconds: 1000
 ```
-
+```yaml
+author:  Erçetin Güler
+         Çetin Düzgün
+```
 See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
 
-## Author 
-- Erçetin Güler
+
