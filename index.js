@@ -19,4 +19,5 @@ async function run() {
 }
 
 run();
+
 document.querySelector("#main-content > p:nth-child(3) > img")
