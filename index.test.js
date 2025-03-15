@@ -1,4 +1,3 @@
-document.querySelector("#main-content > p:nth-child(3) > img")
 const wait = require('./wait');
 const process = require('process');
 const cp = require('child_process');
