@@ -113,4 +113,7 @@ with:
   milliseconds: 1000
 ```
 
-See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! :rocket:
+See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
+
+## Author 
+- Erçetin Güler
