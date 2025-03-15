@@ -1,4 +1,4 @@
-![STARITSERVİCE](https://github.com/user-attachments/assets/6af3d3ab-4047-44bd-a564-9235dc66d287)
+>![STARITSERVİCE](https://github.com/user-attachments/assets/6af3d3ab-4047-44bd-a564-9235dc66d287)
 # Create a JavaScript Action
 <p align="center">
   <a href="https://github.com/actions/javascript-action/actions"><img alt="javscript-action status" src="https://github.com/actions/javascript-action/workflows/units-test/badge.svg"></a>
