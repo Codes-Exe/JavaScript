@@ -1,8 +1,8 @@
 >![STARITSERVİCE](https://github.com/user-attachments/assets/6af3d3ab-4047-44bd-a564-9235dc66d287)
 # Create a JavaScript Action
 <p align="center">
-  <a href="https://github.com/actions/javascript-action/actions"><img alt="https://github.com/user-attachments/assets/d47ed3df-59fe-4ce2-9907-c09caba59013
-" src="https://github.com/actions/javascript-action/workflows/units-test/badge.svg"></a>
+  <a href="https://github.com/actions/javascript-action/actions"><img alt="https://github.com/user-attachments/assets/d47ed3df-59fe-4ce2-9907-c09caba59013">
+ <src="https://github.com/actions/javascript-action/workflows/units-test/badge.svg"></a>
 </p>
 
 Use this template to bootstrap the creation of a JavaScript action.:rocket:
