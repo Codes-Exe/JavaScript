@@ -112,10 +112,21 @@ uses: actions/javascript-action@v1
 with:
   milliseconds: 1000
 ```
+
+## Websites of our businesses used
+
+- (https://starcompurer.com.tr)[https://starcomputer.com.tr]
+- (https://mycomputer.digital)[https://mycomputer.digital]
+- (https://satilik.shop)[https://satilik.shop]
+- (https://yerlicins.com)[https://yerlicins.com]
+- (https://braverclient.com)[https://braverclient.com]
+- (https://cornergrab.com)[https://cornergrab.com]
+  
 ```yaml
 author:  Erçetin Güler
          Çetin Düzgün
 ```
+
 See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
 
 
