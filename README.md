@@ -123,10 +123,10 @@ with:
 - [https://cornergrab.com](https://cornergrab.com)
   
 
-|'author:Erçetin Güler'|
-       |'Çetin Düzgün'|
+|`Erçetin Güler`|
+|`Çetin Düzgün`|
 
-```
+
 See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
 
-```
+
