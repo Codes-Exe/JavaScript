@@ -121,8 +121,9 @@ with:
 - [https://yerlicins.com](https://yerlicins.com)
 - [https://braverclient.com](https://braverclient.com)
 - [https://cornergrab.com](https://cornergrab.com)
-  
 
+
+|`Author`|
 |`Erçetin Güler`|
 |`Çetin Düzgün`|
 
