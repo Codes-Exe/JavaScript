@@ -122,9 +122,9 @@ with:
 - [https://braverclient.com](https://braverclient.com)
 - [https://cornergrab.com](https://cornergrab.com)
   
-```yaml
-author:  Erçetin Güler
-         Çetin Düzgün
+```
+|'author:Erçetin Güler'|
+       |'Çetin Düzgün'|
 ```
 
 See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
