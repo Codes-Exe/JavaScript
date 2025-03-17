@@ -1,4 +1,8 @@
-
+---
+layout: default
+comments: true
+# other options
+---
 >![STARITSERVİCE](https://github.com/user-attachments/assets/6af3d3ab-4047-44bd-a564-9235dc66d287)
 # Create a JavaScript Action
 <p align="center">
@@ -134,11 +138,7 @@ Your action is now published! 🧑‍💻:
 - [https://www.braverclient.com](https://braverclient.com)
 - [https://www.cornergrab.com](https://cornergrab.com)
 
-# other options
----
-layout: default
-comments: true
----
+
 
 See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
 
