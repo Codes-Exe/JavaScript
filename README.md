@@ -140,12 +140,13 @@ Sitelerimizdeki uygulamalar ev ve işyerleri için özelleştirebilir, geliştir
 - [https://www.braverclient.com](https://braverclient.com)
 - [https://www.cornergrab.com](https://cornergrab.com)
 
+`Author`
+`Erçetin Güler`
 
 See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
 
-|`Author`|
-|`Erçetin Güler`|
-|`Çetin Düzgün`|
+
+
 
 
 
