@@ -124,22 +124,6 @@ Your action is now published! 🧑‍💻:
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 <script id="dsq-count-scr" src="//starteknoloji-space.disqus.com/count.js" async></script>
-
-## Websites of our businesses used
-
-- [https://www.starcomputer.com.tr](https://starcomputer.com.tr)
-- [https://www.mycomputer.digital](https://mycomputer.digital)
-- [https://www.satilik.shop](https://satilik.shop)
-- [https://www.yerlicins.com](https://yerlicins.com/)
-- [https://www.braverclient.com](https://braverclient.com)
-- [https://www.cornergrab.com](https://cornergrab.com)
-
-See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
-
-|`Author`|
-|`Erçetin Güler`|
-|`Çetin Düzgün`|
-
 import { Disqus } from 'gatsby-plugin-disqus';
 
 const Template = () => (
@@ -156,6 +140,22 @@ const Template = () => (
         }
     />
 );
+## Websites of our businesses used
+
+- [https://www.starcomputer.com.tr](https://starcomputer.com.tr)
+- [https://www.mycomputer.digital](https://mycomputer.digital)
+- [https://www.satilik.shop](https://satilik.shop)
+- [https://www.yerlicins.com](https://yerlicins.com/)
+- [https://www.braverclient.com](https://braverclient.com)
+- [https://www.cornergrab.com](https://cornergrab.com)
+
+See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
+
+|`Author`|
+|`Erçetin Güler`|
+|`Çetin Düzgün`|
+
+
 
 <script type='text/javascript'>
     var disqus_shortname = 'starteknoloji-space';
@@ -270,4 +270,29 @@ const Template = () => (
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <script id="dsq-count-scr" src="//starteknoloji-space.disqus.com/count.js" async></script>
-
+disqus.com, 5007672, DIRECT
+zetaglobal.net, 100, DIRECT
+inventorypartnerdomain=disqus.com
+amxrtb.com, 105199574, DIRECT
+aps.amazon.com, 31d3a4c9-a8a6-4ae0-a5ae-d3b0de43284c, DIRECT
+aniview.com, 616704c962b31624e671e171, RESELLER, 78b21b97965ec3f8
+criteo.com, B-060574, RESELLER, 9fac4a4a87c2a44f
+themediagrid.com, T49HZW, RESELLER, 35d5010d7789b49d
+google.com, pub-6650322601660058, RESELLER, f08c47fec0942fa0
+rubiconproject.com, 13380, RESELLER, 0bfd66d529a55807
+mediafuse.com, 604, RESELLER
+appnexus.com, 9538, DIRECT
+rubiconproject.com, 24434, DIRECT, 0bfd66d529a55807
+minutemedia.com, 01gcrv9grwe9, RESELLER
+onetag.com, 5cd7fb62fac7ec9, DIRECT
+openx.com, 537133236, RESELLER, 6a698e2ec38604c6
+pubmatic.com, 158685, RESELLER, 5d62403b186f2ace
+sharethrough.com, UvcAx8IL, DIRECT, d53b998a7bd4ecd2
+sonobi.com, 296bf9795d, DIRECT, d1a215d9eb5aee9e
+lijit.com, 279534, DIRECT, fafdf38b16bf6b2b
+lijit.com, 279534-eb, DIRECT, fafdf38b16bf6b2b
+taboola.com, 1003147, DIRECT, c228e6794e811952
+appnexus.com, 2797, RESELLER
+smartadserver.com, 4899, RESELLER, 060d053dcf45cbf3
+appnexus.com, 9538, DIRECT
+rubiconproject.com, 24434, DIRECT, 0bfd66d529a55807
