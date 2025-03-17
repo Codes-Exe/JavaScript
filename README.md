@@ -183,3 +183,63 @@ See the [actions tab](https://github.com/actions/javascript-action/actions) for 
 .comments-open {
     display: none !important;
 }
+<div id="disqus_thread"></div>
+<script>
+    window.addEventListener('message', receiveMessage, false);
+    function receiveMessage(event) {
+        if (event.data) {
+            var msg;
+            try {
+                msg = JSON.parse(event.data);
+            } catch (err) {
+                // Do nothing
+            }
+            if (!msg) {
+                return false;
+            }
+            if (msg.name === 'resize' || msg.name === 'rendered') {
+                window.parent.postMessage({
+                sentinel: 'amp',
+                type: 'embed-size',
+                height: msg.data.height
+                }, '*');
+            }
+        }
+    }
+</script>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+    */
+    var disqus_config = function () {
+        this.page.url = window.location;
+        this.page.identifier = window.location.hash;
+    };
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//starteknoloji-space.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+<amp-iframe
+    width=600 height=140
+    src="https://example.com/amp#hash"
+    layout="responsive"
+    sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
+    resizable
+>
+    <div
+        aria-label="Load more"
+        role=button
+        tabindex=0
+        overflow
+        style="display:block;font-size:12px;font-weight:500;font-family:Helvetica Neue, arial, sans-serif;text-align:center;line-height:1.1;padding:12px 16px;border-radius:4px;background:rgba(29,47,58,0.6);color:rgb(255,255,255)"
+    >
+        Load more
+    </div>
+</amp-iframe>
