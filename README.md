@@ -131,7 +131,8 @@ Your action is now published! 🧑‍💻:
 
 ## Websites of our businesses used
 
-Sitelerimizdeki uygulamalar ev ve işyerleri için özelleştirebilir, geliştirilebiliriz. Yorum, istek ve sorularınız için lütfen yazınız.
+Sitelerimizdeki uygulamalar ev ve işyerleri için özelleştirebilir, geliştirilebiliriz. Yorum, istek ve sorularınız için lütfen yazınız. 
+NOT; Uygulamamız Konummumuzda geçersizdir.
 
 - [https://www.starcomputer.com.tr](https://starcomputer.com.tr)
 - [https://www.mycomputer.digital](https://mycomputer.digital)
