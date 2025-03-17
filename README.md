@@ -112,6 +112,8 @@ uses: actions/javascript-action@v1
 with:
   milliseconds: 1000
 ```
+## Study and Discussion
+
 <div id="disqus_thread"></div>
 <script>
     /**
