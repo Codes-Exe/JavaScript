@@ -133,10 +133,11 @@ Your action is now published! 🧑‍💻:
 - [https://www.yerlicins.com](https://yerlicins.com/)
 - [https://www.braverclient.com](https://braverclient.com)
 - [https://www.cornergrab.com](https://cornergrab.com)
+
+# other options
 ---
 layout: default
 comments: true
-# other options
 ---
 
 See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
@@ -177,12 +178,7 @@ See the [actions tab](https://github.com/actions/javascript-action/actions) for 
     }());
 </script>
 
-#all-comments {
-    display: none !important;
-}
-.comments-open {
-    display: none !important;
-}
+
 <div id="disqus_thread"></div>
 <script>
     window.addEventListener('message', receiveMessage, false);
