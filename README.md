@@ -98,7 +98,7 @@ git push origin v1
 
 Note: We recommend using the `--license` option for ncc, which will create a license file for all of the production node modules used in your project.
 
-Your action is now published! :rocket:
+Your action is now published! 🧑‍💻:
 
 ## Study and Discussion
 
