@@ -101,7 +101,9 @@ Note: We recommend using the `--license` option for ncc, which will create a lic
 
 Your action is now published! 🧑‍💻:
 
+
 ## Study and Discussion
+
 
 <div id="disqus_thread"></div>
 <script>
@@ -133,6 +135,7 @@ Your action is now published! 🧑‍💻:
 - [https://www.yerlicins.com](https://yerlicins.com/)
 - [https://www.braverclient.com](https://braverclient.com)
 - [https://www.cornergrab.com](https://cornergrab.com)
+
 
 See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
 
