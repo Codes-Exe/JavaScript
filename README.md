@@ -1,4 +1,4 @@
-![starspceafiş](https://github.com/user-attachments/assets/157ede5f-1943-426e-a70a-02d2415aff8a)
+![starspceafiş](https://github.com/user-attachments/assets/b70a5f9e-ce55-4fe5-8915-9a83e0c6b188)
 
 # Create a JavaScript Action
 <p align="center">
