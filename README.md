@@ -1,5 +1,5 @@
+>![starspceafiş](https://github.com/user-attachments/assets/bcdf0061-1e14-4ef6-a4c4-c5a5787c8d26)
 
-![starspceafiş](https://github.com/user-attachments/assets/bcdf0061-1e14-4ef6-a4c4-c5a5787c8d26)
 # Create a JavaScript Action
 <p align="center">
   <a href="https://github.com/actions/javascript-action/actions"><img src="https://github.com/user-attachments/assets/b675b2c3-b678-4988-9d99-90b0aa250836"></a>
