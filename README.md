@@ -141,17 +141,11 @@ Your action is now published! 🧑‍💻:
 
 Sitelerimizdeki uygulamalar ev ve işyerleri için özelleştirebilir, geliştirilebiliriz. Yorum, istek ve sorularınız için lütfen yazınız. 
 NOT; Uygulamamız Konumumuzda geçersizdir.
+<iframe src="https:/braverclient.com" title="Planet" height="400" width="1000" style="border: 10;"></iframe>
+<iframe src="https://starcomputer.com.tr" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+<iframe src="https://mycomputer.digital" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+<iframe src="https://satilik.shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
-- [https://www.starcomputer.com.tr](https://starcomputer.com.tr)
-- [https://www.mycomputer.digital](https://mycomputer.digital)
-- [https://www.satilik.shop](https://satilik.shop)
-- [https://www.yerlicins.com](https://yerlicins.com/)
-- [https://www.braverclient.com](https://braverclient.com)
-- [https://www.cornergrab.com](https://cornergrab.com)
-
-## Save Image Find Box Continue Having Fun
-
-![gamestar](https://github.com/user-attachments/assets/897a4c66-8ab4-402f-9099-85a1478f5509)
 
 `Author`
 `Erçetin Güler`
