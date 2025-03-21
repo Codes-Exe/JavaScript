@@ -148,7 +148,7 @@ NOT; Uygulamamız Konumumuzda geçersizdir.
 - [https://www.braverclient.com](https://braverclient.com)
 - [https://www.cornergrab.com](https://cornergrab.com)
 
-## Save Image Find Target
+## Save Image Find Box Continue Having Fun
 
 ![gamestar](https://github.com/user-attachments/assets/897a4c66-8ab4-402f-9099-85a1478f5509)
 
