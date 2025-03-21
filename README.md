@@ -149,7 +149,9 @@ NOT; Uygulamamız Konumumuzda geçersizdir.
 
 `Author`
 `Erçetin Güler`
+<iframe src="https://github.com/sponsors/StarTeknoloji/card" title="Sponsor StarTeknoloji" height="200" width="1000" style="border: 10;"></iframe>
 
+<iframe src="https://github.com/sponsors/Codes-Exe/card" title="Sponsor Codes-Exe" height="200" width="1000" style="border: 10;"></iframe>
 See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
 
 <script type='text/javascript'>
