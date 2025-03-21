@@ -146,6 +146,7 @@ NOT; Uygulamamız Konumumuzda geçersizdir.
 <iframe src="https://satilik.shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 <iframe src="https://braverclient.com" title="Planet" height="400" width="1000" style="border: 10;"></iframe>
 
+[![OIP](https://github.com/user-attachments/assets/dab04847-ebf2-4e53-8c7a-64d342bddd9b)](https://starteknoloji.github.io/Starnet/)
 
 `Author`
 `Erçetin Güler`
