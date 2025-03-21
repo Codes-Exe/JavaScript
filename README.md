@@ -141,7 +141,7 @@ Your action is now published! 🧑‍💻:
 
 Sitelerimizdeki uygulamalar ev ve işyerleri için özelleştirebilir, geliştirilebiliriz. Yorum, istek ve sorularınız için lütfen yazınız. 
 NOT; Uygulamamız Konumumuzda geçersizdir.
-<iframe src="https:/braverclient.com" title="Planet" height="400" width="1000" style="border: 10;"></iframe>
+<iframe src="https://braverclient.com" title="Planet" height="400" width="1000" style="border: 10;"></iframe>
 <iframe src="https://starcomputer.com.tr" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 <iframe src="https://mycomputer.digital" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 <iframe src="https://satilik.shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
