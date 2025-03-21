@@ -114,9 +114,6 @@ Your action is now published! 🧑‍💻:
 
 ## Study and Discussion
 
-
-
-
 <div id="disqus_thread"></div>
 <script>
     /**
@@ -151,15 +148,14 @@ NOT; Uygulamamız Konumumuzda geçersizdir.
 - [https://www.braverclient.com](https://braverclient.com)
 - [https://www.cornergrab.com](https://cornergrab.com)
 
+## Save Image Find Target
+
+![gamestar](https://github.com/user-attachments/assets/897a4c66-8ab4-402f-9099-85a1478f5509)
+
 `Author`
 `Erçetin Güler`
 
 See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
-
-
-
-
-
 
 <script type='text/javascript'>
     var disqus_shortname = 'starteknoloji-space';
