@@ -146,7 +146,6 @@ NOT; Uygulamamız Konumumuzda geçersizdir.
 <iframe src="https://satilik.shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 <iframe src="https://braverclient.com" title="Planet" height="400" width="1000" style="border: 10;"></iframe>
 
-<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 
 <div class="badge-base LI-profile-badge" data-locale="tr_TR" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="star-computer-96573a2a0" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://tr.linkedin.com/in/star-computer-96573a2a0?trk=profile-badge">Star Computer</a></div>
 [![OIP](https://github.com/user-attachments/assets/9dd5c6fe-abb3-4877-b633-45d8290955aa)](https://starteknoloji.github.io/Starnet/)
