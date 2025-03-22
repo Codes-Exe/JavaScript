@@ -146,15 +146,18 @@ NOT; Uygulamamız Konumumuzda geçersizdir.
 <iframe src="https://satilik.shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 <iframe src="https://braverclient.com" title="Planet" height="400" width="1000" style="border: 10;"></iframe>
 
-<div class="badge-base LI-profile-badge" data-locale="tr_TR" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="star-computer-96573a2a0" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://tr.linkedin.com/in/star-computer-96573a2a0?trk=profile-badge">Star Computer</a></div>[![OIP](https://github.com/user-attachments/assets/dab04847-ebf2-4e53-8c7a-64d342bddd9b)](https://starteknoloji.github.io/Starnet/)
-              
 <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+<div class="badge-base LI-profile-badge" data-locale="tr_TR" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="star-computer-96573a2a0" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://tr.linkedin.com/in/star-computer-96573a2a0?trk=profile-badge">Star Computer</a></div>[![OIP](https://github.com/user-attachments/assets/dab04847-ebf2-4e53-8c7a-64d342bddd9b)](https://starteknoloji.github.io/Starnet/)
+           
+
 `Author`
 `Erçetin Güler`
-<iframe src="https://github.com/sponsors/StarTeknoloji/card" title="Sponsor StarTeknoloji" height="200" width="1000" style="border: 10;"></iframe>
 
+<iframe src="https://github.com/sponsors/StarTeknoloji/card" title="Sponsor StarTeknoloji" height="200" width="1000" style="border: 10;"></iframe>
 <iframe src="https://github.com/sponsors/Codes-Exe/card" title="Sponsor Codes-Exe" height="200" width="1000" style="border: 10;"></iframe>
+
 See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
+
 <div style="text-align:center;padding:1em 0;"> <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/en/city/738154"><span style="color:gray;">Current local time in</span><br />Vize, Turkey</a></h2> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=large&timezone=Europe%2FIstanbul" width="100%" height="120" frameborder="50" seamless></iframe> </div>
 
 <script type='text/javascript'>
