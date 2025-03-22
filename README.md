@@ -146,8 +146,9 @@ NOT; Uygulamamız Konumumuzda geçersizdir.
 <iframe src="https://satilik.shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 <iframe src="https://braverclient.com" title="Planet" height="400" width="1000" style="border: 10;"></iframe>
 
-[![OIP](https://github.com/user-attachments/assets/dab04847-ebf2-4e53-8c7a-64d342bddd9b)](https://starteknoloji.github.io/Starnet/)
-
+[![OIP](https://github.com/user-attachments/assets/dab04847-ebf2-4e53-8c7a-64d342bddd9b)](https://starteknoloji.github.io/Starnet/)<div class="badge-base LI-profile-badge" data-locale="tr_TR" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="star-computer-96573a2a0" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://tr.linkedin.com/in/star-computer-96573a2a0?trk=profile-badge">Star Computer</a></div>
+              
+<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 `Author`
 `Erçetin Güler`
 <iframe src="https://github.com/sponsors/StarTeknoloji/card" title="Sponsor StarTeknoloji" height="200" width="1000" style="border: 10;"></iframe>
