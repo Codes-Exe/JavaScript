@@ -141,10 +141,19 @@ Your action is now published! 🧑‍💻:
 
 Sitelerimizdeki uygulamalar ev ve işyerleri için özelleştirebilir, geliştirilebiliriz. Yorum, istek ve sorularınız için lütfen yazınız. 
 NOT; Uygulamamız Konumumuzda geçersizdir.
+
+### Star Computer Com.tr
 <iframe src="https://starcomputer.com.tr" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+
+### My Computer Digital
 <iframe src="https://mycomputer.digital" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+
+### Satilik Shop
 <iframe src="https://satilik.shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+
+### Braver Client
 <iframe src="https://braverclient.com" title="Planet" height="400" width="1000" style="border: 10;"></iframe>
+
 <iframe src="https://github.com/sponsors/StarTeknoloji/card" title="Sponsor StarTeknoloji" height="200" width="1000" style="border: 10;"></iframe>
 <iframe src="https://github.com/sponsors/Codes-Exe/card" title="Sponsor Codes-Exe" height="200" width="1000" style="border: 10;"></iframe>
 
