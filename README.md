@@ -112,6 +112,7 @@ Note: We recommend using the `--license` option for ncc, which will create a lic
 
 Your action is now published! 🧑‍💻:
 
+![Ai Allstar](https://github.com/user-attachments/assets/1e01c130-f11a-4efc-a85a-951313e4bd5c)
 
 ## Study and Discussion
 
@@ -136,8 +137,6 @@ Your action is now published! 🧑‍💻:
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 <script id="dsq-count-scr" src="//starteknoloji-space.disqus.com/count.js" async></script>
-
-![Ai Allstar](https://github.com/user-attachments/assets/1e01c130-f11a-4efc-a85a-951313e4bd5c)
 
 ## Websites of our businesses used
 
