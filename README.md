@@ -151,6 +151,7 @@ NOT; Uygulamamız Konumumuzda geçersizdir.
 
 ### Satilik Shop
 <iframe src="https://satilik.shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+<iframe src="https://starteknoloji.github.io/Starnet/shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
 ### Braver Client
 <iframe src="https://braverclient.com" title="Planet" height="400" width="1000" style="border: 10;"></iframe>
