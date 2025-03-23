@@ -141,7 +141,7 @@ Your action is now published! 🧑‍💻:
 ## Websites of our businesses used
 
 Sitelerimizdeki uygulamalar ev ve işyerleri için özelleştirebilir, geliştirilebiliriz. Yorum, istek ve sorularınız için lütfen yazınız. 
-NOT; Uygulamamız Konumumuzda geçersizdir.
+NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 
 ### Star Computer Com.tr
 <iframe src="https://starcomputer.com.tr" title="Planet" height="400" width="1000" style="border:10;"></iframe>
