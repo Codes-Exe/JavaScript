@@ -137,6 +137,8 @@ Your action is now published! 🧑‍💻:
 
 <script id="dsq-count-scr" src="//starteknoloji-space.disqus.com/count.js" async></script>
 
+![Ai Allstar](https://github.com/user-attachments/assets/1e01c130-f11a-4efc-a85a-951313e4bd5c)
+
 ## Websites of our businesses used
 
 Sitelerimizdeki uygulamalar ev ve işyerleri için özelleştirebilir, geliştirilebiliriz. Yorum, istek ve sorularınız için lütfen yazınız. 
