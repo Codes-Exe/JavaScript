@@ -143,25 +143,24 @@ Your action is now published! 🧑‍💻:
 Sitelerimizdeki uygulamalar ev ve işyerleri için özelleştirebilir, geliştirilebiliriz. Yorum, istek ve sorularınız için lütfen yazınız. 
 NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 
-### Star Computer Com.tr
+### [Star Computer Com.tr](https://starcomputer.com.tr)
 <iframe src="https://starcomputer.com.tr" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 <iframe src="https://starteknoloji.github.io/ThemeBlue/" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+<div class="badge-base LI-profile-badge" data-locale="tr_TR" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="star-computer-96573a2a0" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://tr.linkedin.com/in/star-computer-96573a2a0?trk=profile-badge">Star Computer</a></div>
 
-### My Computer Digital
+### [My Computer Digital](https://mycomputer.digital.com.tr)
 <iframe src="https://mycomputer.digital" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
-### Satilik Shop
+### [Satilik Shop](https://satilik.shop) 
 <iframe src="https://satilik.shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
-<iframe src="https://starteknoloji.github.io/Starnet/shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
-### Braver Client
-<iframe src="https://braverclient.com" title="Planet" height="400" width="1000" style="border: 10;"></iframe>
+### [Starnet Shop Test](https://starteknoloji.github.io/Starnet/shop)
+<iframe src="https://starteknoloji.github.io/Starnet/shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+[![OIP](https://github.com/user-attachments/assets/9dd5c6fe-abb3-4877-b633-45d8290955aa)](https://starteknoloji.github.io/Starnet/)
 
 <iframe src="https://github.com/sponsors/StarTeknoloji/card" title="Sponsor StarTeknoloji" height="200" width="1000" style="border: 10;"></iframe>
 <iframe src="https://github.com/sponsors/Codes-Exe/card" title="Sponsor Codes-Exe" height="200" width="1000" style="border: 10;"></iframe>
 
-<div class="badge-base LI-profile-badge" data-locale="tr_TR" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="star-computer-96573a2a0" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://tr.linkedin.com/in/star-computer-96573a2a0?trk=profile-badge">Star Computer</a></div>
-[![OIP](https://github.com/user-attachments/assets/9dd5c6fe-abb3-4877-b633-45d8290955aa)](https://starteknoloji.github.io/Starnet/)
               
 `Author`
 `Erçetin Güler`
