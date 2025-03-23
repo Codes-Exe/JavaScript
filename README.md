@@ -144,6 +144,7 @@ NOT; Uygulamamız Konumumuzda geçersizdir.
 
 ### Star Computer Com.tr
 <iframe src="https://starcomputer.com.tr" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+<iframe src="https://starcomputer.com.tr](https://starteknoloji.github.io/ThemeBlue/" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
 ### My Computer Digital
 <iframe src="https://mycomputer.digital" title="Planet" height="400" width="1000" style="border:10;"></iframe>
