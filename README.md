@@ -1,5 +1,4 @@
 ![starspceafiş](https://github.com/user-attachments/assets/b70a5f9e-ce55-4fe5-8915-9a83e0c6b188)
-![Adsızlı24](https://github.com/user-attachments/assets/74b031dd-28eb-400a-883c-87b8e785bafe)
 
 
 ***[`(*```STAR``My```Tech`````*****````*****```*****`
