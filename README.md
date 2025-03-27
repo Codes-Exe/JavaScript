@@ -1,4 +1,5 @@
 ![starspceafiş](https://github.com/user-attachments/assets/b70a5f9e-ce55-4fe5-8915-9a83e0c6b188)
+<img class="giphy-gif-img giphy-img-loaded" src="https://media4.giphy.com/media/ac003BfmW4ts42KzVg/giphy.gif?cid=ecf05e47gt8w5auc8v9u5tdemyl0kfg284sdbten1t82s9w0&amp;ep=v1_gifs_search&amp;rid=giphy.gif&amp;ct=g" width="100%" height="100%" alt="dotfilmsco dot dotfilms dot wordmark GIF" style="background: unset;">
 
 
 ***[`(*```STAR``My```Tech`````*****````*****```*****`
@@ -10,8 +11,6 @@
 
 
 # Create a JavaScript Action
-
-<img class="giphy-gif-img giphy-img-loaded" src="https://media4.giphy.com/media/ac003BfmW4ts42KzVg/giphy.gif?cid=ecf05e47gt8w5auc8v9u5tdemyl0kfg284sdbten1t82s9w0&amp;ep=v1_gifs_search&amp;rid=giphy.gif&amp;ct=g" width="100%" height="100%" alt="dotfilmsco dot dotfilms dot wordmark GIF" style="background: unset;">
 
 <p align="center">
   <a href="https://github.com/actions/javascript-action/actions"><img src="https://github.com/user-attachments/assets/b675b2c3-b678-4988-9d99-90b0aa250836"></a>
