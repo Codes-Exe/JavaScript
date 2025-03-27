@@ -159,8 +159,10 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 
 ### [Starnet Shop Test](https://starteknoloji.github.io/Starnet/shop)
 <iframe src="https://starteknoloji.github.io/Starnet/shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
-[![OIP](https://github.com/user-attachments/assets/9dd5c6fe-abb3-4877-b633-45d8290955aa)](https://starteknoloji.github.io/Starnet/)
 
+[![OIP][(https://github.com/user-attachments/assets/d2d0faec-43a1-4315-b39e-cb574bf7e603)](https://starteknoloji.github.io/Starnet/)
+
+https://github.com/user-attachments/assets/d2d0faec-43a1-4315-b39e-cb574bf7e603
 <iframe src="https://github.com/sponsors/StarTeknoloji/card" title="Sponsor StarTeknoloji" height="200" width="1000" style="border: 10;"></iframe>
 <iframe src="https://github.com/sponsors/Codes-Exe/card" title="Sponsor Codes-Exe" height="200" width="1000" style="border: 10;"></iframe>
 
