@@ -112,7 +112,7 @@ Your action is now published! 🧑‍💻:
 
 
 ## Study and Discussion
-
+<img src=https://media.giphy.com/media/ac003BfmW4ts42KzVg/giphy.gif?cid=ecf05e47gt8w5auc8v9u5tdemyl0kfg284sdbten1t82s9w0&ep=v1_gifs_search&rid=giphy.gif&ct=g>
 <div id="disqus_thread"></div>
 <script>
     /**
