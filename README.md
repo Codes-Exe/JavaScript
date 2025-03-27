@@ -163,7 +163,6 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 
 [![OIP](https://github.com/user-attachments/assets/5bb2f24b-c878-4e1e-848d-15aec1af2ea8)](https://starteknoloji.github.io/Starnet/)
 
-https://github.com/user-attachments/assets/d2d0faec-43a1-4315-b39e-cb574bf7e603
 <iframe src="https://github.com/sponsors/StarTeknoloji/card" title="Sponsor StarTeknoloji" height="200" width="1000" style="border: 10;"></iframe>
 <iframe src="https://github.com/sponsors/Codes-Exe/card" title="Sponsor Codes-Exe" height="200" width="1000" style="border: 10;"></iframe>
 
