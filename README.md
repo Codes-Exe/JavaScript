@@ -1,6 +1,6 @@
 ![starspceafiş](https://github.com/user-attachments/assets/b70a5f9e-ce55-4fe5-8915-9a83e0c6b188)
-![3d starcxomlogo500](https://github.com/user-attachments/assets/e192e92c-0523-4753-b572-d045d4bd3cae)![3d logo](https://github.com/user-attachments/assets/1bf97b68-94e7-4e58-b6a9-2b3b752c7981)
-
+![852528](https://github.com/user-attachments/assets/b85b2433-3ad7-4326-abbc-b1c33e475524)
+![3d logo](https://github.com/user-attachments/assets/fb741758-01c8-4cc6-b6b4-3eb166c0a319)
 
 
 <img class="giphy-gif-img giphy-img-loaded" src="https://media4.giphy.com/media/ac003BfmW4ts42KzVg/giphy.gif?cid=ecf05e47gt8w5auc8v9u5tdemyl0kfg284sdbten1t82s9w0&amp;ep=v1_gifs_search&amp;rid=giphy.gif&amp;ct=g" width="100%" height="100%" alt="dotfilmsco dot dotfilms dot wordmark GIF" style="background: unset;">
