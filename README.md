@@ -10,6 +10,9 @@
 
 
 # Create a JavaScript Action
+
+<img src=https://media.giphy.com/media/ac003BfmW4ts42KzVg/giphy.gif?cid=ecf05e47gt8w5auc8v9u5tdemyl0kfg284sdbten1t82s9w0&ep=v1_gifs_search&rid=giphy.gif&ct=g>
+
 <p align="center">
   <a href="https://github.com/actions/javascript-action/actions"><img src="https://github.com/user-attachments/assets/b675b2c3-b678-4988-9d99-90b0aa250836"></a>
  </p>
@@ -112,7 +115,7 @@ Your action is now published! 🧑‍💻:
 
 
 ## Study and Discussion
-<img src=https://media.giphy.com/media/ac003BfmW4ts42KzVg/giphy.gif?cid=ecf05e47gt8w5auc8v9u5tdemyl0kfg284sdbten1t82s9w0&ep=v1_gifs_search&rid=giphy.gif&ct=g>
+
 <div id="disqus_thread"></div>
 <script>
     /**
