@@ -251,7 +251,7 @@ See the [actions tab](https://github.com/actions/javascript-action/actions) for 
 </script>
 <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
 <amp-iframe
-    width=600 height=140
+    width=1000 height=140
     src="https://example.com/amp#hash"
     layout="responsive"
     sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
