@@ -262,7 +262,7 @@ See the [actions tab](https://github.com/actions/javascript-action/actions) for 
         role=button
         tabindex=0
         overflow
-        style="display:block;font-size:12px;font-weight:2000;font-family:Helvetica Neue, arial, sans-serif;text-align:center;line-height:1.1;padding:12px 16px;border-radius:4px;background:rgba(29,47,58,0.6);color:rgb(255,255,255)"
+        style="display:block;font-size:12px;font-weight:3500;font-family:Helvetica Neue, arial, sans-serif;text-align:center;line-height:1.1;padding:12px 16px;border-radius:4px;background:rgba(29,47,58,0.6);color:rgb(255,255,255)"
     >
         Load more
     </div>
