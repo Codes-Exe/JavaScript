@@ -171,9 +171,6 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 
 See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
 
-<p align="center">
-  <a href="https://starcomputer.space"><img src="https://github.com/user-attachments/assets/adb316bd-9989-4ed9-8934-5d66072c4bec"></a>
- </p>
 
 <div style="text-align:center;padding:1em 0;"> <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/en/city/738154"><span style="color:gray;">Current local time in</span><br />Vize, Turkey</a></h2> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=large&timezone=Europe%2FIstanbul" width="145%" height="120" frameborder="50" seamless></iframe> </div>
 
