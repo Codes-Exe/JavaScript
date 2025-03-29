@@ -172,7 +172,7 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 
 See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
 
-<div style="text-align:center;padding:1em 0;"> <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/en/city/738154"><span style="color:gray;">Current local time in</span><br />Vize, Turkey</a></h2> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=large&timezone=Europe%2FIstanbul" width="150%" height="120" frameborder="50" seamless></iframe> </div>
+<div style="text-align:center;padding:1em 0;"> <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/en/city/738154"><span style="color:gray;">Current local time in</span><br />Vize, Turkey</a></h2> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=large&timezone=Europe%2FIstanbul" width="140%" height="120" frameborder="50" seamless></iframe> </div>
 
 <script type='text/javascript'>
     var disqus_shortname = 'starteknoloji-space';
@@ -262,7 +262,7 @@ See the [actions tab](https://github.com/actions/javascript-action/actions) for 
         role=button
         tabindex=0
         overflow
-        style="display:block;font-size:12px;font-weight:500;font-family:Helvetica Neue, arial, sans-serif;text-align:center;line-height:1.1;padding:12px 16px;border-radius:4px;background:rgba(29,47,58,0.6);color:rgb(255,255,255)"
+        style="display:block;font-size:12px;font-weight:1000;font-family:Helvetica Neue, arial, sans-serif;text-align:center;line-height:1.1;padding:12px 16px;border-radius:4px;background:rgba(29,47,58,0.6);color:rgb(255,255,255)"
     >
         Load more
     </div>
