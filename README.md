@@ -3,7 +3,6 @@
 ![3d logo](https://github.com/user-attachments/assets/fb741758-01c8-4cc6-b6b4-3eb166c0a319)
 
 
-<img class="giphy-gif-img giphy-img-loaded" src="https://media4.giphy.com/media/ac003BfmW4ts42KzVg/giphy.gif?cid=ecf05e47gt8w5auc8v9u5tdemyl0kfg284sdbten1t82s9w0&amp;ep=v1_gifs_search&amp;rid=giphy.gif&amp;ct=g" width="100%" height="100%" alt="dotfilmsco dot dotfilms dot wordmark GIF" style="background: unset;">
 
 
 ***[`(*```STAR``My```Tech`````*****````*****```*****`
