@@ -172,7 +172,7 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 
 See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
 
-<div style="text-align:center;padding:1em 0;"> <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/en/city/738154"><span style="color:gray;">Current local time in</span><br />Vize, Turkey</a></h2> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=large&timezone=Europe%2FIstanbul" width="100%" height="120" frameborder="50" seamless></iframe> </div>
+<div style="text-align:center;padding:1em 0;"> <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/en/city/738154"><span style="color:gray;">Current local time in</span><br />Vize, Turkey</a></h2> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=large&timezone=Europe%2FIstanbul" width="150%" height="120" frameborder="50" seamless></iframe> </div>
 
 <script type='text/javascript'>
     var disqus_shortname = 'starteknoloji-space';
