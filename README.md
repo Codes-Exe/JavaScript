@@ -2,9 +2,6 @@
 ![852528](https://github.com/user-attachments/assets/b85b2433-3ad7-4326-abbc-b1c33e475524)
 ![3d logo](https://github.com/user-attachments/assets/fb741758-01c8-4cc6-b6b4-3eb166c0a319)
 
-
-
-
 ***[`(*```STAR``My```Tech`````*****````*****```*****`
 ***``é``**©**``*``**``***``****``*****``****``***``**``*``*©*``*``**``***``****``*****``****``***``**``*``**©**``é```***`***]***
 
@@ -156,9 +153,11 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 ### [Satilik Shop](https://satilik.shop) 
 <iframe src="https://satilik.shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
+### [YerliCins](https://codes-exe.github.io/grafiksite/)
+<iframe src="https://codes-exe.github.io/grafiksite/" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+
 ### [Starnet Shop Test](https://starteknoloji.github.io/Starnet/shop)
 <iframe src="https://starteknoloji.github.io/Starnet/shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
-
 
 [![OIP](https://github.com/user-attachments/assets/5bb2f24b-c878-4e1e-848d-15aec1af2ea8)](https://starteknoloji.github.io/Starnet/)
 
