@@ -142,6 +142,8 @@ Your action is now published! 🧑‍💻:
 Sitelerimizdeki uygulamalar ev ve işyerleri için özelleştirebilir, geliştirilebiliriz. Yorum, istek ve sorularınız için lütfen yazınız. 
 NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 
+[<img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://github-production-user-asset-6210df.s3.amazonaws.com/93947784/428481870-608431cd-659a-4812-8847-35ca7278bd73.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250331%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20250331T051613Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=72633ad8f57e732158fc46ba5aec83ca960d82ec177369332e1bfee0305b84a1&amp;X-Amz-SignedHeaders=host" width="532" height="266">](https://starteknoloji.github.io/Starnet)
+
 ### [Star Computer Com.tr](https://starcomputer.com.tr)
 <iframe src="https://starcomputer.com.tr" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 <iframe src="https://starteknoloji.github.io/ThemeBlue/" title="Planet" height="400" width="1000" style="border:10;"></iframe>
@@ -156,7 +158,6 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 ### [Starnet Shop Test](https://starteknoloji.github.io/Starnet/shop)
 <iframe src="https://starteknoloji.github.io/Starnet/shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
-[<img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://github-production-user-asset-6210df.s3.amazonaws.com/93947784/428481870-608431cd-659a-4812-8847-35ca7278bd73.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250331%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20250331T051613Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=72633ad8f57e732158fc46ba5aec83ca960d82ec177369332e1bfee0305b84a1&amp;X-Amz-SignedHeaders=host" width="532" height="266">](https://starteknoloji.github.io/Starnet)
 
 
 <iframe src="https://github.com/sponsors/StarTeknoloji/card" title="Sponsor StarTeknoloji" height="200" width="1000" style="border: 10;"></iframe>
