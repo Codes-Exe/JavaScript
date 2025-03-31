@@ -156,7 +156,7 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 ### [Starnet Shop Test](https://starteknoloji.github.io/Starnet/shop)
 <iframe src="https://starteknoloji.github.io/Starnet/shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
-![OIP](https://github.com/user-attachments/assets/608431cd-659a-4812-8847-35ca7278bd73)
+|![OIP](https://github.com/user-attachments/assets/608431cd-659a-4812-8847-35ca7278bd73)|
 
 
 <iframe src="https://github.com/sponsors/StarTeknoloji/card" title="Sponsor StarTeknoloji" height="200" width="1000" style="border: 10;"></iframe>
