@@ -1,5 +1,6 @@
 <img src="https://private-user-images.githubusercontent.com/93947784/424144129-b70a5f9e-ce55-4fe5-8915-9a83e0c6b188.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDMzODcxNjUsIm5iZiI6MTc0MzM4Njg2NSwicGF0aCI6Ii85Mzk0Nzc4NC80MjQxNDQxMjktYjcwYTVmOWUtY2U1NS00ZmU1LTg5MTUtOWE4M2UwYzZiMTg4LmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMzElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzMxVDAyMDc0NVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTAyOTFhYWEwYjc2NzVmNGZlNzZlYmU2MjkyNzc2MmY4ZjFmMzBhMTVlNDk0M2Y5Y2M1ZTg2ZGEwYzhmNmEyZTkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.ouxXzEGiIJiO6ne7D-XfI5U_8ExUUaCIwufAuGY_2RQ" alt="starspceafiş" style="max-width: 100%;">
-![starspceafiş](https://github.com/user-attachments/assets/b70a5f9e-ce55-4fe5-8915-9a83e0c6b188)
+
+
 ![3d logo](https://github.com/user-attachments/assets/fb741758-01c8-4cc6-b6b4-3eb166c0a319)
 
 ***[`(*```STAR``My```Tech`````*****````*****```*****`
