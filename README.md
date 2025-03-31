@@ -153,9 +153,6 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 ### [Satilik Shop](https://satilik.shop) 
 <iframe src="https://satilik.shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
-### [YerliCins](https://codes-exe.github.io/grafiksite/)
-<iframe src="http://yerlicins.com" title="Planet" height="400" width="1000" style="border:10;"></iframe>
-
 ### [Starnet Shop Test](https://starteknoloji.github.io/Starnet/shop)
 <iframe src="https://starteknoloji.github.io/Starnet/shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
