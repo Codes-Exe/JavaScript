@@ -160,6 +160,10 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
   }).render("#paypal-container-X2N7ME57HB89S")
 </script>
 
+<script 
+  src="https://www.paypal.com/sdk/js?client-id=BAASlR7ZOaZ3ZUlPcIpMBaMKS-8NYGnU0GDawmguI1KZAFbZszey9baVVAXKxR1cz4RWE6bnIcX-7Z_VLk&components=hosted-buttons&disable-funding=venmo&currency=USD">
+</script>
+
 <div id="paypal-container-BGWQVG5XXGACJ"></div>
 <script>
   paypal.HostedButtons({
