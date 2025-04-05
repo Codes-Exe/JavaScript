@@ -163,6 +163,7 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
     hostedButtonId: "X2N7ME57HB89S",
   }).render("#paypal-container-X2N7ME57HB89S")
 </script>
+
 <div id="paypal-container-BGWQVG5XXGACJ"></div>
 <script>
   paypal.HostedButtons({
