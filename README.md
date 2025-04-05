@@ -153,11 +153,21 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
   src="https://www.paypal.com/sdk/js?client-id=BAAZLPCKnSb06zNs1aBikWVXyJHPiVZvA3ZLvqPo1rNpf92PSLL91IOPWDdhXBQNVW275Q8xspd4OB7Y-I&components=hosted-buttons&disable-funding=venmo&currency=USD">
 </script>
 
+<script 
+  src="https://www.paypal.com/sdk/js?client-id=BAASlR7ZOaZ3ZUlPcIpMBaMKS-8NYGnU0GDawmguI1KZAFbZszey9baVVAXKxR1cz4RWE6bnIcX-7Z_VLk&components=hosted-buttons&disable-funding=venmo&currency=USD">
+</script>
+
 <div id="paypal-container-X2N7ME57HB89S"></div>
 <script>
   paypal.HostedButtons({
     hostedButtonId: "X2N7ME57HB89S",
   }).render("#paypal-container-X2N7ME57HB89S")
+</script>
+<div id="paypal-container-BGWQVG5XXGACJ"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "BGWQVG5XXGACJ",
+  }).render("#paypal-container-BGWQVG5XXGACJ")
 </script>
 
 ### [My Computer Digital](https://mycomputer.digital.com.tr)
