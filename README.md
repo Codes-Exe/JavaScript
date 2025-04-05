@@ -149,6 +149,17 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 <iframe src="https://starteknoloji.github.io/ThemeBlue/" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 <div class="badge-base LI-profile-badge" data-locale="tr_TR" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="star-computer-96573a2a0" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://tr.linkedin.com/in/star-computer-96573a2a0?trk=profile-badge">Star Computer</a></div>
 
+<script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAZLPCKnSb06zNs1aBikWVXyJHPiVZvA3ZLvqPo1rNpf92PSLL91IOPWDdhXBQNVW275Q8xspd4OB7Y-I&components=hosted-buttons&disable-funding=venmo&currency=USD">
+</script>
+
+<style>.pp-X2N7ME57HB89S{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<form action="https://www.paypal.com/ncp/payment/X2N7ME57HB89S" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+  <input class="pp-X2N7ME57HB89S" type="submit" value="Buy Now" />
+  <img src=https://www.paypalobjects.com/images/Debit_Credit.svg alt="cards" />
+  <section> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
+</form>
+
 ### [My Computer Digital](https://mycomputer.digital.com.tr)
 <iframe src="https://mycomputer.digital" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
