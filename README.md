@@ -150,6 +150,7 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 <iframe src="https://starteknoloji.github.io/ThemeBlue/" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 <div class="badge-base LI-profile-badge" data-locale="tr_TR" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="star-computer-96573a2a0" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://tr.linkedin.com/in/star-computer-96573a2a0?trk=profile-badge">Star Computer</a></div>
 
+
 <script 
   src="https://www.paypal.com/sdk/js?client-id=BAAZLPCKnSb06zNs1aBikWVXyJHPiVZvA3ZLvqPo1rNpf92PSLL91IOPWDdhXBQNVW275Q8xspd4OB7Y-I&components=hosted-buttons&disable-funding=venmo&currency=USD">
 </script>
@@ -172,6 +173,7 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
   }).render("#paypal-container-BGWQVG5XXGACJ")
 </script>
 
+
 ### [My Computer Digital](https://mycomputer.digital.com.tr)
 <iframe src="https://mycomputer.digital" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
@@ -180,6 +182,7 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 
 ### [Starnet Shop, StarComputerSpace Test](https://starcomputer.space/shop)
 <iframe src="https://starcomputer.space/shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+
 
 
 
@@ -331,6 +334,8 @@ See the [actions tab](https://github.com/actions/javascript-action/actions) for 
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 <script id="dsq-count-scr" src="//starteknoloji-space.disqus.com/count.js" async></script>
+
+
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
