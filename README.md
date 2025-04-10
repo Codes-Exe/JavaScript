@@ -1,3 +1,328 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Great web agency</title>
+    <meta name="description" content="Great web agency offers high impact yet affordable web development services. From web design to targeted SEO to custom web applications.">
+    <base href="http://127.0.0.1:4000/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Js -->
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/min/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.js"></script>
+
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="js/google-map-init.js"></script>
+
+
+    <script src="js/main.js"></script>
+
+
+  </head>
+  <body>
+
+
+
+    <!-- Header Start -->
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+                      <!-- header Nav Start -->
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                  <img src="img/logo.png" alt="Logo">
+                </a>
+              </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li ><a href="about-us.html">About us</a></li>
+                    <li ><a href="portfolio.html">Portfolio</a></li>
+                    <li ><a href="blog.html">Blog</a></li>
+                    <li ><a href="contact.html">Contact</a></li>
+                    </li>
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header><!-- header close -->
+    
+   
+  
+ 
+
+
+            <!-- Slider Start -->
+    <section id="slider">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-2">
+            <div class="block">
+              <h1 class="animated fadeInUp"></h1>
+              <p class="animated fadeInUp">We love the Web and the work we do.We work closely with our </br> clients to deliver the best possible solutions for their needs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>   
+
+        <!-- Service Start -->
+    <section id="service">
+      <div class="container">
+        <div class="row">
+          <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+          </div>
+        </div>
+        <div class="row ">
+         
+          <div class="col-sm-6 col-md-3">
+            <div class="service-item">
+              <i class="icon ion-coffee"></i>
+              <h4>Branding</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 col-md-3">
+            <div class="service-item">
+              <i class="ion-compass"></i>
+              <h4>Web Design</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 col-md-3">
+            <div class="service-item">
+              <i class="ion-image"></i>
+              <h4>App Design</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 col-md-3">
+            <div class="service-item">
+              <i class="ion-bug"></i>
+              <h4>Start Up</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 col-md-3">
+            <div class="service-item">
+              <i class="ion-headphone"></i>
+              <h4>Logo Design</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 col-md-3">
+            <div class="service-item">
+              <i class="ion-leaf"></i>
+              <h4>Development</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 col-md-3">
+            <div class="service-item">
+              <i class="ion-planet"></i>
+              <h4>Brand Identity</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 col-md-3">
+            <div class="service-item">
+              <i class="ion-earth"></i>
+              <h4>Brand Identity</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>     
+    
+    <!-- Call to action Start -->
+    <section id="call-to-action">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="block">
+              <h2>We design delightful digital experiences.</h2>
+              <p>Read more about what we do and our philosophy of design. Judge for yourself The work and results we’ve achieved for other clients, and meet our highly experienced Team who just love to design.</p>
+              <a class="btn btn-default btn-call-to-action" href="contact.html" >Tell Us Your Story</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+        <!-- Content Start -->
+    <section id="testimonial">
+      <div class="container">
+        <div class="row">
+          <div class="section-title text-center">
+            <h2>Fun Facts About Us</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="block">
+              <ul class="counter-box clearfix">
+                <li>
+                  <div class="block">
+                    <i class="ion-ios-chatboxes-outline"></i>
+                    <h4 class="counter">20000</h4>
+                    <span>Cups Of Coffee</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <i class="ion-ios-glasses-outline"></i>
+                    <h4 class="counter">20000</h4>
+                    <span>Cups Of Coffee</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <i class="ion-ios-compose-outline"></i>
+                    <h4 class="counter">20000</h4>
+                    <span>Cups Of Coffee</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="block">
+                    <i class="ion-ios-timer-outline"></i>
+                    <h4 class="counter">20000</h4>
+                    <span>Cups Of Coffee</span>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="testimonial-carousel">
+              <div id="testimonial-slider" class="owl-carousel">
+                <div>
+                    <img src="img/cotation.png" alt="IMG">
+                    <p>"This Company created an e-commerce site with the tools to make our business a success, with innovative ideas we feel that our site has unique elements that make us stand out from the crowd."</p>
+                    <div class="user">
+                      <img src="img/item-img1.jpg" alt="Pepole">
+                      <p><span>Rose Ray</span> CEO-Themefisher</p>
+                    </div>
+                </div>
+                <div>
+                  <img src="img/cotation.png" alt="IMG">
+                    <p>"This Company created an e-commerce site with the tools to make our business a success, with innovative ideas we feel that our site has unique elements that make us stand out from the crowd."</p>
+                    <div class="user">
+                      <img src="img/item-img1.jpg" alt="Pepole">
+                      <p><span>Rose Ray</span> CEO-Themefisher</p>
+                    </div>
+                </div>
+                <div>
+                  <img src="img/cotation.png" alt="IMG">
+                    <p>"This Company created an e-commerce site with the tools to make our business a success, with innovative ideas we feel that our site has unique elements that make us stand out from the crowd."</p>
+                    <div class="user">
+                      <img src="img/item-img1.jpg" alt="Pepole">
+                      <p><span>Rose Ray</span> CEO-Themefisher</p>
+                    </div>
+                </div>
+                <div>
+                  <img src="img/cotation.png" alt="IMG">
+                    <p>"This Company created an e-commerce site with the tools to make our business a success, with innovative ideas we feel that our site has unique elements that make us stand out from the crowd."</p>
+                    <div class="user">
+                      <img src="img/item-img1.jpg" alt="Pepole">
+                      <p><span>Rose Ray</span> CEO-Themefisher</p>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <!-- footer Start -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+                        <div class="footer-manu">
+              <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">How it works</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Terms</a></li>
+              </ul>
+            </div>
+            <p>Copyright &copy; Design & Developed by <a href="http://www.themefisher.com">Themefisher</a>. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+            
+            
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+            
+    
+    </body>
+</html>
+
+
 <img src="https://private-user-images.githubusercontent.com/93947784/424144129-b70a5f9e-ce55-4fe5-8915-9a83e0c6b188.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDMzODcxNjUsIm5iZiI6MTc0MzM4Njg2NSwicGF0aCI6Ii85Mzk0Nzc4NC80MjQxNDQxMjktYjcwYTVmOWUtY2U1NS00ZmU1LTg5MTUtOWE4M2UwYzZiMTg4LmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMzElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzMxVDAyMDc0NVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTAyOTFhYWEwYjc2NzVmNGZlNzZlYmU2MjkyNzc2MmY4ZjFmMzBhMTVlNDk0M2Y5Y2M1ZTg2ZGEwYzhmNmEyZTkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.ouxXzEGiIJiO6ne7D-XfI5U_8ExUUaCIwufAuGY_2RQ" alt="starspaceafiş" style="max-width: 100%;">
 <img src="https://private-user-images.githubusercontent.com/93947784/427705635-fb741758-01c8-4cc6-b6b4-3eb166c0a319.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDMzODc0NDUsIm5iZiI6MTc0MzM4NzE0NSwicGF0aCI6Ii85Mzk0Nzc4NC80Mjc3MDU2MzUtZmI3NDE3NTgtMDFjOC00Y2M2LWI2YjQtM2ViMTY2YzBhMzE5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMzElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzMxVDAyMTIyNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTFmZDA3NjZlMGI5YmMyODBhODBmYTg0NDA1ZWYxNjUxNjIwMDg2ZDA2YzMzZTA5MGQzYWE5ZmMwYzFhN2M3YWYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.IsG9o4cWuE3jglzSQY-mBE1FhAd0KvFxz1M8i16DYGI" alt="3d new logo" style="max-width: 100%;">
 
