@@ -194,7 +194,7 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 <iframe src="https://starcomputer.space/shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
 ### [ÖrnekSite](https://starspace.powerappsportals.com/)
-<iframe src="https://starspace.powerappsportals.com/" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+<iframe src="https://starspace.powerappsportals.com" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
 
 <iframe src="https://github.com/sponsors/StarTeknoloji/card" title="Sponsor StarTeknoloji" height="200" width="1000" style="border: 10;"></iframe>
