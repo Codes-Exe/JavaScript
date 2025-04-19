@@ -12,6 +12,7 @@
 ***[***``(*```STAR``My```Tech`***
 ***`é``**©**``*``**``***``****``*****``****``***``**``*``*©*``*``**``***``****``*****``****``***``**``*``**©**``é``***]***
 
+[![pages-build-deployment](https://github.com/Codes-Exe/JavaScript/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/Codes-Exe/JavaScript/actions/workflows/pages/pages-build-deployment)
 
 # Create a JavaScript Action
 
