@@ -1,11 +1,10 @@
+<p align="center" dir="auto">
+  <a href="https://github.com/actions/javascript-action/actions"><img src="https://github.com/user-attachments/assets/ae8d1e1c-5a86-43bb-9c8f-4d41e289a22d" secured-asset-link="" style="max-width: 100%;"></a>
+ </p>
+
 ![starspceafiş](https://github.com/user-attachments/assets/e2c5377e-8d8b-42c0-a3af-a436e74472dd)
 
 ![a computer network and peripherals with a colorful world with a colorful triangle in the middle of the broken meteor rocks and planets, the star technology logo, people watching from the world in space seeing  (11)](https://github.com/user-attachments/assets/3ea6fdbd-706c-44a4-b71b-ccccf19a4126)
-
-
-![3d logo](https://github.com/user-attachments/assets/17a0001d-7bae-4f22-8795-bd85488108fa)
-
-
 
 ***[`(*```STAR``My```Tech`````*****````*****```*****`
 ***``é``**©**``*``**``***``****``*****``****``***``**``*``*©*``*``**``***``****``*****``****``***``**``*``**©**``é```***`***]***
@@ -18,9 +17,6 @@
 
 
 # Create a JavaScript Action
-<p align="center" dir="auto">
-  <a href="https://github.com/user-attachments/assets/ae8d1e1c-5a86-43bb-9c8f-4d41e289a22d" secured-asset-link="" style="max-width: 100%;"></a>
- </p>
 
 Use this template to bootstrap the creation of a JavaScript action.:rocket:
 
