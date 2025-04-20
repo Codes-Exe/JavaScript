@@ -200,7 +200,7 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 ### [My Computer Digital](https://mycomputer.digital)
 <iframe src="https://mycomputer.digital" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
-### [YerliCins](https://yerlicins.com) 
+### [Proje YerliCins](https://yerlicins.com) 
 <iframe src="https://yerlicins.com" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
 ### [Starnet banner, StarComputerSpace Test](https://starcomputer.space)
