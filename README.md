@@ -162,7 +162,7 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 <iframe src="https://starteknoloji.github.io/ThemeBlue/" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 <div class="badge-base LI-profile-badge" data-locale="tr_TR" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="star-computer-96573a2a0" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://tr.linkedin.com/in/star-computer-96573a2a0?trk=profile-badge">Star Computer</a></div>
 
-![Starnet]()
+
 
 <script 
   src="https://www.paypal.com/sdk/js?client-id=BAAZLPCKnSb06zNs1aBikWVXyJHPiVZvA3ZLvqPo1rNpf92PSLL91IOPWDdhXBQNVW275Q8xspd4OB7Y-I&components=hosted-buttons&disable-funding=venmo&currency=USD">
@@ -200,10 +200,10 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 ### [My Computer Digital](https://mycomputer.digital.com.tr)
 <iframe src="https://mycomputer.digital" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
-### [Satilik Shop](https://satilik.shop) 
+### [YerliCins](https://yerlicins.com) 
 <iframe src="https://satilik.shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
-### [Starnet Shop, StarComputerSpace Test](https://starcomputer.space/shop)
+### [Starnet banner, StarComputerSpace Test](https://starcomputer.space)
 <iframe src="https://starcomputer.space/shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
 ### [ÖrnekSite](https://starspace.powerappsportals.com/)
