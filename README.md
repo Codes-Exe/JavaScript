@@ -18,7 +18,6 @@
 
 
 # Create a JavaScript Action
-
 <p align="center" dir="auto">
   <a href="https://github.com/user-attachments/assets/ae8d1e1c-5a86-43bb-9c8f-4d41e289a22d" secured-asset-link="" style="max-width: 100%;"></a>
  </p>
