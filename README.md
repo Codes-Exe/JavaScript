@@ -1,5 +1,5 @@
 <p align="center" dir="auto">
-  <a href="https://github.com/actions/javascript-action/actions"><img src="https://github.com/user-attachments/assets/ae8d1e1c-5a86-43bb-9c8f-4d41e289a22d" secured-asset-link="" style="max-width: 100%;"></a>
+  <a href="https://starcomputer.shop"><img src="https://github.com/user-attachments/assets/ae8d1e1c-5a86-43bb-9c8f-4d41e289a22d" secured-asset-link="" style="max-width: 100%;"></a>
  </p>
 
 ![starspceafiş](https://github.com/user-attachments/assets/e2c5377e-8d8b-42c0-a3af-a436e74472dd)
@@ -144,13 +144,14 @@ Your action is now published! 🧑‍💻:
 Sitelerimizdeki uygulamalar ev ve işyerleri için özelleştirebilir, geliştirilebiliriz. Yorum, istek ve sorularınız için lütfen yazınız. 
 NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 
-[<img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://github-production-user-asset-6210df.s3.amazonaws.com/93947784/428481870-608431cd-659a-4812-8847-35ca7278bd73.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250331%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20250331T051613Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=72633ad8f57e732158fc46ba5aec83ca960d82ec177369332e1bfee0305b84a1&amp;X-Amz-SignedHeaders=host" width="532" height="266">](https://starcomputer.space)
+[<img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://github.com/user-attachments/assets/7c8dc3e1-e2bd-4cfa-bae7-6ff304e09656" width="532" height="266">](https://starcomputer.space)
 
 ### [Star Computer Com.tr](https://starcomputer.com.tr)
 <iframe src="https://starcomputer.com.tr" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 <iframe src="https://starteknoloji.github.io/ThemeBlue/" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 <div class="badge-base LI-profile-badge" data-locale="tr_TR" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="star-computer-96573a2a0" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://tr.linkedin.com/in/star-computer-96573a2a0?trk=profile-badge">Star Computer</a></div>
 
+![Starnet]()
 
 <script 
   src="https://www.paypal.com/sdk/js?client-id=BAAZLPCKnSb06zNs1aBikWVXyJHPiVZvA3ZLvqPo1rNpf92PSLL91IOPWDdhXBQNVW275Q8xspd4OB7Y-I&components=hosted-buttons&disable-funding=venmo&currency=USD">
