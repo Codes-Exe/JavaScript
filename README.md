@@ -197,7 +197,7 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
   }).render("#paypal-container-ZHEH5QJBCN7A4")
 </script>
 
-### [My Computer Digital](https://mycomputer.digital.com.tr)
+### [My Computer Digital](https://mycomputer.digital)
 <iframe src="https://mycomputer.digital" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
 ### [YerliCins](https://yerlicins.com) 
