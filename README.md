@@ -15,11 +15,12 @@
 ***`é``**©**``*``**``***``****``*****``****``***``**``*``*©*``*``**``***``****``*****``****``***``**``*``**©**``é``***]***
 
 [![pages-build-deployment](https://github.com/Codes-Exe/JavaScript/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/Codes-Exe/JavaScript/actions/workflows/pages/pages-build-deployment)
+![3d_star_space_logo-removebg-preview]()
 
 # Create a JavaScript Action
 
 <p align="center" dir="auto">
-  <a href="https://github.com/actions/javascript-action/actions"><img src="https://private-user-images.githubusercontent.com/93947784/423134354-b675b2c3-b678-4988-9d99-90b0aa250836.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDMzODczNzMsIm5iZiI6MTc0MzM4NzA3MywicGF0aCI6Ii85Mzk0Nzc4NC80MjMxMzQzNTQtYjY3NWIyYzMtYjY3OC00OTg4LTlkOTktOTBiMGFhMjUwODM2LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMzElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzMxVDAyMTExM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWNkZGUyN2I2Y2RmNzMyNDE0NGNmMTllODk5M2RhOGRlNjAzN2NmNTlhNWFlY2Y2NTkxY2I5YmU3OGM3OTRlMTAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.iAfTtjpUF2EjGPZy4srIo4MeV1gWne2t-47hcJuRmHU" secured-asset-link="" style="max-width: 100%;"></a>
+  <a href="https://github.com/user-attachments/assets/ae8d1e1c-5a86-43bb-9c8f-4d41e289a22d" secured-asset-link="" style="max-width: 100%;"></a>
  </p>
 
 Use this template to bootstrap the creation of a JavaScript action.:rocket:
