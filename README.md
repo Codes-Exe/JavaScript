@@ -201,10 +201,10 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 <iframe src="https://mycomputer.digital" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
 ### [YerliCins](https://yerlicins.com) 
-<iframe src="https://satilik.shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+<iframe src="https://yerlicins.com" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
 ### [Starnet banner, StarComputerSpace Test](https://starcomputer.space)
-<iframe src="https://starcomputer.space/shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+<iframe src="https://starcomputer.space" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
 ### [ÖrnekSite](https://starspace.powerappsportals.com/)
 <iframe src="https://starspace.powerappsportals.com" title="Planet" height="400" width="1000" style="border:10;"></iframe>
