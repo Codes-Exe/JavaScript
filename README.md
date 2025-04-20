@@ -23,6 +23,7 @@
   </iframe>
 </div>
 <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGlLmFAypc&#x2F;dpH5RYWuqOCKyD40xWgVUg&#x2F;view?utm_content=DAGlLmFAypc&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Siyah Beyaz Koyu Fütüristik Stilde Çok Yakında Web Sitesi Çok Yakında Web Sitesi Çok Yakında Sayfası</a> - Star Computer
+
 # Create a JavaScript Action
 
 Use this template to bootstrap the creation of a JavaScript action.:rocket:
