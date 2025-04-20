@@ -4,6 +4,8 @@
 
 ![starspceafiş](https://github.com/user-attachments/assets/e2c5377e-8d8b-42c0-a3af-a436e74472dd)
 
+![Uploading computer network and peripherals star technology logo colorful world with broken meteor rocks and planets in the middle of the colorful star inside the world (22).jpg…]()
+
 ![a computer network and peripherals with a colorful world with a colorful triangle in the middle of the broken meteor rocks and planets, the star technology logo, people watching from the world in space seeing  (11)](https://github.com/user-attachments/assets/3ea6fdbd-706c-44a4-b71b-ccccf19a4126)
 
 ***[`(*```STAR``My```Tech`````*****````*****```*****`
