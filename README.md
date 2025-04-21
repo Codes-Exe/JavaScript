@@ -4,12 +4,13 @@
 
 ![starspceafiş](https://github.com/user-attachments/assets/e2c5377e-8d8b-42c0-a3af-a436e74472dd)
 
-![computer network and peripherals star technology logo colorful world with sublime colorful triangles dancing in the middle of the star, broken meteor rocks and planets in harmony within the world in time travel (5)](https://github.com/user-attachments/assets/bc58694e-4344-4bff-8c17-fe6020ff3872)
 
 ![computer network and peripherals star technology logo colorful world with broken meteor rocks and planets in the middle of the colorful star inside the world (22)](https://github.com/user-attachments/assets/3d278891-70da-4818-ae3f-82c632fa8d32)
 
 
 ![a computer network and peripherals with a colorful world with a colorful triangle in the middle of the broken meteor rocks and planets, the star technology logo, people watching from the world in space seeing  (11)](https://github.com/user-attachments/assets/3ea6fdbd-706c-44a4-b71b-ccccf19a4126)
+
+![computer network and peripherals star technology logo colorful world with broken meteor rocks and planets in the middle of the sublime colorful star harmoniously inside the world (2)](https://github.com/user-attachments/assets/4584f77f-4201-48ab-b3b5-1a7bdd207885)
 
 ***[`(*```STAR``My```Tech`````*****````*****```*****`
 ***``é``**©**``*``**``***``****``*****``****``***``**``*``*©*``*``**``***``****``*****``****``***``**``*``**©**``é```***`***]***
