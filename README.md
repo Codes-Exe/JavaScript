@@ -21,6 +21,9 @@
 ***[***``(*```STAR``My```Tech`***
 ***`é``**©**``*``**``***``****``*****``****``***``**``*``*©*``*``**``***``****``*****``****``***``**``*``**©**``é``***]***
 
+![gezegenler  ile  kodlardan ve dijital   bilgisayar iconlarından  ortasında renkli yüce üçgenlerden oluşan  yıldız renkli ışınlanmış gökkuşağı birlikte bilgisayar ağı olan gelişmiş  yazılım ile dünyadan uz (20)](https://github.com/user-attachments/assets/dd57e819-7979-49b8-8992-b4cd896a6f75)
+
+
 <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%;
  padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
  border-radius: 8px; will-change: transform;">
