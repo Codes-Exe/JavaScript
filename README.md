@@ -502,3 +502,13 @@ const starAction = async (params) => {
       };
   }
 };
+// Star Teknoloji JS Action
+const action = {
+  name: 'star-action',
+  run: async () => {
+    console.log('🚀 Action running!');
+    return { success: true };
+  }
+};
+
+export default action;
