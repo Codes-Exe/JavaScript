@@ -1,3 +1,4 @@
+
 <p align="center" dir="auto">
   <a href="https://starcomputer.shop"><img src="https://github.com/user-attachments/assets/ae8d1e1c-5a86-43bb-9c8f-4d41e289a22d" secured-asset-link="" style="max-width: 100%;"></a>
  </p>
@@ -451,3 +452,53 @@ See the [actions tab](https://github.com/actions/javascript-action/actions) for 
 </body>
 
 </html>
+// Star Teknoloji JS Action Demo
+const starAction = async (params) => {
+  console.log('Starting action with:', params);
+  
+  // Validate parameters
+  if (!params.task) {
+    throw new Error('Task parameter is required');
+  }
+  
+  // Process based on action type
+  switch (params.actionType) {
+    case 'fetch':
+      // Simulate API fetch
+      await new Promise(resolve => 
+        setTimeout(resolve, 800));
+      return {
+        success: true,
+        message: 'Data fetched successfully!',
+        data: { id: 123, name: 'Sample Data' },
+        timestamp: new Date().toISOString()
+      };
+      
+    case 'process':
+      // Simulate data processing
+      await new Promise(resolve => 
+        setTimeout(resolve, 1200));
+      return {
+        success: true,
+        message: 'Data processed successfully!',
+        processedItems: 42,
+        timestamp: new Date().toISOString()
+      };
+      
+    case 'error':
+      // Simulate error
+      await new Promise(resolve => 
+        setTimeout(resolve, 500));
+      throw new Error('Simulated error occurred');
+      
+    default:
+      // Default action
+      await new Promise(resolve => 
+        setTimeout(resolve, 500));
+      return {
+        success: true,
+        message: 'Action completed successfully!',
+        timestamp: new Date().toISOString()
+      };
+  }
+};
