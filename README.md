@@ -232,10 +232,10 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
 <iframe src="https://github.com/sponsors/Codes-Exe/card" title="Sponsor Codes-Exe" height="200" width="1000" style="border: 10;"></iframe>
 
 ## Contact
-`email: ercetinguler@starteknoloji.space`
-`Tel: +90 0288 318 3560`
-`Adrres: Devlet Mah. Kanal Cad:13 Türkiye/Kırklareli/Vize`
-`Author: Erçetin Güler`
+- `email: ercetinguler@starteknoloji.space`
+- `Tel: +90 0288 318 3560`
+- `Adrres: Devlet Mah. Kanal Cad:13 Türkiye/Kırklareli/Vize`
+- `Author: Erçetin Güler`
 
 See the [actions tab](https://github.com/actions/javascript-action/actions) for runs of this action! 🚀
 
