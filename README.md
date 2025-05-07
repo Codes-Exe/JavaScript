@@ -1,4 +1,3 @@
-
 <p align="center" dir="auto">
   <a href="https://starcomputer.shop"><img src="https://github.com/user-attachments/assets/ae8d1e1c-5a86-43bb-9c8f-4d41e289a22d" secured-asset-link="" style="max-width: 100%;"></a>
  </p>
@@ -138,6 +137,10 @@ git push origin v1
 Note: We recommend using the `--license` option for ncc, which will create a license file for all of the production node modules used in your project.
 
 Your action is now published! 🧑‍💻:
+
+<p align="center" dir="auto">
+  <a href="https://ogtal.com"><img src="https://github.com/user-attachments/assets/11d12f9b-e4a4-475e-b3cc-ae80e6408dd1" secured-asset-link="" style="max-width: 100%;"></a>
+ </p>
 
 
 ## Study and Discussion
