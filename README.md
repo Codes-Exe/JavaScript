@@ -10,7 +10,7 @@
 
 ![a computer network and peripherals with a colorful world with a colorful triangle in the middle of the broken meteor rocks and planets, the star technology logo, people watching from the world in space seeing  (11)](https://github.com/user-attachments/assets/3ea6fdbd-706c-44a4-b71b-ccccf19a4126)
 
-[![gezegenler  ile  kodlardan ve dijital   bilgisayar iconlarından  ortasında renkli yüce üçgenlerden oluşan  yıldız renkli ışınlanmış gökkuşağı birlikte bilgisayar ağı olan gelişmiş  yazılım ile dünyadan uz (20)](https://github.com/user-attachments/assets/4b07ceb0-bd4e-4127-8ce5-1b2097f6ec98)](https://starcomputer.tr)
+[![colorful star technology cloud sign with codes and digital computer  in the middle with colorful triangles in the comet wings with colorful luminous computer network with advanced software seen from space  (1)](https://github.com/user-attachments/assets/df235a7e-9d09-4b72-ab81-c14b68248509)](https://starcomputer.tr)
 
 
 ***[`(*```STAR``My```Tech`````*****````*****```*****`
