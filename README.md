@@ -138,6 +138,7 @@ Note: We recommend using the `--license` option for ncc, which will create a lic
 
 Your action is now published! 🧑‍💻:
 
+## Proje
 <p align="center" dir="auto">
   <a href="https://ogtal.com"><img src="https://github.com/user-attachments/assets/11d12f9b-e4a4-475e-b3cc-ae80e6408dd1" secured-asset-link="" style="max-width: 100%;"></a>
  </p>
