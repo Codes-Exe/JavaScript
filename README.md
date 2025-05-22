@@ -19,7 +19,9 @@
     src="https://www.canva.com/design/DAGmXxihZo8/z3BB4vbUOAbRkOb6y6QnwQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
   </iframe>
 </div>
-<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGmXxihZo8&#x2F;z3BB4vbUOAbRkOb6y6QnwQ&#x2F;view?utm_content=DAGmXxihZo8&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Star Teknoloji JavaScript Template</a> - Star Teknoloji
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGmXxihZo8&#x2F;z3BB4vbUOAbRkOb6y6QnwQ&#x2F;view?utm_content=DAGmXxihZo8&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Star Teknoloji JavaScript Template</a> - Star Teknoloji 
+
+- ***[Starcomputer.space](https://starcomputer.space)***
 
 ***[`(*```STAR``My```Tech`````*****````*****```*****`
 ***``é``**©**``*``**``***``****``*****``****``***``**``*``*©*``*``**``***``****``*****``****``***``**``*``**©**``é```***`***]***
