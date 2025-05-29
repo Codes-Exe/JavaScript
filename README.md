@@ -1,5 +1,5 @@
 <p align="center" dir="auto">
-  <a href="https://starcomputer.shop"><img src="https://github.com/user-attachments/assets/bc0afdcb-6222-49dd-860c-58ac3ece29d2" secured-asset-link="" style="max-width: 100%;"></a>
+  <a href="https://ogtal.com"><img src="https://github.com/user-attachments/assets/bc0afdcb-6222-49dd-860c-58ac3ece29d2" secured-asset-link="" style="max-width: 100%;"></a>
  </p>
 
 ![starspceafiş](https://github.com/user-attachments/assets/e2c5377e-8d8b-42c0-a3af-a436e74472dd)
