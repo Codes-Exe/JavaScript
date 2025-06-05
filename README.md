@@ -3,7 +3,7 @@
  </p>
 
 ![starspceafiş](https://github.com/user-attachments/assets/e2c5377e-8d8b-42c0-a3af-a436e74472dd)
-![DUBLE LOGGO]()
+
 
 
 ![computer network and peripherals star technology logo colorful world with broken meteor rocks and planets in the middle of the colorful star inside the world (22)](https://github.com/user-attachments/assets/3d278891-70da-4818-ae3f-82c632fa8d32)
