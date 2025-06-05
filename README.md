@@ -388,4 +388,257 @@ See the [actions tab](https://github.com/actions/javascript-action/actions) for 
       font-weight: bold;
       letter-spacing: 0.
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digital Octal Core System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, #101020 80%, #2efeff 100%);
+      font-family: 'Orbitron', Arial, sans-serif;
+      color: #fff;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+    .digital-core {
+      position: absolute;
+      left: 50%;
+      top: 35%;
+      transform: translate(-50%, -50%);
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle at 50% 50%, #00fff7 40%, #190033 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 80px 30px #33fff6, 0 0 10px #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      border: 4px solid #0ff;
+      animation: pulse 2s infinite alternate;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 80px 10px #33fff6, 0 0 10px #fff; }
+      100% { box-shadow: 0 0 120px 40px #fff, 0 0 40px #0ff; }
+    }
+    .core-code {
+      font-size: 1.15em;
+      color: #fff;
+      text-shadow: 0 0 8px #0ff, 0 0 1px #fff;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      text-align: center;
+      max-width: 85%;
+      opacity: 0.85;
+      letter-spacing: 0.08em;
+      line-height: 1.25;
+      user-select: none;
+    }
+    .cityscape {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      height: 38vh;
+      background: linear-gradient(180deg, transparent 60%, #170033 100%);
+      z-index: 2;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .building {
+      width: 40px;
+      min-width: 18px;
+      height: 120px;
+      margin: 0 9px;
+      background: linear-gradient(180deg, #0ff 30%, #3f0099 100%);
+      border-radius: 4px 4px 8px 8px;
+      box-shadow: 0 0 30px 8px #0ff, 0 0 3px #fff;
+      position: relative;
+      animation: flicker 3s infinite alternate;
+    }
+    .building:nth-child(odd) {
+      height: 70px;
+      background: linear-gradient(180deg, #ff00cc 30%, #330066 100%);
+      box-shadow: 0 0 26px 5px #ff00cc, 0 0 3px #fff;
+      animation-delay: 0.8s;
+    }
+    .building:nth-child(even) {
+      height: 95px;
+      background: linear-gradient(180deg, #00ffea 40%, #1a0033 100%);
+      box-shadow: 0 0 24px 6px #00ffea, 0 0 2px #fff;
+      animation-delay: 1.2s;
+    }
+    @keyframes flicker {
+      0% { filter: brightness(1.05) blur(0.4px);}
+      100% { filter: brightness(1.3) blur(1.5px);}
+    }
+    .flying-vehicle {
+      position: absolute;
+      left: -60px;
+      bottom: 120px;
+      width: 55px;
+      height: 12px;
+      background: linear-gradient(90deg, #0ff 50%, #ff00cc 100%);
+      border-radius: 10px 6px 10px 6px;
+      box-shadow: 0 0 15px 6px #0ff, 0 0 4px #fff;
+      animation: fly 8s linear infinite;
+    }
+    .flying-vehicle::after {
+      content: "";
+      position: absolute;
+      right: -18px;
+      top: 3px;
+      width: 15px;
+      height: 3px;
+      background: linear-gradient(90deg, #fff, #0ff 90%);
+      border-radius: 2px;
+      opacity: 0.6;
+      filter: blur(2px);
+    }
+    @keyframes fly {
+      0% { left: -60px; bottom: 120px;}
+      100% { left: 105vw; bottom: 185px;}
+    }
+    .ui-panel {
+      position: absolute;
+      top: 28px;
+      right: 40px;
+      background: rgba(20, 0, 60, 0.85);
+      border: 1.5px solid #0ff;
+      border-radius: 12px;
+      box-shadow: 0 0 18px 1px #0ff;
+      padding: 16px 24px 12px 24px;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .ui-panel label, .ui-panel button {
+      color: #0ff;
+      font-size: 1.1em;
+      font-weight: bold;
+      letter-spacing: 0.04em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 3px;
+    }
+    .ui-panel button {
+      padding: 5px 10px;
+      background: rgba(0,255,255,0.12);
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .ui-panel button:hover {
+      background: rgba(0,255,255,0.28);
+    }
+    .tech-icons {
+      position: absolute;
+      top: 22px;
+      left: 34px;
+      display: flex;
+      gap: 20px;
+      z-index: 30;
+    }
+    .tech-icons img {
+      width: 36px;
+      filter: drop-shadow(0 0 7px #0ff);
+      opacity: 0.85;
+    }
+    @media (max-width: 800px) {
+      .digital-core { width: 220px; height: 220px; }
+      .core-code { font-size: 0.92em;}
+      .cityscape { height: 25vh;}
+    }
+  </style>
+</head>
+<body>
+  <div class="tech-icons">
+    <img src="https://img.icons8.com/ios-filled/50/00fff7/usb.png" alt="USB">
+    <img src="https://img.icons8.com/ios-filled/50/00fff7/wifi.png" alt="WiFi">
+    <img src="https://img.icons8.com/ios-filled/50/00fff7/bluetooth.png" alt="Bluetooth">
+    <img src="https://img.icons8.com/ios-filled/50/00fff7/hdd.png" alt="HDD">
+    <img src="https://img.icons8.com/ios-filled/50/00fff7/settings.png" alt="Settings">
+    <img src="https://img.icons8.com/ios-filled/50/00fff7/cloud.png" alt="Cloud">
+  </div>
+  <div class="digital-core">
+    <div class="core-code">
+      <span>&lt;code&gt;<br>
+        for(i=0;i&lt;∞;i++)<br>
+        &#160;{<br>
+        &#160;&#160;geometry++ ;<br>
+        &#160;&#160;energy.pulse();<br>
+        &#160;&#160;cloud.sync();<br>
+        &#160;&#160;network.connect();<br>
+        &#160;}
+      <br>&lt;/code&gt;
+      </span>
+    </div>
+  </div>
+  <div class="cityscape" id="cityscape">
+    <!-- Buildings will be injected by JS -->
+    <div class="flying-vehicle"></div>
+  </div>
+  <div class="ui-panel">
+    <label>Color Theme</label>
+    <button onclick="switchTheme('cyberpunk')">Cyberpunk</button>
+    <button onclick="switchTheme('vaporwave')">Vaporwave</button>
+    <button onclick="switchTheme('solarpunk')">Solarized</button>
+    <label>Perspective</label>
+    <button onclick="cityView('panoramic')">Panoramic</button>
+    <button onclick="cityView('bird')">Bird’s Eye</button>
+    <button onclick="cityView('street')">Street</button>
+  </div>
+  <script>
+    // Generate random buildings for cityscape
+    let city = document.getElementById('cityscape');
+    for(let i=0; i<18; i++) {
+      let b = document.createElement('div');
+      b.className = 'building';
+      b.title = "Building " + (i + 1);
+      b.onclick = function() {
+        b.style.boxShadow = "0 0 60px 16px #fff, 0 0 20px #0ff";
+        setTimeout(()=>b.style.boxShadow = '', 450);
+      };
+      city.appendChild(b);
+    }
 
+    // Theme and perspective controls
+    function switchTheme(theme) {
+      switch(theme) {
+        case 'cyberpunk':
+          document.body.style.background = "linear-gradient(180deg, #101020 80%, #2efeff 100%)";
+          break;
+        case 'vaporwave':
+          document.body.style.background = "linear-gradient(180deg, #ffb6c1 20%, #00fff7 100%)";
+          break;
+        case 'solarpunk':
+          document.body.style.background = "linear-gradient(180deg, #faffd1 20%, #a1ffce 100%)";
+          break;
+      }
+    }
+    function cityView(view) {
+      let city = document.getElementById('cityscape');
+      switch(view) {
+        case 'panoramic':
+          city.style.height = '38vh';
+          city.style.filter = 'none';
+          break;
+        case 'bird':
+          city.style.height = '24vh';
+          city.style.filter = 'blur(2px) brightness(1.15)';
+          break;
+        case 'street':
+          city.style.height = '60vh';
+          city.style.filter = 'brightness(1.25) blur(1.5px)';
+          break;
+      }
+    }
+  </script>
+</body>
+</html>
