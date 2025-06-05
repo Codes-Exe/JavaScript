@@ -384,8 +384,5 @@ See the [actions tab](https://github.com/actions/javascript-action/actions) for 
 <script id="dsq-count-scr" src="//starteknoloji-space.disqus.com/count.js" async></script>
 
 
-      font-size: 1.1em;
-      font-weight: bold;
-      letter-spacing: 0.
-
+   
 
