@@ -154,7 +154,82 @@ Your action is now published! 🧑‍💻:
   <a href="https://ogtal.com"><img src="https://github.com/user-attachments/assets/11d12f9b-e4a4-475e-b3cc-ae80e6408dd1" secured-asset-link="" style="max-width: 100%;"></a>
  </p>
 
+const axios = require("axios");
+const dotenv = require("dotenv");
+const { DefaultAzureCredential } = require("@azure/identity");
 
+dotenv.config();  
+
+async function main() {
+  // You will need to set these environment variables or edit the following values
+  const endpoint = process.env["ENDPOINT_URL"] || "https://vip76-mbz9xygv-eastus2.openai.azure.com/";
+  const deployment = process.env["DEPLOYMENT_NAME"] || "sora";
+  
+  const apiVersion = "preview";
+  const path = `openai/v1/video/generations/jobs`;
+  const params = `?api-version=${apiVersion}`;
+  const constructedUrl = `${endpoint}${path}${params}`;
+  
+  // Initialize the DefaultAzureCredential to be used for Entra ID authentication
+  const credential = new DefaultAzureCredential();
+  const tokenResponse = await credential.getToken("https://cognitiveservices.azure.com/.default");
+
+  const headers = {
+    'Authorization': 'Bearer ' + tokenResponse.token,
+    'Content-Type': 'application/json'
+  };
+
+  const body = {
+    "prompt": "Digital Ogtal Core System\nIntricate digital cores interwoven with geometric patterns ancient code streams, and complex tred etv\nAdvanced\nsoftware operates withinweraborate\nmicrocircuits, cloud data fragments across polished metal surfaces. Futuristic cosmic technology showcases distributed computing and vibrant energy formations layered within structural components Pynamic autonomy, Integrated into vironment, on a minimalist backed phasizing creation and securit\nin the middle of the digital computer with codes and high geometry formed digital together with computer network with advanced software sound effect seen from the world in space wifl bluetooth support phone settings button usb socket and hard disk file watched with star technology cloud sign metal logo computer writing Abstract digital core, high-geometry network, Interwoven code streams, advanced software visualization, spatial perspective, wireless connectivity, intricate circuitry, cloud technology Integration, metallic textures, technological starfield backdrop, computer script overlay. Intricate digital core, high-geometry design, Interwoven code streams, advanced software interface, layered perspective, wireless network hub, complex microcircuits, cloud data transfer, polished metallic surfaces, cosmic techscape backdrop, distributed computing architecture, vibrant energy flows.\nIntricate digital core with high-geometry design, intertwined code streams, and advanced software connections expanding into a wireless network hub. Complex microcircuits facilitate cloud data transfer across polished metal surfaces. Cosmic technology background with distributed computing structures and living energy formations proliferating through structural layers.\nIntricate digital core featuring high geometric variance, interwoven code streams, and sophisticated software enhancing wireless connectivity. Detailed microcircuits facilitate cloud data transmission across reflective metallic surfaces. Cosmic technology showcases distributed computing architectures and vibrant energy formations spreading across structural layers, dynamic autonomy against a minimalist backdrop.\nIntricate digital core featuring high geometric variance, interwoven code streams, and sophisticated software enhancing wireless connectivity. Detailed microcircuits facilitate cloud data transmission across reflective metallic surfaces. Cosmic technology showcases distributed computing architectures and vibrant energy formations spreading across structural layers, dynamic autonomy against a minimalist backdrop. Intricate digital cores interwoven with geometric patterns, ancient code streams, and complex wired networks. Advanced software operates within elaborate microcircuits, cloud data fragments across polished metal surfaces. Futuristic cosmic technology showcases distributed computing and vibrant energy formations layered within structural components. Dynamic autonomy, integrated into the environment, on a minimalist background, emphasizing creation and security.\nLuminous cyberpunk cityscape with colossal glowing skyscrapers, flying vehicles weaving between buildings, vivid neon colors, grid patterns, dense atmospheric perspective, adjustable building density, dynamic viewing angles, and customizable vehicle speed. Luminous cyberpunk cityscape with colossal glowing skyscrapers, flying vehicles weaving between buildings, vivid neon colors, grid patterns, dense atmospheric perspective, adjustable building density, dynamic viewing angles, and customizable vehicle speed. Cyberpunk cityscape with interactive customization. Dense, glowing skyscrapers pierce a twilight sky filled with flying vehicles. Vivid neon colors illuminate the futuristic scene. Adjustable building density, vehicle speed, viewing angle, and color themes offer a personalized experience. Explore different perspectives and vibrant color palettes in this immersive, dynamic environment.\nVibrant cyberpunk cityscape, glowing skyscrapers, flying vehicles weaving through dense, neon-lit streets. Adjustable building density: sparse to hyper-dense. Dynamic vehicle speed: slow cruise to exhilarating zoom. Viewing angle control: low angle, bird's-eye view, street-level. Color themes: electric blue, toxic green, and sunset crimson, creating distinct atmospheres.\nInteractive neon cityscape, futuristic metropolis. Clickable buildings trigger energy pulses. Control buttons switch views: panoramic, isometric, birds-eye. Color scheme options: cyberpunk, vaporwave, solarized themes. Dynamic lighting, high contrast, detailed architecture, immersive experience.\nInteractive futuristic neon cityscape, clickable buildings with energy pulse effects. Panoramic, isometric, and bird's-eye views. Customizable color themes, vaporwave theme for retro-futuristic aesthetic. Detailed building designs, additional interactive elements, dynamic lighting, reflections, and a bustling atmosphere with flying vehicles. High contrast, vibrant colors, and intricate details to create an immersive experience. Interactive neon cityscape with dynamic elements, clickable buildings revealing details upon selection. Features customizable vaporwave color themes, and multiple viewing angles: panoramic, isometric, and bird's-eye. Flying vehicles traverse the detailed environment. Subtle mouse-responsive effects enhance the immersive experience.\nElectric futuristic cityscape, glowing circuits, dynamic neon lighting, and interactive elements. Touch creates energy pulses. Rotate the city with arrow buttons. Color themes shift the mood from cyberpunk to vaporwave and solarpunk. High-contrast and detailed.\nFuturistic cityscape with interactive elements: energy pulses triggered by clicks, rotatable view with arrow controls, and color theme switching. Neon lighting and circuit patterns create a visually striking experience. Dynamic, vibrant, and\nimmersive, showcasing a blend of technological advancement and artistic design. Vibrant futuristic cityscape with interactive neon lights. Energy pulses emanate upon touch. Dynamic perspective controlled by directional arrows. Color palettes shift through interactive buttons, creating varied atmospheric aesthetics. The metropolis blends advanced technology with dazzling light displays.\nInteractive neon cityscape with touch-responsive energy pulses. Dynamic directional perspective controls and transformative color palette. Explore a vibrant, futuristic metropolis. Control energy flows by touch, shift perspectives with directional inputs, and morph the atmosphere using diverse color schemes. Discover your personalized futuristic vibe through interactive design. Interactive neon cityscape. Futuristic metropolis, touch controlled. Energy pulses ripple through buildings, directional perspective changes, color scheme transformations. Dynamic atmosphere with vibrant colors, glowing lights, and sleek architectural designs. High-tech environment encourages exploration and experimentation. Vibrant neon cityscape, futuristic metropolis. Interactive elements: energy pulses rippling through buildings via touch or click. Control buttons for perspective shifts: bird's- eye view, street-level, panoramic. Color scheme transformations: cyberpunk, vaporwave, solarized. Toggle information about interactive elements. Dynamic, engaging user experience.\nInteractive neon cityscape with clickable, glowing buildings revealing details. Dynamic vaporwave themes with customizable color palettes. Multiple viewing angles. Flying vehicles with autonomous movement. Subtle perspective shifts based on mouse movements. Interactive neon cityscape. Vaporwave aesthetic. Glowing buildings, customizable colors. Animated flying vehicles. Multiple viewing angles. High detail. Vibrant neon cityscape with interactive elements. Glowing skyscrapers, customizable vaporwave color palette, and dynamic mouse-responsive effects. Multiple viewing angles showcase intricate architectural details revealed upon clicking individual buildings. Dense urban environment with a retro-futuristic aesthetic. Shifting perspective, creating an immersive, explorable virtual metropolis. Vibrant neon cityscape with customizable vaporwave aesthetic. Glowing buildings, animated flying vehicles, adjustable colors for buildings and grid. Control vehicle speed and building density. Explore three viewing angles for unique perspectives. Dynamic, interactive, and visually captivating.\nInteractive futuristic city visualization with interconnected glowing circuits, streaming binary code, and complex geometric patterns. Dynamic energy pulses emanate from user touch. Control panel activates random pulses, enables 3D rotation, and offers customizable color palettes. Neon accents and dark background. Futuristic cityscape visualization with glowing circuits and dynamic energy. Touch-responsive pulses interact with the architecture. Rotation controls allow dynamic perspectives. Customizable color themes create varied moods. A dark background emphasizes the vibrant, interactive elements. Random pulse generation adds layers of complexity. A cutting-edge design merges technology and artistry. Vibrant futuristic cityscape with glowing circuits and touch- responsive pulses. Dynamic visuals showcase advanced architectural designs. Interactive elements include rotation controls for 360-degree exploration and color theme options to modify the scene's mood. Energy pulses animate the city with randomly generated light sequences, highlighting the intricate network of interconnected structures under a twilight sky with neon accents.\nVibrant cyberpunk cityscape. Towering glass skyscrapers pierce a smoggy sky. Flying vehicles weave between buildings leaving light trails. Intense neon signs and holographic advertisements illuminate wet streets reflecting the futuristic grid pattern. Building density, vehicle speed, and neon intensity are user adjustable. Dynamic interactive experience.",
+    "n_variants": "1",
+    "n_seconds": "20",
+    "height": "720",
+    "width": "1280",
+    "model": deployment
+  };
+
+  let response = await axios.post(constructedUrl, body, { headers });
+  console.log(JSON.stringify(response.data, null, 4));
+
+  const jobId = response.data.id;
+  console.log("⏳ Polling job status for ID: ", jobId);
+  let status = response.data.status;
+  const statusUrl = `${endpoint}openai/v1/video/generations/jobs/${jobId}?api-version=${apiVersion}`;
+  while (status !== "succeeded" && status !== "failed") {
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+    response = await axios.get(statusUrl, { headers });
+    status = response.data.status;
+    console.log("Status:", status);
+  }
+
+  if (status === "succeeded") {
+    const generations = response.data.generations ?? [];
+    if (generations.length > 0) {
+      console.log("✅ Video generation succeeded.");
+      const generationId = generations[0].id;
+      const video_url = `${endpoint}openai/v1/video/generations/${generationId}/content/video${params}`;
+      const videoResponse = await axios.get(video_url, { headers, responseType: "arraybuffer" });
+      if (videoResponse.status === 200) {
+        const outputFilename = "output.mp4";
+        const fs = require("fs");
+        fs.writeFileSync(outputFilename, videoResponse.data);
+        console.log(`Generated video saved as "${outputFilename}"`);
+      } else {
+        console.log("❌ Failed to retrieve video content.");
+      }
+
+    } else {
+      console.log("⚠️ Status is succeeded, but no generations were returned.");
+    }
+  } else {
+    console.log("❌ Video generation failed.");
+    console.log(JSON.stringify(response.data, null, 4));
+  }
+}
+
+main().catch((err) => {  
+  console.error("The sample encountered an error:", err);  
+});
 ## Study and Discussion
 
 <div id="disqus_thread"></div>
