@@ -153,7 +153,7 @@ Your action is now published! 🧑‍💻:
 <p align="center" dir="auto">
   <a href="https://ogtal.com"><img src="https://github.com/user-attachments/assets/2f9107d2-447d-49b9-a2c0-859761c181be" secured-asset-link="" style="max-width: 100%;"></a>
  </p>
-![envato-labs-ai-4a6128aa-8a32-4851-890c-912f9bba42c6 (1)]()
+
 
 
 <div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1093771784?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="20250616-191846-sora"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
