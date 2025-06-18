@@ -31,26 +31,7 @@
 ***[***``(*```STAR``My```Tech`***
 ***`é``**©**``*``**``***``****``*****``****``***``**``*``*©*``*``**``***``****``*****``****``***``**``*``**©**``é``***]***
 
-import { StarTech } from '@starteknoloji/core';
-// Initialize the Star Teknoloji framework
-const app = new StarTech({
-mode: 'production',
-plugins: ['analytics', 'performance']
-});
-// Create a new component
-app.createComponent('StarButton', {
-template: '<button class="star-btn">{{ label }}</button>',
-props: {
-label: 'Click me!'
-},
-methods: {
-onClick() {
-this.emit('star-clicked');
-}
-}
-});
-// Launch your application
-app.launch();
+
 
 <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%;
  padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
