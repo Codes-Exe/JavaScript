@@ -186,7 +186,8 @@ Your action is now published! 🧑‍💻:
 ## Websites of our businesses used
 
 Sitelerimizdeki uygulamalar ev ve işyerleri için özelleştirebilir, geliştirilebiliriz. Yorum, istek ve sorularınız için lütfen yazınız. 
-NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.
+NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.# Beğendiysen Reklam verebilirsiniz üçretsizdir. İletişim : ercetinguler@starteknloji.space e-posta gönderebilirisiniz.   
+   
 
 [<img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://github.com/user-attachments/assets/7c8dc3e1-e2bd-4cfa-bae7-6ff304e09656" width="532" height="266">](https://starcomputer.space)
 
@@ -387,6 +388,5 @@ See the [actions tab](https://github.com/actions/javascript-action/actions) for 
 
 <script id="dsq-count-scr" src="//starteknoloji-space.disqus.com/count.js" async></script>
 
-# Beğendiysen Reklam verebilirsiniz üçretsizdir. İletişim : ercetinguler@starteknloji.space e-posta gönderebilirisiniz.   
-   
+
 
