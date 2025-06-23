@@ -387,6 +387,6 @@ See the [actions tab](https://github.com/actions/javascript-action/actions) for 
 
 <script id="dsq-count-scr" src="//starteknoloji-space.disqus.com/count.js" async></script>
 
-
+# Beğendiysen Reklam verebilirsiniz üçretsizdir. İletişim : ercetinguler@starteknloji.space e-posta gönderebilirisiniz.   
    
 
