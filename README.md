@@ -1,7 +1,10 @@
-
+<p align="center" dir="auto">
+  <a href="https://starcomputer.space/shop"><img src="https://github.com/user-attachments/assets/bdcc9c54-2905-4a8d-a42f-6041829a2261" secured-asset-link="" style="max-width: 100%;"></a>
+ </p>
 
 ![starspceafiş](https://github.com/user-attachments/assets/e2c5377e-8d8b-42c0-a3af-a436e74472dd)
 
+![5077109_transparent]()
 
 
 ![computer network and peripherals star technology logo colorful world with broken meteor rocks and planets in the middle of the colorful star inside the world (22)](https://github.com/user-attachments/assets/3d278891-70da-4818-ae3f-82c632fa8d32)
