@@ -232,7 +232,7 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.# Beğendiysen Rekla
 </script>
 
 ### [My Computer Digital](https://mycomputer.digital)
-<iframe src="https://https://starcomputer.my.canva.site/" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+<iframe src="https://https://mycomputer.digital" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
 ### [Proje YerliCins](https://yerlicins.com) 
 <iframe src="https://yerlicins.com" title="Planet" height="400" width="1000" style="border:10;"></iframe>
