@@ -13,7 +13,7 @@
 
 [![colorful star technology cloud sign with codes and digital computer  in the middle with colorful triangles in the comet wings with colorful luminous computer network with advanced software seen from space  (1)](https://github.com/user-attachments/assets/df235a7e-9d09-4b72-ab81-c14b68248509)](https://starcomputer.tr)
 
-[![Starteknoloj ta (1)](https://github.com/user-attachments/assets/ef1c92c2-bc69-4b06-9d88-945df7794d3a)](https://github.com/user-attachments/assets/0983d2bb-60b6-4339-90f0-bd84254cbc18)](https://atarteknoloji.tr)
+[![Starteknoloj ta (1)(https://github.com/user-attachments/assets/ef1c92c2-bc69-4b06-9d88-945df7794d3a)](https://github.com/user-attachments/assets/0983d2bb-60b6-4339-90f0-bd84254cbc18)](https://starteknoloji.tr)
 
 <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%;
  padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
