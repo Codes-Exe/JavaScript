@@ -1,10 +1,9 @@
 <p align="center" dir="auto">
-  <a href="https://starcomputer.space/shop"><img src="https://github.com/user-attachments/assets/aa5eea14-4b1d-483e-b4d0-317f0b175c23" secured-asset-link="" style="max-width: 100%;"></a>
+  <a href="https://starcomputer.space/shop"><img src="https://github.com/user-attachments/assets/d3faa844-0d2a-4df8-b12a-d10a75cc8e1a" secured-asset-link="" style="max-width: 100%;"></a>
  </p>
 
 ![starspceafiş](https://github.com/user-attachments/assets/e2c5377e-8d8b-42c0-a3af-a436e74472dd)
 
-![5077109_transparent]()
 
 
 ![computer network and peripherals star technology logo colorful world with broken meteor rocks and planets in the middle of the colorful star inside the world (22)](https://github.com/user-attachments/assets/3d278891-70da-4818-ae3f-82c632fa8d32)
