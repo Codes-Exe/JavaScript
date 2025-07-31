@@ -208,11 +208,112 @@
             0% { top: -100%; opacity: 1; }
             100% { top: 100%; opacity: 0; }
         }
+        
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 245, 255, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        
+        .focus\:glow-border:focus {
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.5), inset 0 0 20px rgba(0, 245, 255, 0.1);
+        }
+        
+        .tech-card {
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.2);
+        }
+        
+        .status-indicator {
+            animation: status-pulse 2s infinite;
+        }
+        
+        @keyframes status-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .cyber-loader {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(0, 245, 255, 0.3);
+            border-top: 3px solid var(--cyber-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .neural-network {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .neural-node {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--cyber-blue);
+            border-radius: 50%;
+            animation: neural-pulse 3s infinite;
+        }
+        
+        @keyframes neural-pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+        
+        .quantum-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quantum-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.1), transparent);
+            animation: quantum-sweep 2s infinite;
+        }
+        
+        @keyframes quantum-sweep {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
     </style>
 </head>
 <body class="bg-black text-white cyber-grid">
     <!-- Matrix Rain Effect -->
     <div class="matrix-rain" id="matrix-rain"></div>
+    
+    <!-- Neural Network Background -->
+    <div class="neural-network" id="neural-network"></div>
     
     <!-- Data Streams -->
     <div class="data-stream" style="left: 10%; animation-delay: 0s;"></div>
@@ -291,9 +392,9 @@
         <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-cyan-900/20"></div>
         
         <!-- Floating Elements -->
-        <div class="absolute top-20 left-10 w-20 h-20 border border-cyan-500/30 rounded-full floating" style="animation-delay: 0s;"></div>
-        <div class="absolute top-40 right-20 w-16 h-16 border border-purple-500/30 rounded-full floating" style="animation-delay: 1s;"></div>
-        <div class="absolute bottom-40 left-20 w-12 h-12 border border-pink-500/30 rounded-full floating" style="animation-delay: 2s;"></div>
+        <div class="absolute top-20 left-10 w-20 h-20 border border-cyan-500/30 rounded-full floating quantum-effect" style="animation-delay: 0s;"></div>
+        <div class="absolute top-40 right-20 w-16 h-16 border border-purple-500/30 rounded-full floating quantum-effect" style="animation-delay: 1s;"></div>
+        <div class="absolute bottom-40 left-20 w-12 h-12 border border-pink-500/30 rounded-full floating quantum-effect" style="animation-delay: 2s;"></div>
         
         <!-- Holographic Interface -->
         <div class="absolute top-32 right-32 w-64 h-32 hologram rounded-lg opacity-30 hidden lg:block"></div>
@@ -325,31 +426,31 @@
             </div>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button class="cyber-button px-8 py-4 text-lg font-semibold text-cyan-400 rounded-lg group">
+                <a href="https://ogtal.com" target="_blank" class="cyber-button px-8 py-4 text-lg font-semibold text-cyan-400 rounded-lg group inline-block">
                     <span class="relative z-10">Projelerimizi Keşfet</span>
-                </button>
-                <button class="cyber-button px-8 py-4 text-lg font-semibold text-purple-400 rounded-lg group">
+                </a>
+                <a href="https://starcomputer.com.tr" target="_blank" class="cyber-button px-8 py-4 text-lg font-semibold text-purple-400 rounded-lg group inline-block">
                     <span class="relative z-10">İletişime Geç</span>
-                </button>
+                </a>
             </div>
             
             <!-- Tech Stats -->
             <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="cyber-font text-3xl font-bold text-cyan-400 mb-2 counter" data-target="50">0</div>
+                <div class="text-center tech-card rounded-lg p-4">
+                    <div class="cyber-font text-3xl font-bold text-cyan-400 mb-2 counter" data-target="150">0</div>
                     <div class="text-gray-400 text-sm">Aktif Projeler</div>
                 </div>
-                <div class="text-center">
-                    <div class="cyber-font text-3xl font-bold text-purple-400 mb-2 counter" data-target="15">0</div>
+                <div class="text-center tech-card rounded-lg p-4">
+                    <div class="cyber-font text-3xl font-bold text-purple-400 mb-2 counter" data-target="25">0</div>
                     <div class="text-gray-400 text-sm">Uzman Ekip</div>
                 </div>
-                <div class="text-center">
-                    <div class="cyber-font text-3xl font-bold text-green-400 mb-2 counter" data-target="100">0</div>
+                <div class="text-center tech-card rounded-lg p-4">
+                    <div class="cyber-font text-3xl font-bold text-green-400 mb-2 counter" data-target="500">0</div>
                     <div class="text-gray-400 text-sm">Memnun Müşteri</div>
                 </div>
-                <div class="text-center">
-                    <div class="cyber-font text-3xl font-bold text-orange-400 mb-2 counter" data-target="24">0</div>
-                    <div class="text-gray-400 text-sm">7/24 Destek</div>
+                <div class="text-center tech-card rounded-lg p-4">
+                    <div class="cyber-font text-3xl font-bold text-orange-400 mb-2">24/7</div>
+                    <div class="text-gray-400 text-sm">Destek</div>
                 </div>
             </div>
         </div>
@@ -366,7 +467,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1: AI -->
-                <div class="hologram glow-border rounded-lg p-6 hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+                <div class="tech-card hologram glow-border rounded-lg p-6 hover:scale-105 transition-all duration-300 group relative overflow-hidden">
                     <div class="scan-line"></div>
                     <div class="text-center mb-4">
                         <div class="w-16 h-16 mx-auto bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center mb-4 group-hover:animate-pulse">
@@ -385,7 +486,7 @@
                 </div>
                 
                 <!-- Service 2: Blockchain -->
-                <div class="hologram glow-border rounded-lg p-6 hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+                <div class="tech-card hologram glow-border rounded-lg p-6 hover:scale-105 transition-all duration-300 group relative overflow-hidden">
                     <div class="scan-line"></div>
                     <div class="text-center mb-4">
                         <div class="w-16 h-16 mx-auto bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-4 group-hover:animate-pulse">
@@ -404,7 +505,7 @@
                 </div>
                 
                 <!-- Service 3: Web 3.0 -->
-                <div class="hologram glow-border rounded-lg p-6 hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+                <div class="tech-card hologram glow-border rounded-lg p-6 hover:scale-105 transition-all duration-300 group relative overflow-hidden">
                     <div class="scan-line"></div>
                     <div class="text-center mb-4">
                         <div class="w-16 h-16 mx-auto bg-gradient-to-r from-green-500 to-cyan-500 rounded-full flex items-center justify-center mb-4 group-hover:animate-pulse">
@@ -423,7 +524,7 @@
                 </div>
                 
                 <!-- Service 4: IoT -->
-                <div class="hologram glow-border rounded-lg p-6 hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+                <div class="tech-card hologram glow-border rounded-lg p-6 hover:scale-105 transition-all duration-300 group relative overflow-hidden">
                     <div class="scan-line"></div>
                     <div class="text-center mb-4">
                         <div class="w-16 h-16 mx-auto bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mb-4 group-hover:animate-pulse">
@@ -442,7 +543,7 @@
                 </div>
                 
                 <!-- Service 5: AR/VR -->
-                <div class="hologram glow-border rounded-lg p-6 hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+                <div class="tech-card hologram glow-border rounded-lg p-6 hover:scale-105 transition-all duration-300 group relative overflow-hidden">
                     <div class="scan-line"></div>
                     <div class="text-center mb-4">
                         <div class="w-16 h-16 mx-auto bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center mb-4 group-hover:animate-pulse">
@@ -461,7 +562,7 @@
                 </div>
                 
                 <!-- Service 6: Quantum -->
-                <div class="hologram glow-border rounded-lg p-6 hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+                <div class="tech-card hologram glow-border rounded-lg p-6 hover:scale-105 transition-all duration-300 group relative overflow-hidden">
                     <div class="scan-line"></div>
                     <div class="text-center mb-4">
                         <div class="w-16 h-16 mx-auto bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center mb-4 group-hover:animate-pulse">
@@ -492,8 +593,34 @@
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div class="hologram glow-border rounded-lg overflow-hidden hover:scale-105 transition-all duration-300 group">
+                <!-- Project 1: Studio Space -->
+                <div class="tech-card hologram glow-border rounded-lg overflow-hidden hover:scale-105 transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 flex items-center justify-center relative overflow-hidden">
+                        <div class="scan-line"></div>
+                        <div class="text-center z-10">
+                            <div class="w-16 h-16 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-4 group-hover:animate-pulse">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
+                                </svg>
+                            </div>
+                            <h3 class="cyber-font text-2xl font-bold text-white">STUDIO SPACE</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-300 mb-4">Yapay zeka kullanarak OGTAL projesi formatı ile görsel oluşturma ve geliştirme uygulaması. AI destekli tasarım ve otomatik optimizasyon.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-sm">AI Design</span>
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">OGTAL Format</span>
+                            <span class="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-sm">Visual Creation</span>
+                        </div>
+                        <a href="https://ogtal.com" target="_blank" class="cyber-button w-full py-2 text-indigo-400 rounded group inline-block text-center">
+                            <span class="relative z-10">Projeyi Keşfet</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Neural Core -->
+                <div class="tech-card hologram glow-border rounded-lg overflow-hidden hover:scale-105 transition-all duration-300 group">
                     <div class="h-48 bg-gradient-to-br from-cyan-600 to-purple-600 flex items-center justify-center relative overflow-hidden">
                         <div class="scan-line"></div>
                         <div class="text-center z-10">
@@ -518,8 +645,8 @@
                     </div>
                 </div>
                 
-                <!-- Project 2 -->
-                <div class="hologram glow-border rounded-lg overflow-hidden hover:scale-105 transition-all duration-300 group">
+                <!-- Project 3: Crypto Vault -->
+                <div class="tech-card hologram glow-border rounded-lg overflow-hidden hover:scale-105 transition-all duration-300 group">
                     <div class="h-48 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center relative overflow-hidden">
                         <div class="scan-line"></div>
                         <div class="text-center z-10">
@@ -544,8 +671,8 @@
                     </div>
                 </div>
                 
-                <!-- Project 3 -->
-                <div class="hologram glow-border rounded-lg overflow-hidden hover:scale-105 transition-all duration-300 group">
+                <!-- Project 4: Meta Space -->
+                <div class="tech-card hologram glow-border rounded-lg overflow-hidden hover:scale-105 transition-all duration-300 group">
                     <div class="h-48 bg-gradient-to-br from-green-600 to-cyan-600 flex items-center justify-center relative overflow-hidden">
                         <div class="scan-line"></div>
                         <div class="text-center z-10">
@@ -570,8 +697,8 @@
                     </div>
                 </div>
                 
-                <!-- Project 4 -->
-                <div class="hologram glow-border rounded-lg overflow-hidden hover:scale-105 transition-all duration-300 group">
+                <!-- Project 5: Quantum Net -->
+                <div class="tech-card hologram glow-border rounded-lg overflow-hidden hover:scale-105 transition-all duration-300 group">
                     <div class="h-48 bg-gradient-to-br from-orange-600 to-red-600 flex items-center justify-center relative overflow-hidden">
                         <div class="scan-line"></div>
                         <div class="text-center z-10">
@@ -622,19 +749,19 @@
                     </p>
                     
                     <div class="grid grid-cols-2 gap-6">
-                        <div class="text-center hologram glow-border rounded-lg p-4">
-                            <div class="cyber-font text-3xl font-bold text-cyan-400 mb-2 counter" data-target="50">0</div>
+                        <div class="text-center tech-card rounded-lg p-4">
+                            <div class="cyber-font text-3xl font-bold text-cyan-400 mb-2 counter" data-target="150">0</div>
                             <div class="text-gray-400">Tamamlanan Proje</div>
                         </div>
-                        <div class="text-center hologram glow-border rounded-lg p-4">
-                            <div class="cyber-font text-3xl font-bold text-purple-400 mb-2 counter" data-target="15">0</div>
+                        <div class="text-center tech-card rounded-lg p-4">
+                            <div class="cyber-font text-3xl font-bold text-purple-400 mb-2 counter" data-target="25">0</div>
                             <div class="text-gray-400">Uzman Ekip</div>
                         </div>
-                        <div class="text-center hologram glow-border rounded-lg p-4">
-                            <div class="cyber-font text-3xl font-bold text-green-400 mb-2 counter" data-target="5">0</div>
+                        <div class="text-center tech-card rounded-lg p-4">
+                            <div class="cyber-font text-3xl font-bold text-green-400 mb-2 counter" data-target="8">0</div>
                             <div class="text-gray-400">Yıllık Deneyim</div>
                         </div>
-                        <div class="text-center hologram glow-border rounded-lg p-4">
+                        <div class="text-center tech-card rounded-lg p-4">
                             <div class="cyber-font text-3xl font-bold text-orange-400 mb-2">100%</div>
                             <div class="text-gray-400">Müşteri Memnuniyeti</div>
                         </div>
@@ -642,7 +769,7 @@
                 </div>
                 
                 <div class="relative">
-                    <div class="hologram glow-border rounded-lg p-8 text-center relative overflow-hidden">
+                    <div class="tech-card hologram glow-border rounded-lg p-8 text-center relative overflow-hidden">
                         <div class="scan-line"></div>
                         <div class="mb-6">
                             <div class="w-32 h-32 mx-auto bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center floating neon-border">
@@ -652,24 +779,27 @@
                             </div>
                         </div>
                         <h4 class="cyber-font text-xl font-bold text-cyan-400 mb-4 glow-text">VİZYONUMUZ</h4>
-                        <p class="text-gray-300">
+                        <p class="text-gray-300 mb-6">
                             Teknolojinin gücünü insanlığın hizmetine sunarak, daha akıllı, güvenli ve sürdürülebilir 
                             bir dijital gelecek inşa etmek.
                         </p>
                         
                         <!-- Tech Timeline -->
-                        <div class="mt-8 space-y-4">
-                            <div class="flex items-center justify-between text-sm">
-                                <span class="text-cyan-400">2024</span>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between text-sm tech-card rounded p-2">
+                                <span class="text-cyan-400 cyber-font">2024</span>
                                 <span class="text-gray-400">Quantum Computing</span>
+                                <div class="w-2 h-2 bg-cyan-400 rounded-full status-indicator"></div>
                             </div>
-                            <div class="flex items-center justify-between text-sm">
-                                <span class="text-purple-400">2023</span>
+                            <div class="flex items-center justify-between text-sm tech-card rounded p-2">
+                                <span class="text-purple-400 cyber-font">2023</span>
                                 <span class="text-gray-400">AI Integration</span>
+                                <div class="w-2 h-2 bg-purple-400 rounded-full status-indicator"></div>
                             </div>
-                            <div class="flex items-center justify-between text-sm">
-                                <span class="text-green-400">2022</span>
+                            <div class="flex items-center justify-between text-sm tech-card rounded p-2">
+                                <span class="text-green-400 cyber-font">2022</span>
                                 <span class="text-gray-400">Blockchain Solutions</span>
+                                <div class="w-2 h-2 bg-green-400 rounded-full status-indicator"></div>
                             </div>
                         </div>
                     </div>
@@ -689,7 +819,7 @@
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Contact Form -->
-                <div class="hologram glow-border rounded-lg p-8 relative overflow-hidden">
+                <div class="tech-card hologram glow-border rounded-lg p-8 relative overflow-hidden">
                     <div class="scan-line"></div>
                     <h3 class="cyber-font text-2xl font-bold text-cyan-400 mb-6 glow-text">MESAJ GÖNDERİN</h3>
                     <form class="space-y-6" id="contact-form">
@@ -717,7 +847,7 @@
                 
                 <!-- Contact Info -->
                 <div class="space-y-8">
-                    <div class="hologram glow-border rounded-lg p-6 relative overflow-hidden">
+                    <div class="tech-card hologram glow-border rounded-lg p-6 relative overflow-hidden">
                         <div class="scan-line"></div>
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center mr-4 neon-border">
@@ -728,12 +858,12 @@
                             </div>
                             <div>
                                 <h4 class="cyber-font text-lg font-bold text-cyan-400">E-POSTA</h4>
-                                <p class="text-gray-300">ercetinguler@starteknoloji.space</p>
+                                <p class="text-gray-300">info@starteknoloji.space</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="hologram glow-border rounded-lg p-6 relative overflow-hidden">
+                    <div class="tech-card hologram glow-border rounded-lg p-6 relative overflow-hidden">
                         <div class="scan-line"></div>
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4 neon-border">
@@ -743,13 +873,13 @@
                             </div>
                             <div>
                                 <h4 class="cyber-font text-lg font-bold text-purple-400">TELEFON</h4>
-                                <p class="text-gray-300">530 083 12 88</p>
-                                <p class="text-gray-300">288 318 35 60</p>
+                                <p class="text-gray-300">+90 530 083 12 88</p>
+                                <p class="text-gray-300">+90 288 318 35 60</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="hologram glow-border rounded-lg p-6 relative overflow-hidden">
+                    <div class="tech-card hologram glow-border rounded-lg p-6 relative overflow-hidden">
                         <div class="scan-line"></div>
                         <div class="flex items-center mb-4">
                             <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-cyan-500 rounded-full flex items-center justify-center mr-4 neon-border">
@@ -764,10 +894,10 @@
                         </div>
                     </div>
                     
-                    <div class="hologram glow-border rounded-lg p-6 relative overflow-hidden">
+                    <div class="tech-card hologram glow-border rounded-lg p-6 relative overflow-hidden">
                         <div class="scan-line"></div>
                         <h4 class="cyber-font text-lg font-bold text-orange-400 mb-4 glow-text">SOSYAL MEDYA</h4>
-                        <div class="flex space-x-4">
+                        <div class="flex space-x-4 mb-6">
                             <a href="#" class="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform neon-border">
                                 <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
@@ -786,10 +916,10 @@
                         </div>
                         
                         <!-- Real-time Status -->
-                        <div class="mt-6 p-3 bg-green-500/10 border border-green-500/30 rounded-lg">
+                        <div class="p-3 bg-green-500/10 border border-green-500/30 rounded-lg">
                             <div class="flex items-center">
                                 <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2"></div>
-                                <span class="text-green-400 text-sm">Sistem Aktif - 7/24 Destek</span>
+                                <span class="text-green-400 text-sm cyber-font">SISTEM AKTİF - 24/7 DESTEK</span>
                             </div>
                         </div>
                     </div>
@@ -829,7 +959,7 @@
                 </div>
                 <div class="border-t border-gray-800 pt-8">
                     <p class="text-gray-500">&copy; 2024 StarTeknoloji.space. Tüm hakları saklıdır.</p>
-                    <p class="text-gray-600 text-sm mt-2">Powered by Quantum Computing & AI</p>
+                    <p class="text-gray-600 text-sm mt-2 cyber-font">Powered by Quantum Computing & AI</p>
                 </div>
             </div>
         </div>
@@ -841,7 +971,7 @@
             const matrixContainer = document.getElementById('matrix-rain');
             const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
             
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 25; i++) {
                 const column = document.createElement('div');
                 column.className = 'matrix-column';
                 column.style.left = Math.random() * 100 + '%';
@@ -849,7 +979,7 @@
                 column.style.animationDuration = (Math.random() * 10 + 10) + 's';
                 
                 let text = '';
-                for (let j = 0; j < 20; j++) {
+                for (let j = 0; j < 25; j++) {
                     text += characters.charAt(Math.floor(Math.random() * characters.length)) + '<br>';
                 }
                 column.innerHTML = text;
@@ -858,8 +988,24 @@
             }
         }
         
-        // Initialize matrix rain
+        // Neural Network Background
+        function createNeuralNetwork() {
+            const neuralContainer = document.getElementById('neural-network');
+            
+            for (let i = 0; i < 50; i++) {
+                const node = document.createElement('div');
+                node.className = 'neural-node';
+                node.style.left = Math.random() * 100 + '%';
+                node.style.top = Math.random() * 100 + '%';
+                node.style.animationDelay = Math.random() * 3 + 's';
+                
+                neuralContainer.appendChild(node);
+            }
+        }
+        
+        // Initialize effects
         createMatrixRain();
+        createNeuralNetwork();
         
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -913,16 +1059,16 @@
             });
         }
         
-        // Intersection Observer for counter animation
+        // Intersection Observer for animations
         const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
         };
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    if (entry.target.id === 'home') {
+                    if (entry.target.id === 'home' || entry.target.id === 'about') {
                         animateCounters();
                     }
                 }
@@ -933,54 +1079,48 @@
             observer.observe(section);
         });
         
-        // Form submission with enhanced effects
+        // Enhanced form submission
         const contactForm = document.getElementById('contact-form');
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form data
             const formData = new FormData(this);
             const name = formData.get('name');
             const email = formData.get('email');
             const subject = formData.get('subject');
             const message = formData.get('message');
             
-            // Simple validation
             if (!name || !email || !subject || !message) {
                 showNotification('Lütfen tüm alanları doldurun.', 'error');
                 return;
             }
             
-            // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 showNotification('Lütfen geçerli bir e-posta adresi girin.', 'error');
                 return;
             }
             
-            // Simulate form submission with loading effect
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<span class="relative z-10">Gönderiliyor...</span>';
+            submitBtn.innerHTML = '<div class="cyber-loader mx-auto"></div>';
             submitBtn.disabled = true;
-            submitBtn.classList.add('animate-pulse');
             
             setTimeout(() => {
                 showNotification('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.', 'success');
                 this.reset();
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-                submitBtn.classList.remove('animate-pulse');
             }, 2000);
         });
         
-        // Notification system
+        // Enhanced notification system
         function showNotification(message, type) {
             const notification = document.createElement('div');
-            notification.className = `fixed top-20 right-4 z-50 p-4 rounded-lg border max-w-sm transform translate-x-full transition-transform duration-300 ${
+            notification.className = `fixed top-20 right-4 z-50 p-4 rounded-lg border max-w-sm transform translate-x-full transition-all duration-500 ${
                 type === 'success' 
-                    ? 'bg-green-900/90 border-green-500 text-green-400' 
-                    : 'bg-red-900/90 border-red-500 text-red-400'
+                    ? 'bg-green-900/90 border-green-500 text-green-400 glow-border' 
+                    : 'bg-red-900/90 border-red-500 text-red-400 glow-border'
             }`;
             notification.innerHTML = `
                 <div class="flex items-center">
@@ -990,54 +1130,27 @@
                             : '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>'
                         }
                     </svg>
-                    <span>${message}</span>
+                    <span class="cyber-font">${message}</span>
                 </div>
             `;
             
             document.body.appendChild(notification);
             
-            // Animate in
             setTimeout(() => {
                 notification.classList.remove('translate-x-full');
             }, 100);
             
-            // Animate out and remove
             setTimeout(() => {
                 notification.classList.add('translate-x-full');
                 setTimeout(() => {
                     document.body.removeChild(notification);
-                }, 300);
+                }, 500);
             }, 5000);
         }
         
-        // Add active navigation highlighting
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('text-cyan-400');
-                link.classList.add('text-gray-300');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.remove('text-gray-300');
-                    link.classList.add('text-cyan-400');
-                }
-            });
-        });
-        
-        // Enhanced button click effects with ripple
+        // Enhanced button ripple effects
         document.querySelectorAll('.cyber-button').forEach(button => {
             button.addEventListener('click', function(e) {
-                // Create ripple effect
                 const ripple = document.createElement('span');
                 const rect = this.getBoundingClientRect();
                 const size = Math.max(rect.width, rect.height);
@@ -1057,32 +1170,28 @@
             });
         });
         
-        // Add CSS for enhanced ripple effect
-        const style = document.createElement('style');
-        style.textContent = `
-            .cyber-button {
-                position: relative;
-                overflow: hidden;
-            }
-            .ripple {
-                position: absolute;
-                border-radius: 50%;
-                background: rgba(0, 245, 255, 0.3);
-                transform: scale(0);
-                animation: ripple-animation 0.6s linear;
-                pointer-events: none;
-            }
-            @keyframes ripple-animation {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
                 }
-            }
-            .focus\\:glow-border:focus {
-                box-shadow: 0 0 20px rgba(0, 245, 255, 0.5), inset 0 0 20px rgba(0, 245, 255, 0.1);
-            }
-        `;
-        document.head.appendChild(style);
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-cyan-400');
+                link.classList.add('text-gray-300');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-gray-300');
+                    link.classList.add('text-cyan-400');
+                }
+            });
+        });
         
         // Parallax effect for floating elements
         window.addEventListener('scroll', () => {
@@ -1090,7 +1199,7 @@
             const parallaxElements = document.querySelectorAll('.floating');
             
             parallaxElements.forEach((element, index) => {
-                const speed = 0.5 + (index * 0.1);
+                const speed = 0.3 + (index * 0.1);
                 const yPos = -(scrolled * speed);
                 element.style.transform = `translateY(${yPos}px)`;
             });
@@ -1104,6 +1213,10 @@
             particle.style.animationDelay = Math.random() * 2 + 's';
             particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
             
+            // Random colors
+            const colors = ['var(--cyber-blue)', 'var(--cyber-purple)', 'var(--cyber-pink)', 'var(--cyber-green)'];
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
             document.body.appendChild(particle);
             
             setTimeout(() => {
@@ -1112,9 +1225,9 @@
         }
         
         // Generate particles periodically
-        setInterval(createParticle, 3000);
+        setInterval(createParticle, 2000);
         
-        // Glitch effect on hover for titles
+        // Enhanced glitch effects
         document.querySelectorAll('.glitch').forEach(element => {
             element.addEventListener('mouseenter', () => {
                 element.style.animation = 'glitch 0.3s infinite';
@@ -1124,6 +1237,232 @@
                 element.style.animation = 'glitch 2s infinite';
             });
         });
+        
+        // Tech card hover effects
+        document.querySelectorAll('.tech-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.boxShadow = '0 20px 40px rgba(0, 245, 255, 0.3), inset 0 0 30px rgba(0, 245, 255, 0.1)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.boxShadow = '';
+            });
+        });
+        
+        // Network Flow Optimization Algorithm
+        function optimizeNetworkFlow(nodes, connections) {
+            // Initialize optimization parameters
+            const flowCapacity = new Map();
+            const optimalPaths = [];
+            
+            // Calculate network centrality
+            nodes.forEach(node => {
+                const centrality = calculateCentrality(node, connections);
+                node.importance = centrality * node.dataFlow;
+            });
+            
+            // Find optimal routing paths
+            connections.forEach(conn => {
+                const sourceImportance = conn.source.importance;
+                const targetImportance = conn.target.importance;
+                const pathPriority = sourceImportance + targetImportance;
+                flowCapacity.set(conn.id, pathPriority);
+            });
+            
+            return { flowCapacity, optimalPaths };
+        }
+        
+        // Calculate node centrality in network
+        function calculateCentrality(node, connections) {
+            let degree = 0;
+            let betweenness = 0;
+            
+            // Calculate degree centrality
+            connections.forEach(conn => {
+                if (conn.source.id === node.id || conn.target.id === node.id) {
+                    degree++;
+                }
+            });
+            
+            // Simplified betweenness centrality calculation
+            const totalNodes = connections.length;
+            betweenness = degree / (totalNodes > 1 ? totalNodes - 1 : 1);
+            
+            return (degree * 0.6) + (betweenness * 0.4);
+        }
+        
+        // Quantum Network Simulation
+        function simulateQuantumNetwork() {
+            const quantumNodes = [
+                { id: 'qn1', dataFlow: 1000, x: 100, y: 150, type: 'quantum' },
+                { id: 'qn2', dataFlow: 800, x: 300, y: 100, type: 'neural' },
+                { id: 'qn3', dataFlow: 1200, x: 500, y: 200, type: 'blockchain' },
+                { id: 'qn4', dataFlow: 900, x: 200, y: 300, type: 'ai' },
+                { id: 'qn5', dataFlow: 1100, x: 400, y: 250, type: 'iot' }
+            ];
+            
+            const quantumConnections = [
+                { id: 'qc1', source: quantumNodes[0], target: quantumNodes[1], bandwidth: 500 },
+                { id: 'qc2', source: quantumNodes[1], target: quantumNodes[2], bandwidth: 750 },
+                { id: 'qc3', source: quantumNodes[2], target: quantumNodes[3], bandwidth: 600 },
+                { id: 'qc4', source: quantumNodes[3], target: quantumNodes[4], bandwidth: 800 },
+                { id: 'qc5', source: quantumNodes[0], target: quantumNodes[4], bandwidth: 700 }
+            ];
+            
+            // Optimize network flow
+            const optimization = optimizeNetworkFlow(quantumNodes, quantumConnections);
+            
+            // Display network status in console for demo
+            console.log('🌐 Quantum Network Optimization Results:');
+            console.log('Flow Capacities:', optimization.flowCapacity);
+            console.log('Node Importance Rankings:');
+            quantumNodes.sort((a, b) => b.importance - a.importance);
+            quantumNodes.forEach((node, index) => {
+                console.log(`${index + 1}. ${node.type.toUpperCase()} Node: ${node.importance.toFixed(2)} importance`);
+            });
+            
+            return optimization;
+        }
+        
+        // Real-time Network Monitoring
+        function startNetworkMonitoring() {
+            const networkStatus = document.createElement('div');
+            networkStatus.className = 'fixed bottom-4 right-4 tech-card rounded-lg p-4 z-50 max-w-xs';
+            networkStatus.innerHTML = `
+                <div class="scan-line"></div>
+                <h4 class="cyber-font text-sm font-bold text-cyan-400 mb-2 glow-text">NETWORK STATUS</h4>
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Quantum Nodes:</span>
+                        <span class="text-green-400 cyber-font" id="quantum-nodes">5</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Data Flow:</span>
+                        <span class="text-cyan-400 cyber-font" id="data-flow">1.2TB/s</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Optimization:</span>
+                        <span class="text-purple-400 cyber-font" id="optimization">98.7%</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Latency:</span>
+                        <span class="text-orange-400 cyber-font" id="latency">0.3ms</span>
+                    </div>
+                </div>
+                <div class="mt-3 p-2 bg-green-500/10 border border-green-500/30 rounded">
+                    <div class="flex items-center">
+                        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2"></div>
+                        <span class="text-green-400 text-xs cyber-font">OPTIMAL FLOW ACTIVE</span>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(networkStatus);
+            
+            // Simulate real-time updates
+            setInterval(() => {
+                const dataFlowElement = document.getElementById('data-flow');
+                const optimizationElement = document.getElementById('optimization');
+                const latencyElement = document.getElementById('latency');
+                
+                if (dataFlowElement) {
+                    const flow = (Math.random() * 0.5 + 1.0).toFixed(1);
+                    dataFlowElement.textContent = `${flow}TB/s`;
+                }
+                
+                if (optimizationElement) {
+                    const opt = (Math.random() * 2 + 97).toFixed(1);
+                    optimizationElement.textContent = `${opt}%`;
+                }
+                
+                if (latencyElement) {
+                    const lat = (Math.random() * 0.3 + 0.1).toFixed(1);
+                    latencyElement.textContent = `${lat}ms`;
+                }
+            }, 2000);
+        }
+        
+        // Enhanced Neural Network Visualization
+        function enhanceNeuralNetwork() {
+            const neuralContainer = document.getElementById('neural-network');
+            
+            // Create network connections
+            for (let i = 0; i < 20; i++) {
+                const connection = document.createElement('div');
+                connection.style.position = 'absolute';
+                connection.style.width = '2px';
+                connection.style.height = Math.random() * 200 + 50 + 'px';
+                connection.style.background = 'linear-gradient(to bottom, transparent, rgba(0, 245, 255, 0.3), transparent)';
+                connection.style.left = Math.random() * 100 + '%';
+                connection.style.top = Math.random() * 100 + '%';
+                connection.style.transform = `rotate(${Math.random() * 360}deg)`;
+                connection.style.animation = `neural-pulse ${Math.random() * 3 + 2}s infinite`;
+                connection.style.animationDelay = Math.random() * 2 + 's';
+                
+                neuralContainer.appendChild(connection);
+            }
+        }
+        
+        // Blockchain Network Simulation
+        function simulateBlockchainNetwork() {
+            const blockchainNodes = [];
+            const blockchainConnections = [];
+            
+            // Generate blockchain network topology
+            for (let i = 0; i < 8; i++) {
+                blockchainNodes.push({
+                    id: `bc${i}`,
+                    dataFlow: Math.random() * 500 + 500,
+                    x: Math.random() * 600 + 100,
+                    y: Math.random() * 400 + 100,
+                    type: 'blockchain',
+                    blocks: Math.floor(Math.random() * 1000) + 500
+                });
+            }
+            
+            // Create mesh network connections
+            for (let i = 0; i < blockchainNodes.length; i++) {
+                for (let j = i + 1; j < blockchainNodes.length; j++) {
+                    if (Math.random() > 0.6) { // 40% connection probability
+                        blockchainConnections.push({
+                            id: `bc_conn_${i}_${j}`,
+                            source: blockchainNodes[i],
+                            target: blockchainNodes[j],
+                            bandwidth: Math.random() * 300 + 200
+                        });
+                    }
+                }
+            }
+            
+            const blockchainOptimization = optimizeNetworkFlow(blockchainNodes, blockchainConnections);
+            
+            console.log('⛓️ Blockchain Network Analysis:');
+            console.log(`Total Nodes: ${blockchainNodes.length}`);
+            console.log(`Total Connections: ${blockchainConnections.length}`);
+            console.log('Network Optimization:', blockchainOptimization);
+            
+            return blockchainOptimization;
+        }
+        
+        // Initialize all animations on load
+        window.addEventListener('load', () => {
+            // Trigger initial counter animation for visible sections
+            const homeSection = document.getElementById('home');
+            if (homeSection.getBoundingClientRect().top < window.innerHeight) {
+                animateCounters();
+            }
+            
+            // Initialize network systems
+            setTimeout(() => {
+                simulateQuantumNetwork();
+                simulateBlockchainNetwork();
+                enhanceNeuralNetwork();
+                startNetworkMonitoring();
+                
+                // Show network initialization notification
+                showNotification('🌐 Quantum Network Systems Initialized - Optimal Flow Active', 'success');
+            }, 2000);
+        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9679d34810dc8836',t:'MTc1MzkzMDYxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'967a57add679d3d8',t:'MTc1MzkzNjAzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
