@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCode Matrix - Neural Link Active</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;700;900&family=Share+Tech+Mono:wght@400&family=Rajdhani:wght@300;400;600;700&family=Exo+2:wght@300;400;600;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Orbitron', monospace;
+            background: #000;
+            overflow: hidden;
+            color: #00ff88;
+            cursor: crosshair;
+            perspective: 2000px;
+        }
+        
+        .cyber-matrix-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.3) 0%, transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.3) 0%, transparent 30%),
+                radial-gradient(circle at 50% 10%, rgba(255, 0, 128, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 10% 90%, rgba(128, 0, 255, 0.2) 0%, transparent 40%),
+                linear-gradient(135deg, #000000 0%, #001122 25%, #002244 50%, #001122 75%, #000000 100%);
+            animation: cyberBackgroundShift 30s ease-in-out infinite;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .holographic-scan-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent 0px,
+                    rgba(0, 255, 136, 0.1) 1px,
+                    transparent 2px,
+                    transparent 4px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px,
+                    rgba(0, 255, 255, 0.08) 1px,
+                    transparent 2px,
+                    transparent 20px
+                );
+            animation: holographicScan 10s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+            mix-blend-mode: screen;
+        }
+        
+        .matrix-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            overflow: hidden;
+        }
+        
+        .matrix-column {
+            position: absolute;
+            top: -100%;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 14px;
+            color: #00ff88;
+            text-shadow: 0 0 10px currentColor;
+            animation: matrixFall linear infinite;
+            white-space: nowrap;
+            opacity: 0.7;
+        }
+        
+        .neural-processor {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(20deg) rotateY(10deg);
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(0, 255, 136, 0.6) 0%, transparent 25%),
+                radial-gradient(circle at 70% 70%, rgba(0, 255, 255, 0.6) 0%, transparent 25%),
+                conic-gradient(from 0deg, #00ff88, #00ffff, #ff0080, #8000ff, #ffff00, #00ff88);
+            border: 3px solid #00ff88;
+            animation: neuralSpin 25s linear infinite, neuralPulse 4s ease-in-out infinite;
+            box-shadow: 
+                0 0 200px #00ff88,
+                inset 0 0 100px rgba(0, 255, 136, 0.3),
+                0 0 400px rgba(0, 255, 136, 0.2),
+                0 30px 80px rgba(0, 0, 0, 0.6);
+            z-index: 5;
+            transform-style: preserve-3d;
+        }
+        
+        .holo-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateZ(45deg);
+            width: 150px;
+            height: 150px;
+            background: 
+                radial-gradient(circle, #ffffff 0%, #00ff88 30%, #00ffff 60%, #ff0080 100%);
+            border-radius: 50%;
+            animation: holoCoreSpin 12s linear infinite reverse;
+            box-shadow: 0 0 80px #00ff88, inset 0 0 40px rgba(255, 255, 255, 0.2);
+        }
+        
+        .quantum-matrix {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(45deg);
+            width: 60px;
+            height: 60px;
+            background: 
+                radial-gradient(circle, #ffff00 0%, #ff0080 50%, #8000ff 100%);
+            border-radius: 50%;
+            animation: quantumMatrixSpin 6s linear infinite;
+            box-shadow: 0 0 40px #ffff00, inset 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        
+        .cyber-window {
+            position: absolute;
+            backdrop-filter: blur(20px) saturate(150%);
+            border-radius: 15px;
+            box-shadow: 
+                0 0 60px rgba(0, 255, 136, 0.3),
+                inset 0 0 40px rgba(0, 255, 136, 0.1),
+                0 15px 40px rgba(0, 0, 0, 0.6);
+            z-index: 12;
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+        
+        .cyber-window.collapsed .window-content {
+            max-height: 0;
+            opacity: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: 0;
+        }
+        
+        .cyber-window.minimized {
+            transform: scale(0.1) translateY(200px);
+            opacity: 0.3;
+        }
+        
+        .window-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        
+        .window-header:hover {
+            background: rgba(0, 255, 136, 0.05);
+            border-bottom-color: rgba(0, 255, 136, 0.5);
+        }
+        
+        .window-title {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: #00ff88;
+            text-shadow: 0 0 20px currentColor;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Exo 2', sans-serif;
+        }
+        
+        .window-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .window-control {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            border: 1px solid currentColor;
+        }
+        
+        .window-control:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px currentColor;
+        }
+        
+        .control-minimize {
+            color: #ffff00;
+            background: rgba(255, 255, 0, 0.1);
+        }
+        
+        .control-collapse {
+            color: #00ffff;
+            background: rgba(0, 255, 255, 0.1);
+        }
+        
+        .control-close {
+            color: #ff0080;
+            background: rgba(255, 0, 128, 0.1);
+        }
+        
+        .window-content {
+            max-height: 1000px;
+            opacity: 1;
+            padding: 20px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+        
+        .neural-explorer {
+            top: 20px;
+            left: 20px;
+            background: 
+                linear-gradient(135deg, rgba(0, 20, 10, 0.9) 0%, rgba(0, 30, 20, 0.9) 50%, rgba(0, 20, 10, 0.9) 100%),
+                rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(0, 255, 136, 0.7);
+            min-width: 380px;
+            transform: rotateX(5deg) rotateY(-3deg) translateZ(30px);
+            animation: explorerFloat 6s ease-in-out infinite;
+        }
+        
+        .neural-status {
+            margin-left: 10px;
+            font-size: 10px;
+            color: #00ffff;
+            font-weight: 400;
+            animation: statusBlink 2s ease-in-out infinite;
+        }
+        
+        .file-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+        }
+        
+        .file-item:hover {
+            background: rgba(0, 255, 136, 0.1);
+            transform: translateX(8px) translateZ(5px);
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.2);
+        }
+        
+        .file-icon {
+            margin-right: 10px;
+            font-size: 14px;
+            filter: drop-shadow(0 0 6px currentColor);
+        }
+        
+        .file-name {
+            color: #cccccc;
+            flex: 1;
+        }
+        
+        .file-ext {
+            color: #00ff88;
+            font-weight: bold;
+        }
+        
+        .folder-item {
+            color: #00ffff;
+            font-weight: 600;
+        }
+        
+        .neural-code-matrix {
+            top: 20px;
+            right: 20px;
+            background: rgba(20, 0, 40, 0.9);
+            border: 2px solid #8000ff;
+            min-width: 450px;
+            max-height: 380px;
+            transform: rotateX(5deg) rotateY(3deg) translateZ(30px);
+            animation: codeMatrixFloat 7s ease-in-out infinite;
+            font-family: 'Share Tech Mono', monospace;
+        }
+        
+        .code-stats {
+            font-size: 9px;
+            color: #cccccc;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        
+        .code-content {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .code-line {
+            margin-bottom: 3px;
+            font-size: 10px;
+            line-height: 1.4;
+            opacity: 0.9;
+            animation: codeFlicker 4s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .code-line:hover {
+            transform: translateX(6px) translateZ(3px);
+            opacity: 1;
+            text-shadow: 0 0 10px currentColor;
+            background: rgba(128, 0, 255, 0.05);
+            border-radius: 3px;
+            padding: 1px 4px;
+        }
+        
+        .code-import { color: #ff0080; font-weight: bold; }
+        .code-class { color: #00ff88; font-weight: bold; }
+        .code-method { color: #00ffff; font-weight: bold; }
+        .code-string { color: #ffff00; }
+        .code-keyword { color: #ff8000; font-weight: bold; }
+        .code-comment { color: #888888; font-style: italic; }
+        .code-number { color: #ff0080; }
+        
+        .neural-analytics {
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 40, 20, 0.9);
+            border: 2px solid #00ffff;
+            min-width: 280px;
+            transform: rotateX(-5deg) rotateY(-3deg) translateZ(30px);
+            animation: analyticsFloat 8s ease-in-out infinite;
+        }
+        
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 11px;
+            padding: 4px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .metric-item:hover {
+            transform: translateX(4px) translateZ(2px);
+            background: rgba(0, 255, 255, 0.05);
+            border-radius: 4px;
+            padding: 4px 6px;
+        }
+        
+        .metric-label {
+            color: #cccccc;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        
+        .metric-value {
+            color: #00ffff;
+            font-weight: bold;
+            text-shadow: 0 0 10px currentColor;
+            animation: metricPulse 2s ease-in-out infinite;
+        }
+        
+        .neural-activity-feed {
+            bottom: 20px;
+            right: 20px;
+            background: rgba(40, 0, 20, 0.9);
+            border: 2px solid #ff0080;
+            min-width: 350px;
+            max-height: 300px;
+            transform: rotateX(-5deg) rotateY(3deg) translateZ(30px);
+            animation: activityFloat 9s ease-in-out infinite;
+        }
+        
+        .activity-content {
+            max-height: 220px;
+            overflow-y: auto;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+            font-size: 10px;
+            padding: 4px 0;
+            transition: all 0.3s ease;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        
+        .activity-item:hover {
+            transform: translateX(4px) translateZ(2px);
+            background: rgba(255, 0, 128, 0.05);
+            border-radius: 4px;
+            padding: 4px 6px;
+        }
+        
+        .activity-time {
+            color: #ff0080;
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 40px;
+        }
+        
+        .activity-text {
+            color: #cccccc;
+            flex: 1;
+        }
+        
+        .neural-data-stream {
+            position: absolute;
+            font-size: 12px;
+            color: #00ffff;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            animation: neuralDataFlow 4s linear infinite;
+            opacity: 0.8;
+            text-shadow: 0 0 10px currentColor;
+            white-space: nowrap;
+            z-index: 3;
+        }
+        
+        .holographic-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, #ffffff 0%, #00ff88 50%, #000000 100%);
+            border-radius: 50%;
+            animation: holographicFloat 10s ease-in-out infinite;
+            box-shadow: 0 0 20px currentColor;
+            z-index: 4;
+        }
+        
+        .glitch-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px,
+                    rgba(255, 0, 128, 0.02) 2px,
+                    transparent 4px,
+                    transparent 6px
+                );
+            animation: glitchShift 6s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1000;
+            mix-blend-mode: screen;
+            opacity: 0;
+        }
+        
+        .glitch-effect.active {
+            opacity: 1;
+            animation: glitchShift 1.5s ease-in-out, glitchPulse 3s ease-in-out;
+        }
+        
+        .window-hidden {
+            display: none;
+        }
+        
+        @keyframes cyberBackgroundShift {
+            0%, 100% { filter: hue-rotate(0deg) brightness(1) contrast(1.1); }
+            25% { filter: hue-rotate(20deg) brightness(1.2) contrast(0.9); }
+            50% { filter: hue-rotate(40deg) brightness(0.8) contrast(1.3); }
+            75% { filter: hue-rotate(60deg) brightness(1.1) contrast(1.0); }
+        }
+        
+        @keyframes holographicScan {
+            0% { background-position: 0 0, 0 0; }
+            100% { background-position: 4px 4px, 20px 20px; }
+        }
+        
+        @keyframes neuralSpin {
+            0% { transform: translate(-50%, -50%) rotateX(20deg) rotateY(10deg) rotateZ(0deg); }
+            100% { transform: translate(-50%, -50%) rotateX(20deg) rotateY(10deg) rotateZ(360deg); }
+        }
+        
+        @keyframes neuralPulse {
+            0%, 100% { 
+                box-shadow: 0 0 200px #00ff88, inset 0 0 100px rgba(0, 255, 136, 0.3), 0 0 400px rgba(0, 255, 136, 0.2), 0 30px 80px rgba(0, 0, 0, 0.6);
+                transform: translate(-50%, -50%) rotateX(20deg) rotateY(10deg) scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 300px #00ff88, inset 0 0 150px rgba(0, 255, 136, 0.5), 0 0 600px rgba(0, 255, 136, 0.4), 0 45px 120px rgba(0, 0, 0, 0.8);
+                transform: translate(-50%, -50%) rotateX(20deg) rotateY(10deg) scale(1.1);
+            }
+        }
+        
+        @keyframes holoCoreSpin {
+            0% { transform: translate(-50%, -50%) rotateZ(45deg) rotateY(0deg); }
+            100% { transform: translate(-50%, -50%) rotateZ(45deg) rotateY(-360deg); }
+        }
+        
+        @keyframes quantumMatrixSpin {
+            0% { transform: translate(-50%, -50%) rotateX(45deg) rotateZ(0deg); }
+            100% { transform: translate(-50%, -50%) rotateX(45deg) rotateZ(360deg); }
+        }
+        
+        @keyframes explorerFloat {
+            0%, 100% { 
+                transform: rotateX(5deg) rotateY(-3deg) translateZ(30px) translateY(0px);
+            }
+            50% { 
+                transform: rotateX(8deg) rotateY(-6deg) translateZ(40px) translateY(-10px);
+            }
+        }
+        
+        @keyframes codeMatrixFloat {
+            0%, 100% { 
+                transform: rotateX(5deg) rotateY(3deg) translateZ(30px) translateY(0px);
+            }
+            50% { 
+                transform: rotateX(8deg) rotateY(6deg) translateZ(40px) translateY(-12px);
+            }
+        }
+        
+        @keyframes analyticsFloat {
+            0%, 100% { 
+                transform: rotateX(-5deg) rotateY(-3deg) translateZ(30px) translateY(0px);
+            }
+            50% { 
+                transform: rotateX(-8deg) rotateY(-6deg) translateZ(40px) translateY(-8px);
+            }
+        }
+        
+        @keyframes activityFloat {
+            0%, 100% { 
+                transform: rotateX(-5deg) rotateY(3deg) translateZ(30px) translateY(0px);
+            }
+            50% { 
+                transform: rotateX(-8deg) rotateY(6deg) translateZ(40px) translateY(-15px);
+            }
+        }
+        
+        @keyframes statusBlink {
+            0%, 100% { 
+                text-shadow: 0 0 10px currentColor;
+                opacity: 1;
+            }
+            50% { 
+                text-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+                opacity: 0.7;
+            }
+        }
+        
+        @keyframes codeFlicker {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes metricPulse {
+            0%, 100% { 
+                text-shadow: 0 0 10px currentColor;
+                transform: scale(1);
+            }
+            50% { 
+                text-shadow: 0 0 15px currentColor, 0 0 25px currentColor;
+                transform: scale(1.05);
+            }
+        }
+        
+        @keyframes neuralDataFlow {
+            0% { 
+                opacity: 0; 
+                transform: translateX(-600px) translateZ(-30px);
+            }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { 
+                opacity: 0; 
+                transform: translateX(600px) translateZ(30px);
+            }
+        }
+        
+        @keyframes holographicFloat {
+            0%, 100% { 
+                transform: scale(1) rotateX(0deg) rotateY(0deg) translateZ(0px);
+                opacity: 1;
+            }
+            25% { 
+                transform: scale(1.5) rotateX(90deg) rotateY(45deg) translateZ(20px);
+                opacity: 0.3;
+            }
+            50% { 
+                transform: scale(0.5) rotateX(180deg) rotateY(90deg) translateZ(-15px);
+                opacity: 1;
+            }
+            75% { 
+                transform: scale(1.2) rotateX(270deg) rotateY(135deg) translateZ(25px);
+                opacity: 0.5;
+            }
+        }
+        
+        @keyframes glitchShift {
+            0%, 100% { 
+                opacity: 0;
+                transform: translateX(0px);
+            }
+            50% { 
+                opacity: 1;
+                transform: translateX(1px);
+            }
+        }
+        
+        @keyframes glitchPulse {
+            0%, 100% { 
+                filter: blur(0px);
+            }
+            50% { 
+                filter: blur(1px);
+            }
+        }
+        
+        @keyframes matrixFall {
+            0% { 
+                top: -100%;
+                opacity: 0;
+            }
+            10% { 
+                opacity: 1;
+            }
+            90% { 
+                opacity: 1;
+            }
+            100% { 
+                top: 100vh;
+                opacity: 0;
+            }
+        }
+        
+        @keyframes neuralWaveExpand {
+            0% { 
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 1;
+            }
+            100% { 
+                transform: translate(-50%, -50%) scale(15);
+                opacity: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .neural-processor {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .cyber-window {
+                position: relative;
+                margin: 10px;
+                min-width: auto;
+                max-width: calc(100vw - 40px);
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-matrix-container">
+        <!-- Holographic Scan Lines -->
+        <div class="holographic-scan-lines"></div>
+        
+        <!-- Matrix Rain -->
+        <div class="matrix-rain" id="matrixRain"></div>
+        
+        <!-- Glitch Effect -->
+        <div class="glitch-effect" id="glitchEffect"></div>
+        
+        <!-- Neural Processor -->
+        <div class="neural-processor" id="neuralProcessor">
+            <div class="holo-core">
+                <div class="quantum-matrix"></div>
+            </div>
+        </div>
+        
+        <!-- Neural Explorer -->
+        <div class="cyber-window neural-explorer" id="explorerWindow">
+            <div class="window-header" onclick="toggleWindow('explorerWindow')">
+                <div class="window-title">
+                    <span>🗂️ Neural Explorer</span>
+                    <div class="neural-status">Neural Link Active • 3D Mode • Holographic Interface</div>
+                </div>
+                <div class="window-controls">
+                    <div class="window-control control-minimize" onclick="event.stopPropagation(); minimizeWindow('explorerWindow')" title="Minimize">−</div>
+                    <div class="window-control control-collapse" onclick="event.stopPropagation(); toggleWindow('explorerWindow')" title="Collapse">▼</div>
+                    <div class="window-control control-close" onclick="event.stopPropagation(); closeWindow('explorerWindow')" title="Close">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="file-item" onclick="selectFile('neural_system.js')">
+                    <span class="file-icon">🧠</span>
+                    <span class="file-name">neural_system</span>
+                    <span class="file-ext">.js</span>
+                </div>
+                <div class="file-item" onclick="selectFile('cyber_core.ts')">
+                    <span class="file-icon">⚡</span>
+                    <span class="file-name">cyber_core</span>
+                    <span class="file-ext">.ts</span>
+                </div>
+                <div class="file-item" onclick="selectFile('holo_interface.jsx')">
+                    <span class="file-icon">🔮</span>
+                    <span class="file-name">holo_interface</span>
+                    <span class="file-ext">.jsx</span>
+                </div>
+                <div class="file-item" onclick="selectFile('quantum_data.py')">
+                    <span class="file-icon">🌌</span>
+                    <span class="file-name">quantum_data</span>
+                    <span class="file-ext">.py</span>
+                </div>
+                <div class="file-item" onclick="selectFile('matrix_ai.cpp')">
+                    <span class="file-icon">🤖</span>
+                    <span class="file-name">matrix_ai</span>
+                    <span class="file-ext">.cpp</span>
+                </div>
+                <div class="file-item" onclick="selectFile('hologram_engine.rs')">
+                    <span class="file-icon">🔷</span>
+                    <span class="file-name">hologram_engine</span>
+                    <span class="file-ext">.rs</span>
+                </div>
+                <div class="file-item folder-item" onclick="toggleFolder('components')">
+                    <span class="file-icon">📁</span>
+                    <span class="file-name folder-item">components/</span>
+                </div>
+                <div class="file-item" onclick="selectFile('HoloPanel.jsx')" style="margin-left: 20px;">
+                    <span class="file-icon">🔷</span>
+                    <span class="file-name">HoloPanel</span>
+                    <span class="file-ext">.jsx</span>
+                </div>
+                <div class="file-item" onclick="selectFile('NeuralFeed.jsx')" style="margin-left: 20px;">
+                    <span class="file-icon">📡</span>
+                    <span class="file-name">NeuralFeed</span>
+                    <span class="file-ext">.jsx</span>
+                </div>
+                <div class="file-item" onclick="selectFile('DataViz3D.jsx')" style="margin-left: 20px;">
+                    <span class="file-icon">📊</span>
+                    <span class="file-name">DataViz3D</span>
+                    <span class="file-ext">.jsx</span>
+                </div>
+                <div class="file-item" onclick="selectFile('config.json')">
+                    <span class="file-icon">⚙️</span>
+                    <span class="file-name">config</span>
+                    <span class="file-ext">.json</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Neural Code Matrix -->
+        <div class="cyber-window neural-code-matrix" id="codeWindow">
+            <div class="window-header" onclick="toggleWindow('codeWindow')">
+                <div class="window-title">
+                    <span>Neural Code Matrix</span>
+                    <div class="code-stats">neural_system.js</div>
+                </div>
+                <div class="window-controls">
+                    <div class="window-control control-minimize" onclick="event.stopPropagation(); minimizeWindow('codeWindow')" title="Minimize">−</div>
+                    <div class="window-control control-collapse" onclick="event.stopPropagation(); toggleWindow('codeWindow')" title="Collapse">▼</div>
+                    <div class="window-control control-close" onclick="event.stopPropagation(); closeWindow('codeWindow')" title="Close">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="code-content">
+                    <div class="code-line"><span class="code-import">import</span> { <span class="code-class">NeuralProcessor</span>, <span class="code-class">HoloCore</span>, <span class="code-class">QuantumMatrix</span> } <span class="code-import">from</span> <span class="code-string">'@cyber/neural-core'</span>;</div>
+                    <div class="code-line"><span class="code-import">import</span> { <span class="code-class">Analytics</span>, <span class="code-class">DataViz</span>, <span class="code-class">RealTimeMonitor</span> } <span class="code-import">from</span> <span class="code-string">'@cyber/analytics'</span>;</div>
+                    <div class="code-line"><span class="code-import">import</span> { <span class="code-class">GlassMorphism</span>, <span class="code-class">ParticleSystem</span>, <span class="code-class">GlitchEngine</span> } <span class="code-import">from</span> <span class="code-string">'@cyber/effects'</span>;</div>
+                    <div class="code-line"><span class="code-comment">// Advanced Cyberpunk Neural System with Holographic Interface</span></div>
+                    <div class="code-line"><span class="code-keyword">class</span> <span class="code-class">CyberNeuralSystem</span> {</div>
+                    <div class="code-line">&nbsp;&nbsp;<span class="code-keyword">constructor</span>(<span class="code-string">config</span>) {</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">neuralProcessor</span> = <span class="code-keyword">new</span> <span class="code-class">NeuralProcessor</span>(<span class="code-string">config</span>);</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">holoCore</span> = <span class="code-keyword">new</span> <span class="code-class">HoloCore</span>({ dimension: <span class="code-string">'3D'</span>, holographic: <span class="code-keyword">true</span> });</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">quantumMatrix</span> = <span class="code-keyword">new</span> <span class="code-class">QuantumMatrix</span>({ neural: <span class="code-keyword">true</span>, cyberpunk: <span class="code-keyword">true</span> });</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">analytics</span> = <span class="code-keyword">new</span> <span class="code-class">Analytics</span>({ realTime: <span class="code-keyword">true</span>, cyberpunk: <span class="code-keyword">true</span> });</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">dataViz</span> = <span class="code-keyword">new</span> <span class="code-class">DataViz</span>({ holographic: <span class="code-keyword">true</span>, interactive: <span class="code-keyword">true</span> });</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">monitor</span> = <span class="code-keyword">new</span> <span class="code-class">RealTimeMonitor</span>({ neural: <span class="code-keyword">true</span>, quantum: <span class="code-keyword">true</span> });</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">glassMorphism</span> = <span class="code-keyword">new</span> <span class="code-class">GlassMorphism</span>({ blur: <span class="code-string">'30px'</span>, opacity: <span class="code-number">0.15</span> });</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">particles</span> = <span class="code-keyword">new</span> <span class="code-class">ParticleSystem</span>({ neural: <span class="code-keyword">true</span>, floating: <span class="code-keyword">true</span> });</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">glitchEngine</span> = <span class="code-keyword">new</span> <span class="code-class">GlitchEngine</span>({ intensity: <span class="code-string">'high'</span>, scanLines: <span class="code-keyword">true</span> });</div>
+                    <div class="code-line">&nbsp;&nbsp;}</div>
+                    <div class="code-line">&nbsp;&nbsp;<span class="code-keyword">async</span> <span class="code-method">initializeNeuralNetwork</span>() {</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">try</span> {</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">neuralProcessor</span>.<span class="code-method">connect</span>();</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">holoCore</span>.<span class="code-method">activate</span>();</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">quantumMatrix</span>.<span class="code-method">synchronize</span>();</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-method">startRealTimeMonitoring</span>();</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-method">enableHolographicInterface</span>();</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;} <span class="code-keyword">catch</span> (<span class="code-string">error</span>) {</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">console</span>.<span class="code-method">error</span>(<span class="code-string">'Neural network initialization failed:'</span>, <span class="code-string">error</span>);</div>
+                    <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+                    <div class="code-line">&nbsp;&nbsp;}</div>
+                    <div class="code-line">}</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Neural Analytics -->
+        <div class="cyber-window neural-analytics" id="analyticsWindow">
+            <div class="window-header" onclick="toggleWindow('analyticsWindow')">
+                <div class="window-title">📊 Neural Analytics</div>
+                <div class="window-controls">
+                    <div class="window-control control-minimize" onclick="event.stopPropagation(); minimizeWindow('analyticsWindow')" title="Minimize">−</div>
+                    <div class="window-control control-collapse" onclick="event.stopPropagation(); toggleWindow('analyticsWindow')" title="Collapse">▼</div>
+                    <div class="window-control control-close" onclick="event.stopPropagation(); closeWindow('analyticsWindow')" title="Close">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="metric-item">
+                    <span class="metric-label">CPU Usage</span>
+                    <span class="metric-value" id="cpuUsage">89%</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Memory</span>
+                    <span class="metric-value" id="memoryUsage">60%</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Network</span>
+                    <span class="metric-value" id="networkUsage">67%</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-label">Storage</span>
+                    <span class="metric-value" id="storageUsage">51%</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Neural Activity Feed -->
+        <div class="cyber-window neural-activity-feed" id="activityWindow">
+            <div class="window-header" onclick="toggleWindow('activityWindow')">
+                <div class="window-title">Neural Activity Feed</div>
+                <div class="window-controls">
+                    <div class="window-control control-minimize" onclick="event.stopPropagation(); minimizeWindow('activityWindow')" title="Minimize">−</div>
+                    <div class="window-control control-collapse" onclick="event.stopPropagation(); toggleWindow('activityWindow')" title="Collapse">▼</div>
+                    <div class="window-control control-close" onclick="event.stopPropagation(); closeWindow('activityWindow')" title="Close">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="activity-content">
+                    <div class="activity-item">
+                        <span class="activity-time">14:32</span>
+                        <span class="activity-text">Neural network synchronized with quantum matrix</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-time">14:31</span>
+                        <span class="activity-text">Holographic interface projection activated</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-time">14:30</span>
+                        <span class="activity-text">Real-time monitoring system online</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-time">14:29</span>
+                        <span class="activity-text">Glass morphism effects initialized</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-time">14:28</span>
+                        <span class="activity-text">Particle system activated</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-time">14:27</span>
+                        <span class="activity-text">Glitch engine calibrated</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-time">14:26</span>
+                        <span class="activity-text">Neural processor connection established</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-time">14:25</span>
+                        <span class="activity-text">Cyberpunk interface theme loaded</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-time">14:24</span>
+                        <span class="activity-text">3D rendering engine initialized</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-time">14:23</span>
+                        <span class="activity-text">System boot sequence completed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dynamic Elements Container -->
+        <div id="dynamicElements"></div>
+    </div>
+
+    <script>
+        let cyberSystem = {
+            neuralLayers: 12,
+            quantumCores: 8,
+            rendering3D: true,
+            hologramDepth: 'deep',
+            matrixConnected: true,
+            glitchIntensity: 'high',
+            dataProcessingRate: '2.4TB/s',
+            initialized: false,
+            processing: false
+        };
+        
+        // Neural data streams
+        const neuralDataStreams = [
+            'NEURAL_PROCESSOR_CONNECTED_QUANTUM',
+            'HOLO_CORE_PROJECTING_3D_HOLOGRAM',
+            'QUANTUM_MATRIX_SYNCHRONIZED_12_LAYERS',
+            'ANALYTICS_MONITORING_REALTIME_CYBERPUNK',
+            'DATA_VIZ_RENDERING_HOLOGRAPHIC_INTERACTIVE',
+            'GLASS_MORPHISM_BLUR_30PX_OPACITY_15',
+            'PARTICLE_SYSTEM_NEURAL_FLOATING_ACTIVE',
+            'GLITCH_ENGINE_HIGH_INTENSITY_SCAN_LINES',
+            'REAL_TIME_MONITOR_NEURAL_QUANTUM_ACTIVE',
+            'HOLOGRAPHIC_INTERFACE_PROJECTION_ENABLED',
+            'NEURAL_NETWORK_INITIALIZATION_COMPLETE',
+            'CYBERPUNK_THEME_LOADED_SUCCESSFULLY',
+            '3D_RENDERING_ENGINE_ACTIVE',
+            'QUANTUM_PROCESSORS_8_CORES_ONLINE',
+            'MATRIX_CONNECTION_ESTABLISHED',
+            'NEURAL_LAYERS_12_SYNCHRONIZED'
+        ];
+        
+        // Window management functions
+        function toggleWindow(windowId) {
+            const window = document.getElementById(windowId);
+            const collapseBtn = window.querySelector('.control-collapse');
+            
+            if (window.classList.contains('collapsed')) {
+                window.classList.remove('collapsed');
+                collapseBtn.textContent = '▼';
+                collapseBtn.title = 'Collapse';
+            } else {
+                window.classList.add('collapsed');
+                collapseBtn.textContent = '▲';
+                collapseBtn.title = 'Expand';
+            }
+            
+            // Create window toggle effect
+            createWindowToggleEffect();
+        }
+        
+        function minimizeWindow(windowId) {
+            const window = document.getElementById(windowId);
+            
+            if (window.classList.contains('minimized')) {
+                window.classList.remove('minimized');
+            } else {
+                window.classList.add('minimized');
+                setTimeout(() => {
+                    window.classList.remove('minimized');
+                }, 3000); // Auto-restore after 3 seconds
+            }
+            
+            // Create minimize effect
+            createMinimizeEffect();
+        }
+        
+        function closeWindow(windowId) {
+            const window = document.getElementById(windowId);
+            window.classList.add('window-hidden');
+            
+            // Create close effect
+            createCloseEffect();
+            
+            // Auto-restore after 5 seconds
+            setTimeout(() => {
+                window.classList.remove('window-hidden');
+            }, 5000);
+        }
+        
+        // Initialize cyber system
+        function initializeCyberSystem() {
+            createHolographicParticles();
+            createNeuralDataStreams();
+            createMatrixRain();
+            updateMetrics();
+            setInterval(updateMetrics, 2000);
+            setInterval(createHolographicParticles, 1500);
+            setInterval(createNeuralDataStreams, 3000);
+            setInterval(createMatrixRain, 500);
+            setInterval(triggerRandomGlitch, 6000);
+        }
+        
+        // Create holographic particles
+        function createHolographicParticles() {
+            const container = document.querySelector('.cyber-matrix-container');
+            
+            for (let i = 0; i < 4; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'holographic-particle';
+                
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDuration = (8 + Math.random() * 4) + 's';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                
+                const colors = ['#00ff88', '#00ffff', '#ff0080', '#8000ff', '#ffff00'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = `radial-gradient(circle, #ffffff 0%, ${color} 50%, #000000 100%)`;
+                particle.style.boxShadow = `0 0 20px ${color}`;
+                
+                container.appendChild(particle);
+                
+                setTimeout(() => particle.remove(), 12000);
+            }
+        }
+        
+        // Create neural data streams
+        function createNeuralDataStreams() {
+            const container = document.querySelector('.cyber-matrix-container');
+            
+            if (document.querySelectorAll('.neural-data-stream').length < 8) {
+                const stream = document.createElement('div');
+                stream.className = 'neural-data-stream';
+                stream.textContent = neuralDataStreams[Math.floor(Math.random() * neuralDataStreams.length)];
+                
+                const direction = Math.random() > 0.5 ? 1 : -1;
+                stream.style.left = direction > 0 ? '-600px' : '100vw';
+                stream.style.top = Math.random() * 100 + '%';
+                stream.style.animationDuration = (3 + Math.random() * 2) + 's';
+                
+                const colors = ['#00ff88', '#00ffff', '#ff0080', '#8000ff', '#ffff00'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                stream.style.color = color;
+                stream.style.textShadow = `0 0 10px ${color}`;
+                
+                container.appendChild(stream);
+                
+                setTimeout(() => stream.remove(), 6000);
+            }
+        }
+        
+        // Create Matrix rain effect
+        function createMatrixRain() {
+            const container = document.getElementById('matrixRain');
+            const matrixChars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:,.<>?';
+            
+            if (document.querySelectorAll('.matrix-column').length < 20) {
+                const column = document.createElement('div');
+                column.className = 'matrix-column';
+                
+                // Generate random Matrix characters
+                let text = '';
+                const length = 10 + Math.random() * 15;
+                for (let i = 0; i < length; i++) {
+                    text += matrixChars[Math.floor(Math.random() * matrixChars.length)] + '<br>';
+                }
+                column.innerHTML = text;
+                
+                column.style.left = Math.random() * 100 + '%';
+                column.style.animationDuration = (8 + Math.random() * 4) + 's';
+                column.style.animationDelay = Math.random() * 2 + 's';
+                
+                // Vary the color intensity
+                const intensity = 0.3 + Math.random() * 0.7;
+                column.style.color = `rgba(0, 255, 136, ${intensity})`;
+                column.style.textShadow = `0 0 10px rgba(0, 255, 136, ${intensity})`;
+                
+                container.appendChild(column);
+                
+                setTimeout(() => column.remove(), 12000);
+            }
+        }
+        
+        // Update metrics
+        function updateMetrics() {
+            const cpuValues = ['89%', '92%', '87%', '94%', '85%', '91%'];
+            const memoryValues = ['60%', '65%', '58%', '72%', '55%', '68%'];
+            const networkValues = ['67%', '71%', '63%', '75%', '59%', '69%'];
+            const storageValues = ['51%', '54%', '48%', '57%', '45%', '52%'];
+            
+            document.getElementById('cpuUsage').textContent = cpuValues[Math.floor(Math.random() * cpuValues.length)];
+            document.getElementById('memoryUsage').textContent = memoryValues[Math.floor(Math.random() * memoryValues.length)];
+            document.getElementById('networkUsage').textContent = networkValues[Math.floor(Math.random() * networkValues.length)];
+            document.getElementById('storageUsage').textContent = storageValues[Math.floor(Math.random() * storageValues.length)];
+        }
+        
+        // File selection function
+        function selectFile(filename) {
+            console.log(`Selected file: ${filename}`);
+            
+            // Visual feedback
+            const processor = document.getElementById('neuralProcessor');
+            processor.style.animation += ', neuralPulse 1s ease-in-out 2';
+            
+            // Create file selection burst
+            createFileSelectionBurst();
+        }
+        
+        // Toggle folder function
+        function toggleFolder(foldername) {
+            console.log(`Toggled folder: ${foldername}`);
+            
+            // Create folder toggle effect
+            createFolderToggleEffect();
+        }
+        
+        // Trigger random glitch effect
+        function triggerRandomGlitch() {
+            const glitchEffect = document.getElementById('glitchEffect');
+            glitchEffect.classList.add('active');
+            
+            setTimeout(() => {
+                glitchEffect.classList.remove('active');
+            }, 3000);
+        }
+        
+        // Create window toggle effect
+        function createWindowToggleEffect() {
+            const container = document.querySelector('.cyber-matrix-container');
+            
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const pulse = document.createElement('div');
+                    pulse.style.cssText = `
+                        position: absolute;
+                        width: 4px;
+                        height: 4px;
+                        background: radial-gradient(circle, #ffffff 0%, #00ffff 50%, #000000 100%);
+                        border-radius: 50%;
+                        left: 50%;
+                        top: 50%;
+                        animation: holographicFloat 2s ease-out forwards;
+                        box-shadow: 0 0 15px #00ffff;
+                        z-index: 100;
+                    `;
+                    
+                    const angle = (i / 8) * 360;
+                    const distance = 80 + Math.random() * 40;
+                    pulse.style.transform = `translate(-50%, -50%) rotate(${angle}deg) translateX(${distance}px)`;
+                    
+                    container.appendChild(pulse);
+                    
+                    setTimeout(() => pulse.remove(), 2000);
+                }, i * 20);
+            }
+        }
+        
+        // Create minimize effect
+        function createMinimizeEffect() {
+            const container = document.querySelector('.cyber-matrix-container');
+            
+            const wave = document.createElement('div');
+            wave.style.cssText = `
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 40px;
+                height: 40px;
+                border: 2px solid rgba(255, 255, 0, 0.8);
+                border-radius: 50%;
+                animation: neuralWaveExpand 2s ease-out forwards;
+                box-shadow: 0 0 25px rgba(255, 255, 0, 0.4);
+                z-index: 50;
+            `;
+            
+            container.appendChild(wave);
+            
+            setTimeout(() => wave.remove(), 2000);
+        }
+        
+        // Create close effect
+        function createCloseEffect() {
+            const container = document.querySelector('.cyber-matrix-container');
+            
+            for (let i = 0; i < 6; i++) {
+                setTimeout(() => {
+                    const spark = document.createElement('div');
+                    spark.style.cssText = `
+                        position: absolute;
+                        width: 3px;
+                        height: 3px;
+                        background: radial-gradient(circle, #ffffff 0%, #ff0080 50%, #000000 100%);
+                        border-radius: 50%;
+                        left: 50%;
+                        top: 50%;
+                        animation: holographicFloat 1.5s ease-out forwards;
+                        box-shadow: 0 0 12px #ff0080;
+                        z-index: 100;
+                    `;
+                    
+                    const angle = (i / 6) * 360;
+                    const distance = 60 + Math.random() * 30;
+                    spark.style.transform = `translate(-50%, -50%) rotate(${angle}deg) translateX(${distance}px)`;
+                    
+                    container.appendChild(spark);
+                    
+                    setTimeout(() => spark.remove(), 1500);
+                }, i * 15);
+            }
+        }
+        
+        // Create file selection burst
+        function createFileSelectionBurst() {
+            const container = document.querySelector('.cyber-matrix-container');
+            
+            for (let i = 0; i < 12; i++) {
+                setTimeout(() => {
+                    const burst = document.createElement('div');
+                    burst.style.cssText = `
+                        position: absolute;
+                        width: 6px;
+                        height: 6px;
+                        background: radial-gradient(circle, #ffffff 0%, #00ff88 50%, #000000 100%);
+                        border-radius: 50%;
+                        left: 50%;
+                        top: 50%;
+                        animation: holographicFloat 3s ease-out forwards;
+                        box-shadow: 0 0 20px #00ff88;
+                        z-index: 100;
+                    `;
+                    
+                    const angle = (i / 12) * 360;
+                    const distance = 100 + Math.random() * 60;
+                    burst.style.transform = `translate(-50%, -50%) rotate(${angle}deg) translateX(${distance}px)`;
+                    
+                    container.appendChild(burst);
+                    
+                    setTimeout(() => burst.remove(), 3000);
+                }, i * 30);
+            }
+        }
+        
+        // Create folder toggle effect
+        function createFolderToggleEffect() {
+            const container = document.querySelector('.cyber-matrix-container');
+            
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const wave = document.createElement('div');
+                    wave.style.cssText = `
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 60px;
+                        height: 60px;
+                        border: 2px solid rgba(0, 255, 255, 0.6);
+                        border-radius: 50%;
+                        animation: neuralWaveExpand 3s ease-out forwards;
+                        box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+                        z-index: 50;
+                    `;
+                    
+                    container.appendChild(wave);
+                    
+                    setTimeout(() => wave.remove(), 3000);
+                }, i * 400);
+            }
+        }
+        
+        // Initialize system on load
+        window.addEventListener('load', initializeCyberSystem);
+        
+        // Handle window resize for responsiveness
+        window.addEventListener('resize', () => {
+            setTimeout(() => {
+                // Recreate elements for new dimensions
+                document.querySelectorAll('.neural-data-stream').forEach(el => el.remove());
+                createNeuralDataStreams();
+            }, 300);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9687d6ab31788836',t:'MTc1NDA3NzU1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
