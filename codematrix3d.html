@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCode Matrix 3D - Neural Link Active</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;700;900&family=Share+Tech+Mono:wght@400&family=Rajdhani:wght@300;400;600;700&family=Exo+2:wght@300;400;600;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Orbitron', monospace;
+            background: #000;
+            overflow: hidden;
+            color: #00ff88;
+            cursor: crosshair;
+            perspective: 2000px;
+        }
+        
+        .cyber-matrix-3d-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                radial-gradient(circle at 15% 15%, rgba(0, 255, 136, 0.4) 0%, transparent 25%),
+                radial-gradient(circle at 85% 85%, rgba(0, 255, 255, 0.4) 0%, transparent 25%),
+                radial-gradient(circle at 50% 5%, rgba(255, 0, 128, 0.3) 0%, transparent 30%),
+                radial-gradient(circle at 5% 95%, rgba(128, 0, 255, 0.3) 0%, transparent 30%),
+                linear-gradient(135deg, #000000 0%, #001a33 20%, #1a0044 40%, #440011 60%, #004433 80%, #000000 100%);
+            animation: cyber3DBackgroundShift 35s ease-in-out infinite;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .holographic-scan-lines-3d {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent 0px,
+                    rgba(0, 255, 136, 0.2) 1px,
+                    transparent 2px,
+                    transparent 3px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px,
+                    rgba(0, 255, 255, 0.15) 1px,
+                    transparent 2px,
+                    transparent 15px
+                ),
+                repeating-linear-gradient(
+                    45deg,
+                    transparent 0px,
+                    rgba(255, 0, 128, 0.1) 1px,
+                    transparent 2px,
+                    transparent 25px
+                );
+            animation: holographicScanFlow 12s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+            mix-blend-mode: screen;
+        }
+        
+        .matrix-3d-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            overflow: hidden;
+        }
+        
+        .matrix-3d-column {
+            position: absolute;
+            top: -100%;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 13px;
+            color: #00ff88;
+            text-shadow: 0 0 12px currentColor, 0 0 24px currentColor;
+            animation: matrix3DFall linear infinite;
+            white-space: nowrap;
+            opacity: 0.8;
+            transform-style: preserve-3d;
+        }
+        
+        .neural-processor-3d {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(25deg) rotateY(15deg);
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(0, 255, 136, 0.7) 0%, transparent 20%),
+                radial-gradient(circle at 75% 75%, rgba(0, 255, 255, 0.7) 0%, transparent 20%),
+                radial-gradient(circle at 50% 10%, rgba(255, 0, 128, 0.6) 0%, transparent 25%),
+                radial-gradient(circle at 10% 90%, rgba(128, 0, 255, 0.6) 0%, transparent 25%),
+                conic-gradient(from 0deg, #00ff88, #00ffff, #ff0080, #8000ff, #ffff00, #ff8000, #80ff00, #ff00ff, #00ff88);
+            border: 4px solid #00ff88;
+            animation: neural3DSpin 30s linear infinite, neural3DPulse 6s ease-in-out infinite;
+            box-shadow: 
+                0 0 300px #00ff88,
+                inset 0 0 200px rgba(0, 255, 136, 0.4),
+                0 0 600px rgba(0, 255, 136, 0.3),
+                0 40px 120px rgba(0, 0, 0, 0.8);
+            z-index: 5;
+            transform-style: preserve-3d;
+        }
+        
+        .holo-core-3d {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateZ(45deg);
+            width: 180px;
+            height: 180px;
+            background: 
+                radial-gradient(circle, #ffffff 0%, #00ff88 25%, #00ffff 50%, #ff0080 75%, #8000ff 100%);
+            border-radius: 50%;
+            animation: holoCore3DSpin 15s linear infinite reverse;
+            box-shadow: 0 0 120px #00ff88, inset 0 0 60px rgba(255, 255, 255, 0.25);
+            transform-style: preserve-3d;
+        }
+        
+        .quantum-matrix-3d {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(60deg);
+            width: 80px;
+            height: 80px;
+            background: 
+                radial-gradient(circle, #ffff00 0%, #ff0080 40%, #8000ff 70%, #00ffff 100%);
+            border-radius: 50%;
+            animation: quantumMatrix3DSpin 8s linear infinite;
+            box-shadow: 0 0 60px #ffff00, inset 0 0 30px rgba(255, 255, 255, 0.3);
+            transform-style: preserve-3d;
+        }
+        
+        .file-explorer-3d {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: 
+                linear-gradient(135deg, rgba(0, 25, 15, 0.95) 0%, rgba(0, 40, 25, 0.95) 50%, rgba(0, 25, 15, 0.95) 100%),
+                rgba(0, 0, 0, 0.6);
+            border: 3px solid rgba(0, 255, 136, 0.8);
+            border-radius: 20px;
+            padding: 25px;
+            backdrop-filter: blur(30px) saturate(180%);
+            box-shadow: 
+                0 0 80px rgba(0, 255, 136, 0.4),
+                inset 0 0 60px rgba(0, 255, 136, 0.1),
+                0 20px 60px rgba(0, 0, 0, 0.8);
+            min-width: 420px;
+            z-index: 12;
+            transform: rotateX(8deg) rotateY(-5deg) translateZ(50px);
+            animation: fileExplorer3DFloat 8s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+        
+        .explorer-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 800;
+            color: #00ff88;
+            text-shadow: 0 0 25px currentColor;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Exo 2', sans-serif;
+        }
+        
+        .neural-status {
+            margin-left: 15px;
+            font-size: 12px;
+            color: #00ffff;
+            font-weight: 400;
+            animation: neuralStatusBlink 3s ease-in-out infinite;
+        }
+        
+        .file-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 13px;
+        }
+        
+        .file-item:hover {
+            background: rgba(0, 255, 136, 0.1);
+            transform: translateX(10px) translateZ(10px);
+            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.3);
+        }
+        
+        .file-icon {
+            margin-right: 12px;
+            font-size: 16px;
+            filter: drop-shadow(0 0 8px currentColor);
+        }
+        
+        .file-name {
+            color: #cccccc;
+            flex: 1;
+        }
+        
+        .file-ext {
+            color: #00ff88;
+            font-weight: bold;
+        }
+        
+        .folder-item {
+            color: #00ffff;
+            font-weight: 600;
+        }
+        
+        .live-terminal-3d {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 20, 40, 0.95);
+            border: 3px solid #00ffff;
+            border-radius: 20px;
+            padding: 25px;
+            backdrop-filter: blur(30px);
+            box-shadow: 
+                0 0 80px rgba(0, 255, 255, 0.4),
+                inset 0 0 60px rgba(0, 255, 255, 0.1),
+                0 20px 60px rgba(0, 0, 0, 0.8);
+            min-width: 650px;
+            max-height: 350px;
+            overflow-y: auto;
+            z-index: 12;
+            transform: rotateX(-8deg) rotateY(5deg) translateZ(50px);
+            animation: terminal3DFloat 9s ease-in-out infinite;
+            font-family: 'Share Tech Mono', monospace;
+            transform-style: preserve-3d;
+        }
+        
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 800;
+            color: #00ffff;
+            text-shadow: 0 0 25px currentColor;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Orbitron', monospace;
+        }
+        
+        .terminal-line {
+            margin-bottom: 8px;
+            font-size: 12px;
+            line-height: 1.6;
+            animation: terminalLineGlow 4s ease-in-out infinite;
+        }
+        
+        .terminal-prompt {
+            color: #00ffff;
+            font-weight: bold;
+        }
+        
+        .terminal-command {
+            color: #ffffff;
+            margin-left: 5px;
+        }
+        
+        .terminal-output {
+            color: #00ff88;
+            margin-left: 20px;
+            text-shadow: 0 0 8px currentColor;
+        }
+        
+        .terminal-success {
+            color: #00ff88;
+            margin-left: 20px;
+        }
+        
+        .terminal-arrow {
+            color: #ff0080;
+            font-weight: bold;
+        }
+        
+        .code-matrix-3d {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(30, 0, 50, 0.95);
+            border: 3px solid #8000ff;
+            border-radius: 20px;
+            padding: 25px;
+            backdrop-filter: blur(30px);
+            box-shadow: 
+                0 0 80px rgba(128, 0, 255, 0.4),
+                inset 0 0 60px rgba(128, 0, 255, 0.1),
+                0 20px 60px rgba(0, 0, 0, 0.8);
+            min-width: 480px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 12;
+            transform: rotateX(8deg) rotateY(5deg) translateZ(50px);
+            animation: codeMatrix3DFloat 10s ease-in-out infinite;
+            font-family: 'Share Tech Mono', monospace;
+            transform-style: preserve-3d;
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 800;
+            color: #8000ff;
+            text-shadow: 0 0 25px currentColor;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Orbitron', monospace;
+        }
+        
+        .code-stats {
+            font-size: 10px;
+            color: #cccccc;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        
+        .code-line {
+            margin-bottom: 4px;
+            font-size: 11px;
+            line-height: 1.5;
+            opacity: 0.95;
+            animation: codeLineFlicker 5s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .code-line:hover {
+            transform: translateX(8px) translateZ(5px);
+            opacity: 1;
+            text-shadow: 0 0 15px currentColor;
+            background: rgba(128, 0, 255, 0.05);
+            border-radius: 4px;
+            padding: 2px 6px;
+        }
+        
+        .code-import { color: #ff0080; font-weight: bold; }
+        .code-class { color: #00ff88; font-weight: bold; }
+        .code-method { color: #00ffff; font-weight: bold; }
+        .code-string { color: #ffff00; }
+        .code-keyword { color: #ff8000; font-weight: bold; }
+        .code-comment { color: #888888; font-style: italic; }
+        .code-number { color: #ff0080; }
+        
+        .metrics-overlay-3d {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(50, 0, 30, 0.95);
+            border: 3px solid #ff0080;
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(30px);
+            box-shadow: 
+                0 0 80px rgba(255, 0, 128, 0.4),
+                inset 0 0 60px rgba(255, 0, 128, 0.1),
+                0 20px 60px rgba(0, 0, 0, 0.8);
+            min-width: 320px;
+            z-index: 12;
+            transform: rotateX(-8deg) rotateY(-5deg) translateZ(50px);
+            animation: metrics3DFloat 11s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+        
+        .metrics-header {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 14px;
+            font-weight: 800;
+            color: #ff0080;
+            text-shadow: 0 0 20px currentColor;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Orbitron', monospace;
+        }
+        
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 12px;
+            padding: 6px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .metric-item:hover {
+            transform: translateX(5px) translateZ(3px);
+            background: rgba(255, 0, 128, 0.05);
+            border-radius: 6px;
+            padding: 6px 8px;
+        }
+        
+        .metric-label {
+            color: #cccccc;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        
+        .metric-value {
+            color: #ff0080;
+            font-weight: bold;
+            text-shadow: 0 0 12px currentColor;
+            animation: metricValuePulse 3s ease-in-out infinite;
+        }
+        
+        .neural-data-stream-3d {
+            position: absolute;
+            font-size: 13px;
+            color: #00ffff;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            animation: neuralDataStream3DFlow 5s linear infinite;
+            opacity: 0.9;
+            text-shadow: 0 0 12px currentColor, 0 0 20px currentColor;
+            white-space: nowrap;
+            z-index: 3;
+            transform-style: preserve-3d;
+        }
+        
+        .holographic-particle-3d {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #ffffff 0%, #00ff88 30%, #00ffff 60%, #ff0080 80%, #8000ff 100%);
+            border-radius: 50%;
+            animation: holographicFloat3D 12s ease-in-out infinite;
+            box-shadow: 0 0 25px currentColor, inset 0 0 12px rgba(255, 255, 255, 0.3);
+            z-index: 4;
+            transform-style: preserve-3d;
+        }
+        
+        .glitch-effect-3d {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px,
+                    rgba(255, 0, 128, 0.03) 2px,
+                    transparent 4px,
+                    transparent 8px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent 0px,
+                    rgba(0, 255, 255, 0.02) 1px,
+                    transparent 2px,
+                    transparent 6px
+                );
+            animation: glitchEffect3D 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1000;
+            mix-blend-mode: screen;
+            opacity: 0;
+        }
+        
+        .glitch-effect-3d.active {
+            opacity: 1;
+            animation: glitchEffect3D 2s ease-in-out, glitchPulse3D 4s ease-in-out;
+        }
+        
+        @keyframes cyber3DBackgroundShift {
+            0%, 100% { filter: hue-rotate(0deg) brightness(1) contrast(1.2); }
+            20% { filter: hue-rotate(30deg) brightness(1.3) contrast(1.0); }
+            40% { filter: hue-rotate(60deg) brightness(0.8) contrast(1.4); }
+            60% { filter: hue-rotate(90deg) brightness(1.2) contrast(1.1); }
+            80% { filter: hue-rotate(120deg) brightness(0.9) contrast(1.3); }
+        }
+        
+        @keyframes holographicScanFlow {
+            0% { background-position: 0 0, 0 0, 0 0; }
+            100% { background-position: 3px 3px, 15px 15px, 25px 25px; }
+        }
+        
+        @keyframes neural3DSpin {
+            0% { transform: translate(-50%, -50%) rotateX(25deg) rotateY(15deg) rotateZ(0deg); }
+            100% { transform: translate(-50%, -50%) rotateX(25deg) rotateY(15deg) rotateZ(360deg); }
+        }
+        
+        @keyframes neural3DPulse {
+            0%, 100% { 
+                box-shadow: 0 0 300px #00ff88, inset 0 0 200px rgba(0, 255, 136, 0.4), 0 0 600px rgba(0, 255, 136, 0.3), 0 40px 120px rgba(0, 0, 0, 0.8);
+                transform: translate(-50%, -50%) rotateX(25deg) rotateY(15deg) scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 450px #00ff88, inset 0 0 300px rgba(0, 255, 136, 0.6), 0 0 900px rgba(0, 255, 136, 0.5), 0 60px 180px rgba(0, 0, 0, 1.0);
+                transform: translate(-50%, -50%) rotateX(25deg) rotateY(15deg) scale(1.2);
+            }
+        }
+        
+        @keyframes holoCore3DSpin {
+            0% { transform: translate(-50%, -50%) rotateZ(45deg) rotateY(0deg); }
+            100% { transform: translate(-50%, -50%) rotateZ(45deg) rotateY(-360deg); }
+        }
+        
+        @keyframes quantumMatrix3DSpin {
+            0% { transform: translate(-50%, -50%) rotateX(60deg) rotateZ(0deg); }
+            100% { transform: translate(-50%, -50%) rotateX(60deg) rotateZ(360deg); }
+        }
+        
+        @keyframes fileExplorer3DFloat {
+            0%, 100% { 
+                transform: rotateX(8deg) rotateY(-5deg) translateZ(50px) translateY(0px);
+            }
+            50% { 
+                transform: rotateX(12deg) rotateY(-8deg) translateZ(60px) translateY(-15px);
+            }
+        }
+        
+        @keyframes terminal3DFloat {
+            0%, 100% { 
+                transform: rotateX(-8deg) rotateY(5deg) translateZ(50px) translateY(0px);
+            }
+            50% { 
+                transform: rotateX(-12deg) rotateY(8deg) translateZ(60px) translateY(-12px);
+            }
+        }
+        
+        @keyframes codeMatrix3DFloat {
+            0%, 100% { 
+                transform: rotateX(8deg) rotateY(5deg) translateZ(50px) translateY(0px);
+            }
+            50% { 
+                transform: rotateX(12deg) rotateY(8deg) translateZ(60px) translateY(-18px);
+            }
+        }
+        
+        @keyframes metrics3DFloat {
+            0%, 100% { 
+                transform: rotateX(-8deg) rotateY(-5deg) translateZ(50px) translateY(0px);
+            }
+            50% { 
+                transform: rotateX(-12deg) rotateY(-8deg) translateZ(60px) translateY(-20px);
+            }
+        }
+        
+        @keyframes neuralStatusBlink {
+            0%, 100% { 
+                text-shadow: 0 0 15px currentColor;
+                opacity: 1;
+            }
+            50% { 
+                text-shadow: 0 0 25px currentColor, 0 0 35px currentColor;
+                opacity: 0.8;
+            }
+        }
+        
+        @keyframes terminalLineGlow {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes codeLineFlicker {
+            0%, 100% { opacity: 0.95; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes metricValuePulse {
+            0%, 100% { 
+                text-shadow: 0 0 12px currentColor;
+                transform: scale(1);
+            }
+            50% { 
+                text-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+                transform: scale(1.1);
+            }
+        }
+        
+        @keyframes neuralDataStream3DFlow {
+            0% { 
+                opacity: 0; 
+                transform: translateX(-700px) translateZ(-50px) rotateY(-30deg);
+            }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { 
+                opacity: 0; 
+                transform: translateX(700px) translateZ(50px) rotateY(30deg);
+            }
+        }
+        
+        @keyframes holographicFloat3D {
+            0%, 100% { 
+                transform: scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(0px);
+                opacity: 1;
+            }
+            25% { 
+                transform: scale(1.8) rotateX(90deg) rotateY(45deg) rotateZ(90deg) translateZ(30px);
+                opacity: 0.4;
+            }
+            50% { 
+                transform: scale(0.6) rotateX(180deg) rotateY(90deg) rotateZ(180deg) translateZ(-20px);
+                opacity: 1;
+            }
+            75% { 
+                transform: scale(1.5) rotateX(270deg) rotateY(135deg) rotateZ(270deg) translateZ(40px);
+                opacity: 0.6;
+            }
+        }
+        
+        @keyframes glitchEffect3D {
+            0%, 100% { 
+                opacity: 0;
+                transform: translateX(0px) translateY(0px);
+            }
+            50% { 
+                opacity: 1;
+                transform: translateX(2px) translateY(-2px);
+            }
+        }
+        
+        @keyframes glitchPulse3D {
+            0%, 100% { 
+                filter: blur(0px);
+            }
+            50% { 
+                filter: blur(2px);
+            }
+        }
+        
+        @keyframes matrix3DFall {
+            0% { 
+                top: -100%;
+                opacity: 0;
+                transform: translateZ(0px);
+            }
+            10% { 
+                opacity: 1;
+                transform: translateZ(20px);
+            }
+            90% { 
+                opacity: 1;
+                transform: translateZ(-20px);
+            }
+            100% { 
+                top: 100vh;
+                opacity: 0;
+                transform: translateZ(0px);
+            }
+        }
+        
+        @keyframes neural3DWaveExpand {
+            0% { 
+                transform: translate(-50%, -50%) scale(0) rotateX(0deg) rotateY(0deg);
+                opacity: 1;
+            }
+            100% { 
+                transform: translate(-50%, -50%) scale(20) rotateX(360deg) rotateY(180deg);
+                opacity: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .neural-processor-3d {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .file-explorer-3d,
+            .live-terminal-3d,
+            .code-matrix-3d,
+            .metrics-overlay-3d {
+                position: relative;
+                margin: 10px;
+                min-width: auto;
+                max-width: calc(100vw - 40px);
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-matrix-3d-container">
+        <!-- Holographic Scan Lines 3D -->
+        <div class="holographic-scan-lines-3d"></div>
+        
+        <!-- Matrix 3D Rain -->
+        <div class="matrix-3d-rain" id="matrix3DRain"></div>
+        
+        <!-- Glitch Effect 3D -->
+        <div class="glitch-effect-3d" id="glitchEffect3D"></div>
+        
+        <!-- Neural Processor 3D -->
+        <div class="neural-processor-3d" id="neuralProcessor3D">
+            <div class="holo-core-3d">
+                <div class="quantum-matrix-3d"></div>
+            </div>
+        </div>
+        
+        <!-- File Explorer 3D -->
+        <div class="file-explorer-3d">
+            <div class="explorer-header">
+                <span>🗂️ 3D Explorer</span>
+                <div class="neural-status">Neural Link Active • 3D Mode</div>
+            </div>
+            <div class="file-item" onclick="selectFile('neural_system.js')">
+                <span class="file-icon">🧠</span>
+                <span class="file-name">neural_system</span>
+                <span class="file-ext">.js</span>
+            </div>
+            <div class="file-item" onclick="selectFile('cyber_core.ts')">
+                <span class="file-icon">⚡</span>
+                <span class="file-name">cyber_core</span>
+                <span class="file-ext">.ts</span>
+            </div>
+            <div class="file-item" onclick="selectFile('holo_interface.jsx')">
+                <span class="file-icon">🔮</span>
+                <span class="file-name">holo_interface</span>
+                <span class="file-ext">.jsx</span>
+            </div>
+            <div class="file-item" onclick="selectFile('quantum_data.py')">
+                <span class="file-icon">🌌</span>
+                <span class="file-name">quantum_data</span>
+                <span class="file-ext">.py</span>
+            </div>
+            <div class="file-item" onclick="selectFile('matrix_ai.cpp')">
+                <span class="file-icon">🤖</span>
+                <span class="file-name">matrix_ai</span>
+                <span class="file-ext">.cpp</span>
+            </div>
+            <div class="file-item" onclick="selectFile('hologram_engine.rs')">
+                <span class="file-icon">🔷</span>
+                <span class="file-name">hologram_engine</span>
+                <span class="file-ext">.rs</span>
+            </div>
+            <div class="file-item folder-item" onclick="toggleFolder('components')">
+                <span class="file-icon">📁</span>
+                <span class="file-name folder-item">components/</span>
+            </div>
+            <div class="file-item" onclick="selectFile('HoloPanel.jsx')" style="margin-left: 20px;">
+                <span class="file-icon">🔷</span>
+                <span class="file-name">HoloPanel</span>
+                <span class="file-ext">.jsx</span>
+            </div>
+            <div class="file-item" onclick="selectFile('NeuralFeed.jsx')" style="margin-left: 20px;">
+                <span class="file-icon">📡</span>
+                <span class="file-name">NeuralFeed</span>
+                <span class="file-ext">.jsx</span>
+            </div>
+            <div class="file-item" onclick="selectFile('DataViz3D.jsx')" style="margin-left: 20px;">
+                <span class="file-icon">📊</span>
+                <span class="file-name">DataViz3D</span>
+                <span class="file-ext">.jsx</span>
+            </div>
+            <div class="file-item" onclick="selectFile('GlitchEffect.jsx')" style="margin-left: 20px;">
+                <span class="file-icon">⚡</span>
+                <span class="file-name">GlitchEffect</span>
+                <span class="file-ext">.jsx</span>
+            </div>
+            <div class="file-item folder-item" onclick="toggleFolder('shaders')">
+                <span class="file-icon">📁</span>
+                <span class="file-name folder-item">shaders/</span>
+            </div>
+            <div class="file-item" onclick="selectFile('hologram.glsl')" style="margin-left: 20px;">
+                <span class="file-icon">✨</span>
+                <span class="file-name">hologram</span>
+                <span class="file-ext">.glsl</span>
+            </div>
+            <div class="file-item" onclick="selectFile('config.json')">
+                <span class="file-icon">⚙️</span>
+                <span class="file-name">config</span>
+                <span class="file-ext">.json</span>
+            </div>
+        </div>
+        
+        <!-- Live Terminal 3D -->
+        <div class="live-terminal-3d">
+            <div class="terminal-header">Live Terminal</div>
+            <div class="terminal-line">
+                <span class="terminal-prompt">cyber@matrix:~$</span>
+                <span class="terminal-command">npm start --neural --3d</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-success">✓ 3D Neural system initialized</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-arrow">→</span>
+                <span class="terminal-output">Holographic interface projection active</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-success">⚡ Quantum processors online (16 cores)</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-success">🔮 Matrix connection established</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-success">🌌 3D rendering engine loaded</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-prompt">cyber@matrix:~$</span>
+                <span class="terminal-command">cyber-analyze --deep-scan --neural-3d</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-success">⚡ Quantum processors optimized</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-prompt">cyber@matrix:~$</span>
+                <span class="terminal-command">npm run build:holographic-3d</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-success">📊 Metrics overlay updated</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-prompt">cyber@matrix:~$</span>
+                <span class="terminal-command">matrix-debug --verbose --3d-render</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-arrow">→</span>
+                <span class="terminal-output">Neural network layers synchronized</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-prompt">cyber@matrix:~$</span>
+                <span class="terminal-command">cyber-analyze --deep-scan --neural-3d</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-success">✨ Glitch effects applied successfully</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-prompt">cyber@matrix:~$</span>
+                <span class="terminal-command blink-cursor">_</span>
+            </div>
+        </div>
+        
+        <!-- Code Matrix 3D -->
+        <div class="code-matrix-3d">
+            <div class="code-header">
+                <span>Code Matrix 3D</span>
+                <div class="code-stats">
+                    <div>neural_system.js</div>
+                    <div>Lines: <span class="code-number">52</span> | Chars: <span class="code-number">2,147</span> | Functions: <span class="code-number">9</span> | Complexity: <span style="color: #ff0080; text-shadow: 0 0 15px #ff0080;">Ultra High</span></div>
+                </div>
+            </div>
+            <div class="code-line"><span class="code-import">import</span> { <span class="code-class">AdvancedNeuralProcessor</span>, <span class="code-class">HoloCore3D</span>, <span class="code-class">QuantumMatrix</span>, <span class="code-class">PlasmaRenderer</span> } <span class="code-import">from</span> <span class="code-string">'@cyber/neural-core-3d'</span>;</div>
+            <div class="code-line"><span class="code-import">import</span> { <span class="code-class">Analytics3D</span>, <span class="code-class">DataViz3D</span>, <span class="code-class">RealTimeMonitor</span>, <span class="code-class">MetricsOverlay</span> } <span class="code-import">from</span> <span class="code-string">'@cyber/analytics-3d'</span>;</div>
+            <div class="code-line"><span class="code-import">import</span> { <span class="code-class">GlassMorphism3D</span>, <span class="code-class">ParticleSystem3D</span>, <span class="code-class">GlitchEngine</span>, <span class="code-class">NeuralGlow</span> } <span class="code-import">from</span> <span class="code-string">'@cyber/effects-3d'</span>;</div>
+            <div class="code-line"><span class="code-import">import</span> { <span class="code-class">HolographicOverlay</span>, <span class="code-class">ScanLineRenderer</span>, <span class="code-class">CyberInterface</span> } <span class="code-import">from</span> <span class="code-string">'@cyber/holo-ui'</span>;</div>
+            <div class="code-line"><span class="code-import">import</span> { <span class="code-class">AdvancedShaderEngine</span>, <span class="code-class">NeuralRenderer</span>, <span class="code-class">HoloProjector</span> } <span class="code-import">from</span> <span class="code-string">'@cyber/rendering-3d'</span>;</div>
+            <div class="code-line"><span class="code-comment">// Ultra-Advanced 3D Cyberpunk Neural System with Holographic Interface and Plasma Effects</span></div>
+            <div class="code-line"><span class="code-keyword">class</span> <span class="code-class">CyberNeuralSystemAdvanced3D</span> {</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="code-keyword">constructor</span>(<span class="code-string">config</span>) {</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">neuralProcessor</span> = <span class="code-keyword">new</span> <span class="code-class">AdvancedNeuralProcessor</span>(<span class="code-string">config</span>);</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">holoCore3D</span> = <span class="code-keyword">new</span> <span class="code-class">HoloCore3D</span>({ dimension: <span class="code-string">'quantum'</span>, layers: <span class="code-number">32</span>, depth: <span class="code-keyword">true</span>, holographic: <span class="code-keyword">true</span> });</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">quantumMatrix</span> = <span class="code-keyword">new</span> <span class="code-class">QuantumMatrix</span>({ neural: <span class="code-keyword">true</span>, holographic: <span class="code-keyword">true</span>, threeDimensional: <span class="code-keyword">true</span>, plasma: <span class="code-keyword">true</span> });</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">plasmaRenderer</span> = <span class="code-keyword">new</span> <span class="code-class">PlasmaRenderer</span>({ advanced: <span class="code-keyword">true</span>, neural: <span class="code-keyword">true</span>, cyberpunk: <span class="code-keyword">true</span> });</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">analytics3D</span> = <span class="code-keyword">new</span> <span class="code-class">Analytics3D</span>({ realTime: <span class="code-keyword">true</span>, cyberpunk: <span class="code-keyword">true</span>, holographic: <span class="code-keyword">true</span>, advanced: <span class="code-keyword">true</span> });</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">dataViz3D</span> = <span class="code-keyword">new</span> <span class="code-class">DataViz3D</span>({ holographic: <span class="code-keyword">true</span>, interactive: <span class="code-keyword">true</span>, depth: <span class="code-keyword">true</span>, plasma: <span class="code-keyword">true</span> });</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">monitor</span> = <span class="code-keyword">new</span> <span class="code-class">RealTimeMonitor</span>({ neural: <span class="code-keyword">true</span>, quantum: <span class="code-keyword">true</span>, threeDimensional: <span class="code-keyword">true</span>, advanced: <span class="code-keyword">true</span> });</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">metricsOverlay</span> = <span class="code-keyword">new</span> <span class="code-class">MetricsOverlay</span>({ holographic: <span class="code-keyword">true</span>, floating: <span class="code-keyword">true</span>, realTime: <span class="code-keyword">true</span> });</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">glassMorphism3D</span> = <span class="code-keyword">new</span> <span class="code-class">GlassMorphism3D</span>({ blur: <span class="code-string">'40px'</span>, opacity: <span class="code-number">0.18</span>, depth: <span class="code-keyword">true</span>, advanced: <span class="code-keyword">true</span> });</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">particles3D</span> = <span class="code-keyword">new</span> <span class="code-class">ParticleSystem3D</span>({ neural: <span class="code-keyword">true</span>, floating: <span class="code-keyword">true</span>, holographic: <span class="code-keyword">true</span>, plasma: <span class="code-keyword">true</span> });</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">glitchEngine</span> = <span class="code-keyword">new</span> <span class="code-class">GlitchEngine</span>({ intensity: <span class="code-string">'ultra'</span>, scanLines: <span class="code-keyword">true</span>, cyberpunk: <span class="code-keyword">true</span>, colorShift: <span class="code-keyword">true</span> });</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">neuralGlow</span> = <span class="code-keyword">new</span> <span class="code-class">NeuralGlow</span>({ intensity: <span class="code-string">'maximum'</span>, holographic: <span class="code-keyword">true</span>, plasma: <span class="code-keyword">true</span> });</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">cyberInterface</span> = <span class="code-keyword">new</span> <span class="code-class">CyberInterface</span>({ advanced: <span class="code-keyword">true</span>, neural: <span class="code-keyword">true</span>, holographic: <span class="code-keyword">true</span> });</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">shaderEngine</span> = <span class="code-keyword">new</span> <span class="code-class">AdvancedShaderEngine</span>({ neural: <span class="code-keyword">true</span>, plasma: <span class="code-keyword">true</span>, holographic: <span class="code-keyword">true</span> });</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">neuralRenderer</span> = <span class="code-keyword">new</span> <span class="code-class">NeuralRenderer</span>({ advanced: <span class="code-keyword">true</span>, threeDimensional: <span class="code-keyword">true</span>, cyberpunk: <span class="code-keyword">true</span> });</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">this</span>.<span class="code-string">holoProjector</span> = <span class="code-keyword">new</span> <span class="code-class">HoloProjector</span>({ depth: <span class="code-string">'infinite'</span>, layers: <span class="code-number">32</span>, plasma: <span class="code-keyword">true</span> });</div>
+            <div class="code-line">&nbsp;&nbsp;}</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="code-keyword">async</span> <span class="code-method">initializeAdvanced3DMatrix</span>() {</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Initialize ultra-advanced 3D cyberpunk neural network with plasma and holographic effects</span></div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">neuralProcessor</span>.<span class="code-method">connectAdvanced</span>();</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">holoCore3D</span>.<span class="code-method">project3DHologramAdvanced</span>();</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">quantumMatrix</span>.<span class="code-method">synchronize3DPlasma</span>();</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">plasmaRenderer</span>.<span class="code-method">initializePlasmaEffects</span>();</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">analytics3D</span>.<span class="code-method">startAdvancedMonitoring</span>();</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">glassMorphism3D</span>.<span class="code-method">activateAdvanced3D</span>();</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">particles3D</span>.<span class="code-method">startPlasmaAnimation3D</span>();</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">glitchEngine</span>.<span class="code-method">initializeUltraGlitchEffects</span>();</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">neuralGlow</span>.<span class="code-method">activateMaximumGlow</span>();</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">cyberInterface</span>.<span class="code-method">initializeAdvancedInterface</span>();</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">shaderEngine</span>.<span class="code-method">loadAdvancedShaders</span>();</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">neuralRenderer</span>.<span class="code-method">startAdvancedRendering</span>();</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">holoProjector</span>.<span class="code-method">projectInfiniteDepth</span>();</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-keyword">this</span>.<span class="code-string">dataViz3D</span>.<span class="code-method">renderAdvanced3D</span>();</div>
+            <div class="code-line">&nbsp;&nbsp;}</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="code-keyword">async</span> <span class="code-method">processAdvancedNeuralData3D</span>(<span class="code-string">input</span>, <span class="code-string">depth</span> = <span class="code-number">32</span>) {</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Process data through ultra-advanced 3D quantum neural network with plasma enhancement</span></div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">const</span> <span class="code-string">neuralOutput</span> = <span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">neuralProcessor</span>.<span class="code-method">processAdvanced3D</span>(<span class="code-string">input</span>, <span class="code-string">depth</span>);</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">const</span> <span class="code-string">holoData3D</span> = <span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">holoCore3D</span>.<span class="code-method">enhanceAdvanced3D</span>(<span class="code-string">neuralOutput</span>);</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">const</span> <span class="code-string">quantumResult</span> = <span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">quantumMatrix</span>.<span class="code-method">transformPlasma3D</span>(<span class="code-string">holoData3D</span>);</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">const</span> <span class="code-string">plasmaData</span> = <span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">plasmaRenderer</span>.<span class="code-method">renderPlasmaEffects</span>(<span class="code-string">quantumResult</span>);</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">const</span> <span class="code-string">glitchedData</span> = <span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">glitchEngine</span>.<span class="code-method">applyUltraGlitchEffects</span>(<span class="code-string">plasmaData</span>);</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">const</span> <span class="code-string">glowData</span> = <span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">neuralGlow</span>.<span class="code-method">applyMaximumGlow</span>(<span class="code-string">glitchedData</span>);</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">const</span> <span class="code-string">shaderData</span> = <span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">shaderEngine</span>.<span class="code-method">processAdvancedShaders</span>(<span class="code-string">glowData</span>);</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">analytics3D</span>.<span class="code-method">trackAdvanced3D</span>(<span class="code-string">shaderData</span>);</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">monitor</span>.<span class="code-method">updateAdvanced3D</span>(<span class="code-string">shaderData</span>);</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">metricsOverlay</span>.<span class="code-method">updateAdvancedMetrics</span>(<span class="code-string">shaderData</span>);</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">await</span> <span class="code-keyword">this</span>.<span class="code-string">neuralRenderer</span>.<span class="code-method">renderAdvanced3D</span>(<span class="code-string">shaderData</span>);</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-keyword">this</span>.<span class="code-string">holoProjector</span>.<span class="code-method">projectAdvanced3D</span>(<span class="code-string">shaderData</span>);</div>
+            <div class="code-line">&nbsp;&nbsp;}</div>
+            <div class="code-line">}</div>
+        </div>
+        
+        <!-- Metrics Overlay 3D -->
+        <div class="metrics-overlay-3d">
+            <div class="metrics-header">📊 Metrics Overlay</div>
+            <div class="metric-item">
+                <span class="metric-label">Neural Layers:</span>
+                <span class="metric-value" id="neuralLayers3D">32 Ultra Active</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-label">Quantum Cores:</span>
+                <span class="metric-value" id="quantumCores3D">32 Plasma Online</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-label">3D Rendering:</span>
+                <span class="metric-value" id="rendering3D">Ultra Advanced</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-label">Hologram Depth:</span>
+                <span class="metric-value" id="hologramDepth3D">Infinite</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-label">Matrix Status:</span>
+                <span class="metric-value" id="matrixStatus3D">Transcendent</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-label">Glitch Engine:</span>
+                <span class="metric-value" id="glitchEngine3D">Ultra Intensity</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-label">Plasma Effects:</span>
+                <span class="metric-value" id="plasmaEffects3D">Maximum</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-label">Data Processing:</span>
+                <span class="metric-value" id="dataProcessing3D">8.4TB/s</span>
+            </div>
+        </div>
+        
+        <!-- Dynamic Elements Container -->
+        <div id="dynamic3DElements"></div>
+    </div>
+
+    <script>
+        let cyberSystem3D = {
+            neuralLayers: 16,
+            quantumCores: 16,
+            rendering3D: true,
+            hologramDepth: 'deep',
+            matrixConnected: true,
+            glitchIntensity: 'high',
+            dataProcessingRate: '2.4TB/s',
+            initialized: false,
+            processing: false,
+            enhanced: false
+        };
+        
+        // 3D Neural data streams
+        const neural3DDataStreams = [
+            'NEURAL_PROCESSOR_3D_CONNECTED_QUANTUM',
+            'HOLO_CORE_3D_PROJECTING_HOLOGRAM_DEPTH',
+            'QUANTUM_MATRIX_3D_SYNCHRONIZED_16_LAYERS',
+            'ANALYTICS_3D_MONITORING_REALTIME_CYBERPUNK',
+            'DATA_VIZ_3D_RENDERING_HOLOGRAPHIC_INTERACTIVE',
+            'GLASS_MORPHISM_3D_BLUR_30PX_DEPTH_ACTIVE',
+            'PARTICLE_SYSTEM_3D_NEURAL_FLOATING_HOLOGRAPHIC',
+            'GLITCH_ENGINE_HIGH_INTENSITY_SCAN_LINES',
+            'HOLOGRAPHIC_OVERLAY_METRICS_REALTIME_FLOATING',
+            'SCAN_LINE_RENDERER_ANIMATED_GLITCH_CYBERPUNK',
+            '3D_MATRIX_CONNECTION_ESTABLISHED',
+            'QUANTUM_PROCESSORS_16_CORES_ONLINE',
+            '3D_RENDERING_ENGINE_LOADED_ACTIVE',
+            'NEURAL_NETWORK_LAYERS_SYNCHRONIZED',
+            'GLITCH_EFFECTS_APPLIED_SUCCESSFULLY',
+            'HOLOGRAPHIC_INTERFACE_PROJECTION_ACTIVE',
+            'DEEP_SCAN_NEURAL_3D_OPTIMIZED',
+            'HOLOGRAPHIC_3D_BUILD_COMPLETE',
+            'METRICS_OVERLAY_UPDATED_3D',
+            'MATRIX_DEBUG_VERBOSE_3D_RENDER'
+        ];
+        
+        // Initialize 3D cyber neural system
+        function initialize3DCyberSystem() {
+            create3DHolographicParticles();
+            create3DNeuralDataStreams();
+            create3DMatrixRain();
+            update3DMetrics();
+            setInterval(update3DMetrics, 2500);
+            setInterval(create3DHolographicParticles, 2000);
+            setInterval(create3DNeuralDataStreams, 3500);
+            setInterval(create3DMatrixRain, 700);
+            setInterval(triggerRandomGlitch, 8000);
+        }
+        
+        // Create 3D holographic particles
+        function create3DHolographicParticles() {
+            const container = document.querySelector('.cyber-matrix-3d-container');
+            
+            for (let i = 0; i < 6; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'holographic-particle-3d';
+                
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDuration = (10 + Math.random() * 4) + 's';
+                particle.style.animationDelay = Math.random() * 3 + 's';
+                
+                const colors = ['#00ff88', '#00ffff', '#ff0080', '#8000ff', '#ffff00', '#ff8000', '#80ff00', '#ff00ff'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = `radial-gradient(circle, #ffffff 0%, ${color} 30%, #000000 100%)`;
+                particle.style.boxShadow = `0 0 25px ${color}, inset 0 0 12px rgba(255, 255, 255, 0.3)`;
+                
+                container.appendChild(particle);
+                
+                setTimeout(() => particle.remove(), 14000);
+            }
+        }
+        
+        // Create 3D neural data streams
+        function create3DNeuralDataStreams() {
+            const container = document.querySelector('.cyber-matrix-3d-container');
+            
+            if (document.querySelectorAll('.neural-data-stream-3d').length < 10) {
+                const stream = document.createElement('div');
+                stream.className = 'neural-data-stream-3d';
+                stream.textContent = neural3DDataStreams[Math.floor(Math.random() * neural3DDataStreams.length)];
+                
+                const direction = Math.random() > 0.5 ? 1 : -1;
+                stream.style.left = direction > 0 ? '-800px' : '100vw';
+                stream.style.top = Math.random() * 100 + '%';
+                stream.style.animationDuration = (4 + Math.random() * 3) + 's';
+                
+                const colors = ['#00ff88', '#00ffff', '#ff0080', '#8000ff', '#ffff00', '#ff8000'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                stream.style.color = color;
+                stream.style.textShadow = `0 0 12px ${color}, 0 0 20px ${color}`;
+                
+                container.appendChild(stream);
+                
+                setTimeout(() => stream.remove(), 7000);
+            }
+        }
+        
+        // Create 3D Matrix rain effect
+        function create3DMatrixRain() {
+            const container = document.getElementById('matrix3DRain');
+            const matrix3DChars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:,.<>?';
+            
+            if (document.querySelectorAll('.matrix-3d-column').length < 25) {
+                const column = document.createElement('div');
+                column.className = 'matrix-3d-column';
+                
+                // Generate random 3D Matrix characters
+                let text = '';
+                const length = 12 + Math.random() * 20;
+                for (let i = 0; i < length; i++) {
+                    text += matrix3DChars[Math.floor(Math.random() * matrix3DChars.length)] + '<br>';
+                }
+                column.innerHTML = text;
+                
+                column.style.left = Math.random() * 100 + '%';
+                column.style.animationDuration = (9 + Math.random() * 6) + 's';
+                column.style.animationDelay = Math.random() * 2.5 + 's';
+                
+                // Vary the color intensity with more 3D variation
+                const intensity = 0.4 + Math.random() * 0.6;
+                const colors = ['#00ff88', '#00ffff', '#ff0080', '#8000ff', '#ffff00', '#ff8000'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                column.style.color = `rgba(${hexToRgb(color)}, ${intensity})`;
+                column.style.textShadow = `0 0 12px rgba(${hexToRgb(color)}, ${intensity}), 0 0 24px rgba(${hexToRgb(color)}, ${intensity})`;
+                
+                container.appendChild(column);
+                
+                setTimeout(() => column.remove(), 15000);
+            }
+        }
+        
+        // Update 3D metrics
+        function update3DMetrics() {
+            const neuralLayerStates = ['16 Active', '16 Synchronized', '16 Optimized', '16 Enhanced', '16 Transcendent'];
+            const quantumCoreStates = ['16 Online', '16 Quantum', '16 Entangled', '16 Superposed', '16 Coherent'];
+            const rendering3DStates = ['Active', 'Enhanced', 'Optimized', 'Transcendent', 'Holographic'];
+            const hologramDepthStates = ['Deep', 'Ultra Deep', 'Infinite', 'Transcendent', 'Quantum'];
+            const matrixStatusStates = ['Connected', 'Synchronized', 'Enhanced', 'Transcendent', 'Quantum'];
+            const glitchEngineStates = ['High Intensity', 'Maximum', 'Transcendent', 'Quantum', 'Ultimate'];
+            const dataProcessingStates = ['2.4TB/s', '3.6TB/s', '4.8TB/s', '6.2TB/s', '8.4TB/s'];
+            
+            document.getElementById('neuralLayers3D').textContent = neuralLayerStates[Math.floor(Math.random() * neuralLayerStates.length)];
+            document.getElementById('quantumCores3D').textContent = quantumCoreStates[Math.floor(Math.random() * quantumCoreStates.length)];
+            document.getElementById('rendering3D').textContent = rendering3DStates[Math.floor(Math.random() * rendering3DStates.length)];
+            document.getElementById('hologramDepth3D').textContent = hologramDepthStates[Math.floor(Math.random() * hologramDepthStates.length)];
+            document.getElementById('matrixStatus3D').textContent = matrixStatusStates[Math.floor(Math.random() * matrixStatusStates.length)];
+            document.getElementById('glitchEngine3D').textContent = glitchEngineStates[Math.floor(Math.random() * glitchEngineStates.length)];
+            document.getElementById('dataProcessing3D').textContent = dataProcessingStates[Math.floor(Math.random() * dataProcessingStates.length)];
+        }
+        
+        // File selection function
+        function selectFile(filename) {
+            console.log(`Selected file: ${filename}`);
+            
+            // Visual feedback
+            const processor = document.getElementById('neuralProcessor3D');
+            processor.style.animation += ', neural3DPulse 1s ease-in-out 3';
+            
+            // Create file selection burst
+            create3DFileSelectionBurst();
+            
+            // Update terminal
+            addTerminalLine(`file-open ${filename}`, 'command');
+            setTimeout(() => {
+                addTerminalLine(`✓ ${filename} loaded successfully`, 'success');
+                addTerminalLine(`→ 3D holographic projection active`, 'output');
+            }, 800);
+        }
+        
+        // Toggle folder function
+        function toggleFolder(foldername) {
+            console.log(`Toggled folder: ${foldername}`);
+            
+            // Create folder toggle effect
+            create3DFolderToggleEffect();
+            
+            // Update terminal
+            addTerminalLine(`folder-toggle ${foldername}/`, 'command');
+            setTimeout(() => {
+                addTerminalLine(`📁 ${foldername}/ expanded`, 'success');
+            }, 600);
+        }
+        
+        // Add terminal line
+        function addTerminalLine(text, type = 'output') {
+            const terminal = document.querySelector('.live-terminal-3d');
+            const line = document.createElement('div');
+            line.className = 'terminal-line';
+            
+            if (type === 'command') {
+                line.innerHTML = `<span class="terminal-prompt">cyber@matrix:~$</span><span class="terminal-command">${text}</span>`;
+            } else if (type === 'success') {
+                line.innerHTML = `<span class="terminal-success">${text}</span>`;
+            } else if (type === 'output') {
+                line.innerHTML = `<span class="terminal-arrow">→</span><span class="terminal-output">${text}</span>`;
+            }
+            
+            // Insert before the cursor line
+            const cursorLine = terminal.querySelector('.terminal-line:last-child');
+            terminal.insertBefore(line, cursorLine);
+            
+            // Scroll to bottom
+            terminal.scrollTop = terminal.scrollHeight;
+            
+            // Remove old lines if too many
+            const lines = terminal.querySelectorAll('.terminal-line');
+            if (lines.length > 20) {
+                lines[0].remove();
+            }
+        }
+        
+        // Trigger random glitch effect
+        function triggerRandomGlitch() {
+            const glitchEffect = document.getElementById('glitchEffect3D');
+            glitchEffect.classList.add('active');
+            
+            setTimeout(() => {
+                glitchEffect.classList.remove('active');
+            }, 4000);
+        }
+        
+        // Create 3D file selection burst
+        function create3DFileSelectionBurst() {
+            const container = document.querySelector('.cyber-matrix-3d-container');
+            
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const burst = document.createElement('div');
+                    burst.style.cssText = `
+                        position: absolute;
+                        width: 8px;
+                        height: 8px;
+                        background: radial-gradient(circle, #ffffff 0%, #00ff88 40%, #00ffff 80%, #000000 100%);
+                        border-radius: 50%;
+                        left: 50%;
+                        top: 50%;
+                        animation: holographicFloat3D 4s ease-out forwards;
+                        box-shadow: 0 0 25px #00ff88;
+                        z-index: 100;
+                        transform-style: preserve-3d;
+                    `;
+                    
+                    const angle = (i / 15) * 360;
+                    const distance = 120 + Math.random() * 80;
+                    burst.style.transform = `translate(-50%, -50%) rotate(${angle}deg) translateX(${distance}px) translateZ(${Math.random() * 40 - 20}px)`;
+                    
+                    container.appendChild(burst);
+                    
+                    setTimeout(() => burst.remove(), 4000);
+                }, i * 40);
+            }
+        }
+        
+        // Create 3D folder toggle effect
+        function create3DFolderToggleEffect() {
+            const container = document.querySelector('.cyber-matrix-3d-container');
+            
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const wave = document.createElement('div');
+                    wave.style.cssText = `
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 80px;
+                        height: 80px;
+                        border: 2px solid rgba(0, 255, 255, 0.7);
+                        border-radius: 50%;
+                        animation: neural3DWaveExpand 4s ease-out forwards;
+                        box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+                        z-index: 50;
+                        transform-style: preserve-3d;
+                    `;
+                    
+                    container.appendChild(wave);
+                    
+                    setTimeout(() => wave.remove(), 4000);
+                }, i * 500);
+            }
+        }
+        
+        // Helper function to convert hex to rgb
+        function hexToRgb(hex) {
+            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? 
+                `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}` : 
+                '255, 255, 255';
+        }
+        
+        // Initialize 3D system on load
+        window.addEventListener('load', initialize3DCyberSystem);
+        
+        // Handle window resize for 3D responsiveness
+        window.addEventListener('resize', () => {
+            setTimeout(() => {
+                // Recreate 3D elements for new dimensions
+                document.querySelectorAll('.neural-data-stream-3d').forEach(el => el.remove());
+                create3DNeuralDataStreams();
+            }, 400);
+        });
+        
+        // Add cursor blinking animation
+        const style = document.createElement('style');
+        style.textContent = `
+            .blink-cursor {
+                animation: blinkCursor 1s infinite;
+            }
+            
+            @keyframes blinkCursor {
+                0%, 50% { opacity: 1; }
+                51%, 100% { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9687ca8da4862fc8',t:'MTc1NDA3NzA1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
