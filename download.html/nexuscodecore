@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Code Management Interface</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #00ffff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .title {
+            font-family: 'Orbitron', monospace;
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { filter: brightness(1) drop-shadow(0 0 20px rgba(0, 255, 255, 0.3)); }
+            to { filter: brightness(1.2) drop-shadow(0 0 40px rgba(0, 255, 255, 0.6)); }
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #888;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .panel {
+            background: rgba(0, 20, 40, 0.8);
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+            animation: scan 3s linear infinite;
+        }
+        
+        @keyframes scan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .panel-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.4rem;
+            color: #00ffff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .code-editor {
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #00ff00;
+            min-height: 300px;
+            position: relative;
+            overflow: auto;
+        }
+        
+        .code-line {
+            display: flex;
+            margin-bottom: 5px;
+            animation: typewriter 0.1s ease-in;
+        }
+        
+        .line-number {
+            color: #666;
+            margin-right: 15px;
+            width: 30px;
+            text-align: right;
+        }
+        
+        .code-content {
+            flex: 1;
+        }
+        
+        .keyword { color: #ff6b6b; }
+        .string { color: #4ecdc4; }
+        .comment { color: #95a5a6; }
+        .function { color: #f39c12; }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .stat-item {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #00ffff;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00ffff;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #888;
+            text-transform: uppercase;
+        }
+        
+        .activity-feed {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+        
+        .activity-icon {
+            width: 12px;
+            height: 12px;
+            background: #00ffff;
+            border-radius: 50%;
+            margin-right: 15px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        
+        .activity-text {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        .activity-time {
+            margin-left: auto;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .control-panel {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .cyber-button {
+            background: linear-gradient(45deg, #00ffff, #0080ff);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            color: #000;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cyber-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
+        }
+        
+        .cyber-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cyber-button:hover::before {
+            left: 100%;
+        }
+        
+        .terminal {
+            background: #000;
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            font-family: 'Courier New', monospace;
+            min-height: 200px;
+        }
+        
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .terminal-dots {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27ca3f; }
+        
+        .terminal-title {
+            margin-left: 15px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .terminal-content {
+            color: #00ff00;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .prompt {
+            color: #00ffff;
+        }
+        
+        .cursor {
+            background: #00ff00;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .network-visualization {
+            position: relative;
+            height: 200px;
+            background: radial-gradient(circle at center, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #00ffff;
+            border-radius: 50%;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .connection {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+            animation: flow 2s linear infinite;
+        }
+        
+        @keyframes flow {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        
+        @media (max-width: 1024px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .control-panel {
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .cyber-button {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">NEXUS CODE CORE</h1>
+            <p class="subtitle">Advanced Code Management & Deployment System</p>
+        </header>
+        
+        <div class="dashboard">
+            <div class="panel">
+                <h2 class="panel-title">System Stats</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="activeProjects">42</div>
+                        <div class="stat-label">Active Projects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="codeLines">1.2M</div>
+                        <div class="stat-label">Lines of Code</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="deployments">156</div>
+                        <div class="stat-label">Deployments</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="uptime">99.9%</div>
+                        <div class="stat-label">System Uptime</div>
+                    </div>
+                </div>
+                
+                <div class="network-visualization" id="networkViz">
+                    <div class="node" style="top: 20%; left: 10%;"></div>
+                    <div class="node" style="top: 60%; left: 30%;"></div>
+                    <div class="node" style="top: 40%; left: 70%;"></div>
+                    <div class="node" style="top: 80%; left: 80%;"></div>
+                    <div class="connection" style="top: 25%; left: 15%; width: 200px; transform: rotate(25deg);"></div>
+                    <div class="connection" style="top: 65%; left: 35%; width: 150px; transform: rotate(-15deg);"></div>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <h2 class="panel-title">Code Editor</h2>
+                <div class="code-editor" id="codeEditor">
+                    <div class="code-line">
+                        <span class="line-number">1</span>
+                        <span class="code-content"><span class="keyword">import</span> { <span class="function">NeuralNetwork</span> } <span class="keyword">from</span> <span class="string">'./ai-core'</span>;</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">2</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">3</span>
+                        <span class="code-content"><span class="keyword">class</span> <span class="function">CyberSystem</span> {</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">4</span>
+                        <span class="code-content">  <span class="keyword">constructor</span>() {</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">5</span>
+                        <span class="code-content">    <span class="keyword">this</span>.network = <span class="keyword">new</span> <span class="function">NeuralNetwork</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">6</span>
+                        <span class="code-content">    <span class="keyword">this</span>.status = <span class="string">'ONLINE'</span>;</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">7</span>
+                        <span class="code-content">  }</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">8</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">9</span>
+                        <span class="code-content">  <span class="function">deploy</span>() {</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">10</span>
+                        <span class="code-content">    <span class="comment">// Initiating quantum deployment...</span></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">11</span>
+                        <span class="code-content">    <span class="keyword">return</span> <span class="keyword">this</span>.network.<span class="function">activate</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">12</span>
+                        <span class="code-content">  }</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">13</span>
+                        <span class="code-content">}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel">
+                <h2 class="panel-title">Activity Feed</h2>
+                <div class="activity-feed" id="activityFeed">
+                    <div class="activity-item">
+                        <div class="activity-icon"></div>
+                        <div class="activity-text">Neural network deployed successfully</div>
+                        <div class="activity-time">2m ago</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon"></div>
+                        <div class="activity-text">Code optimization completed</div>
+                        <div class="activity-time">5m ago</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon"></div>
+                        <div class="activity-text">Security scan initiated</div>
+                        <div class="activity-time">8m ago</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon"></div>
+                        <div class="activity-text">Database synchronized</div>
+                        <div class="activity-time">12m ago</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon"></div>
+                        <div class="activity-text">Quantum encryption enabled</div>
+                        <div class="activity-time">15m ago</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon"></div>
+                        <div class="activity-text">AI model training started</div>
+                        <div class="activity-time">18m ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="control-panel">
+            <button class="cyber-button" onclick="deployCode()">Deploy Code</button>
+            <button class="cyber-button" onclick="runAnalysis()">Run Analysis</button>
+            <button class="cyber-button" onclick="optimizeSystem()">Optimize</button>
+            <button class="cyber-button" onclick="securityScan()">Security Scan</button>
+        </div>
+        
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+                <div class="terminal-title">NEXUS Terminal v3.7.2</div>
+            </div>
+            <div class="terminal-content" id="terminalContent">
+                <div><span class="prompt">nexus@core:~$</span> system status</div>
+                <div>✓ Neural networks: ACTIVE</div>
+                <div>✓ Quantum processors: ONLINE</div>
+                <div>✓ Security protocols: ENABLED</div>
+                <div>✓ Data streams: SYNCHRONIZED</div>
+                <div><span class="prompt">nexus@core:~$</span> <span class="cursor">█</span></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Dynamic stats animation
+        function animateStats() {
+            const stats = [
+                { id: 'activeProjects', values: [42, 43, 41, 44, 42] },
+                { id: 'deployments', values: [156, 157, 158, 159, 160] },
+            ];
+            
+            stats.forEach(stat => {
+                let index = 0;
+                setInterval(() => {
+                    document.getElementById(stat.id).textContent = stat.values[index];
+                    index = (index + 1) % stat.values.length;
+                }, 3000);
+            });
+        }
+        
+        // Add new activity items
+        function addActivity(text) {
+            const feed = document.getElementById('activityFeed');
+            const newItem = document.createElement('div');
+            newItem.className = 'activity-item';
+            newItem.innerHTML = `
+                <div class="activity-icon"></div>
+                <div class="activity-text">${text}</div>
+                <div class="activity-time">now</div>
+            `;
+            feed.insertBefore(newItem, feed.firstChild);
+            
+            // Remove old items if too many
+            if (feed.children.length > 8) {
+                feed.removeChild(feed.lastChild);
+            }
+        }
+        
+        // Terminal output function
+        function addTerminalOutput(text) {
+            const terminal = document.getElementById('terminalContent');
+            const cursor = terminal.querySelector('.cursor');
+            const newLine = document.createElement('div');
+            newLine.textContent = text;
+            terminal.insertBefore(newLine, cursor.parentElement);
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+        
+        // Button functions
+        function deployCode() {
+            addActivity('Code deployment initiated');
+            addTerminalOutput('> Deploying to quantum servers...');
+            setTimeout(() => {
+                addTerminalOutput('✓ Deployment successful');
+                addActivity('Code deployed successfully');
+            }, 2000);
+        }
+        
+        function runAnalysis() {
+            addActivity('System analysis started');
+            addTerminalOutput('> Running deep code analysis...');
+            setTimeout(() => {
+                addTerminalOutput('✓ Analysis complete - 0 vulnerabilities found');
+                addActivity('Analysis completed successfully');
+            }, 3000);
+        }
+        
+        function optimizeSystem() {
+            addActivity('System optimization in progress');
+            addTerminalOutput('> Optimizing neural pathways...');
+            setTimeout(() => {
+                addTerminalOutput('✓ System performance improved by 23%');
+                addActivity('Optimization completed');
+            }, 2500);
+        }
+        
+        function securityScan() {
+            addActivity('Security scan initiated');
+            addTerminalOutput('> Scanning for quantum threats...');
+            setTimeout(() => {
+                addTerminalOutput('✓ All systems secure');
+                addActivity('Security scan completed');
+            }, 4000);
+        }
+        
+        // Dynamic code typing effect
+        function typeCode() {
+            const editor = document.getElementById('codeEditor');
+            const lines = editor.querySelectorAll('.code-line');
+            
+            lines.forEach((line, index) => {
+                line.style.opacity = '0';
+                setTimeout(() => {
+                    line.style.opacity = '1';
+                    line.style.animation = 'typewriter 0.5s ease-in';
+                }, index * 200);
+            });
+        }
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            animateStats();
+            typeCode();
+            
+            // Auto-add activities periodically
+            const activities = [
+                'Neural network recalibrated',
+                'Quantum encryption updated',
+                'Data pipeline optimized',
+                'AI model retrained',
+                'Security protocols enhanced',
+                'Performance metrics updated'
+            ];
+            
+            setInterval(() => {
+                const randomActivity = activities[Math.floor(Math.random() * activities.length)];
+                addActivity(randomActivity);
+            }, 10000);
+        });
+        
+        // Dynamic network visualization
+        function animateNetwork() {
+            const nodes = document.querySelectorAll('.node');
+            nodes.forEach((node, index) => {
+                node.style.animationDelay = `${index * 0.5}s`;
+            });
+            
+            const connections = document.querySelectorAll('.connection');
+            connections.forEach((connection, index) => {
+                connection.style.animationDelay = `${index * 0.8}s`;
+            });
+        }
+        
+        animateNetwork();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96e867981326358f',t:'MTc1NTA5MDEyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
