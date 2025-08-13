@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCode Nexus - Advanced 3D Holographic IDE</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;700;900&family=Fira+Code:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+        
+        :root {
+            --neon-cyan: #00ffff;
+            --electric-purple: #8a2be2;
+            --cyber-pink: #ff0080;
+            --neural-green: #39ff14;
+            --quantum-blue: #0080ff;
+            --solar-orange: #ff4500;
+            --void-black: #000000;
+            --matrix-red: #ff3333;
+            --holo-yellow: #ffff00;
+            --neon-magenta: #ff00ff;
+            --electric-lime: #ccff00;
+            --cyber-teal: #00ffcc;
+            --plasma-violet: #9933ff;
+            --hologram-white: rgba(255, 255, 255, 0.9);
+            --glass-primary: rgba(255, 255, 255, 0.12);
+            --glass-secondary: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glow-intensity: 0 0 50px;
+            --shadow-depth: 0 20px 60px;
+            --blur-strong: blur(40px);
+            --blur-medium: blur(20px);
+            --blur-light: blur(10px);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Fira Code', monospace;
+            background: 
+                radial-gradient(ellipse at 10% 10%, rgba(0, 255, 255, 0.4) 0%, transparent 60%),
+                radial-gradient(ellipse at 90% 10%, rgba(138, 43, 226, 0.35) 0%, transparent 60%),
+                radial-gradient(ellipse at 10% 90%, rgba(255, 0, 128, 0.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 90% 90%, rgba(57, 255, 20, 0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 20%, rgba(0, 128, 255, 0.2) 0%, transparent 70%),
+                radial-gradient(ellipse at 20% 70%, rgba(255, 68, 0, 0.15) 0%, transparent 65%),
+                radial-gradient(ellipse at 80% 30%, rgba(255, 0, 255, 0.18) 0%, transparent 68%),
+                linear-gradient(135deg, #0a0a0a 0%, #1a0a2a 20%, #0a2a2a 40%, #2a2a0a 60%, #2a0a1a 80%, #0a0a0a 100%);
+            color: var(--neon-cyan);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            perspective: 4000px;
+            transform-style: preserve-3d;
+        }
+        
+        /* Advanced Holographic Grid with Complex Circuit Patterns */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.25) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.25) 1px, transparent 1px),
+                linear-gradient(45deg, rgba(138, 43, 226, 0.2) 1px, transparent 1px),
+                linear-gradient(135deg, rgba(255, 0, 128, 0.18) 1px, transparent 1px),
+                linear-gradient(-45deg, rgba(57, 255, 20, 0.15) 1px, transparent 1px),
+                radial-gradient(circle at 15% 15%, rgba(0, 255, 255, 0.15) 3px, transparent 6px),
+                radial-gradient(circle at 85% 85%, rgba(255, 0, 128, 0.12) 2px, transparent 5px),
+                radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.1) 4px, transparent 8px);
+            background-size: 25px 25px, 25px 25px, 15px 15px, 15px 15px, 20px 20px, 40px 40px, 60px 60px, 80px 80px;
+            pointer-events: none;
+            z-index: -2;
+            animation: holoGridComplex 30s linear infinite;
+            filter: var(--blur-light) brightness(1.3) contrast(1.2);
+        }
+        
+        @keyframes holoGridComplex {
+            0% { 
+                transform: translate3d(0, 0, 0) rotateZ(0deg) scale(1); 
+                opacity: 0.5; 
+                filter: var(--blur-light) hue-rotate(0deg) brightness(1.3);
+            }
+            20% { 
+                transform: translate3d(10px, 10px, 5px) rotateZ(72deg) scale(1.02); 
+                opacity: 0.8; 
+                filter: var(--blur-light) hue-rotate(72deg) brightness(1.5);
+            }
+            40% { 
+                transform: translate3d(20px, 20px, 10px) rotateZ(144deg) scale(0.98); 
+                opacity: 0.6; 
+                filter: var(--blur-light) hue-rotate(144deg) brightness(1.2);
+            }
+            60% { 
+                transform: translate3d(30px, 10px, 15px) rotateZ(216deg) scale(1.01); 
+                opacity: 0.7; 
+                filter: var(--blur-light) hue-rotate(216deg) brightness(1.4);
+            }
+            80% { 
+                transform: translate3d(10px, 30px, 5px) rotateZ(288deg) scale(0.99); 
+                opacity: 0.9; 
+                filter: var(--blur-light) hue-rotate(288deg) brightness(1.6);
+            }
+            100% { 
+                transform: translate3d(0, 40px, 0) rotateZ(360deg) scale(1); 
+                opacity: 0.5; 
+                filter: var(--blur-light) hue-rotate(360deg) brightness(1.3);
+            }
+        }
+        
+        /* Enhanced Digital Glitch Effects with Advanced Color Shifting */
+        .glitch-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 8;
+            background: 
+                linear-gradient(90deg, transparent 96%, rgba(255, 0, 128, 0.2) 97%, rgba(0, 255, 255, 0.18) 98%, rgba(57, 255, 20, 0.15) 99%, transparent 100%),
+                linear-gradient(180deg, transparent 95%, rgba(138, 43, 226, 0.18) 96%, rgba(255, 68, 0, 0.15) 97%, rgba(0, 128, 255, 0.12) 98%, transparent 100%),
+                linear-gradient(45deg, transparent 97%, rgba(255, 0, 255, 0.12) 98%, rgba(204, 255, 0, 0.1) 99%, transparent 100%);
+            background-size: 1.5px 100%, 100% 2px, 3px 3px;
+            animation: 
+                glitchScanAdvanced 0.06s linear infinite, 
+                glitchColorShiftAdvanced 4s ease-in-out infinite,
+                glitchDistortionAdvanced 7s ease-in-out infinite,
+                glitchFlicker 0.15s linear infinite;
+            mix-blend-mode: screen;
+        }
+        
+        @keyframes glitchScanAdvanced {
+            0% { background-position: 0 0, 0 0, 0 0; }
+            100% { background-position: 1.5px 0, 0 2px, 3px 3px; }
+        }
+        
+        @keyframes glitchColorShiftAdvanced {
+            0%, 100% { 
+                filter: hue-rotate(0deg) contrast(1.3) brightness(1.2) saturate(1.5);
+                transform: translate(0) scale(1) skew(0deg);
+            }
+            25% { 
+                filter: hue-rotate(90deg) contrast(1.6) brightness(1.5) saturate(2);
+                transform: translate(1px, -1px) scale(1.002) skew(0.2deg);
+            }
+            50% { 
+                filter: hue-rotate(180deg) contrast(1.2) brightness(1.3) saturate(1.2);
+                transform: translate(-1px, 1px) scale(0.998) skew(-0.1deg);
+            }
+            75% { 
+                filter: hue-rotate(270deg) contrast(1.5) brightness(1.4) saturate(1.8);
+                transform: translate(1px, 1px) scale(1.001) skew(0.1deg);
+            }
+        }
+        
+        @keyframes glitchDistortionAdvanced {
+            0%, 100% { 
+                transform: scale(1) skew(0deg) rotateZ(0deg);
+                opacity: 0.9;
+            }
+            20% { 
+                transform: scale(1.003) skew(0.3deg) rotateZ(0.1deg);
+                opacity: 1;
+            }
+            40% { 
+                transform: scale(0.997) skew(-0.2deg) rotateZ(-0.05deg);
+                opacity: 0.7;
+            }
+            60% { 
+                transform: scale(1.001) skew(0.1deg) rotateZ(0.08deg);
+                opacity: 0.95;
+            }
+            80% { 
+                transform: scale(0.999) skew(-0.05deg) rotateZ(-0.02deg);
+                opacity: 0.8;
+            }
+        }
+        
+        @keyframes glitchFlicker {
+            0%, 95%, 100% { opacity: 0.9; }
+            96%, 98% { opacity: 0.3; }
+            97% { opacity: 1; }
+        }
+        
+        /* Advanced Floating Scan Lines */
+        .scan-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 6;
+            background: 
+                linear-gradient(
+                    transparent 94%,
+                    rgba(0, 255, 255, 0.15) 95%,
+                    rgba(138, 43, 226, 0.12) 96%,
+                    rgba(255, 0, 128, 0.1) 97%,
+                    rgba(57, 255, 20, 0.08) 98%,
+                    rgba(255, 68, 0, 0.06) 99%,
+                    transparent 100%
+                );
+            background-size: 100% 1.5px;
+            animation: scanLinesAdvanced 0.04s linear infinite;
+            mix-blend-mode: screen;
+        }
+        
+        @keyframes scanLinesAdvanced {
+            0% { transform: translateY(0) scale(1, 1); }
+            100% { transform: translateY(1.5px) scale(1, 1.01); }
+        }
+        
+        /* Floating Particle System */
+        .particle-system {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--neon-cyan);
+            border-radius: 50%;
+            filter: blur(0.5px);
+            box-shadow: 
+                0 0 10px currentColor,
+                0 0 20px currentColor,
+                0 0 30px rgba(0, 255, 255, 0.3);
+            animation: particleFloat 15s linear infinite;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+                transform: translateY(95vh) translateX(10px) rotate(18deg) scale(1);
+            }
+            95% {
+                opacity: 1;
+                transform: translateY(5vh) translateX(-10px) rotate(342deg) scale(1);
+            }
+            100% {
+                transform: translateY(0) translateX(0) rotate(360deg) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        .container {
+            max-width: 1900px;
+            margin: 0 auto;
+            padding: 40px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Ultra-Enhanced Header with Advanced 3D Effects */
+        .cyber-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 50px 80px;
+            background: 
+                linear-gradient(135deg, var(--glass-primary) 0%, var(--glass-secondary) 30%, var(--glass-primary) 60%, var(--glass-secondary) 100%),
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.25) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.2) 0%, transparent 60%),
+                radial-gradient(circle at 50% 50%, rgba(255, 0, 128, 0.15) 0%, transparent 70%),
+                rgba(0, 0, 0, 0.6);
+            border: 4px solid var(--glass-border);
+            border-radius: 30px;
+            backdrop-filter: var(--blur-strong) saturate(250%);
+            box-shadow: 
+                var(--shadow-depth) rgba(0, 0, 0, 0.6),
+                inset 0 4px 0 rgba(255, 255, 255, 0.25),
+                var(--glow-intensity) rgba(0, 255, 255, 0.5),
+                0 0 100px rgba(138, 43, 226, 0.3);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            animation: headerFloatAdvanced 8s ease-in-out infinite;
+        }
+        
+        @keyframes headerFloatAdvanced {
+            0%, 100% { 
+                transform: translateY(0) rotateX(0deg) rotateY(0deg) scale(1);
+            }
+            25% { 
+                transform: translateY(-3px) rotateX(1deg) rotateY(0.5deg) scale(1.002);
+            }
+            50% { 
+                transform: translateY(-6px) rotateX(2deg) rotateY(1deg) scale(1.005);
+            }
+            75% { 
+                transform: translateY(-3px) rotateX(1deg) rotateY(0.5deg) scale(1.002);
+            }
+        }
+        
+        .cyber-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--neon-cyan), 
+                var(--electric-purple), 
+                var(--cyber-pink), 
+                var(--neural-green),
+                var(--quantum-blue),
+                var(--solar-orange),
+                transparent
+            );
+            animation: headerScanAdvanced 8s linear infinite;
+            filter: blur(1px);
+        }
+        
+        @keyframes headerScanAdvanced {
+            0% { left: -100%; opacity: 0.7; transform: scaleX(1); }
+            50% { opacity: 1; transform: scaleX(1.2); }
+            100% { left: 100%; opacity: 0.7; transform: scaleX(1); }
+        }
+        
+        .cyber-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 26px;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 70%
+            );
+            animation: headerShimmer 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes headerShimmer {
+            0%, 100% { transform: translateX(-100%) skewX(-15deg); }
+            50% { transform: translateX(100%) skewX(-15deg); }
+        }
+        
+        .cyber-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, 
+                var(--neon-cyan), var(--electric-purple), var(--cyber-pink), 
+                var(--neural-green), var(--quantum-blue), var(--solar-orange),
+                var(--neon-magenta), var(--electric-lime)
+            );
+            background-size: 800% 800%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: 
+                titleFlowAdvanced 10s ease-in-out infinite, 
+                titleGlitchAdvanced 12s ease-in-out infinite,
+                titlePulse 4s ease-in-out infinite;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            text-shadow: 
+                0 0 40px rgba(0, 255, 255, 0.6),
+                0 0 80px rgba(138, 43, 226, 0.4),
+                0 0 120px rgba(255, 0, 128, 0.2);
+            position: relative;
+        }
+        
+        @keyframes titleFlowAdvanced {
+            0%, 100% { background-position: 0% 50%; }
+            20% { background-position: 100% 20%; }
+            40% { background-position: 50% 100%; }
+            60% { background-position: 0% 80%; }
+            80% { background-position: 80% 0%; }
+        }
+        
+        @keyframes titleGlitchAdvanced {
+            0%, 88%, 100% { transform: translate(0) scale(1); }
+            89% { transform: translate(3px, -2px) scale(1.01); }
+            90% { transform: translate(-3px, 2px) scale(0.99); }
+            91% { transform: translate(2px, 2px) scale(1.02); }
+            92% { transform: translate(-2px, -2px) scale(0.98); }
+            93% { transform: translate(1px, -1px) scale(1.01); }
+            94% { transform: translate(0) scale(1); }
+        }
+        
+        @keyframes titlePulse {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 40px rgba(0, 255, 255, 0.6),
+                    0 0 80px rgba(138, 43, 226, 0.4),
+                    0 0 120px rgba(255, 0, 128, 0.2);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 60px rgba(0, 255, 255, 0.8),
+                    0 0 120px rgba(138, 43, 226, 0.6),
+                    0 0 180px rgba(255, 0, 128, 0.4);
+            }
+        }
+        
+        .neural-status {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: 
+                linear-gradient(135deg, rgba(57, 255, 20, 0.25) 0%, rgba(57, 255, 20, 0.12) 50%, rgba(57, 255, 20, 0.08) 100%),
+                rgba(0, 0, 0, 0.5);
+            padding: 25px 40px;
+            border-radius: 25px;
+            border: 3px solid rgba(57, 255, 20, 0.6);
+            font-size: 1.2rem;
+            color: var(--neural-green);
+            backdrop-filter: var(--blur-medium);
+            box-shadow: 
+                0 15px 40px rgba(57, 255, 20, 0.5),
+                inset 0 3px 0 rgba(255, 255, 255, 0.2),
+                var(--glow-intensity) var(--neural-green);
+            animation: statusPulseAdvanced 5s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes statusPulseAdvanced {
+            0%, 100% { 
+                box-shadow: 
+                    0 15px 40px rgba(57, 255, 20, 0.5),
+                    inset 0 3px 0 rgba(255, 255, 255, 0.2),
+                    var(--glow-intensity) var(--neural-green);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 
+                    0 20px 60px rgba(57, 255, 20, 0.7),
+                    inset 0 3px 0 rgba(255, 255, 255, 0.3),
+                    0 0 80px var(--neural-green);
+                transform: scale(1.02);
+            }
+        }
+        
+        .neural-status::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent
+            );
+            animation: statusShimmer 4s ease-in-out infinite;
+        }
+        
+        @keyframes statusShimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Advanced 3D Interface Layout */
+        .cyber-interface {
+            display: grid;
+            grid-template-columns: 450px 1fr 500px;
+            gap: 40px;
+            margin-bottom: 40px;
+            transform-style: preserve-3d;
+            perspective: 3000px;
+        }
+        
+        /* Ultra-Enhanced 3D Glass Morphism Panels */
+        .holo-panel {
+            background: 
+                linear-gradient(135deg, var(--glass-primary) 0%, var(--glass-secondary) 25%, var(--glass-primary) 50%, var(--glass-secondary) 75%, var(--glass-primary) 100%),
+                radial-gradient(circle at 25% 25%, rgba(0, 255, 255, 0.2) 0%, transparent 60%),
+                radial-gradient(circle at 75% 75%, rgba(138, 43, 226, 0.18) 0%, transparent 60%),
+                radial-gradient(circle at 50% 10%, rgba(255, 0, 128, 0.15) 0%, transparent 70%),
+                radial-gradient(circle at 10% 90%, rgba(57, 255, 20, 0.12) 0%, transparent 65%),
+                rgba(0, 0, 0, 0.5);
+            border: 4px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 40px;
+            backdrop-filter: var(--blur-strong) saturate(250%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                var(--shadow-depth) rgba(0, 0, 0, 0.6),
+                inset 0 4px 0 rgba(255, 255, 255, 0.25),
+                0 0 60px rgba(0, 255, 255, 0.2);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            animation: panelFloatAdvanced 10s ease-in-out infinite;
+        }
+        
+        @keyframes panelFloatAdvanced {
+            0%, 100% { 
+                transform: translateY(0) rotateX(0deg) rotateY(0deg) scale(1);
+            }
+            33% { 
+                transform: translateY(-2px) rotateX(1deg) rotateY(0.5deg) scale(1.001);
+            }
+            66% { 
+                transform: translateY(-4px) rotateX(2deg) rotateY(1deg) scale(1.003);
+            }
+        }
+        
+        .holo-panel:hover {
+            transform: translateY(-15px) rotateX(8deg) rotateY(4deg) scale(1.03);
+            box-shadow: 
+                0 35px 90px rgba(0, 0, 0, 0.7),
+                inset 0 4px 0 rgba(255, 255, 255, 0.4),
+                var(--glow-intensity) var(--neon-cyan),
+                0 0 120px rgba(138, 43, 226, 0.4);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .holo-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 26px;
+            padding: 4px;
+            background: linear-gradient(135deg, 
+                var(--neon-cyan), transparent, var(--electric-purple), 
+                transparent, var(--cyber-pink), transparent, var(--neural-green),
+                transparent, var(--quantum-blue), transparent, var(--solar-orange)
+            );
+            background-size: 800% 800%;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            animation: panelGlowAdvanced 15s ease-in-out infinite;
+        }
+        
+        @keyframes panelGlowAdvanced {
+            0%, 100% { background-position: 0% 50%; opacity: 0.7; }
+            20% { background-position: 100% 20%; opacity: 1; }
+            40% { background-position: 50% 100%; opacity: 0.8; }
+            60% { background-position: 0% 80%; opacity: 0.9; }
+            80% { background-position: 80% 0%; opacity: 1; }
+        }
+        
+        .holo-panel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 26px;
+            background: linear-gradient(45deg, 
+                transparent 40%, 
+                rgba(255, 255, 255, 0.15) 50%, 
+                transparent 60%
+            );
+            animation: panelShimmerAdvanced 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes panelShimmerAdvanced {
+            0%, 100% { transform: translateX(-100%) skewX(-20deg); opacity: 0; }
+            50% { transform: translateX(100%) skewX(-20deg); opacity: 1; }
+        }
+        
+        /* Ultra-Advanced 3D Interactive File Explorer */
+        .file-explorer {
+            perspective: 1500px;
+            transform-style: preserve-3d;
+        }
+        
+        .file-tree {
+            list-style: none;
+            transform-style: preserve-3d;
+        }
+        
+        .file-item {
+            padding: 18px 25px;
+            margin: 8px 0;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.1) 100%),
+                rgba(0, 255, 255, 0.08);
+            border: 3px solid rgba(0, 255, 255, 0.25);
+            animation: fileItemFloatAdvanced 12s ease-in-out infinite;
+            backdrop-filter: var(--blur-light);
+        }
+        
+        @keyframes fileItemFloatAdvanced {
+            0%, 100% { transform: translateY(0) rotateY(0deg); }
+            50% { transform: translateY(-1px) rotateY(0.5deg); }
+        }
+        
+        .file-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: linear-gradient(90deg, 
+                var(--neon-cyan), 
+                var(--electric-purple), 
+                var(--cyber-pink),
+                var(--neural-green)
+            );
+            transition: width 0.5s ease;
+            border-radius: 20px 0 0 20px;
+            filter: blur(1px);
+        }
+        
+        .file-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 17px;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 70%
+            );
+            transform: translateX(-100%) skewX(-15deg);
+            transition: transform 0.6s ease;
+            pointer-events: none;
+        }
+        
+        .file-item:hover {
+            background: 
+                linear-gradient(135deg, rgba(0, 255, 255, 0.25) 0%, rgba(0, 255, 255, 0.15) 50%, rgba(0, 255, 255, 0.08) 100%),
+                rgba(0, 0, 0, 0.4);
+            transform: translateX(20px) translateZ(30px) rotateY(8deg) rotateX(2deg) scale(1.08);
+            box-shadow: 
+                0 15px 40px rgba(0, 255, 255, 0.5),
+                inset 0 3px 0 rgba(255, 255, 255, 0.2),
+                var(--glow-intensity) rgba(0, 255, 255, 0.6);
+            border-color: rgba(0, 255, 255, 0.8);
+        }
+        
+        .file-item:hover::before {
+            width: 8px;
+        }
+        
+        .file-item:hover::after {
+            transform: translateX(100%) skewX(-15deg);
+        }
+        
+        .file-item.active {
+            background: 
+                linear-gradient(135deg, rgba(0, 255, 255, 0.4) 0%, rgba(0, 255, 255, 0.25) 50%, rgba(0, 255, 255, 0.15) 100%),
+                rgba(0, 0, 0, 0.5);
+            border-left: 8px solid var(--neon-cyan);
+            box-shadow: 
+                0 18px 50px rgba(0, 255, 255, 0.6),
+                inset 0 3px 0 rgba(255, 255, 255, 0.25),
+                var(--glow-intensity) var(--neon-cyan);
+            transform: translateX(15px) translateZ(20px) rotateY(3deg) scale(1.05);
+        }
+        
+        /* Ultra-Advanced Animated File Icons with Complex Glowing Halos */
+        .file-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            filter: 
+                drop-shadow(0 0 15px currentColor) 
+                drop-shadow(0 0 8px rgba(255, 255, 255, 0.4))
+                drop-shadow(0 0 25px rgba(0, 255, 255, 0.3));
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            animation: iconFloatAdvanced 10s ease-in-out infinite;
+            position: relative;
+        }
+        
+        .file-icon::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, rgba(138, 43, 226, 0.2) 50%, transparent 80%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: -1;
+            animation: iconHaloAdvanced 8s linear infinite;
+        }
+        
+        .file-icon::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            background: radial-gradient(circle, transparent 30%, rgba(255, 0, 128, 0.15) 60%, transparent 90%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: -2;
+            animation: iconHaloAdvanced 12s linear infinite reverse;
+        }
+        
+        @keyframes iconHaloAdvanced {
+            0% { transform: rotate(0deg) scale(1); opacity: 0.3; }
+            50% { transform: rotate(180deg) scale(1.2); opacity: 0.7; }
+            100% { transform: rotate(360deg) scale(1); opacity: 0.3; }
+        }
+        
+        .file-item:hover .file-icon {
+            transform: rotateY(1080deg) rotateX(20deg) rotateZ(15deg) scale(1.4) translateZ(15px);
+            filter: 
+                drop-shadow(0 0 25px currentColor) 
+                drop-shadow(0 0 15px rgba(255, 255, 255, 0.6))
+                drop-shadow(0 0 40px rgba(0, 255, 255, 0.5));
+            animation: iconHoverAdvanced 3s ease-in-out infinite;
+        }
+        
+        .file-item:hover .file-icon::before {
+            opacity: 1;
+            transform: scale(1.5) rotate(180deg);
+        }
+        
+        .file-item:hover .file-icon::after {
+            opacity: 0.8;
+            transform: scale(1.8) rotate(-180deg);
+        }
+        
+        @keyframes iconFloatAdvanced {
+            0%, 100% { 
+                transform: translateY(0) rotateZ(0deg) scale(1); 
+            }
+            25% { 
+                transform: translateY(-1px) rotateZ(2deg) scale(1.02); 
+            }
+            50% { 
+                transform: translateY(-2px) rotateZ(0deg) scale(1.05); 
+            }
+            75% { 
+                transform: translateY(-1px) rotateZ(-2deg) scale(1.02); 
+            }
+        }
+        
+        @keyframes iconHoverAdvanced {
+            0%, 100% { 
+                transform: rotateY(1080deg) rotateX(20deg) rotateZ(15deg) scale(1.4) translateZ(15px);
+            }
+            50% { 
+                transform: rotateY(1080deg) rotateX(20deg) rotateZ(15deg) scale(1.5) translateZ(20px);
+            }
+        }
+        
+        .file-name {
+            font-weight: 700;
+            color: #e8e8e8;
+            transition: all 0.4s ease;
+            text-shadow: 
+                0 0 8px rgba(255, 255, 255, 0.4),
+                0 0 15px rgba(0, 255, 255, 0.2);
+            font-size: 1.05rem;
+        }
+        
+        .file-item:hover .file-name,
+        .file-item.active .file-name {
+            color: var(--neon-cyan);
+            text-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.8),
+                0 0 40px rgba(0, 255, 255, 0.4),
+                0 0 60px rgba(0, 255, 255, 0.2);
+            transform: translateX(5px) scale(1.05);
+        }
+        
+        /* Ultra-Enhanced Code Editor with Advanced 3D Effects */
+        .cyber-code-editor {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 50, 25, 0.9) 30%, rgba(0, 40, 20, 0.85) 70%, rgba(0, 30, 15, 0.9) 100%),
+                radial-gradient(circle at 20% 20%, rgba(57, 255, 20, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.08) 0%, transparent 60%),
+                rgba(0, 0, 0, 0.8);
+            border: 4px solid var(--neural-green);
+            border-radius: 25px;
+            padding: 40px;
+            font-family: 'Fira Code', monospace;
+            font-size: 17px;
+            color: var(--neural-green);
+            min-height: 800px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                inset 0 0 100px rgba(57, 255, 20, 0.25),
+                var(--glow-intensity) var(--neural-green),
+                0 0 120px rgba(57, 255, 20, 0.3);
+            transform-style: preserve-3d;
+            animation: codeEditorPulseAdvanced 12s ease-in-out infinite;
+            backdrop-filter: var(--blur-light);
+        }
+        
+        @keyframes codeEditorPulseAdvanced {
+            0%, 100% { 
+                box-shadow: 
+                    inset 0 0 100px rgba(57, 255, 20, 0.25),
+                    var(--glow-intensity) var(--neural-green),
+                    0 0 120px rgba(57, 255, 20, 0.3);
+                border-color: var(--neural-green);
+            }
+            33% { 
+                box-shadow: 
+                    inset 0 0 120px rgba(57, 255, 20, 0.35),
+                    0 0 80px var(--neural-green),
+                    0 0 160px rgba(57, 255, 20, 0.4);
+                border-color: rgba(57, 255, 20, 0.8);
+            }
+            66% { 
+                box-shadow: 
+                    inset 0 0 140px rgba(57, 255, 20, 0.4),
+                    0 0 100px var(--neural-green),
+                    0 0 200px rgba(57, 255, 20, 0.5);
+                border-color: rgba(57, 255, 20, 1);
+            }
+        }
+        
+        .cyber-code-editor::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--neural-green), 
+                var(--neon-cyan), 
+                var(--electric-purple), 
+                var(--cyber-pink),
+                var(--quantum-blue),
+                transparent
+            );
+            animation: codeScanAdvanced 10s linear infinite;
+            filter: blur(2px);
+        }
+        
+        @keyframes codeScanAdvanced {
+            0% { left: -100%; opacity: 0.8; transform: scaleY(1); }
+            50% { opacity: 1; transform: scaleY(1.5); }
+            100% { left: 100%; opacity: 0.8; transform: scaleY(1); }
+        }
+        
+        .cyber-code-editor::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 21px;
+            background: 
+                linear-gradient(135deg, transparent 30%, rgba(57, 255, 20, 0.05) 50%, transparent 70%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+            animation: codeEditorShimmer 8s ease-in-out infinite;
+        }
+        
+        @keyframes codeEditorShimmer {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.01); }
+        }
+        
+        .code-line {
+            display: flex;
+            margin-bottom: 18px;
+            padding: 12px 0;
+            border-radius: 12px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: codeLineAppearAdvanced 2.5s ease-out;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        
+        .code-line:hover {
+            background: 
+                linear-gradient(135deg, rgba(57, 255, 20, 0.25) 0%, rgba(0, 255, 255, 0.2) 50%, rgba(138, 43, 226, 0.15) 100%),
+                rgba(0, 0, 0, 0.5);
+            transform: translateX(25px) translateZ(15px) rotateY(3deg) scale(1.03);
+            box-shadow: 
+                0 12px 35px rgba(57, 255, 20, 0.6), 
+                inset 0 0 25px rgba(0, 255, 255, 0.4),
+                0 0 50px rgba(138, 43, 226, 0.3);
+            border: 3px solid rgba(57, 255, 20, 0.6);
+            backdrop-filter: var(--blur-light);
+        }
+        
+        @keyframes codeLineAppearAdvanced {
+            from { 
+                opacity: 0; 
+                transform: translateX(-80px) scale(0.7) rotateY(-10deg);
+                filter: blur(8px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0) scale(1) rotateY(0deg);
+                filter: blur(0);
+            }
+        }
+        
+        .line-number {
+            color: rgba(255, 255, 255, 0.7);
+            margin-right: 40px;
+            width: 80px;
+            text-align: right;
+            font-weight: 800;
+            user-select: none;
+            text-shadow: 
+                0 0 8px rgba(255, 255, 255, 0.4),
+                0 0 15px rgba(0, 255, 255, 0.2);
+            animation: lineNumberGlowAdvanced 6s ease-in-out infinite;
+            position: relative;
+        }
+        
+        @keyframes lineNumberGlowAdvanced {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 8px rgba(255, 255, 255, 0.4),
+                    0 0 15px rgba(0, 255, 255, 0.2);
+            }
+            33% { 
+                text-shadow: 
+                    0 0 12px rgba(255, 255, 255, 0.6),
+                    0 0 25px rgba(0, 255, 255, 0.3),
+                    0 0 40px rgba(57, 255, 20, 0.2);
+            }
+            66% { 
+                text-shadow: 
+                    0 0 15px rgba(255, 255, 255, 0.8),
+                    0 0 30px rgba(0, 255, 255, 0.4),
+                    0 0 50px rgba(138, 43, 226, 0.3);
+            }
+        }
+        
+        .line-number::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, 
+                transparent, 
+                rgba(0, 255, 255, 0.7), 
+                rgba(138, 43, 226, 0.5),
+                rgba(255, 0, 128, 0.4),
+                transparent
+            );
+            border-radius: 2px;
+            animation: lineBarAdvanced 8s ease-in-out infinite;
+        }
+        
+        @keyframes lineBarAdvanced {
+            0%, 100% { 
+                background: linear-gradient(180deg, 
+                    transparent, 
+                    rgba(0, 255, 255, 0.7), 
+                    rgba(138, 43, 226, 0.5),
+                    rgba(255, 0, 128, 0.4),
+                    transparent
+                );
+                transform: scaleY(1);
+            }
+            50% { 
+                background: linear-gradient(180deg, 
+                    transparent, 
+                    rgba(57, 255, 20, 0.8), 
+                    rgba(255, 0, 128, 0.6),
+                    rgba(0, 128, 255, 0.5),
+                    transparent
+                );
+                transform: scaleY(1.2);
+            }
+        }
+        
+        /* Ultra-Enhanced Syntax Highlighting with Advanced Glow Effects */
+        .keyword { 
+            color: #ff6b6b; 
+            font-weight: 900;
+            text-shadow: 
+                0 0 25px rgba(255, 107, 107, 0.9),
+                0 0 50px rgba(255, 107, 107, 0.4),
+                0 0 75px rgba(255, 107, 107, 0.2);
+            animation: keywordPulseAdvanced 12s ease-in-out infinite;
+        }
+        
+        @keyframes keywordPulseAdvanced {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 25px rgba(255, 107, 107, 0.9),
+                    0 0 50px rgba(255, 107, 107, 0.4),
+                    0 0 75px rgba(255, 107, 107, 0.2);
+                transform: scale(1);
+            }
+            33% { 
+                text-shadow: 
+                    0 0 35px rgba(255, 107, 107, 1),
+                    0 0 70px rgba(255, 107, 107, 0.5),
+                    0 0 105px rgba(255, 107, 107, 0.3);
+                transform: scale(1.02);
+            }
+            66% { 
+                text-shadow: 
+                    0 0 40px rgba(255, 107, 107, 1.1),
+                    0 0 80px rgba(255, 107, 107, 0.6),
+                    0 0 120px rgba(255, 107, 107, 0.4);
+                transform: scale(1.05);
+            }
+        }
+        
+        .string { 
+            color: #4ecdc4; 
+            font-weight: 800;
+            text-shadow: 
+                0 0 22px rgba(78, 205, 196, 0.8),
+                0 0 45px rgba(78, 205, 196, 0.3),
+                0 0 70px rgba(78, 205, 196, 0.15);
+            animation: stringShimmerAdvanced 14s ease-in-out infinite;
+        }
+        
+        @keyframes stringShimmerAdvanced {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 22px rgba(78, 205, 196, 0.8),
+                    0 0 45px rgba(78, 205, 196, 0.3),
+                    0 0 70px rgba(78, 205, 196, 0.15);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 30px rgba(78, 205, 196, 1),
+                    0 0 60px rgba(78, 205, 196, 0.4),
+                    0 0 90px rgba(78, 205, 196, 0.25);
+            }
+        }
+        
+        .function { 
+            color: #ffe66d; 
+            font-weight: 900;
+            text-shadow: 
+                0 0 25px rgba(255, 230, 109, 0.8),
+                0 0 50px rgba(255, 230, 109, 0.3),
+                0 0 75px rgba(255, 230, 109, 0.15);
+            animation: functionGlowAdvanced 13s ease-in-out infinite;
+        }
+        
+        @keyframes functionGlowAdvanced {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 25px rgba(255, 230, 109, 0.8),
+                    0 0 50px rgba(255, 230, 109, 0.3),
+                    0 0 75px rgba(255, 230, 109, 0.15);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 35px rgba(255, 230, 109, 1),
+                    0 0 70px rgba(255, 230, 109, 0.4),
+                    0 0 105px rgba(255, 230, 109, 0.25);
+            }
+        }
+        
+        .comment {
+            color: #999;
+            font-style: italic;
+            text-shadow: 0 0 5px rgba(153, 153, 153, 0.3);
+            opacity: 0.8;
+        }
+        
+        .property {
+            color: #a8e6cf;
+            font-weight: 700;
+            text-shadow: 
+                0 0 12px rgba(168, 230, 207, 0.4),
+                0 0 25px rgba(168, 230, 207, 0.2);
+        }
+        
+        .operator {
+            color: #ff8b94;
+            font-weight: 800;
+            text-shadow: 
+                0 0 15px rgba(255, 139, 148, 0.5),
+                0 0 30px rgba(255, 139, 148, 0.2);
+        }
+        
+        /* Enhanced Panel Headers */
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid rgba(0, 255, 255, 0.4);
+            position: relative;
+        }
+        
+        .panel-header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                var(--neon-cyan), 
+                var(--electric-purple), 
+                var(--cyber-pink),
+                var(--neural-green)
+            );
+            animation: headerUnderlineAdvanced 4s ease-in-out infinite;
+        }
+        
+        @keyframes headerUnderlineAdvanced {
+            0%, 100% { width: 0; }
+            50% { width: 100%; }
+        }
+        
+        .panel-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--neon-cyan);
+            text-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.7),
+                0 0 40px rgba(0, 255, 255, 0.3),
+                0 0 60px rgba(0, 255, 255, 0.15);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: panelTitleGlowAdvanced 8s ease-in-out infinite;
+        }
+        
+        @keyframes panelTitleGlowAdvanced {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 20px rgba(0, 255, 255, 0.7),
+                    0 0 40px rgba(0, 255, 255, 0.3),
+                    0 0 60px rgba(0, 255, 255, 0.15);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 30px rgba(0, 255, 255, 0.9),
+                    0 0 60px rgba(0, 255, 255, 0.4),
+                    0 0 90px rgba(0, 255, 255, 0.25);
+            }
+        }
+        
+        /* Advanced Analytics Panel */
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+        
+        .metric-card {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 100%),
+                rgba(0, 255, 255, 0.08);
+            border: 3px solid rgba(0, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            animation: metricCardFloatAdvanced 15s ease-in-out infinite;
+            backdrop-filter: var(--blur-light);
+        }
+        
+        @keyframes metricCardFloatAdvanced {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-3px) scale(1.01); }
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            border-color: rgba(0, 255, 255, 0.8);
+            box-shadow: 
+                0 15px 40px rgba(0, 255, 255, 0.4),
+                inset 0 0 25px rgba(0, 255, 255, 0.15);
+        }
+        
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 17px;
+            background: linear-gradient(45deg, 
+                transparent 40%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 60%
+            );
+            transform: translateX(-100%) skewX(-15deg);
+            transition: transform 0.8s ease;
+            pointer-events: none;
+        }
+        
+        .metric-card:hover::before {
+            transform: translateX(100%) skewX(-15deg);
+        }
+        
+        .metric-label {
+            font-size: 1rem;
+            color: #ddd;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--neon-cyan);
+            text-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.7),
+                0 0 40px rgba(0, 255, 255, 0.3);
+            margin-bottom: 15px;
+            animation: metricValuePulseAdvanced 6s ease-in-out infinite;
+        }
+        
+        @keyframes metricValuePulseAdvanced {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 20px rgba(0, 255, 255, 0.7),
+                    0 0 40px rgba(0, 255, 255, 0.3);
+                transform: scale(1);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 30px rgba(0, 255, 255, 0.9),
+                    0 0 60px rgba(0, 255, 255, 0.4);
+                transform: scale(1.05);
+            }
+        }
+        
+        .metric-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .metric-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1.5s ease;
+            position: relative;
+            animation: metricFillPulseAdvanced 4s ease-in-out infinite;
+        }
+        
+        @keyframes metricFillPulseAdvanced {
+            0%, 100% { filter: brightness(1) saturate(1); }
+            50% { filter: brightness(1.3) saturate(1.5); }
+        }
+        
+        .cpu-fill {
+            background: linear-gradient(90deg, 
+                var(--cyber-pink), 
+                var(--electric-purple),
+                var(--neon-magenta)
+            );
+            width: 85%;
+            box-shadow: 0 0 20px rgba(255, 0, 128, 0.6);
+        }
+        
+        .memory-fill {
+            background: linear-gradient(90deg, 
+                var(--neural-green), 
+                var(--neon-cyan),
+                var(--cyber-teal)
+            );
+            width: 72%;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.6);
+        }
+        
+        .network-fill {
+            background: linear-gradient(90deg, 
+                var(--quantum-blue), 
+                var(--neon-cyan),
+                var(--electric-lime)
+            );
+            width: 66%;
+            box-shadow: 0 0 20px rgba(0, 128, 255, 0.6);
+        }
+        
+        .storage-fill {
+            background: linear-gradient(90deg, 
+                var(--solar-orange), 
+                var(--holo-yellow),
+                var(--cyber-pink)
+            );
+            width: 58%;
+            box-shadow: 0 0 20px rgba(255, 68, 0, 0.6);
+        }
+        
+        /* Advanced Data Visualization */
+        .data-viz {
+            height: 140px;
+            position: relative;
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.3) 100%),
+                rgba(0, 255, 255, 0.1);
+            border: 3px solid rgba(0, 255, 255, 0.3);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            animation: dataVizPulseAdvanced 8s ease-in-out infinite;
+            backdrop-filter: var(--blur-light);
+        }
+        
+        @keyframes dataVizPulseAdvanced {
+            0%, 100% { 
+                border-color: rgba(0, 255, 255, 0.3);
+                box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+            }
+            50% { 
+                border-color: rgba(0, 255, 255, 0.5);
+                box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+            }
+        }
+        
+        .viz-line {
+            position: absolute;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, 
+                transparent, 
+                var(--neon-cyan), 
+                var(--electric-purple),
+                var(--cyber-pink)
+            );
+            border-radius: 3px 3px 0 0;
+            animation: vizPulseAdvanced 4s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+        }
+        
+        @keyframes vizPulseAdvanced {
+            0%, 100% { 
+                height: 25%; 
+                opacity: 0.7;
+                transform: scaleY(1);
+            }
+            25% { 
+                height: 85%; 
+                opacity: 1;
+                transform: scaleY(1.1);
+            }
+            50% { 
+                height: 65%; 
+                opacity: 0.9;
+                transform: scaleY(1.05);
+            }
+            75% { 
+                height: 95%; 
+                opacity: 1;
+                transform: scaleY(1.15);
+            }
+        }
+        
+        /* Enhanced Activity Feed */
+        .activity-feed {
+            max-height: 350px;
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 2px solid rgba(0, 255, 255, 0.15);
+            animation: activityAppearAdvanced 1.5s ease-out;
+            transition: all 0.4s ease;
+        }
+        
+        .activity-item:hover {
+            background: rgba(0, 255, 255, 0.05);
+            transform: translateX(12px);
+            border-bottom-color: rgba(0, 255, 255, 0.3);
+            backdrop-filter: var(--blur-light);
+        }
+        
+        .activity-time {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 700;
+            min-width: 70px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+        }
+        
+        .activity-message {
+            font-size: 1rem;
+            color: #eee;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        
+        @keyframes activityAppearAdvanced {
+            from { 
+                opacity: 0; 
+                transform: translateX(-30px) scale(0.9);
+                filter: blur(3px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0) scale(1);
+                filter: blur(0);
+            }
+        }
+        
+        /* Ultra-Enhanced Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 15px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.5) 100%),
+                rgba(0, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 2px solid rgba(0, 255, 255, 0.2);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, 
+                var(--neon-cyan), 
+                var(--electric-purple), 
+                var(--cyber-pink),
+                var(--neural-green),
+                var(--quantum-blue)
+            );
+            background-size: 400% 400%;
+            border-radius: 8px;
+            box-shadow: 
+                var(--glow-intensity) var(--neon-cyan),
+                inset 0 2px 0 rgba(255, 255, 255, 0.25);
+            transition: all 0.4s ease;
+            animation: scrollbarGlowAdvanced 8s ease-in-out infinite;
+        }
+        
+        @keyframes scrollbarGlowAdvanced {
+            0%, 100% { background-position: 0% 50%; }
+            25% { background-position: 100% 25%; }
+            50% { background-position: 50% 100%; }
+            75% { background-position: 0% 75%; }
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, 
+                var(--cyber-pink), 
+                var(--neural-green), 
+                var(--quantum-blue),
+                var(--solar-orange),
+                var(--neon-magenta)
+            );
+            box-shadow: 
+                0 0 60px var(--cyber-pink),
+                inset 0 2px 0 rgba(255, 255, 255, 0.5);
+            transform: scale(1.1);
+        }
+        
+        /* Advanced Responsive Design */
+        @media (max-width: 1600px) {
+            .cyber-interface {
+                grid-template-columns: 400px 1fr 450px;
+                gap: 35px;
+            }
+            
+            .cyber-title {
+                font-size: 3.5rem;
+                letter-spacing: 6px;
+            }
+        }
+        
+        @media (max-width: 1400px) {
+            .cyber-interface {
+                grid-template-columns: 350px 1fr 400px;
+                gap: 30px;
+            }
+            
+            .cyber-title {
+                font-size: 3rem;
+                letter-spacing: 5px;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .cyber-interface {
+                grid-template-columns: 300px 1fr 350px;
+                gap: 25px;
+            }
+            
+            .cyber-title {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+        }
+        
+        @media (max-width: 1000px) {
+            .cyber-interface {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .cyber-header {
+                flex-direction: column;
+                gap: 30px;
+                padding: 40px;
+            }
+            
+            .cyber-title {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .cyber-header {
+                padding: 25px;
+            }
+            
+            .cyber-title {
+                font-size: 1.8rem;
+                letter-spacing: 2px;
+            }
+            
+            .holo-panel {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Advanced Digital Glitch and Scan Effects -->
+    <div class="glitch-overlay"></div>
+    <div class="scan-lines"></div>
+    
+    <!-- Floating Particle System -->
+    <div class="particle-system" id="particleSystem"></div>
+
+    <div class="container">
+        <!-- Ultra-Enhanced Header -->
+        <header class="cyber-header">
+            <h1 class="cyber-title">CyberCode Nexus</h1>
+            <div class="neural-status">
+                <div class="status-indicator"></div>
+                <span>Neural Link Active • 3D Holographic Mode • Advanced Interface</span>
+            </div>
+        </header>
+        
+        <!-- Advanced 3D Interface -->
+        <div class="cyber-interface">
+            <!-- Left Panel: Ultra-Advanced 3D Interactive File Explorer -->
+            <div class="holo-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Neural Explorer</h2>
+                    <span style="color: #666; font-size: 1.3rem;">🗂️</span>
+                </div>
+                
+                <div class="file-explorer">
+                    <ul class="file-tree">
+                        <li class="file-item active" data-file="neural_system.js">
+                            <span class="file-icon">🧠</span>
+                            <span class="file-name">neural_system.js</span>
+                        </li>
+                        <li class="file-item" data-file="cyber_core.ts">
+                            <span class="file-icon">⚡</span>
+                            <span class="file-name">cyber_core.ts</span>
+                        </li>
+                        <li class="file-item" data-file="holo_interface.jsx">
+                            <span class="file-icon">🔮</span>
+                            <span class="file-name">holo_interface.jsx</span>
+                        </li>
+                        <li class="file-item" data-file="quantum_data.py">
+                            <span class="file-icon">🌌</span>
+                            <span class="file-name">quantum_data.py</span>
+                        </li>
+                        <li class="file-item" data-file="matrix_ai.cpp">
+                            <span class="file-icon">🤖</span>
+                            <span class="file-name">matrix_ai.cpp</span>
+                        </li>
+                        <li class="file-item" data-file="hologram_engine.rs">
+                            <span class="file-icon">🔷</span>
+                            <span class="file-name">hologram_engine.rs</span>
+                        </li>
+                        <li class="file-item" data-file="cyber_security.go">
+                            <span class="file-icon">🛡️</span>
+                            <span class="file-name">cyber_security.go</span>
+                        </li>
+                        <li class="file-item">
+                            <span class="file-icon">📁</span>
+                            <span class="file-name">components/</span>
+                        </li>
+                        <li class="file-item" style="margin-left: 35px;" data-file="HoloPanel.jsx">
+                            <span class="file-icon">🔷</span>
+                            <span class="file-name">HoloPanel.jsx</span>
+                        </li>
+                        <li class="file-item" style="margin-left: 35px;" data-file="NeuralFeed.jsx">
+                            <span class="file-icon">📡</span>
+                            <span class="file-name">NeuralFeed.jsx</span>
+                        </li>
+                        <li class="file-item" style="margin-left: 35px;" data-file="DataViz3D.jsx">
+                            <span class="file-icon">📊</span>
+                            <span class="file-name">DataViz3D.jsx</span>
+                        </li>
+                        <li class="file-item" style="margin-left: 35px;" data-file="GlitchEngine.jsx">
+                            <span class="file-icon">⚡</span>
+                            <span class="file-name">GlitchEngine.jsx</span>
+                        </li>
+                        <li class="file-item" data-file="config.json">
+                            <span class="file-icon">⚙️</span>
+                            <span class="file-name">config.json</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Center Panel: Ultra-Enhanced 3D Code Editor -->
+            <div class="holo-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Neural Code Matrix</h2>
+                    <span style="color: #666; font-size: 1rem;" id="currentFile">neural_system.js</span>
+                </div>
+                
+                <div class="cyber-code-editor" id="codeEditor">
+                    <div class="code-line">
+                        <span class="line-number">1</span>
+                        <span class="code-content"><span class="keyword">import</span> { <span class="function">NeuralProcessor</span>, <span class="function">HoloCore</span>, <span class="function">QuantumMatrix</span>, <span class="function">CyberSecurity</span> } <span class="keyword">from</span> <span class="string">'@cyber/neural-core'</span>;</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">2</span>
+                        <span class="code-content"><span class="keyword">import</span> { <span class="function">Analytics</span>, <span class="function">DataViz3D</span>, <span class="function">RealTimeMonitor</span>, <span class="function">MetricsEngine</span> } <span class="keyword">from</span> <span class="string">'@cyber/analytics'</span>;</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">3</span>
+                        <span class="code-content"><span class="keyword">import</span> { <span class="function">GlassMorphism</span>, <span class="function">ParticleSystem</span>, <span class="function">GlitchEngine</span>, <span class="function">HolographicUI</span> } <span class="keyword">from</span> <span class="string">'@cyber/effects'</span>;</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">4</span>
+                        <span class="code-content"><span class="keyword">import</span> { <span class="function">AdvancedShaders</span>, <span class="function">NeonGradients</span>, <span class="function">CyberTheme</span> } <span class="keyword">from</span> <span class="string">'@cyber/visual-engine'</span>;</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">5</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">6</span>
+                        <span class="code-content"><span class="comment">// Ultra-Advanced Cyberpunk Neural System with Holographic 3D Interface</span></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">7</span>
+                        <span class="code-content"><span class="keyword">class</span> <span class="function">CyberNeuralSystem</span> <span class="keyword">extends</span> <span class="function">AdvancedSystem</span> {</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">8</span>
+                        <span class="code-content">  <span class="keyword">constructor</span>(<span class="property">config</span>) {</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">9</span>
+                        <span class="code-content">    <span class="keyword">super</span>(<span class="property">config</span>);</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">10</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">neuralProcessor</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">NeuralProcessor</span>(<span class="property">config</span>);</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">11</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">holoCore</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">HoloCore</span>({ <span class="property">dimension</span>: <span class="string">'3D'</span>, <span class="property">holographic</span>: <span class="keyword">true</span>, <span class="property">advanced</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">12</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">quantumMatrix</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">QuantumMatrix</span>({ <span class="property">neural</span>: <span class="keyword">true</span>, <span class="property">cyberpunk</span>: <span class="keyword">true</span>, <span class="property">quantum</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">13</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">cyberSecurity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">CyberSecurity</span>({ <span class="property">encryption</span>: <span class="string">'quantum'</span>, <span class="property">level</span>: <span class="string">'maximum'</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">14</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">analytics</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">Analytics</span>({ <span class="property">realTime</span>: <span class="keyword">true</span>, <span class="property">cyberpunk</span>: <span class="keyword">true</span>, <span class="property">advanced</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">15</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">dataViz3D</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">DataViz3D</span>({ <span class="property">holographic</span>: <span class="keyword">true</span>, <span class="property">interactive</span>: <span class="keyword">true</span>, <span class="property">realTime</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">16</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">monitor</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">RealTimeMonitor</span>({ <span class="property">neural</span>: <span class="keyword">true</span>, <span class="property">quantum</span>: <span class="keyword">true</span>, <span class="property">cyberpunk</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">17</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">metricsEngine</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">MetricsEngine</span>({ <span class="property">advanced</span>: <span class="keyword">true</span>, <span class="property">realTime</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">18</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">glassMorphism</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">GlassMorphism</span>({ <span class="property">blur</span>: <span class="string">'40px'</span>, <span class="property">opacity</span>: <span class="string">0.12</span>, <span class="property">advanced</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">19</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">particles</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">ParticleSystem</span>({ <span class="property">neural</span>: <span class="keyword">true</span>, <span class="property">floating</span>: <span class="keyword">true</span>, <span class="property">advanced</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">20</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">glitchEngine</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">GlitchEngine</span>({ <span class="property">intensity</span>: <span class="string">'ultra'</span>, <span class="property">scanLines</span>: <span class="keyword">true</span>, <span class="property">colorShift</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">21</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">holographicUI</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">HolographicUI</span>({ <span class="property">dimension</span>: <span class="string">'3D'</span>, <span class="property">interactive</span>: <span class="keyword">true</span>, <span class="property">cyberpunk</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">22</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">advancedShaders</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">AdvancedShaders</span>({ <span class="property">neon</span>: <span class="keyword">true</span>, <span class="property">holographic</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">23</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">neonGradients</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">NeonGradients</span>({ <span class="property">colors</span>: [<span class="string">'cyan'</span>, <span class="string">'purple'</span>, <span class="string">'pink'</span>, <span class="string">'green'</span>] });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">24</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">cyberTheme</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">CyberTheme</span>({ <span class="property">mode</span>: <span class="string">'advanced'</span>, <span class="property">holographic</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">25</span>
+                        <span class="code-content">  }</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">26</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">27</span>
+                        <span class="code-content">  <span class="keyword">async</span> <span class="function">initializeAdvancedNeuralNetwork</span>() {</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">28</span>
+                        <span class="code-content">    <span class="keyword">try</span> {</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">29</span>
+                        <span class="code-content">      <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">neuralProcessor</span><span class="operator">.</span><span class="function">connect</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">30</span>
+                        <span class="code-content">      <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">holoCore</span><span class="operator">.</span><span class="function">activate</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">31</span>
+                        <span class="code-content">      <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">quantumMatrix</span><span class="operator">.</span><span class="function">synchronize</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">32</span>
+                        <span class="code-content">      <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">cyberSecurity</span><span class="operator">.</span><span class="function">enableQuantumEncryption</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">33</span>
+                        <span class="code-content">      <span class="keyword">this</span><span class="operator">.</span><span class="function">startAdvancedRealTimeMonitoring</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">34</span>
+                        <span class="code-content">      <span class="keyword">this</span><span class="operator">.</span><span class="function">enableHolographic3DInterface</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">35</span>
+                        <span class="code-content">      <span class="keyword">this</span><span class="operator">.</span><span class="function">initializeAdvancedVisualEffects</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">36</span>
+                        <span class="code-content">    } <span class="keyword">catch</span> (<span class="property">error</span>) {</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">37</span>
+                        <span class="code-content">      <span class="property">console</span><span class="operator">.</span><span class="function">error</span>(<span class="string">'Advanced neural network initialization failed:'</span>, <span class="property">error</span>);</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">38</span>
+                        <span class="code-content">      <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="function">handleCriticalError</span>(<span class="property">error</span>);</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">39</span>
+                        <span class="code-content">    }</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">40</span>
+                        <span class="code-content">  }</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">41</span>
+                        <span class="code-content">}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Panel: Advanced Analytics and Activity Feed -->
+            <div class="holo-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Neural Analytics</h2>
+                    <span style="color: #666; font-size: 1.3rem;">📊</span>
+                </div>
+                
+                <div class="analytics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">CPU Usage</div>
+                        <div class="metric-value">85%</div>
+                        <div class="metric-bar">
+                            <div class="metric-fill cpu-fill"></div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Memory</div>
+                        <div class="metric-value">72%</div>
+                        <div class="metric-bar">
+                            <div class="metric-fill memory-fill"></div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Network</div>
+                        <div class="metric-value">66%</div>
+                        <div class="metric-bar">
+                            <div class="metric-fill network-fill"></div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Storage</div>
+                        <div class="metric-value">58%</div>
+                        <div class="metric-bar">
+                            <div class="metric-fill storage-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="data-viz">
+                    <div class="viz-line" style="left: 4%; animation-delay: 0s;"></div>
+                    <div class="viz-line" style="left: 12%; animation-delay: 0.2s;"></div>
+                    <div class="viz-line" style="left: 20%; animation-delay: 0.4s;"></div>
+                    <div class="viz-line" style="left: 28%; animation-delay: 0.6s;"></div>
+                    <div class="viz-line" style="left: 36%; animation-delay: 0.8s;"></div>
+                    <div class="viz-line" style="left: 44%; animation-delay: 1s;"></div>
+                    <div class="viz-line" style="left: 52%; animation-delay: 1.2s;"></div>
+                    <div class="viz-line" style="left: 60%; animation-delay: 1.4s;"></div>
+                    <div class="viz-line" style="left: 68%; animation-delay: 1.6s;"></div>
+                    <div class="viz-line" style="left: 76%; animation-delay: 1.8s;"></div>
+                    <div class="viz-line" style="left: 84%; animation-delay: 2s;"></div>
+                    <div class="viz-line" style="left: 92%; animation-delay: 2.2s;"></div>
+                </div>
+                
+                <div class="panel-header">
+                    <h3 class="panel-title" style="font-size: 1.2rem;">Neural Activity Feed</h3>
+                </div>
+                
+                <div class="activity-feed">
+                    <div class="activity-item">
+                        <div class="activity-time">14:35</div>
+                        <div class="activity-message">Advanced neural network synchronized with quantum matrix</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">14:34</div>
+                        <div class="activity-message">Holographic 3D interface projection activated</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">14:33</div>
+                        <div class="activity-message">Ultra-advanced real-time monitoring system online</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">14:32</div>
+                        <div class="activity-message">Quantum encryption security protocols enabled</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">14:31</div>
+                        <div class="activity-message">Advanced glass morphism effects initialized</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">14:30</div>
+                        <div class="activity-message">Enhanced particle system activated</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">14:29</div>
+                        <div class="activity-message">Ultra glitch engine calibrated and optimized</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">14:28</div>
+                        <div class="activity-message">Advanced neural processor connection established</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">14:27</div>
+                        <div class="activity-message">Cyberpunk holographic interface theme loaded</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">14:26</div>
+                        <div class="activity-message">Advanced 3D rendering engine initialized</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">14:25</div>
+                        <div class="activity-message">Neural shaders and gradient systems activated</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">14:24</div>
+                        <div class="activity-message">Ultra-advanced system boot sequence completed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Advanced File Explorer Interaction
+        document.querySelectorAll('.file-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all items
+                document.querySelectorAll('.file-item').forEach(i => i.classList.remove('active'));
+                
+                // Add active class to clicked item
+                this.classList.add('active');
+                
+                // Update current file display
+                const fileName = this.getAttribute('data-file');
+                if (fileName) {
+                    document.getElementById('currentFile').textContent = fileName;
+                }
+                
+                // Enhanced visual feedback
+                this.style.transform = 'translateX(25px) translateZ(35px) rotateY(10deg) scale(1.1)';
+                this.style.boxShadow = '0 20px 60px rgba(0, 255, 255, 0.8), inset 0 0 30px rgba(0, 255, 255, 0.3)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                    this.style.boxShadow = '';
+                }, 400);
+            });
+        });
+
+        // Enhanced Code Editor Line Interaction
+        document.querySelectorAll('.code-line').forEach(line => {
+            line.addEventListener('mouseenter', function() {
+                this.style.background = 'linear-gradient(135deg, rgba(57, 255, 20, 0.25) 0%, rgba(0, 255, 255, 0.2) 50%, rgba(138, 43, 226, 0.15) 100%)';
+                this.style.transform = 'translateX(25px) translateZ(15px) rotateY(3deg) scale(1.03)';
+                this.style.boxShadow = '0 12px 35px rgba(57, 255, 20, 0.6), inset 0 0 25px rgba(0, 255, 255, 0.4), 0 0 50px rgba(138, 43, 226, 0.3)';
+                this.style.border = '3px solid rgba(57, 255, 20, 0.6)';
+                this.style.backdropFilter = 'blur(10px)';
+            });
+            
+            line.addEventListener('mouseleave', function() {
+                this.style.background = '';
+                this.style.transform = '';
+                this.style.boxShadow = '';
+                this.style.border = '';
+                this.style.backdropFilter = '';
+            });
+        });
+
+        // Advanced Dynamic Metrics Animation
+        function updateAdvancedMetrics() {
+            const metrics = [
+                { element: '.cpu-fill', min: 70, max: 95, valueElement: '.cpu-fill' },
+                { element: '.memory-fill', min: 60, max: 85, valueElement: '.memory-fill' },
+                { element: '.network-fill', min: 50, max: 80, valueElement: '.network-fill' },
+                { element: '.storage-fill', min: 45, max: 70, valueElement: '.storage-fill' }
+            ];
+
+            metrics.forEach(metric => {
+                const element = document.querySelector(metric.element);
+                const value = Math.floor(Math.random() * (metric.max - metric.min + 1)) + metric.min;
+                element.style.width = value + '%';
+                
+                // Update corresponding value display with animation
+                const card = element.closest('.metric-card');
+                const valueElement = card.querySelector('.metric-value');
+                valueElement.style.transform = 'scale(1.1)';
+                valueElement.textContent = value + '%';
+                
+                setTimeout(() => {
+                    valueElement.style.transform = 'scale(1)';
+                }, 200);
+            });
+        }
+
+        // Update metrics every 4 seconds
+        setInterval(updateAdvancedMetrics, 4000);
+
+        // Advanced Floating Particle System
+        function createAdvancedFloatingParticles() {
+            const container = document.getElementById('particleSystem');
+            
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random colors from cyberpunk palette
+                const colors = ['#00ffff', '#8a2be2', '#ff0080', '#39ff14', '#0080ff', '#ff4500'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.background = randomColor;
+                particle.style.left = Math.random() * window.innerWidth + 'px';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                
+                // Random size variation
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                container.appendChild(particle);
+                
+                // Remove particle after animation
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle);
+                    }
+                }, 25000);
+            }
+        }
+
+        // Create particles periodically
+        setInterval(createAdvancedFloatingParticles, 6000);
+        createAdvancedFloatingParticles(); // Initial particles
+
+        // Ultra-Enhanced Glitch Effect
+        function triggerAdvancedGlitch() {
+            const elements = document.querySelectorAll('.cyber-title, .panel-title, .file-name, .metric-value, .code-content');
+            const randomElement = elements[Math.floor(Math.random() * elements.length)];
+            
+            randomElement.style.animation = 'none';
+            randomElement.offsetHeight; // Trigger reflow
+            
+            // Random glitch type
+            const glitchTypes = ['titleGlitchAdvanced', 'keywordPulseAdvanced', 'stringShimmerAdvanced'];
+            const randomGlitch = glitchTypes[Math.floor(Math.random() * glitchTypes.length)];
+            
+            randomElement.style.animation = `${randomGlitch} 0.6s ease-out`;
+            
+            setTimeout(() => {
+                randomElement.style.animation = '';
+            }, 600);
+        }
+
+        // Trigger random advanced glitches
+        setInterval(triggerAdvancedGlitch, 6000);
+
+        // Advanced Visual Effects Controller
+        function initializeAdvancedEffects() {
+            // Dynamic background color shifting
+            let hue = 0;
+            setInterval(() => {
+                hue = (hue + 1) % 360;
+                document.documentElement.style.setProperty('--dynamic-hue', hue + 'deg');
+            }, 100);
+
+            // Advanced panel glow effects
+            document.querySelectorAll('.holo-panel').forEach(panel => {
+                panel.addEventListener('mouseenter', () => {
+                    panel.style.filter = 'brightness(1.1) saturate(1.3)';
+                });
+                
+                panel.addEventListener('mouseleave', () => {
+                    panel.style.filter = '';
+                });
+            });
+        }
+
+        // Initialize all advanced systems
+        function initializeCyberCodeNexus() {
+            console.log('🚀 CyberCode Nexus Ultra initialized');
+            console.log('🧠 Advanced neural systems online');
+            console.log('🔮 Holographic 3D interface active');
+            console.log('⚡ Ultra-advanced rendering engine loaded');
+            console.log('🛡️ Quantum security protocols enabled');
+            console.log('📊 Real-time analytics system operational');
+            console.log('✨ Advanced visual effects initialized');
+            
+            initializeAdvancedEffects();
+        }
+
+        // Start the advanced cyberpunk system
+        initializeCyberCodeNexus();
+
+        // Advanced responsive behavior
+        window.addEventListener('resize', () => {
+            // Recreate particles on resize
+            const container = document.getElementById('particleSystem');
+            container.innerHTML = '';
+            createAdvancedFloatingParticles();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96e8881a41dee33f',t:'MTc1NTA5MTQ1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
