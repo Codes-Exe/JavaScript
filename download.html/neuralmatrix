@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Matrix Editor - AR Mode</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Orbitron', monospace;
+            background: #000;
+            color: #00ff88;
+            overflow: hidden;
+            height: 100vh;
+            position: relative;
+        }
+        
+        /* Neural Matrix Background */
+        .neural-matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 255, 0, 0.05) 0%, transparent 50%),
+                linear-gradient(45deg, #000 0%, #001122 50%, #000 100%);
+            z-index: -2;
+        }
+        
+        /* Quantum Grid */
+        .quantum-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            animation: gridPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        /* Main Container */
+        .neural-container {
+            display: flex;
+            height: 100vh;
+            position: relative;
+        }
+        
+        /* Sidebar */
+        .neural-sidebar {
+            width: 300px;
+            background: rgba(0, 20, 40, 0.9);
+            border-right: 2px solid #00ff88;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .sidebar-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.3);
+        }
+        
+        .neural-logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: #ff00ff;
+            text-shadow: 0 0 20px #ff00ff;
+            animation: logoGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes logoGlow {
+            from { text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff; }
+            to { text-shadow: 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff; }
+        }
+        
+        .ar-status {
+            font-size: 12px;
+            color: #00ffff;
+            margin-top: 5px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        
+        /* Neural Controls */
+        .neural-controls {
+            margin-bottom: 30px;
+        }
+        
+        .control-group {
+            margin-bottom: 20px;
+        }
+        
+        .control-label {
+            font-size: 14px;
+            color: #00ff88;
+            margin-bottom: 10px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .neural-slider {
+            width: 100%;
+            height: 6px;
+            background: rgba(0, 255, 136, 0.2);
+            border-radius: 3px;
+            outline: none;
+            -webkit-appearance: none;
+            position: relative;
+        }
+        
+        .neural-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #00ff88;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 15px #00ff88;
+        }
+        
+        .neural-button {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            border: none;
+            padding: 12px 20px;
+            color: #000;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .neural-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 0, 255, 0.6);
+        }
+        
+        .neural-button:active {
+            transform: scale(0.95);
+        }
+        
+        /* Code Editor */
+        .code-editor {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: rgba(0, 10, 20, 0.8);
+            backdrop-filter: blur(5px);
+        }
+        
+        .editor-header {
+            background: rgba(0, 30, 60, 0.9);
+            padding: 15px 20px;
+            border-bottom: 2px solid #00ff88;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .file-tabs {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .file-tab {
+            background: rgba(255, 0, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #ff00ff;
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .file-tab.active {
+            background: rgba(255, 0, 255, 0.4);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+        }
+        
+        .ar-indicator {
+            background: linear-gradient(45deg, #00ff88, #00ffff);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 10px;
+            color: #000;
+            font-weight: 700;
+            animation: arPulse 2s infinite;
+        }
+        
+        @keyframes arPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .code-area {
+            flex: 1;
+            padding: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            position: relative;
+            overflow: auto;
+        }
+        
+        .code-line {
+            display: flex;
+            margin-bottom: 2px;
+            position: relative;
+        }
+        
+        .line-number {
+            width: 50px;
+            color: rgba(0, 255, 136, 0.5);
+            text-align: right;
+            padding-right: 15px;
+            user-select: none;
+        }
+        
+        .code-content {
+            flex: 1;
+            color: #00ff88;
+        }
+        
+        /* Syntax Highlighting */
+        .keyword { color: #ff00ff; font-weight: 500; }
+        .string { color: #ffff00; }
+        .comment { color: #666; font-style: italic; }
+        .function { color: #00ffff; }
+        .variable { color: #ff6600; }
+        .operator { color: #ff0080; }
+        
+        /* Floating Code Elements */
+        .floating-element {
+            position: absolute;
+            pointer-events: none;
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: rgba(0, 255, 136, 0.7);
+            animation: float 8s linear infinite;
+            z-index: 10;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Quantum Ripples */
+        .quantum-ripple {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid;
+            animation: ripple 3s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes ripple {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
+        
+        /* Holographic Effects */
+        .holo-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(0, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: holoScan 4s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes holoScan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Neural Network Visualization */
+        .neural-network {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+        
+        .neural-node {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00ff88;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff88;
+            animation: nodeGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes nodeGlow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+        
+        .neural-connection {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00ff88, transparent);
+            animation: dataFlow 2s linear infinite;
+        }
+        
+        @keyframes dataFlow {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .neural-sidebar {
+                width: 250px;
+            }
+            
+            .code-area {
+                font-size: 12px;
+            }
+            
+            .neural-container {
+                flex-direction: column;
+            }
+            
+            .neural-sidebar {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="neural-matrix"></div>
+    <div class="quantum-grid"></div>
+    
+    <div class="neural-container">
+        <div class="neural-sidebar">
+            <div class="sidebar-header">
+                <div class="neural-logo">NEURAL MATRIX</div>
+                <div class="ar-status">AR MODE • ACTIVE</div>
+            </div>
+            
+            <div class="neural-controls">
+                <div class="control-group">
+                    <label class="control-label">Neural Power</label>
+                    <input type="range" class="neural-slider" id="neuralPower" min="0" max="100" value="85">
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label">Holo Intensity</label>
+                    <input type="range" class="neural-slider" id="holoIntensity" min="0" max="100" value="92">
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label">AR Enhancement</label>
+                    <input type="range" class="neural-slider" id="arEnhancement" min="0" max="100" value="78">
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label">Matrix Access</label>
+                    <input type="range" class="neural-slider" id="matrixAccess" min="0" max="100" value="100">
+                </div>
+            </div>
+            
+            <div class="neural-actions">
+                <button class="neural-button" onclick="initializeMatrix()">Initialize Matrix</button>
+                <button class="neural-button" onclick="deployToCyberspace()">Deploy to Cyberspace</button>
+                <button class="neural-button" onclick="activateQuantumLink()">Quantum Link</button>
+                <button class="neural-button" onclick="toggleFloatingCode()">Toggle Floating Code</button>
+            </div>
+        </div>
+        
+        <div class="code-editor">
+            <div class="editor-header">
+                <div class="file-tabs">
+                    <div class="file-tab active">NeuralSystem.matrix</div>
+                    <div class="file-tab">QuantumLink.cyber</div>
+                    <div class="file-tab">HoloMatrix.ar</div>
+                </div>
+                <div class="ar-indicator">AR MODE ACTIVE</div>
+            </div>
+            
+            <div class="code-area" id="codeArea">
+                <div class="code-line">
+                    <span class="line-number">1</span>
+                    <span class="code-content"><span class="keyword">import</span> { <span class="function">NeuralProcessor</span>, <span class="function">HoloMatrix</span>, <span class="function">ARInterface</span> } <span class="keyword">from</span> <span class="string">'@neural/core'</span>;</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">2</span>
+                    <span class="code-content"><span class="keyword">import</span> { <span class="function">QuantumLink</span>, <span class="function">DataStream</span>, <span class="function">CyberMesh</span> } <span class="keyword">from</span> <span class="string">'@matrix/reality'</span>;</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">3</span>
+                    <span class="code-content"><span class="keyword">import</span> { <span class="function">HolographicUI</span>, <span class="function">NeuralCollaboration</span> } <span class="keyword">from</span> <span class="string">'@ar/interface'</span>;</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">4</span>
+                    <span class="code-content"><span class="keyword">import</span> { <span class="function">FloatingCodeElements</span>, <span class="function">QuantumRipples</span> } <span class="keyword">from</span> <span class="string">'@cyber/effects'</span>;</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">5</span>
+                    <span class="code-content"></span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">6</span>
+                    <span class="code-content"><span class="comment">// Immersive Neural Cyberpunk IDE with Advanced AR Integration</span></span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">7</span>
+                    <span class="code-content"><span class="keyword">class</span> <span class="function">ImmersiveNeuralCyberpunkIDE</span> {</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">8</span>
+                    <span class="code-content">  <span class="function">constructor</span>(<span class="variable">neuralConfig</span>) {</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">9</span>
+                    <span class="code-content">    <span class="keyword">this</span>.<span class="variable">neural</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">NeuralProcessor</span>(<span class="variable">neuralConfig</span>);</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">10</span>
+                    <span class="code-content">    <span class="keyword">this</span>.<span class="variable">holo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">HoloMatrix</span>({ <span class="variable">dimensions</span>: <span class="string">'infinite'</span> });</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">11</span>
+                    <span class="code-content">    <span class="keyword">this</span>.<span class="variable">ar</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">ARInterface</span>({ <span class="variable">intensity</span>: <span class="string">'immersive-maximum'</span> });</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">12</span>
+                    <span class="code-content">    <span class="keyword">this</span>.<span class="variable">quantum</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">QuantumLink</span>({ <span class="variable">entanglement</span>: <span class="keyword">true</span> });</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">13</span>
+                    <span class="code-content">  }</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">14</span>
+                    <span class="code-content"></span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">15</span>
+                    <span class="code-content">  <span class="keyword">async</span> <span class="function">initializeImmersiveNeuralMatrix</span>() {</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">16</span>
+                    <span class="code-content">    <span class="comment">// Synchronize immersive neural pathways with holographic AR matrix</span></span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">17</span>
+                    <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span>.<span class="variable">neural</span>.<span class="function">linkToImmersiveHoloMatrix</span>(<span class="keyword">this</span>.<span class="variable">holo</span>);</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">18</span>
+                    <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span>.<span class="variable">ar</span>.<span class="function">renderImmersiveIntenseReality</span>(<span class="keyword">this</span>.<span class="variable">holoUI</span>);</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">19</span>
+                    <span class="code-content">    <span class="keyword">return</span> <span class="keyword">this</span>.<span class="variable">dataStream</span>.<span class="function">transcendImmersiveReality</span>();</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">20</span>
+                    <span class="code-content">  }</span>
+                </div>
+                <div class="code-line">
+                    <span class="line-number">21</span>
+                    <span class="code-content">}</span>
+                </div>
+            </div>
+            
+            <div class="holo-effect"></div>
+        </div>
+    </div>
+    
+    <div class="neural-network" id="neuralNetwork"></div>
+    
+    <script>
+        let floatingCodeActive = true;
+        let quantumRipplesActive = true;
+        let neuralNodesActive = true;
+        
+        // Initialize Neural Matrix
+        function initializeMatrix() {
+            createStatusMessage('Neural Matrix Initialized', '#ff00ff');
+            generateQuantumRipple();
+            updateNeuralPower();
+        }
+        
+        // Deploy to Cyberspace
+        function deployToCyberspace() {
+            createStatusMessage('Deploying to Cyberspace...', '#00ffff');
+            setTimeout(() => {
+                createStatusMessage('Deployment Complete', '#00ff88');
+            }, 2000);
+            
+            // Create deployment animation
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    generateQuantumRipple();
+                }, i * 400);
+            }
+        }
+        
+        // Activate Quantum Link
+        function activateQuantumLink() {
+            createStatusMessage('Quantum Link Activated', '#ffff00');
+            generateNeuralNetwork();
+        }
+        
+        // Toggle Floating Code
+        function toggleFloatingCode() {
+            floatingCodeActive = !floatingCodeActive;
+            createStatusMessage(
+                floatingCodeActive ? 'Floating Code Enabled' : 'Floating Code Disabled',
+                '#ff6600'
+            );
+        }
+        
+        // Create Status Message
+        function createStatusMessage(message, color) {
+            const statusDiv = document.createElement('div');
+            statusDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: rgba(0, 0, 0, 0.9);
+                color: ${color};
+                padding: 15px 25px;
+                border-radius: 25px;
+                border: 2px solid ${color};
+                font-family: 'Orbitron', monospace;
+                font-weight: 700;
+                z-index: 1000;
+                animation: statusFade 3s ease-out forwards;
+                box-shadow: 0 0 20px ${color}40;
+            `;
+            statusDiv.textContent = message;
+            document.body.appendChild(statusDiv);
+            
+            setTimeout(() => {
+                if (statusDiv.parentNode) {
+                    statusDiv.parentNode.removeChild(statusDiv);
+                }
+            }, 3000);
+        }
+        
+        // Generate Quantum Ripple
+        function generateQuantumRipple() {
+            if (!quantumRipplesActive) return;
+            
+            const ripple = document.createElement('div');
+            const colors = ['#ff00ff', '#00ffff', '#ffff00', '#00ff88', '#ff6600'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            ripple.className = 'quantum-ripple';
+            ripple.style.cssText = `
+                left: ${Math.random() * window.innerWidth}px;
+                top: ${Math.random() * window.innerHeight}px;
+                border-color: ${color};
+                box-shadow: 0 0 20px ${color};
+            `;
+            
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => {
+                if (ripple.parentNode) {
+                    ripple.parentNode.removeChild(ripple);
+                }
+            }, 3000);
+        }
+        
+        // Generate Floating Code Elements
+        function generateFloatingCode() {
+            if (!floatingCodeActive) return;
+            
+            const codeSnippets = [
+                'neural.process()',
+                'quantum.entangle()',
+                'matrix.transcend()',
+                'ar.render()',
+                'holo.project()',
+                'cyber.hack()',
+                'data.stream()',
+                'void.traverse()',
+                'reality.bend()',
+                'time.dilate()'
+            ];
+            
+            const element = document.createElement('div');
+            element.className = 'floating-element';
+            element.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+            element.style.cssText = `
+                left: ${Math.random() * (window.innerWidth - 200)}px;
+                animation-duration: ${8 + Math.random() * 4}s;
+                animation-delay: ${Math.random() * 2}s;
+            `;
+            
+            document.body.appendChild(element);
+            
+            setTimeout(() => {
+                if (element.parentNode) {
+                    element.parentNode.removeChild(element);
+                }
+            }, 12000);
+        }
+        
+        // Generate Neural Network
+        function generateNeuralNetwork() {
+            const network = document.getElementById('neuralNetwork');
+            network.innerHTML = '';
+            
+            // Create nodes
+            for (let i = 0; i < 20; i++) {
+                const node = document.createElement('div');
+                node.className = 'neural-node';
+                node.style.cssText = `
+                    left: ${Math.random() * window.innerWidth}px;
+                    top: ${Math.random() * window.innerHeight}px;
+                    animation-delay: ${Math.random() * 3}s;
+                `;
+                network.appendChild(node);
+            }
+            
+            // Create connections
+            for (let i = 0; i < 15; i++) {
+                const connection = document.createElement('div');
+                connection.className = 'neural-connection';
+                const width = 100 + Math.random() * 200;
+                connection.style.cssText = `
+                    left: ${Math.random() * (window.innerWidth - width)}px;
+                    top: ${Math.random() * window.innerHeight}px;
+                    width: ${width}px;
+                    transform: rotate(${Math.random() * 360}deg);
+                    animation-delay: ${Math.random() * 2}s;
+                `;
+                network.appendChild(connection);
+            }
+        }
+        
+        // Update Neural Power based on slider
+        function updateNeuralPower() {
+            const power = document.getElementById('neuralPower').value;
+            const intensity = document.getElementById('holoIntensity').value;
+            
+            // Adjust effects based on power levels
+            document.documentElement.style.setProperty('--neural-intensity', power / 100);
+            document.documentElement.style.setProperty('--holo-intensity', intensity / 100);
+        }
+        
+        // Add CSS animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes statusFade {
+                0% { opacity: 0; transform: translateX(100px); }
+                20% { opacity: 1; transform: translateX(0); }
+                80% { opacity: 1; transform: translateX(0); }
+                100% { opacity: 0; transform: translateX(-100px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Initialize effects
+        setInterval(generateFloatingCode, 2000);
+        setInterval(generateQuantumRipple, 3000);
+        generateNeuralNetwork();
+        
+        // Slider event listeners
+        document.getElementById('neuralPower').addEventListener('input', updateNeuralPower);
+        document.getElementById('holoIntensity').addEventListener('input', updateNeuralPower);
+        
+        // Auto-initialize matrix on load
+        setTimeout(initializeMatrix, 1000);
+        
+        // File tab switching
+        document.querySelectorAll('.file-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.file-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                createStatusMessage(`Switched to ${this.textContent}`, '#00ff88');
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96e88fe8618e333e',t:'MTc1NTA5MTc3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
