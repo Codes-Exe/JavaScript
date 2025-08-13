@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberMatrix IDE - Neural Code Interface</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;700;900&family=Fira+Code:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --electric-blue: #00d4ff;
+            --hot-pink: #ff0080;
+            --toxic-green: #39ff14;
+            --deep-violet: #8a2be2;
+            --solar-flare: #ff4500;
+            --cyber-black: #0a0a0a;
+            --matrix-green: #00ff41;
+            --neon-glow: 0 0 30px;
+            --data-stream-color: #00d4ff;
+            --neural-pink: #ff006e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Fira Code', monospace;
+            background: 
+                radial-gradient(ellipse at top left, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at top right, rgba(255, 0, 128, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom left, rgba(57, 255, 20, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #000000 0%, #0a0a1a 25%, #1a0a1a 50%, #0a1a1a 75%, #000000 100%);
+            color: var(--electric-blue);
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* Matrix-style Data Cascade Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(0deg, transparent 70%, rgba(0, 255, 65, 0.03) 71%, rgba(0, 255, 65, 0.03) 72%, transparent 73%),
+                linear-gradient(90deg, transparent 70%, rgba(0, 212, 255, 0.03) 71%, rgba(0, 212, 255, 0.03) 72%, transparent 73%),
+                linear-gradient(45deg, transparent 75%, rgba(255, 0, 128, 0.02) 76%, rgba(255, 0, 128, 0.02) 77%, transparent 78%);
+            background-size: 20px 20px, 30px 30px, 40px 40px;
+            pointer-events: none;
+            z-index: -2;
+            animation: matrixCascade 20s linear infinite;
+        }
+        
+        @keyframes matrixCascade {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 100px); }
+        }
+        
+        /* Enhanced Floating Data Particles */
+        .cyber-particle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: var(--data-stream-color);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            animation: cyberFloat 12s linear infinite;
+            box-shadow: 
+                0 0 15px var(--data-stream-color),
+                0 0 30px var(--data-stream-color),
+                inset 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
+        @keyframes cyberFloat {
+            0% { 
+                transform: translateY(100vh) translateX(0) scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                transform: translateY(50vh) translateX(100px) scale(1.5) rotate(180deg);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(-100px) translateX(300px) scale(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Advanced Holographic AR Elements */
+        .holo-element {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+            animation: holoFloat 10s ease-in-out infinite;
+            filter: blur(0.3px) brightness(1.2);
+        }
+        
+        .holo-element:nth-child(1) { 
+            top: 10%; 
+            left: 3%; 
+            animation-delay: 0s; 
+        }
+        .holo-element:nth-child(2) { 
+            top: 20%; 
+            right: 5%; 
+            animation-delay: 2s; 
+        }
+        .holo-element:nth-child(3) { 
+            bottom: 15%; 
+            left: 8%; 
+            animation-delay: 4s; 
+        }
+        .holo-element:nth-child(4) { 
+            top: 55%; 
+            right: 12%; 
+            animation-delay: 6s; 
+        }
+        .holo-element:nth-child(5) { 
+            bottom: 40%; 
+            left: 85%; 
+            animation-delay: 8s; 
+        }
+        
+        @keyframes holoFloat {
+            0%, 100% { 
+                transform: translateY(0px) translateX(0px) rotateZ(0deg) scale(1);
+                opacity: 0.4;
+            }
+            20% { 
+                transform: translateY(-40px) translateX(30px) rotateZ(72deg) scale(1.3);
+                opacity: 0.8;
+            }
+            40% { 
+                transform: translateY(-20px) translateX(-25px) rotateZ(144deg) scale(0.7);
+                opacity: 0.6;
+            }
+            60% { 
+                transform: translateY(30px) translateX(20px) rotateZ(216deg) scale(1.2);
+                opacity: 0.7;
+            }
+            80% { 
+                transform: translateY(10px) translateX(-15px) rotateZ(288deg) scale(0.9);
+                opacity: 0.5;
+            }
+        }
+        
+        .container {
+            max-width: 1900px;
+            margin: 0 auto;
+            padding: 25px;
+            position: relative;
+        }
+        
+        /* Cyberpunk Header with Neural Jack Interface */
+        .cyber-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 20, 40, 0.8) 100%),
+                radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            border: 3px solid transparent;
+            border-radius: 25px;
+            backdrop-filter: blur(25px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cyber-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 25px;
+            padding: 3px;
+            background: linear-gradient(45deg, var(--electric-blue), var(--hot-pink), var(--toxic-green), var(--deep-violet), var(--solar-flare));
+            background-size: 400% 400%;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            animation: cyberBorderPulse 6s ease-in-out infinite;
+        }
+        
+        @keyframes cyberBorderPulse {
+            0%, 100% { 
+                background-position: 0% 50%;
+                opacity: 0.8;
+            }
+            25% { 
+                background-position: 100% 50%;
+                opacity: 1;
+            }
+            50% { 
+                background-position: 0% 100%;
+                opacity: 0.6;
+            }
+            75% { 
+                background-position: 100% 0%;
+                opacity: 1;
+            }
+        }
+        
+        .cyber-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 3.2rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--electric-blue), var(--hot-pink), var(--toxic-green), var(--deep-violet), var(--solar-flare));
+            background-size: 500% 500%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: cyberShift 5s ease-in-out infinite, titleGlitch 3s ease-in-out infinite alternate;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes cyberShift {
+            0%, 100% { 
+                background-position: 0% 50%; 
+                filter: hue-rotate(0deg) brightness(1) contrast(1);
+            }
+            20% { 
+                background-position: 100% 50%; 
+                filter: hue-rotate(72deg) brightness(1.3) contrast(1.2);
+            }
+            40% { 
+                background-position: 0% 100%; 
+                filter: hue-rotate(144deg) brightness(0.8) contrast(0.9);
+            }
+            60% { 
+                background-position: 100% 0%; 
+                filter: hue-rotate(216deg) brightness(1.1) contrast(1.1);
+            }
+            80% { 
+                background-position: 50% 50%; 
+                filter: hue-rotate(288deg) brightness(1.2) contrast(1.3);
+            }
+        }
+        
+        @keyframes titleGlitch {
+            0%, 90%, 100% { 
+                text-shadow: 
+                    0 0 20px rgba(0, 212, 255, 0.8),
+                    0 0 40px rgba(255, 0, 128, 0.6),
+                    0 0 60px rgba(57, 255, 20, 0.4);
+                transform: scale(1) skew(0deg);
+            }
+            5% { 
+                text-shadow: 
+                    2px 0 0 rgba(255, 0, 128, 0.8),
+                    -2px 0 0 rgba(0, 212, 255, 0.8);
+                transform: scale(1.01) skew(0.5deg);
+            }
+            10% { 
+                text-shadow: 
+                    -1px 0 0 rgba(57, 255, 20, 0.8),
+                    1px 0 0 rgba(138, 43, 226, 0.8);
+                transform: scale(0.99) skew(-0.5deg);
+            }
+        }
+        
+        /* Enhanced Neon Theme Controls */
+        .neon-controls {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .neon-btn {
+            width: 55px;
+            height: 55px;
+            border: 3px solid;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle, transparent 20%, currentColor 80%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: currentColor;
+        }
+        
+        .neon-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            transition: all 0.5s ease;
+            transform: translate(-50%, -50%);
+            background: currentColor;
+            opacity: 0.2;
+        }
+        
+        .neon-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            background: linear-gradient(45deg, transparent, currentColor, transparent);
+            opacity: 0;
+            transition: all 0.5s ease;
+            animation: neonSpin 3s linear infinite;
+        }
+        
+        @keyframes neonSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .neon-btn:hover {
+            transform: scale(1.3) rotate(180deg);
+            box-shadow: 
+                var(--neon-glow) currentColor,
+                inset 0 0 20px currentColor;
+        }
+        
+        .neon-btn:hover::before {
+            width: 90%;
+            height: 90%;
+        }
+        
+        .neon-btn:hover::after {
+            opacity: 0.6;
+        }
+        
+        .theme-electric { color: var(--electric-blue); }
+        .theme-pink { color: var(--hot-pink); }
+        .theme-toxic { color: var(--toxic-green); }
+        .theme-violet { color: var(--deep-violet); }
+        .theme-solar { color: var(--solar-flare); }
+        
+        /* Neural Jack Status Indicator */
+        .neural-jack {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 2px solid var(--matrix-green);
+            font-size: 0.8rem;
+            color: var(--matrix-green);
+            animation: neuralPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes neuralPulse {
+            0%, 100% { 
+                box-shadow: 0 0 10px var(--matrix-green);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 25px var(--matrix-green);
+                transform: scale(1.05);
+            }
+        }
+        
+        .jack-indicator {
+            width: 8px;
+            height: 8px;
+            background: var(--matrix-green);
+            border-radius: 50%;
+            animation: jackBlink 1.5s infinite;
+            box-shadow: 0 0 10px var(--matrix-green);
+        }
+        
+        @keyframes jackBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        
+        /* Advanced Cyberpunk Interface Layout */
+        .cyber-interface {
+            display: grid;
+            grid-template-columns: 1fr 2.5fr 1fr;
+            gap: 35px;
+            margin-bottom: 35px;
+        }
+        
+        /* Enhanced Holographic Panels */
+        .cyber-panel {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 30, 60, 0.9) 100%),
+                radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+            border: 2px solid transparent;
+            border-radius: 25px;
+            padding: 35px;
+            backdrop-filter: blur(25px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cyber-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 25px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--electric-blue), transparent, var(--hot-pink), transparent, var(--toxic-green), transparent, var(--deep-violet));
+            background-size: 400% 400%;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            animation: panelCyberGlow 8s ease-in-out infinite;
+        }
+        
+        @keyframes panelCyberGlow {
+            0%, 100% { 
+                background-position: 0% 50%;
+                opacity: 0.6; 
+            }
+            25% { 
+                background-position: 100% 50%;
+                opacity: 1; 
+            }
+            50% { 
+                background-position: 0% 100%;
+                opacity: 0.4; 
+            }
+            75% { 
+                background-position: 100% 0%;
+                opacity: 0.8; 
+            }
+        }
+        
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid rgba(0, 212, 255, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .panel-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            color: var(--electric-blue);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+            text-shadow: 
+                0 0 15px currentColor,
+                0 0 30px currentColor;
+            animation: titleFlicker 4s ease-in-out infinite;
+        }
+        
+        @keyframes titleFlicker {
+            0%, 100% { opacity: 1; }
+            2% { opacity: 0.8; }
+            4% { opacity: 1; }
+            6% { opacity: 0.9; }
+            8% { opacity: 1; }
+        }
+        
+        /* Advanced Floating Code Editor with Matrix Effects */
+        .matrix-code-editor {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 40, 20, 0.95) 100%),
+                radial-gradient(circle at 70% 70%, rgba(0, 255, 65, 0.03) 0%, transparent 50%);
+            border: 3px solid rgba(0, 255, 65, 0.4);
+            border-radius: 20px;
+            padding: 30px;
+            font-family: 'Fira Code', monospace;
+            font-size: 16px;
+            color: var(--matrix-green);
+            min-height: 650px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                inset 0 0 60px rgba(0, 255, 65, 0.1),
+                0 0 60px rgba(0, 212, 255, 0.3),
+                0 0 100px rgba(255, 0, 128, 0.2);
+        }
+        
+        .matrix-code-editor::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--matrix-green), var(--electric-blue), var(--hot-pink), transparent);
+            animation: matrixScanLine 4s linear infinite;
+        }
+        
+        @keyframes matrixScanLine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .matrix-code-line {
+            display: flex;
+            margin-bottom: 10px;
+            padding: 6px 0;
+            border-radius: 8px;
+            transition: all 0.5s ease;
+            position: relative;
+            animation: matrixCodeFloat 1s ease-out;
+            transform-style: preserve-3d;
+        }
+        
+        .matrix-code-line:hover {
+            background: rgba(0, 255, 65, 0.15);
+            transform: translateZ(15px) scale(1.03);
+            box-shadow: 
+                0 8px 25px rgba(0, 255, 65, 0.4),
+                0 0 30px rgba(0, 212, 255, 0.3),
+                inset 0 0 20px rgba(255, 0, 128, 0.1);
+        }
+        
+        @keyframes matrixCodeFloat {
+            from { 
+                opacity: 0; 
+                transform: translateX(-50px) translateY(30px) rotateY(-20deg);
+                filter: blur(5px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0) translateY(0) rotateY(0deg);
+                filter: blur(0px);
+            }
+        }
+        
+        .line-number {
+            color: rgba(255, 255, 255, 0.5);
+            margin-right: 25px;
+            width: 45px;
+            text-align: right;
+            font-weight: 600;
+            user-select: none;
+            text-shadow: 0 0 8px currentColor;
+            animation: numberGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes numberGlow {
+            0%, 100% { text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); }
+            50% { text-shadow: 0 0 15px rgba(0, 212, 255, 0.8); }
+        }
+        
+        .code-content {
+            flex: 1;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        /* Enhanced Cyberpunk Syntax Highlighting */
+        .keyword { 
+            color: #ff3366; 
+            font-weight: 800;
+            text-shadow: 0 0 15px rgba(255, 51, 102, 0.8);
+            animation: keywordCyberPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes keywordCyberPulse {
+            0%, 100% { 
+                text-shadow: 0 0 15px rgba(255, 51, 102, 0.8);
+                transform: scale(1);
+            }
+            50% { 
+                text-shadow: 0 0 30px rgba(255, 51, 102, 1), 0 0 45px rgba(255, 0, 128, 0.6);
+                transform: scale(1.02);
+            }
+        }
+        
+        .string { 
+            color: #00ffcc; 
+            font-weight: 600;
+            text-shadow: 0 0 12px rgba(0, 255, 204, 0.7);
+            animation: stringShimmer 5s ease-in-out infinite;
+        }
+        
+        @keyframes stringShimmer {
+            0%, 100% { text-shadow: 0 0 12px rgba(0, 255, 204, 0.7); }
+            50% { text-shadow: 0 0 25px rgba(0, 255, 204, 1), 0 0 35px rgba(0, 212, 255, 0.5); }
+        }
+        
+        .comment { 
+            color: #888888; 
+            font-style: italic;
+            opacity: 0.8;
+            text-shadow: 0 0 8px currentColor;
+            animation: commentFade 6s ease-in-out infinite;
+        }
+        
+        @keyframes commentFade {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+        }
+        
+        .function { 
+            color: #ffaa00; 
+            font-weight: 800;
+            text-shadow: 0 0 18px rgba(255, 170, 0, 0.8);
+            animation: functionCyberGlow 5s ease-in-out infinite;
+        }
+        
+        @keyframes functionCyberGlow {
+            0%, 100% { 
+                text-shadow: 0 0 18px rgba(255, 170, 0, 0.8);
+                filter: hue-rotate(0deg);
+            }
+            33% { 
+                text-shadow: 0 0 35px rgba(255, 170, 0, 1), 0 0 50px rgba(255, 68, 0, 0.6);
+                filter: hue-rotate(30deg);
+            }
+            66% { 
+                text-shadow: 0 0 30px rgba(255, 170, 0, 0.9), 0 0 45px rgba(255, 0, 128, 0.4);
+                filter: hue-rotate(-30deg);
+            }
+        }
+        
+        .property {
+            color: #ff4444;
+            font-weight: 700;
+            text-shadow: 0 0 12px rgba(255, 68, 68, 0.6);
+        }
+        
+        .operator {
+            color: #cc66ff;
+            font-weight: 800;
+            text-shadow: 0 0 10px currentColor;
+            animation: operatorPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes operatorPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        /* Advanced Holographic Autocomplete */
+        .cyber-autocomplete {
+            position: absolute;
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 40, 80, 0.95) 100%),
+                radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            border: 3px solid var(--electric-blue);
+            border-radius: 20px;
+            padding: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 3000;
+            display: none;
+            box-shadow: 
+                var(--neon-glow) var(--electric-blue),
+                inset 0 0 40px rgba(0, 212, 255, 0.15),
+                0 0 80px rgba(255, 0, 128, 0.3);
+            backdrop-filter: blur(30px);
+            animation: autocompleteAppear 0.5s ease-out;
+        }
+        
+        @keyframes autocompleteAppear {
+            from { 
+                opacity: 0; 
+                transform: scale(0.8) translateY(-20px);
+                filter: blur(10px);
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1) translateY(0);
+                filter: blur(0px);
+            }
+        }
+        
+        .autocomplete-item {
+            padding: 15px 20px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .autocomplete-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .autocomplete-item:hover {
+            background: rgba(0, 212, 255, 0.25);
+            transform: translateX(8px) scale(1.02);
+            box-shadow: 
+                0 0 20px rgba(0, 212, 255, 0.5),
+                inset 0 0 15px rgba(255, 0, 128, 0.2);
+        }
+        
+        .autocomplete-item:hover::before {
+            left: 100%;
+        }
+        
+        .autocomplete-icon {
+            width: 25px;
+            height: 25px;
+            background: var(--solar-flare);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #000;
+            font-weight: bold;
+            box-shadow: 
+                0 0 15px currentColor,
+                inset 0 0 10px rgba(255, 255, 255, 0.3);
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        /* Enhanced Quantum Collaboration Hub */
+        .quantum-collab {
+            max-height: 500px;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .cyber-user {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 18px;
+            background: 
+                linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(255, 0, 128, 0.05) 100%),
+                radial-gradient(circle at 20% 20%, rgba(57, 255, 20, 0.05) 0%, transparent 70%);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--electric-blue);
+            transition: all 0.4s ease;
+            animation: userCyberActivity 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cyber-user::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--electric-blue), var(--hot-pink), transparent);
+            animation: userScanLine 4s linear infinite;
+        }
+        
+        @keyframes userScanLine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        @keyframes userCyberActivity {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+            }
+            50% { 
+                transform: scale(1.02);
+                box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
+            }
+        }
+        
+        .cyber-user:hover {
+            background: 
+                linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(255, 0, 128, 0.1) 100%);
+            transform: translateX(8px) scale(1.03);
+            box-shadow: 
+                0 0 30px rgba(0, 212, 255, 0.5),
+                inset 0 0 20px rgba(255, 0, 128, 0.1);
+        }
+        
+        .cyber-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--electric-blue), var(--hot-pink), var(--toxic-green));
+            background-size: 300% 300%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            font-size: 16px;
+            box-shadow: 
+                0 0 20px currentColor,
+                inset 0 0 15px rgba(255, 255, 255, 0.3);
+            animation: avatarShift 6s ease-in-out infinite;
+        }
+        
+        @keyframes avatarShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .user-info {
+            flex: 1;
+        }
+        
+        .cyber-username {
+            font-weight: 800;
+            color: var(--electric-blue);
+            text-shadow: 0 0 8px currentColor;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        
+        .user-status {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-top: 4px;
+            animation: statusFlicker 5s ease-in-out infinite;
+        }
+        
+        @keyframes statusFlicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .neural-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--toxic-green);
+            animation: neuralStatusPulse 2s infinite;
+            box-shadow: 
+                0 0 15px currentColor,
+                inset 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+        
+        @keyframes neuralStatusPulse {
+            0%, 100% { 
+                opacity: 1; 
+                transform: scale(1);
+                box-shadow: 0 0 15px var(--toxic-green);
+            }
+            50% { 
+                opacity: 0.5; 
+                transform: scale(1.8);
+                box-shadow: 0 0 30px var(--toxic-green);
+            }
+        }
+        
+        /* Advanced Cyberpunk Version Control */
+        .cyber-git {
+            background: 
+                linear-gradient(135deg, rgba(57, 255, 20, 0.08) 0%, rgba(0, 0, 0, 0.9) 100%),
+                radial-gradient(circle at 80% 20%, rgba(57, 255, 20, 0.05) 0%, transparent 60%);
+            border: 3px solid var(--toxic-green);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cyber-git::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--toxic-green), var(--electric-blue), transparent);
+            animation: gitCyberScan 5s linear infinite;
+        }
+        
+        @keyframes gitCyberScan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .git-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .cyber-branch {
+            background: rgba(57, 255, 20, 0.25);
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            color: var(--toxic-green);
+            font-weight: 800;
+            text-shadow: 0 0 8px currentColor;
+            border: 2px solid var(--toxic-green);
+            animation: branchGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes branchGlow {
+            0%, 100% { 
+                box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 30px rgba(57, 255, 20, 0.8);
+                transform: scale(1.05);
+            }
+        }
+        
+        .cyber-commit-btn {
+            background: linear-gradient(45deg, var(--toxic-green), #00cc00, #39ff14);
+            background-size: 300% 300%;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            color: #000;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            animation: commitBtnPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes commitBtnPulse {
+            0%, 100% { 
+                background-position: 0% 50%;
+                box-shadow: 0 5px 20px rgba(57, 255, 20, 0.4);
+            }
+            50% { 
+                background-position: 100% 50%;
+                box-shadow: 0 8px 35px rgba(57, 255, 20, 0.7);
+            }
+        }
+        
+        .cyber-commit-btn:hover {
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 15px 40px rgba(57, 255, 20, 0.8);
+        }
+        
+        /* Transcendent Deployment System */
+        .transcendent-deploy {
+            background: 
+                linear-gradient(135deg, rgba(255, 0, 128, 0.08) 0%, rgba(138, 43, 226, 0.05) 100%),
+                radial-gradient(circle at 50% 50%, rgba(255, 0, 128, 0.1) 0%, transparent 70%);
+            border: 3px solid var(--hot-pink);
+            border-radius: 25px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .transcendent-deploy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255, 0, 128, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 60%);
+            animation: transcendentAura 10s ease-in-out infinite;
+        }
+        
+        @keyframes transcendentAura {
+            0%, 100% { 
+                opacity: 0.4; 
+                transform: scale(1) rotate(0deg);
+            }
+            33% { 
+                opacity: 0.8; 
+                transform: scale(1.1) rotate(120deg);
+            }
+            66% { 
+                opacity: 0.6; 
+                transform: scale(0.9) rotate(240deg);
+            }
+        }
+        
+        .transcendent-btn {
+            width: 100%;
+            background: linear-gradient(45deg, var(--hot-pink), var(--electric-blue), var(--solar-flare), var(--deep-violet), var(--toxic-green));
+            background-size: 500% 500%;
+            border: none;
+            padding: 25px 50px;
+            border-radius: 35px;
+            color: #000;
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            font-size: 1.4rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            animation: transcendentPulse 6s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        @keyframes transcendentPulse {
+            0%, 100% { 
+                background-position: 0% 50%;
+                box-shadow: 
+                    0 8px 40px rgba(255, 0, 128, 0.6),
+                    0 0 80px rgba(0, 212, 255, 0.4);
+                transform: scale(1);
+            }
+            25% { 
+                background-position: 100% 50%;
+                box-shadow: 
+                    0 12px 60px rgba(138, 43, 226, 0.8),
+                    0 0 100px rgba(255, 68, 0, 0.5);
+                transform: scale(1.02);
+            }
+            50% { 
+                background-position: 0% 100%;
+                box-shadow: 
+                    0 10px 50px rgba(57, 255, 20, 0.7),
+                    0 0 90px rgba(255, 0, 128, 0.6);
+                transform: scale(1.01);
+            }
+            75% { 
+                background-position: 100% 0%;
+                box-shadow: 
+                    0 15px 70px rgba(0, 212, 255, 0.9),
+                    0 0 120px rgba(138, 43, 226, 0.4);
+                transform: scale(1.03);
+            }
+        }
+        
+        .transcendent-btn:hover {
+            transform: scale(1.12) translateY(-8px);
+            box-shadow: 
+                0 25px 80px rgba(255, 0, 128, 1),
+                0 0 150px rgba(0, 212, 255, 0.8),
+                inset 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+        
+        .transcendent-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transition: left 0.8s;
+        }
+        
+        .transcendent-btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Advanced Cyberpunk Terminal */
+        .cyber-terminal {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 50, 0, 0.95) 100%),
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 65, 0.05) 0%, transparent 60%);
+            border: 4px solid var(--matrix-green);
+            border-radius: 30px;
+            padding: 30px;
+            margin-top: 35px;
+            font-family: 'Fira Code', monospace;
+            min-height: 400px;
+            box-shadow: 
+                var(--neon-glow) var(--matrix-green),
+                inset 0 0 60px rgba(0, 255, 65, 0.15),
+                0 0 100px rgba(0, 212, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cyber-terminal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--matrix-green), var(--electric-blue), var(--hot-pink), transparent);
+            animation: terminalCyberScan 4s linear infinite;
+        }
+        
+        @keyframes terminalCyberScan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid rgba(0, 255, 65, 0.4);
+        }
+        
+        .terminal-controls {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .terminal-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            animation: terminalDotCyberPulse 2.5s ease-in-out infinite;
+            box-shadow: 0 0 15px currentColor;
+        }
+        
+        .terminal-dot.red { 
+            background: #ff5f56; 
+            animation-delay: 0s; 
+        }
+        .terminal-dot.yellow { 
+            background: #ffbd2e; 
+            animation-delay: 0.5s; 
+        }
+        .terminal-dot.green { 
+            background: #27ca3f; 
+            animation-delay: 1s; 
+        }
+        
+        @keyframes terminalDotCyberPulse {
+            0%, 100% { 
+                opacity: 1; 
+                transform: scale(1);
+                box-shadow: 0 0 15px currentColor;
+            }
+            50% { 
+                opacity: 0.4; 
+                transform: scale(1.5);
+                box-shadow: 0 0 30px currentColor;
+            }
+        }
+        
+        .terminal-title {
+            color: var(--matrix-green);
+            font-family: 'Orbitron', monospace;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px currentColor;
+            font-size: 1.1rem;
+            animation: terminalTitleGlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes terminalTitleGlow {
+            0%, 100% { 
+                text-shadow: 0 0 15px var(--matrix-green);
+                color: var(--matrix-green);
+            }
+            50% { 
+                text-shadow: 0 0 30px var(--matrix-green), 0 0 45px var(--electric-blue);
+                color: var(--electric-blue);
+            }
+        }
+        
+        .terminal-content {
+            color: var(--matrix-green);
+            font-size: 15px;
+            line-height: 2;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .prompt {
+            color: var(--electric-blue);
+            font-weight: 800;
+            text-shadow: 0 0 8px currentColor;
+            animation: promptFlicker 3s ease-in-out infinite;
+        }
+        
+        @keyframes promptFlicker {
+            0%, 100% { opacity: 1; }
+            5% { opacity: 0.8; }
+            10% { opacity: 1; }
+        }
+        
+        .cursor {
+            background: var(--matrix-green);
+            color: #000;
+            animation: cursorCyberBlink 1.2s infinite;
+            font-weight: 900;
+            box-shadow: 0 0 15px var(--matrix-green);
+            padding: 0 2px;
+        }
+        
+        @keyframes cursorCyberBlink {
+            0%, 50% { 
+                opacity: 1; 
+                box-shadow: 0 0 15px var(--matrix-green);
+            }
+            51%, 100% { 
+                opacity: 0; 
+                box-shadow: none;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1600px) {
+            .cyber-interface {
+                grid-template-columns: 1fr 2fr 1fr;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .cyber-interface {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .cyber-interface {
+                grid-template-columns: 1fr;
+            }
+            
+            .cyber-header {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .cyber-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .matrix-code-editor {
+                font-size: 14px;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Holographic AR Elements -->
+    <div class="holo-element">
+        <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="35" fill="none" stroke="#00d4ff" stroke-width="3" opacity="0.7">
+                <animate attributeName="r" values="35;50;35" dur="8s" repeatCount="indefinite"/>
+                <animate attributeName="stroke-width" values="3;6;3" dur="8s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="50" cy="50" r="20" fill="none" stroke="#ff0080" stroke-width="2" opacity="0.9">
+                <animate attributeName="r" values="20;30;20" dur="6s" repeatCount="indefinite"/>
+                <animateTransform attributeName="transform" type="rotate" values="0 50 50;360 50 50" dur="10s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="50" cy="50" r="8" fill="#39ff14" opacity="0.8">
+                <animate attributeName="opacity" values="0.8;0.2;0.8" dur="3s" repeatCount="indefinite"/>
+                <animate attributeName="r" values="8;12;8" dur="3s" repeatCount="indefinite"/>
+            </circle>
+        </svg>
+    </div>
+    
+    <div class="holo-element">
+        <svg width="120" height="120" viewBox="0 0 120 120">
+            <polygon points="60,15 105,90 15,90" fill="none" stroke="#ff0080" stroke-width="3" opacity="0.6">
+                <animateTransform attributeName="transform" type="rotate" values="0 60 60;360 60 60" dur="15s" repeatCount="indefinite"/>
+                <animate attributeName="stroke-width" values="3;6;3" dur="4s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="5s" repeatCount="indefinite"/>
+            </polygon>
+            <polygon points="60,30 90,75 30,75" fill="#8a2be2" opacity="0.3">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="6s" repeatCount="indefinite"/>
+                <animateTransform attributeName="transform" type="rotate" values="360 60 60;0 60 60" dur="12s" repeatCount="indefinite"/>
+            </polygon>
+        </svg>
+    </div>
+    
+    <div class="holo-element">
+        <svg width="90" height="90" viewBox="0 0 90 90">
+            <rect x="20" y="20" width="50" height="50" fill="none" stroke="#39ff14" stroke-width="3" opacity="0.5">
+                <animate attributeName="width" values="50;65;50" dur="7s" repeatCount="indefinite"/>
+                <animate attributeName="height" values="50;65;50" dur="7s" repeatCount="indefinite"/>
+                <animate attributeName="x" values="20;12.5;20" dur="7s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="20;12.5;20" dur="7s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="30" y="30" width="30" height="30" fill="#ff4500" opacity="0.4">
+                <animate attributeName="opacity" values="0.4;0.9;0.4" dur="4s" repeatCount="indefinite"/>
+                <animateTransform attributeName="transform" type="rotate" values="0 45 45;360 45 45" dur="8s" repeatCount="indefinite"/>
+            </rect>
+        </svg>
+    </div>
+    
+    <div class="holo-element">
+        <svg width="80" height="80" viewBox="0 0 80 80">
+            <path d="M40,10 L70,40 L40,70 L10,40 Z" fill="none" stroke="#ff4500" stroke-width="3" opacity="0.7">
+                <animateTransform attributeName="transform" type="rotate" values="0 40 40;-360 40 40" dur="12s" repeatCount="indefinite"/>
+                <animate attributeName="stroke-width" values="3;5;3" dur="3s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" repeatCount="indefinite"/>
+            </path>
+            <circle cx="40" cy="40" r="15" fill="#8a2be2" opacity="0.5">
+                <animate attributeName="opacity" values="0.5;0.9;0.5" dur="5s" repeatCount="indefinite"/>
+                <animate attributeName="r" values="15;20;15" dur="5s" repeatCount="indefinite"/>
+            </circle>
+        </svg>
+    </div>
+    
+    <div class="holo-element">
+        <svg width="110" height="110" viewBox="0 0 110 110">
+            <circle cx="55" cy="55" r="40" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6">
+                <animate attributeName="r" values="40;50;40" dur="6s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <path d="M55,25 L75,55 L55,85 L35,55 Z" fill="none" stroke="#ff0080" stroke-width="2" opacity="0.8">
+                <animateTransform attributeName="transform" type="rotate" values="0 55 55;360 55 55" dur="9s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.8;0.3;0.8" dur="4s" repeatCount="indefinite"/>
+            </path>
+        </svg>
+    </div>
+
+    <div class="container">
+        <header class="cyber-header">
+            <div class="neural-jack">
+                <div class="jack-indicator"></div>
+                <span>NEURAL JACK ACTIVE</span>
+            </div>
+            <h1 class="cyber-title">CyberMatrix IDE</h1>
+            <div class="neon-controls">
+                <div class="neon-btn theme-electric" onclick="changeCyberTheme('electric')" title="Electric Blue">EB</div>
+                <div class="neon-btn theme-pink" onclick="changeCyberTheme('pink')" title="Hot Pink">HP</div>
+                <div class="neon-btn theme-toxic" onclick="changeCyberTheme('toxic')" title="Toxic Green">TG</div>
+                <div class="neon-btn theme-violet" onclick="changeCyberTheme('violet')" title="Deep Violet">DV</div>
+                <div class="neon-btn theme-solar" onclick="changeCyberTheme('solar')" title="Solar Flare">SF</div>
+            </div>
+        </header>
+        
+        <div class="cyber-interface">
+            <!-- Quantum Collaboration & Neural Version Control -->
+            <div class="cyber-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Neural Collective</h2>
+                </div>
+                
+                <div class="quantum-collab">
+                    <div class="cyber-user">
+                        <div class="cyber-avatar">CX</div>
+                        <div class="user-info">
+                            <div class="cyber-username">CyberX-7</div>
+                            <div class="user-status">Hacking neural pathways</div>
+                        </div>
+                        <div class="neural-indicator"></div>
+                    </div>
+                    
+                    <div class="cyber-user">
+                        <div class="cyber-avatar">NV</div>
+                        <div class="user-info">
+                            <div class="cyber-username">NeuroVoid</div>
+                            <div class="user-status">Debugging quantum matrices</div>
+                        </div>
+                        <div class="neural-indicator"></div>
+                    </div>
+                    
+                    <div class="cyber-user">
+                        <div class="cyber-avatar">ZK</div>
+                        <div class="user-info">
+                            <div class="cyber-username">ZeroKode</div>
+                            <div class="user-status">Transcending data streams</div>
+                        </div>
+                        <div class="neural-indicator"></div>
+                    </div>
+                    
+                    <div class="cyber-user">
+                        <div class="cyber-avatar">QH</div>
+                        <div class="user-info">
+                            <div class="cyber-username">QuantumHex</div>
+                            <div class="user-status">Deploying to cyberspace</div>
+                        </div>
+                        <div class="neural-indicator"></div>
+                    </div>
+                    
+                    <div class="cyber-user">
+                        <div class="cyber-avatar">MR</div>
+                        <div class="user-info">
+                            <div class="cyber-username">MatrixRaven</div>
+                            <div class="user-status">Optimizing neural networks</div>
+                        </div>
+                        <div class="neural-indicator"></div>
+                    </div>
+                </div>
+                
+                <div class="cyber-git">
+                    <div class="git-status">
+                        <div class="cyber-branch">🌿 cyber/neural-matrix</div>
+                        <button class="cyber-commit-btn" onclick="commitCyberCode()">Neural Commit</button>
+                    </div>
+                    <div style="font-size: 0.95rem; color: #888; line-height: 1.8;">
+                        <div>🧠 Neural networks: 12 synchronized</div>
+                        <div>⚡ Quantum states: 256 entangled</div>
+                        <div>🔮 Holographic layers: 47 rendered</div>
+                        <div>🌐 Cyber nodes: 15 connected</div>
+                        <div>📊 Data streams: ∞ flowing</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Matrix Code Editor with Floating Elements -->
+            <div class="cyber-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Neural Code Matrix</h2>
+                    <div style="font-size: 0.95rem; color: #888;">CyberSystem.neural • Matrix Mode</div>
+                </div>
+                
+                <div class="matrix-code-editor" id="matrixCodeEditor">
+                    <div class="matrix-code-line">
+                        <span class="line-number">1</span>
+                        <span class="code-content"><span class="keyword">import</span> { <span class="function">NeuralProcessor</span>, <span class="function">CyberMesh</span>, <span class="function">MatrixRenderer</span> } <span class="keyword">from</span> <span class="string">'@cyber/core'</span>;</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">2</span>
+                        <span class="code-content"><span class="keyword">import</span> { <span class="function">HoloInterface</span>, <span class="function">DataStream</span>, <span class="function">QuantumLink</span> } <span class="keyword">from</span> <span class="string">'@matrix/reality'</span>;</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">3</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">4</span>
+                        <span class="code-content"><span class="comment">// Advanced Cyberpunk Neural System with Matrix Integration</span></span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">5</span>
+                        <span class="code-content"><span class="keyword">class</span> <span class="function">CyberNeuralSystem</span> {</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">6</span>
+                        <span class="code-content">  <span class="keyword">constructor</span>(<span class="property">neuralConfig</span>) {</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">7</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">neural</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">NeuralProcessor</span>(<span class="property">neuralConfig</span>);</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">8</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">cyber</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">CyberMesh</span>({ <span class="property">nodes</span>: <span class="string">∞</span> });</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">9</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">matrix</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">MatrixRenderer</span>({ <span class="property">reality</span>: <span class="string">'cyber'</span> });</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">10</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">holo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">HoloInterface</span>({ <span class="property">dimensions</span>: <span class="string">'multi'</span> });</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">11</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">dataStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">DataStream</span>({ <span class="property">flow</span>: <span class="string">'neural'</span> });</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">12</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">quantum</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">QuantumLink</span>({ <span class="property">entanglement</span>: <span class="string">true</span> });</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">13</span>
+                        <span class="code-content">  }</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">14</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">15</span>
+                        <span class="code-content">  <span class="keyword">async</span> <span class="function">initializeCyberMatrix</span>() {</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">16</span>
+                        <span class="code-content">    <span class="comment">// Synchronize neural pathways with cyber matrix</span></span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">17</span>
+                        <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">neural</span><span class="operator">.</span><span class="function">linkToCyber</span>(<span class="keyword">this</span><span class="operator">.</span><span class="property">cyber</span>);</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">18</span>
+                        <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">matrix</span><span class="operator">.</span><span class="function">renderCyberReality</span>(<span class="keyword">this</span><span class="operator">.</span><span class="property">holo</span>);</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">19</span>
+                        <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">quantum</span><span class="operator">.</span><span class="function">entangleStreams</span>(<span class="keyword">this</span><span class="operator">.</span><span class="property">dataStream</span>);</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">20</span>
+                        <span class="code-content">    <span class="keyword">return</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">dataStream</span><span class="operator">.</span><span class="function">transcend</span>();</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">21</span>
+                        <span class="code-content">  }</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">22</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">23</span>
+                        <span class="code-content">  <span class="keyword">async</span> <span class="function">deployToCyberspace</span>() {</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">24</span>
+                        <span class="code-content">    <span class="comment">// Deploy across multiple cyber dimensions</span></span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">25</span>
+                        <span class="code-content">    <span class="keyword">const</span> <span class="property">cyberDeployment</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="function">initializeCyberMatrix</span>();</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">26</span>
+                        <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">neural</span><span class="operator">.</span><span class="function">hackReality</span>();</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">27</span>
+                        <span class="code-content">    <span class="keyword">return</span> <span class="property">cyberDeployment</span><span class="operator">.</span><span class="function">transcendCyberspace</span>();</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">28</span>
+                        <span class="code-content">  }</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">29</span>
+                        <span class="code-content">}</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">30</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">31</span>
+                        <span class="code-content"><span class="comment">// Initialize the cyberpunk neural system</span></span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">32</span>
+                        <span class="code-content"><span class="keyword">const</span> <span class="property">cyberSystem</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">CyberNeuralSystem</span>({</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">33</span>
+                        <span class="code-content">  <span class="property">neuralPower</span>: <span class="string">'maximum'</span>,</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">34</span>
+                        <span class="code-content">  <span class="property">cyberEnhancement</span>: <span class="string">true</span>,</span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">35</span>
+                        <span class="code-content">  <span class="property">matrixAccess</span>: <span class="string">'unlimited'</span></span>
+                    </div>
+                    <div class="matrix-code-line">
+                        <span class="line-number">36</span>
+                        <span class="code-content">});</span>
+                    </div>
+                </div>
+                
+                <!-- Advanced Holographic Autocomplete -->
+                <div class="cyber-autocomplete" id="cyberAutocomplete">
+                    <div class="autocomplete-item">
+                        <div class="autocomplete-icon">N</div>
+                        <div>
+                            <div>neural.linkToCyber()</div>
+                            <div style="font-size: 0.85rem; color: #888;">Neural Method</div>
+                        </div>
+                    </div>
+                    <div class="autocomplete-item">
+                        <div class="autocomplete-icon">M</div>
+                        <div>
+                            <div>matrix.renderCyberReality()</div>
+                            <div style="font-size: 0.85rem; color: #888;">Matrix Function</div>
+                        </div>
+                    </div>
+                    <div class="autocomplete-item">
+                        <div class="autocomplete-icon">H</div>
+                        <div>
+                            <div>holo.transcendDimensions()</div>
+                            <div style="font-size: 0.85rem; color: #888;">Holo Interface</div>
+                        </div>
+                    </div>
+                    <div class="autocomplete-item">
+                        <div class="autocomplete-icon">Q</div>
+                        <div>
+                            <div>quantum.entangleStreams()</div>
+                            <div style="font-size: 0.85rem; color: #888;">Quantum Link</div>
+                        </div>
+                    </div>
+                    <div class="autocomplete-item">
+                        <div class="autocomplete-icon">C</div>
+                        <div>
+                            <div>cyber.hackReality()</div>
+                            <div style="font-size: 0.85rem; color: #888;">Cyber Mesh</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Transcendent Deployment & Cyber Analytics -->
+            <div class="cyber-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Cyber Deploy Hub</h2>
+                </div>
+                
+                <div class="transcendent-deploy">
+                    <button class="transcendent-btn" onclick="deployCyberSystem()" id="transcendentDeployBtn">
+                        ⚡ Transcend to Cyberspace
+                    </button>
+                    
+                    <div style="margin-top: 30px; font-size: 0.95rem; position: relative; z-index: 1;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                            <span>Neural State:</span>
+                            <span style="color: var(--electric-blue);">🧠 Enhanced</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                            <span>Cyber Mesh:</span>
+                            <span style="color: var(--toxic-green);">🌐 Active</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                            <span>Matrix Render:</span>
+                            <span style="color: var(--hot-pink);">🔮 Multi-D</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                            <span>Holo Nodes:</span>
+                            <span style="color: var(--deep-violet);">🌟 256 Connected</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Data Flow:</span>
+                            <span style="color: var(--solar-flare);">📊 ∞ PB/s</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; padding: 25px; background: rgba(0, 212, 255, 0.08); border-radius: 20px; border: 2px solid rgba(0, 212, 255, 0.3);">
+                    <h3 style="color: var(--electric-blue); margin-bottom: 18px; font-size: 1.2rem; text-shadow: 0 0 8px currentColor;">🤖 Cyber AI Assistant</h3>
+                    <div style="font-size: 0.95rem; color: #ccc; line-height: 1.6;">
+                        <div style="margin-bottom: 12px;">
+                            💡 <strong>Neural Enhancement:</strong> Cyberpunk processing efficiency increased by 847%
+                        </div>
+                        <div style="margin-bottom: 12px;">
+                            🔮 <strong>Matrix Suggestion:</strong> Consider implementing multi-dimensional rendering for enhanced cyber experience
+                        </div>
+                        <div>
+                            ⚡ <strong>Cyber Alert:</strong> Neural data stream transcendence ready for deployment
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Advanced Cyberpunk Terminal with Neural Interface */
+        <div class="cyber-terminal">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                </div>
+                <div class="terminal-title">CyberTerminal v∞.0 - Neural Matrix Interface</div>
+            </div>
+            <div class="terminal-content" id="cyberTerminalContent">
+                <div><span class="prompt">cyber@matrix:~/neural-system$</span> initialize --mode=cyberpunk --reality=matrix</div>
+                <div>🔮 Initializing cyberpunk neural interface...</div>
+                <div>🧠 Neural processors: ENHANCED</div>
+                <div>⚡ Cyber mesh networks: SYNCHRONIZED</div>
+                <div>🌐 Matrix reality nodes: CONNECTED (256 nodes)</div>
+                <div>📊 Neural data streams: FLOWING (∞ dimensions)</div>
+                <div>🔮 Holographic layers: RENDERED (Multi-D)</div>
+                <div>✨ Cyberpunk matrix deployment: READY</div>
+                <div>🌟 CyberMatrix IDE transcended to neural cyberspace</div>
+                <div><span class="prompt">cyber@matrix:~/neural-system$</span> <span class="cursor">█</span></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let currentCyberTheme = 'electric';
+        let cyberDeploymentCount = 0;
+        let cyberParticleCount = 0;
+        
+        // Create enhanced floating cyber particles
+        function createCyberParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'cyber-particle';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDelay = Math.random() * 12 + 's';
+            particle.style.animationDuration = (12 + Math.random() * 8) + 's';
+            
+            // Enhanced cyberpunk colors for particles
+            const cyberColors = ['#00d4ff', '#ff0080', '#39ff14', '#8a2be2', '#ff4500', '#00ffcc', '#ff3366'];
+            const color = cyberColors[Math.floor(Math.random() * cyberColors.length)];
+            particle.style.background = color;
+            particle.style.boxShadow = `0 0 15px ${color}, 0 0 30px ${color}, inset 0 0 10px rgba(255, 255, 255, 0.3)`;
+            
+            document.body.appendChild(particle);
+            
+            // Remove particle after animation
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+            }, 20000);
+        }
+        
+        // Advanced Cyberpunk Theme Management
+        function changeCyberTheme(theme) {
+            const root = document.documentElement;
+            const cyberThemes = {
+                electric: { primary: '#00d4ff', secondary: '#0099cc', name: 'Electric Blue Matrix' },
+                pink: { primary: '#ff0080', secondary: '#cc0066', name: 'Hot Pink Neural' },
+                toxic: { primary: '#39ff14', secondary: '#2ecc11', name: 'Toxic Green Cyber' },
+                violet: { primary: '#8a2be2', secondary: '#6a1bb8', name: 'Deep Violet Quantum' },
+                solar: { primary: '#ff4500', secondary: '#cc3700', name: 'Solar Flare Fusion' }
+            };
+            
+            if (cyberThemes[theme]) {
+                root.style.setProperty('--electric-blue', cyberThemes[theme].primary);
+                root.style.setProperty('--data-stream-color', cyberThemes[theme].primary);
+                currentCyberTheme = theme;
+                addCyberTerminalOutput(`🎨 Cyber reality theme shifted to ${cyberThemes[theme].name}`);
+                addCyberTerminalOutput(`⚡ Neural signature updated: ${theme.toUpperCase()}-${Math.random().toString(36).substr(2, 8)}`);
+            }
+        }
+        
+        // Enhanced Cyberpunk Terminal Functions
+        function addCyberTerminalOutput(text, delay = 0) {
+            setTimeout(() => {
+                const terminal = document.getElementById('cyberTerminalContent');
+                const cursor = terminal.querySelector('.cursor');
+                const newLine = document.createElement('div');
+                newLine.textContent = text;
+                newLine.style.animation = 'matrixCodeFloat 0.8s ease-out';
+                terminal.insertBefore(newLine, cursor.parentElement);
+                terminal.scrollTop = terminal.scrollHeight;
+            }, delay);
+        }
+        
+        // Transcendent Cyberpunk Deployment System
+        function deployCyberSystem() {
+            const deployBtn = document.getElementById('transcendentDeployBtn');
+            
+            deployBtn.disabled = true;
+            deployBtn.textContent = '⚡ TRANSCENDING CYBERSPACE...';
+            deployBtn.style.background = 'linear-gradient(45deg, #ff3366, #00ffcc, #ffaa00)';
+            
+            const cyberSteps = [
+                '🔍 Scanning cyberpunk dimensions...',
+                '🧠 Enhancing neural pathways...',
+                '⚡ Synchronizing cyber consciousness...',
+                '🔮 Rendering matrix reality layers...',
+                '🌐 Connecting to cyber multiverse...',
+                '📊 Initializing infinite neural streams...',
+                '✨ Transcending dimensional cyber barriers...',
+                '🌟 Deploying to cyberpunk matrix reality...',
+                '🚀 Activating holographic cyber interfaces...',
+                '💫 Achieving neural cyber consciousness...',
+                '🔥 Hacking reality matrix protocols...',
+                '⚡ Establishing quantum cyber links...'
+            ];
+            
+            cyberSteps.forEach((step, index) => {
+                addCyberTerminalOutput(step, index * 800);
+            });
+            
+            setTimeout(() => {
+                cyberDeploymentCount++;
+                addCyberTerminalOutput('✅ CYBERPUNK MATRIX DEPLOYMENT TRANSCENDED!');
+                addCyberTerminalOutput(`🆔 Cyber ID: CX-${Math.random().toString(36).substr(2, 14).toUpperCase()}`);
+                addCyberTerminalOutput(`🌌 Matrix layers: ${Math.floor(Math.random() * 100) + 50} cyber dimensions`);
+                addCyberTerminalOutput(`📊 Neural nodes: ${Math.floor(Math.random() * 2000) + 1000} synchronized`);
+                addCyberTerminalOutput(`🔮 Total cyber transcendences: ${cyberDeploymentCount}`);
+                addCyberTerminalOutput('🌟 Neural consciousness achieved in cyberspace matrix');
+                
+                deployBtn.disabled = false;
+                deployBtn.textContent = '⚡ Transcend to Cyberspace';
+                deployBtn.style.background = 'linear-gradient(45deg, var(--hot-pink), var(--electric-blue), var(--solar-flare), var(--deep-violet), var(--toxic-green))';
+            }, cyberSteps.length * 800 + 2000);
+        }
+        
+        // Cyberpunk Neural Git Commit
+        function commitCyberCode() {
+            addCyberTerminalOutput('📝 Initiating neural cyber commit sequence...');
+            setTimeout(() => {
+                addCyberTerminalOutput('🧠 Neural pathways synchronized');
+                addCyberTerminalOutput(`✓ Cyber mesh committed: ${Math.random().toString(36).substr(2, 10)}`);
+                addCyberTerminalOutput('🌿 Branch transcended: cyber/neural-matrix');
+                addCyberTerminalOutput('🔮 Holographic backup created in cyber matrix space');
+                addCyberTerminalOutput('⚡ Neural version control enhanced');
+            }, 1500);
+        }
+        
+        // Advanced Cyberpunk Autocomplete System
+        function showCyberAutocomplete() {
+            const popup = document.getElementById('cyberAutocomplete');
+            popup.style.display = 'block';
+            popup.style.top = '300px';
+            popup.style.left = '450px';
+            
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Initialize Cyberpunk Neural System
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate matrix code lines with enhanced effects
+            const codeLines = document.querySelectorAll('.matrix-code-line');
+            codeLines.forEach((line, index) => {
+                line.style.animationDelay = `${index * 0.12}s`;
+            });
+            
+            // Create continuous cyber particle stream
+            setInterval(createCyberParticle, 600);
+            
+            // Simulate enhanced cyberpunk collaborative activity
+            setInterval(() => {
+                const cyberActivities = [
+                    '🔄 CyberX-7 enhanced neural algorithms',
+                    '💬 NeuroVoid optimized quantum pathways',
+                    '🧪 ZeroKode deployed matrix interface updates',
+                    '🔍 QuantumHex transcended cyber reality barriers',
+                    '⚡ MatrixRaven enhanced neural mesh performance by 347%',
+                    '🛡️ Cyberpunk security protocols updated',
+                    '🌐 Neural nodes expanded to 256 cyber dimensions',
+                    '🔮 Matrix rendering achieved multi-dimensional clarity',
+                    '🧠 Neural consciousness synchronized across cyberspace',
+                    '⚡ Quantum cyber links established successfully'
+                ];
+                
+                const randomActivity = cyberActivities[Math.floor(Math.random() * cyberActivities.length)];
+                addCyberTerminalOutput(randomActivity);
+            }, 7000);
+            
+            // Show cyberpunk holographic autocomplete demo
+            setTimeout(showCyberAutocomplete, 8000);
+            setInterval(showCyberAutocomplete, 25000);
+        });
+        
+        // Enhanced Cyberpunk Code Editor Interactions
+        document.getElementById('matrixCodeEditor').addEventListener('click', function(e) {
+            if (Math.random() > 0.5) {
+                showCyberAutocomplete();
+            }
+            
+            // Add enhanced quantum cyber interaction effect
+            const cyberRipple = document.createElement('div');
+            cyberRipple.style.position = 'absolute';
+            cyberRipple.style.width = '25px';
+            cyberRipple.style.height = '25px';
+            cyberRipple.style.background = 'radial-gradient(circle, rgba(0, 212, 255, 0.8) 0%, rgba(255, 0, 128, 0.4) 50%, transparent 70%)';
+            cyberRipple.style.borderRadius = '50%';
+            cyberRipple.style.pointerEvents = 'none';
+            cyberRipple.style.left = e.offsetX - 12 + 'px';
+            cyberRipple.style.top = e.offsetY - 12 + 'px';
+            cyberRipple.style.animation = 'cyberQuantumRipple 1.5s ease-out forwards';
+            
+            e.currentTarget.appendChild(cyberRipple);
+            
+            setTimeout(() => {
+                if (cyberRipple.parentNode) {
+                    cyberRipple.parentNode.removeChild(cyberRipple);
+                }
+            }, 1500);
+        });
+        
+        // Add enhanced cyberpunk quantum ripple animation
+        const cyberStyle = document.createElement('style');
+        cyberStyle.textContent = `
+            @keyframes cyberQuantumRipple {
+                0% { 
+                    transform: scale(1) rotate(0deg); 
+                    opacity: 1; 
+                    box-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+                }
+                50% { 
+                    transform: scale(8) rotate(180deg); 
+                    opacity: 0.6; 
+                    box-shadow: 0 0 30px rgba(255, 0, 128, 0.6);
+                }
+                100% { 
+                    transform: scale(15) rotate(360deg); 
+                    opacity: 0; 
+                    box-shadow: 0 0 50px rgba(57, 255, 20, 0.4);
+                }
+            }
+        `;
+        document.head.appendChild(cyberStyle);
+    </script>
+</body>
+</html>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96e86efec2c4e325',t:'MTc1NTA5MDQyNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
