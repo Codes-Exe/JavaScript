@@ -1,0 +1,2166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCode Nexus 3D - Advanced Neural IDE</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;700;900&family=Fira+Code:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --neon-cyan: #00ffff;
+            --electric-purple: #8a2be2;
+            --cyber-pink: #ff0080;
+            --neural-green: #39ff14;
+            --quantum-blue: #0080ff;
+            --solar-orange: #ff4500;
+            --void-black: #000000;
+            --matrix-red: #ff3333;
+            --holo-yellow: #ffff00;
+            --neon-magenta: #ff00ff;
+            --electric-lime: #ccff00;
+            --cyber-teal: #00ffcc;
+            --plasma-violet: #9933ff;
+            --glass-primary: rgba(255, 255, 255, 0.18);
+            --glass-secondary: rgba(255, 255, 255, 0.12);
+            --glass-border: rgba(255, 255, 255, 0.35);
+            --glow-intensity: 0 0 50px;
+            --shadow-depth: 0 20px 60px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Fira Code', monospace;
+            background: 
+                radial-gradient(ellipse at 10% 10%, rgba(0, 255, 255, 0.4) 0%, transparent 70%),
+                radial-gradient(ellipse at 90% 10%, rgba(138, 43, 226, 0.35) 0%, transparent 70%),
+                radial-gradient(ellipse at 10% 90%, rgba(255, 0, 128, 0.32) 0%, transparent 70%),
+                radial-gradient(ellipse at 90% 90%, rgba(57, 255, 20, 0.3) 0%, transparent 70%),
+                radial-gradient(ellipse at 50% 20%, rgba(0, 128, 255, 0.28) 0%, transparent 80%),
+                radial-gradient(ellipse at 20% 50%, rgba(255, 68, 0, 0.25) 0%, transparent 75%),
+                radial-gradient(ellipse at 80% 50%, rgba(255, 255, 0, 0.22) 0%, transparent 70%),
+                radial-gradient(ellipse at 50% 80%, rgba(255, 0, 255, 0.2) 0%, transparent 65%),
+                radial-gradient(circle at 30% 30%, rgba(204, 255, 0, 0.18) 0%, transparent 60%),
+                radial-gradient(circle at 70% 70%, rgba(0, 255, 204, 0.15) 0%, transparent 55%),
+                linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 12%, #0a1a1a 24%, #1a1a0a 36%, #0a0a1a 48%, #1a0a0a 60%, #0a1a0a 72%, #1a0a1a 84%, #0a0a0a 100%);
+            color: var(--neon-cyan);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            perspective: 4000px;
+            transform-style: preserve-3d;
+        }
+        
+        /* Advanced Multi-Layer Holographic Grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.3) 1px, transparent 1px),
+                linear-gradient(45deg, rgba(138, 43, 226, 0.25) 1px, transparent 1px),
+                linear-gradient(135deg, rgba(255, 0, 128, 0.22) 1px, transparent 1px),
+                linear-gradient(60deg, rgba(57, 255, 20, 0.2) 1px, transparent 1px),
+                linear-gradient(120deg, rgba(255, 68, 0, 0.18) 1px, transparent 1px),
+                linear-gradient(30deg, rgba(255, 255, 0, 0.15) 1px, transparent 1px),
+                linear-gradient(150deg, rgba(255, 0, 255, 0.12) 1px, transparent 1px),
+                radial-gradient(circle at 15% 15%, rgba(57, 255, 20, 0.2) 2px, transparent 4px),
+                radial-gradient(circle at 85% 85%, rgba(255, 68, 0, 0.18) 2px, transparent 4px),
+                radial-gradient(circle at 15% 85%, rgba(255, 255, 0, 0.15) 1px, transparent 3px),
+                radial-gradient(circle at 85% 15%, rgba(0, 128, 255, 0.12) 1px, transparent 3px),
+                radial-gradient(circle at 50% 50%, rgba(255, 0, 255, 0.1) 1px, transparent 2px);
+            background-size: 40px 40px, 40px 40px, 28px 28px, 28px 28px, 35px 35px, 35px 35px, 32px 32px, 32px 32px, 60px 60px, 60px 60px, 80px 80px, 80px 80px, 100px 100px;
+            pointer-events: none;
+            z-index: -2;
+            animation: advancedHoloGrid 30s linear infinite;
+            filter: blur(0.3px) brightness(1.4) contrast(1.2);
+            transform-style: preserve-3d;
+        }
+        
+        @keyframes advancedHoloGrid {
+            0% { 
+                transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg); 
+                opacity: 0.6; 
+                filter: blur(0.4px) hue-rotate(0deg) brightness(1.2) contrast(1.1);
+            }
+            20% { 
+                transform: translate3d(25px, 25px, 15px) rotateX(3deg) rotateY(3deg) rotateZ(1deg); 
+                opacity: 0.9; 
+                filter: blur(0.2px) hue-rotate(72deg) brightness(1.5) contrast(1.3);
+            }
+            40% { 
+                transform: translate3d(50px, 50px, 30px) rotateX(6deg) rotateY(6deg) rotateZ(2deg); 
+                opacity: 0.7; 
+                filter: blur(0.6px) hue-rotate(144deg) brightness(1.3) contrast(1.2);
+            }
+            60% { 
+                transform: translate3d(75px, 75px, 45px) rotateX(9deg) rotateY(9deg) rotateZ(3deg); 
+                opacity: 0.8; 
+                filter: blur(0.3px) hue-rotate(216deg) brightness(1.4) contrast(1.4);
+            }
+            80% { 
+                transform: translate3d(50px, 100px, 30px) rotateX(6deg) rotateY(12deg) rotateZ(2deg); 
+                opacity: 0.75; 
+                filter: blur(0.5px) hue-rotate(288deg) brightness(1.35) contrast(1.25);
+            }
+            100% { 
+                transform: translate3d(0, 125px, 0) rotateX(0deg) rotateY(15deg) rotateZ(0deg); 
+                opacity: 0.6; 
+                filter: blur(0.4px) hue-rotate(360deg) brightness(1.2) contrast(1.1);
+            }
+        }
+        
+        /* Ultra-Advanced Glitch Effects with Color Shifting */
+        .glitch-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+            background: 
+                linear-gradient(90deg, transparent 96%, rgba(255, 0, 128, 0.2) 97%, rgba(138, 43, 226, 0.18) 98%, rgba(0, 255, 255, 0.15) 99%, transparent 100%),
+                linear-gradient(180deg, transparent 95%, rgba(0, 255, 255, 0.18) 96%, rgba(57, 255, 20, 0.15) 97%, rgba(255, 68, 0, 0.12) 98%, transparent 100%),
+                linear-gradient(45deg, transparent 97%, rgba(255, 68, 0, 0.12) 98%, rgba(255, 255, 0, 0.1) 99%, transparent 100%),
+                linear-gradient(135deg, transparent 97%, rgba(255, 255, 0, 0.1) 98%, rgba(255, 0, 255, 0.08) 99%, transparent 100%),
+                linear-gradient(60deg, transparent 98%, rgba(204, 255, 0, 0.08) 99%, transparent 100%),
+                linear-gradient(120deg, transparent 98%, rgba(0, 255, 204, 0.06) 99%, transparent 100%);
+            background-size: 1.5px 100%, 100% 2px, 3px 3px, 3px 3px, 4px 4px, 4px 4px;
+            animation: 
+                ultraGlitchScan 0.06s linear infinite, 
+                glitchColorShift 2s ease-in-out infinite, 
+                glitchDistortion 4s ease-in-out infinite,
+                glitchFlicker 1.2s ease-in-out infinite;
+            mix-blend-mode: screen;
+            filter: contrast(1.3) brightness(1.2) saturate(1.4);
+        }
+        
+        @keyframes ultraGlitchScan {
+            0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }
+            100% { background-position: 2px 0, 0 3px, 3px 3px, -3px -3px, 4px 4px, -4px -4px; }
+        }
+        
+        @keyframes glitchColorShift {
+            0%, 100% { 
+                filter: contrast(1.3) brightness(1.2) saturate(1.4) hue-rotate(0deg);
+                transform: translate(0) scale(1);
+            }
+            25% { 
+                filter: contrast(1.5) brightness(1.4) saturate(1.6) hue-rotate(90deg);
+                transform: translate(2px, -1px) scale(1.002);
+            }
+            50% { 
+                filter: contrast(1.2) brightness(1.1) saturate(1.2) hue-rotate(180deg);
+                transform: translate(-1px, 2px) scale(0.998);
+            }
+            75% { 
+                filter: contrast(1.4) brightness(1.3) saturate(1.5) hue-rotate(270deg);
+                transform: translate(1px, 1px) scale(1.001);
+            }
+        }
+        
+        @keyframes glitchDistortion {
+            0%, 100% { 
+                transform: scale(1) skew(0deg) rotateZ(0deg);
+                opacity: 0.9;
+            }
+            20% { 
+                transform: scale(1.003) skew(0.3deg) rotateZ(0.1deg);
+                opacity: 1.2;
+            }
+            40% { 
+                transform: scale(0.997) skew(-0.2deg) rotateZ(-0.1deg);
+                opacity: 0.7;
+            }
+            60% { 
+                transform: scale(1.001) skew(0.1deg) rotateZ(0.05deg);
+                opacity: 1.1;
+            }
+            80% { 
+                transform: scale(0.999) skew(-0.1deg) rotateZ(-0.05deg);
+                opacity: 0.8;
+            }
+        }
+        
+        @keyframes glitchFlicker {
+            0%, 88%, 90%, 92%, 94%, 96%, 100% { 
+                opacity: 0.9; 
+                transform: translate(0) skew(0deg);
+            }
+            89% { 
+                opacity: 0.4; 
+                transform: translate(4px, -3px) skew(2deg);
+            }
+            91% { 
+                opacity: 0.2; 
+                transform: translate(-3px, 3px) skew(-1.5deg);
+            }
+            93% { 
+                opacity: 1.3; 
+                transform: translate(2px, -2px) skew(1deg);
+            }
+            95% { 
+                opacity: 0.7; 
+                transform: translate(-2px, 2px) skew(-0.5deg);
+            }
+            97% { 
+                opacity: 1.1; 
+                transform: translate(1px, -1px) skew(0.3deg);
+            }
+        }
+        
+        /* Enhanced Multi-Directional Scan Lines */
+        .scan-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 4;
+            background: 
+                linear-gradient(
+                    transparent 95%,
+                    rgba(0, 255, 255, 0.15) 96%,
+                    rgba(138, 43, 226, 0.12) 97%,
+                    rgba(57, 255, 20, 0.1) 98%,
+                    rgba(255, 68, 0, 0.08) 99%,
+                    transparent 100%
+                ),
+                linear-gradient(
+                    90deg,
+                    transparent 96%,
+                    rgba(255, 0, 128, 0.12) 97%,
+                    rgba(255, 68, 0, 0.1) 98%,
+                    rgba(255, 255, 0, 0.08) 99%,
+                    transparent 100%
+                ),
+                linear-gradient(
+                    45deg,
+                    transparent 97%,
+                    rgba(255, 255, 0, 0.08) 98%,
+                    rgba(255, 0, 255, 0.06) 99%,
+                    transparent 100%
+                ),
+                linear-gradient(
+                    135deg,
+                    transparent 97%,
+                    rgba(204, 255, 0, 0.06) 98%,
+                    rgba(0, 255, 204, 0.04) 99%,
+                    transparent 100%
+                );
+            background-size: 100% 1.2px, 1.2px 100%, 2.5px 2.5px, 2.5px 2.5px;
+            animation: 
+                advancedScanLines 0.04s linear infinite, 
+                scanLinesVertical 0.06s linear infinite, 
+                scanLinesDiagonal 0.1s linear infinite,
+                scanLinesReverse 0.08s linear infinite;
+            mix-blend-mode: screen;
+            filter: brightness(1.4) contrast(1.2) saturate(1.3);
+        }
+        
+        @keyframes advancedScanLines {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(1.5px); }
+        }
+        
+        @keyframes scanLinesVertical {
+            0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+            100% { background-position: 0 0, 1.2px 0, 0 0, 0 0; }
+        }
+        
+        @keyframes scanLinesDiagonal {
+            0% { background-position: 0 0, 0 0, 0 0, 0 0; }
+            100% { background-position: 0 0, 0 0, 2.5px 2.5px, -2.5px -2.5px; }
+        }
+        
+        @keyframes scanLinesReverse {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-0.5px) translateY(-0.5px); }
+        }
+        
+        .container {
+            max-width: 2200px;
+            margin: 0 auto;
+            padding: 35px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Ultra-Enhanced Header with Advanced Effects */
+        .cyber-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 50px 70px;
+            background: 
+                linear-gradient(135deg, var(--glass-primary) 0%, var(--glass-secondary) 50%, var(--glass-primary) 100%),
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.3) 0%, transparent 70%),
+                radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.25) 0%, transparent 70%),
+                radial-gradient(circle at 20% 80%, rgba(255, 0, 128, 0.2) 0%, transparent 70%),
+                radial-gradient(circle at 80% 20%, rgba(57, 255, 20, 0.18) 0%, transparent 70%),
+                rgba(0, 0, 0, 0.6);
+            border: 4px solid var(--glass-border);
+            border-radius: 35px;
+            backdrop-filter: blur(40px) saturate(250%);
+            box-shadow: 
+                var(--shadow-depth) rgba(0, 0, 0, 0.6),
+                inset 0 4px 0 rgba(255, 255, 255, 0.3),
+                var(--glow-intensity) rgba(0, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            animation: headerFloat 8s ease-in-out infinite;
+        }
+        
+        @keyframes headerFloat {
+            0%, 100% { 
+                transform: translateY(0) rotateX(0deg) scale(1);
+                box-shadow: 
+                    var(--shadow-depth) rgba(0, 0, 0, 0.6),
+                    inset 0 4px 0 rgba(255, 255, 255, 0.3),
+                    var(--glow-intensity) rgba(0, 255, 255, 0.5);
+            }
+            50% { 
+                transform: translateY(-8px) rotateX(2deg) scale(1.01);
+                box-shadow: 
+                    0 30px 80px rgba(0, 0, 0, 0.7),
+                    inset 0 4px 0 rgba(255, 255, 255, 0.4),
+                    0 0 70px rgba(0, 255, 255, 0.7);
+            }
+        }
+        
+        .cyber-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--neon-cyan), 
+                var(--electric-purple), 
+                var(--cyber-pink), 
+                var(--neural-green),
+                var(--quantum-blue),
+                var(--solar-orange),
+                var(--holo-yellow),
+                transparent
+            );
+            animation: advancedHeaderScan 8s linear infinite;
+            filter: blur(1px);
+        }
+        
+        .cyber-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 47%, rgba(255, 255, 255, 0.08) 48%, rgba(255, 255, 255, 0.08) 52%, transparent 53%),
+                linear-gradient(135deg, transparent 47%, rgba(255, 255, 255, 0.06) 48%, rgba(255, 255, 255, 0.06) 52%, transparent 53%);
+            background-size: 15px 15px, 15px 15px;
+            animation: headerComplexPattern 20s linear infinite;
+            opacity: 0.4;
+        }
+        
+        @keyframes advancedHeaderScan {
+            0% { left: -100%; opacity: 0.8; transform: scaleY(1); }
+            25% { opacity: 1; transform: scaleY(1.2); }
+            50% { opacity: 1.2; transform: scaleY(1); }
+            75% { opacity: 1; transform: scaleY(1.1); }
+            100% { left: 100%; opacity: 0.8; transform: scaleY(1); }
+        }
+        
+        @keyframes headerComplexPattern {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(7.5px, 7.5px) rotate(90deg); }
+            50% { transform: translate(15px, 15px) rotate(180deg); }
+            75% { transform: translate(7.5px, 22.5px) rotate(270deg); }
+            100% { transform: translate(0, 30px) rotate(360deg); }
+        }
+        
+        .cyber-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, 
+                var(--neon-cyan), var(--electric-purple), var(--cyber-pink), 
+                var(--neural-green), var(--quantum-blue), var(--solar-orange),
+                var(--holo-yellow), var(--neon-magenta), var(--electric-lime),
+                var(--cyber-teal), var(--plasma-violet)
+            );
+            background-size: 800% 800%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: 
+                advancedTitleFlow 10s ease-in-out infinite, 
+                titleGlitchAdvanced 12s ease-in-out infinite,
+                titlePulse 6s ease-in-out infinite;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
+            transform-style: preserve-3d;
+        }
+        
+        @keyframes advancedTitleFlow {
+            0%, 100% { background-position: 0% 50%; }
+            20% { background-position: 100% 20%; }
+            40% { background-position: 50% 100%; }
+            60% { background-position: 0% 80%; }
+            80% { background-position: 80% 0%; }
+        }
+        
+        @keyframes titleGlitchAdvanced {
+            0%, 85%, 100% { transform: translate(0) rotateY(0deg) scale(1); }
+            86% { transform: translate(3px, -2px) rotateY(1deg) scale(1.01); }
+            87% { transform: translate(-3px, 2px) rotateY(-1deg) scale(0.99); }
+            88% { transform: translate(2px, 2px) rotateY(0.5deg) scale(1.005); }
+            89% { transform: translate(-2px, -2px) rotateY(-0.5deg) scale(0.995); }
+            90% { transform: translate(1px, -1px) rotateY(0.2deg) scale(1.002); }
+            91% { transform: translate(0) rotateY(0deg) scale(1); }
+        }
+        
+        @keyframes titlePulse {
+            0%, 100% { 
+                text-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
+                transform: scale(1);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 50px rgba(0, 255, 255, 0.8),
+                    0 0 80px rgba(138, 43, 226, 0.6),
+                    0 0 120px rgba(255, 0, 128, 0.4);
+                transform: scale(1.02);
+            }
+        }
+        
+        .neural-status {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: 
+                linear-gradient(135deg, rgba(57, 255, 20, 0.25) 0%, rgba(57, 255, 20, 0.12) 50%, rgba(57, 255, 20, 0.08) 100%),
+                radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.15) 0%, transparent 70%),
+                rgba(0, 0, 0, 0.5);
+            padding: 30px 40px;
+            border-radius: 30px;
+            border: 4px solid rgba(57, 255, 20, 0.6);
+            font-size: 1.2rem;
+            color: var(--neural-green);
+            backdrop-filter: blur(25px);
+            box-shadow: 
+                0 12px 40px rgba(57, 255, 20, 0.5),
+                inset 0 3px 0 rgba(255, 255, 255, 0.2);
+            animation: advancedStatusPulse 6s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .neural-status::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(57, 255, 20, 0.4), 
+                rgba(0, 255, 255, 0.3),
+                rgba(57, 255, 20, 0.4),
+                transparent
+            );
+            animation: advancedStatusSweep 10s linear infinite;
+        }
+        
+        @keyframes advancedStatusSweep {
+            0% { left: -100%; transform: scaleX(1); }
+            50% { transform: scaleX(1.2); }
+            100% { left: 100%; transform: scaleX(1); }
+        }
+        
+        @keyframes advancedStatusPulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 12px 40px rgba(57, 255, 20, 0.5),
+                    inset 0 3px 0 rgba(255, 255, 255, 0.2);
+                transform: scale(1) rotateY(0deg);
+                border-color: rgba(57, 255, 20, 0.6);
+            }
+            33% { 
+                box-shadow: 
+                    0 18px 60px rgba(57, 255, 20, 0.7),
+                    inset 0 3px 0 rgba(255, 255, 255, 0.3),
+                    var(--glow-intensity) var(--neural-green);
+                transform: scale(1.05) rotateY(1deg);
+                border-color: rgba(57, 255, 20, 0.8);
+            }
+            66% { 
+                box-shadow: 
+                    0 15px 50px rgba(0, 255, 255, 0.6),
+                    inset 0 3px 0 rgba(255, 255, 255, 0.25),
+                    var(--glow-intensity) var(--neon-cyan);
+                transform: scale(1.03) rotateY(-0.5deg);
+                border-color: rgba(0, 255, 255, 0.7);
+            }
+        }
+        
+        /* Main Interface with Enhanced 3D Layout */
+        .cyber-interface {
+            display: grid;
+            grid-template-columns: 450px 1fr 500px;
+            gap: 35px;
+            margin-bottom: 35px;
+            transform-style: preserve-3d;
+            perspective: 2000px;
+        }
+        
+        /* Ultra-Enhanced 3D Glass Morphism Panels */
+        .holo-panel {
+            background: 
+                linear-gradient(135deg, var(--glass-primary) 0%, var(--glass-secondary) 50%, var(--glass-primary) 100%),
+                radial-gradient(circle at 25% 25%, rgba(0, 255, 255, 0.2) 0%, transparent 70%),
+                radial-gradient(circle at 75% 75%, rgba(138, 43, 226, 0.18) 0%, transparent 70%),
+                radial-gradient(circle at 25% 75%, rgba(255, 0, 128, 0.15) 0%, transparent 70%),
+                radial-gradient(circle at 75% 25%, rgba(57, 255, 20, 0.12) 0%, transparent 70%),
+                rgba(0, 0, 0, 0.5);
+            border: 4px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 40px;
+            backdrop-filter: blur(40px) saturate(250%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                var(--shadow-depth) rgba(0, 0, 0, 0.6),
+                inset 0 4px 0 rgba(255, 255, 255, 0.25);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            animation: panelFloat 10s ease-in-out infinite;
+        }
+        
+        @keyframes panelFloat {
+            0%, 100% { 
+                transform: translateY(0) rotateX(0deg) rotateY(0deg) scale(1);
+            }
+            33% { 
+                transform: translateY(-5px) rotateX(1deg) rotateY(0.5deg) scale(1.005);
+            }
+            66% { 
+                transform: translateY(-3px) rotateX(-0.5deg) rotateY(-0.3deg) scale(1.002);
+            }
+        }
+        
+        .holo-panel:hover {
+            transform: translateY(-15px) rotateX(8deg) rotateY(3deg) scale(1.03);
+            box-shadow: 
+                0 35px 100px rgba(0, 0, 0, 0.7),
+                inset 0 4px 0 rgba(255, 255, 255, 0.4),
+                var(--glow-intensity) var(--neon-cyan);
+            border-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(50px) saturate(300%);
+        }
+        
+        .holo-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 26px;
+            padding: 4px;
+            background: linear-gradient(135deg, 
+                var(--neon-cyan), transparent, var(--electric-purple), 
+                transparent, var(--cyber-pink), transparent, var(--neural-green),
+                transparent, var(--quantum-blue), transparent, var(--solar-orange),
+                transparent, var(--holo-yellow), transparent, var(--neon-magenta)
+            );
+            background-size: 800% 800%;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            animation: advancedPanelGlow 18s ease-in-out infinite;
+        }
+        
+        @keyframes advancedPanelGlow {
+            0%, 100% { background-position: 0% 50%; opacity: 0.8; }
+            20% { background-position: 100% 20%; opacity: 1; }
+            40% { background-position: 50% 100%; opacity: 0.9; }
+            60% { background-position: 0% 80%; opacity: 1.1; }
+            80% { background-position: 80% 0%; opacity: 0.95; }
+        }
+        
+        /* Ultra-Advanced 3D Interactive File Explorer */
+        .file-explorer-3d {
+            perspective: 1500px;
+            transform-style: preserve-3d;
+        }
+        
+        .file-tree-3d {
+            list-style: none;
+            transform-style: preserve-3d;
+        }
+        
+        .file-item-3d {
+            padding: 18px 25px;
+            margin: 8px 0;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.1) 100%),
+                radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.08) 0%, transparent 70%),
+                rgba(0, 255, 255, 0.06);
+            border: 2px solid rgba(0, 255, 255, 0.25);
+            animation: fileItemFloat 12s ease-in-out infinite;
+        }
+        
+        @keyframes fileItemFloat {
+            0%, 100% { transform: translateY(0) rotateZ(0deg); }
+            50% { transform: translateY(-2px) rotateZ(0.2deg); }
+        }
+        
+        .file-item-3d::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: linear-gradient(90deg, 
+                var(--neon-cyan), 
+                var(--electric-purple), 
+                var(--cyber-pink),
+                var(--neural-green)
+            );
+            transition: width 0.5s ease;
+            border-radius: 20px 0 0 20px;
+            filter: blur(1px);
+        }
+        
+        .file-item-3d::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 46%, rgba(255, 255, 255, 0.08) 47%, rgba(255, 255, 255, 0.08) 53%, transparent 54%),
+                linear-gradient(135deg, transparent 46%, rgba(255, 255, 255, 0.06) 47%, rgba(255, 255, 255, 0.06) 53%, transparent 54%);
+            background-size: 12px 12px, 12px 12px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            animation: advancedFilePattern 25s linear infinite;
+        }
+        
+        @keyframes advancedFilePattern {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(6px, 6px) rotate(90deg); }
+            50% { transform: translate(12px, 12px) rotate(180deg); }
+            75% { transform: translate(6px, 18px) rotate(270deg); }
+            100% { transform: translate(0, 24px) rotate(360deg); }
+        }
+        
+        .file-item-3d:hover {
+            background: 
+                linear-gradient(135deg, rgba(0, 255, 255, 0.25) 0%, rgba(0, 255, 255, 0.15) 50%, rgba(0, 255, 255, 0.1) 100%),
+                radial-gradient(circle at 30% 30%, rgba(138, 43, 226, 0.2) 0%, transparent 70%),
+                rgba(0, 0, 0, 0.4);
+            transform: translateX(20px) translateZ(25px) rotateY(8deg) scale(1.08);
+            box-shadow: 
+                0 15px 40px rgba(0, 255, 255, 0.5),
+                inset 0 3px 0 rgba(255, 255, 255, 0.2);
+            border-color: rgba(0, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        
+        .file-item-3d:hover::before {
+            width: 8px;
+        }
+        
+        .file-item-3d:hover::after {
+            opacity: 1;
+        }
+        
+        .file-item-3d.active {
+            background: 
+                linear-gradient(135deg, rgba(0, 255, 255, 0.35) 0%, rgba(0, 255, 255, 0.2) 50%, rgba(0, 255, 255, 0.15) 100%),
+                radial-gradient(circle at 30% 30%, rgba(57, 255, 20, 0.2) 0%, transparent 70%),
+                rgba(0, 0, 0, 0.5);
+            border-left: 8px solid var(--neon-cyan);
+            box-shadow: 
+                0 18px 50px rgba(0, 255, 255, 0.6),
+                inset 0 3px 0 rgba(255, 255, 255, 0.3);
+            transform: translateX(15px) translateZ(20px) rotateY(3deg);
+        }
+        
+        /* Ultra-Advanced Animated File Icons with Glowing Halos */
+        .file-icon-3d {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            filter: 
+                drop-shadow(0 0 15px currentColor) 
+                drop-shadow(0 0 8px rgba(255, 255, 255, 0.4))
+                drop-shadow(0 3px 10px rgba(0, 0, 0, 0.3));
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            animation: advancedIconFloat 10s ease-in-out infinite;
+            position: relative;
+        }
+        
+        .file-icon-3d::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, rgba(138, 43, 226, 0.2) 50%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: -1;
+            animation: iconHaloRotate 8s linear infinite;
+        }
+        
+        .file-icon-3d::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            background: radial-gradient(circle, transparent 40%, rgba(255, 0, 128, 0.15) 50%, rgba(57, 255, 20, 0.1) 60%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: -2;
+            animation: iconHaloRotate 12s linear infinite reverse;
+        }
+        
+        @keyframes iconHaloRotate {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        .file-item-3d:hover .file-icon-3d {
+            transform: rotateY(1080deg) rotateX(20deg) scale(1.4) translateZ(15px);
+            filter: 
+                drop-shadow(0 0 25px currentColor) 
+                drop-shadow(0 0 15px rgba(255, 255, 255, 0.6))
+                drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
+            animation: advancedIconHover 2.5s ease-in-out infinite;
+        }
+        
+        .file-item-3d:hover .file-icon-3d::before {
+            opacity: 1;
+            transform: scale(1.3);
+            animation: iconHaloRotate 4s linear infinite;
+        }
+        
+        .file-item-3d:hover .file-icon-3d::after {
+            opacity: 0.8;
+            transform: scale(1.5);
+            animation: iconHaloRotate 6s linear infinite reverse;
+        }
+        
+        @keyframes advancedIconFloat {
+            0%, 100% { 
+                transform: translateY(0) rotateZ(0deg) scale(1); 
+                filter: 
+                    drop-shadow(0 0 15px currentColor) 
+                    drop-shadow(0 0 8px rgba(255, 255, 255, 0.4))
+                    drop-shadow(0 3px 10px rgba(0, 0, 0, 0.3));
+            }
+            25% { 
+                transform: translateY(-3px) rotateZ(1deg) scale(1.05); 
+                filter: 
+                    drop-shadow(0 0 20px currentColor) 
+                    drop-shadow(0 0 12px rgba(255, 255, 255, 0.5))
+                    drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4));
+            }
+            50% { 
+                transform: translateY(-2px) rotateZ(0deg) scale(1.02); 
+                filter: 
+                    drop-shadow(0 0 25px currentColor) 
+                    drop-shadow(0 0 15px rgba(255, 255, 255, 0.6))
+                    drop-shadow(0 6px 18px rgba(0, 0, 0, 0.5));
+            }
+            75% { 
+                transform: translateY(-3px) rotateZ(-1deg) scale(1.03); 
+                filter: 
+                    drop-shadow(0 0 20px currentColor) 
+                    drop-shadow(0 0 12px rgba(255, 255, 255, 0.5))
+                    drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4));
+            }
+        }
+        
+        @keyframes advancedIconHover {
+            0%, 100% { 
+                transform: rotateY(1080deg) rotateX(20deg) scale(1.4) translateZ(15px);
+            }
+            33% { 
+                transform: rotateY(1080deg) rotateX(20deg) scale(1.5) translateZ(20px);
+            }
+            66% { 
+                transform: rotateY(1080deg) rotateX(20deg) scale(1.45) translateZ(18px);
+            }
+        }
+        
+        .file-name-3d {
+            font-weight: 700;
+            color: #e0e0e0;
+            transition: all 0.4s ease;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+            position: relative;
+        }
+        
+        .file-item-3d:hover .file-name-3d,
+        .file-item-3d.active .file-name-3d {
+            color: var(--neon-cyan);
+            text-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.8),
+                0 0 40px rgba(0, 255, 255, 0.4);
+            transform: translateX(5px);
+        }
+        
+        /* Ultra-Enhanced Holographic Code Metrics Overlay */
+        .holo-metrics-overlay {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: 
+                linear-gradient(135deg, rgba(0, 255, 255, 0.2) 0%, rgba(0, 255, 255, 0.08) 50%, rgba(0, 255, 255, 0.05) 100%),
+                radial-gradient(circle at 30% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 70%),
+                rgba(0, 0, 0, 0.7);
+            border: 3px solid rgba(0, 255, 255, 0.5);
+            border-radius: 20px;
+            padding: 25px;
+            backdrop-filter: blur(30px) saturate(200%);
+            box-shadow: 
+                0 12px 35px rgba(0, 255, 255, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.25);
+            z-index: 20;
+            animation: advancedHoloFloat 8s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+        
+        @keyframes advancedHoloFloat {
+            0%, 100% { 
+                transform: translateY(0) rotateX(0deg) rotateZ(0deg); 
+                box-shadow: 
+                    0 12px 35px rgba(0, 255, 255, 0.4),
+                    inset 0 2px 0 rgba(255, 255, 255, 0.25);
+            }
+            33% { 
+                transform: translateY(-12px) rotateX(3deg) rotateZ(1deg); 
+                box-shadow: 
+                    0 20px 50px rgba(0, 255, 255, 0.6),
+                    inset 0 2px 0 rgba(255, 255, 255, 0.35),
+                    var(--glow-intensity) var(--neon-cyan);
+            }
+            66% { 
+                transform: translateY(-8px) rotateX(-2deg) rotateZ(-0.5deg); 
+                box-shadow: 
+                    0 16px 42px rgba(138, 43, 226, 0.5),
+                    inset 0 2px 0 rgba(255, 255, 255, 0.3),
+                    var(--glow-intensity) var(--electric-purple);
+            }
+        }
+        
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+            animation: metricItemGlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes metricItemGlow {
+            0%, 100% { 
+                text-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 18px rgba(0, 255, 255, 0.7),
+                    0 0 30px rgba(0, 255, 255, 0.3);
+            }
+        }
+        
+        .metric-value {
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+            animation: advancedMetricPulse 4s ease-in-out infinite;
+            position: relative;
+        }
+        
+        @keyframes advancedMetricPulse {
+            0%, 100% { 
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+                transform: scale(1);
+                color: #fff;
+            }
+            33% { 
+                text-shadow: 
+                    0 0 20px rgba(255, 255, 255, 0.9),
+                    0 0 35px rgba(0, 255, 255, 0.5);
+                transform: scale(1.08);
+                color: var(--neon-cyan);
+            }
+            66% { 
+                text-shadow: 
+                    0 0 18px rgba(255, 255, 255, 0.8),
+                    0 0 30px rgba(138, 43, 226, 0.4);
+                transform: scale(1.05);
+                color: var(--electric-purple);
+            }
+        }
+        
+        /* Enhanced Code Editor with Advanced 3D Effects */
+        .cyber-code-editor-3d {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 50, 25, 0.9) 50%, rgba(0, 40, 20, 0.9) 100%),
+                radial-gradient(circle at 30% 30%, rgba(57, 255, 20, 0.1) 0%, transparent 70%),
+                rgba(0, 0, 0, 0.8);
+            border: 4px solid var(--neural-green);
+            border-radius: 25px;
+            padding: 35px;
+            font-family: 'Fira Code', monospace;
+            font-size: 17px;
+            color: var(--neural-green);
+            min-height: 900px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                inset 0 0 100px rgba(57, 255, 20, 0.3),
+                var(--glow-intensity) var(--neural-green);
+            transform-style: preserve-3d;
+            animation: codeEditorPulse 12s ease-in-out infinite;
+        }
+        
+        @keyframes codeEditorPulse {
+            0%, 100% { 
+                box-shadow: 
+                    inset 0 0 100px rgba(57, 255, 20, 0.3),
+                    var(--glow-intensity) var(--neural-green);
+                border-color: var(--neural-green);
+            }
+            50% { 
+                box-shadow: 
+                    inset 0 0 120px rgba(57, 255, 20, 0.4),
+                    0 0 70px var(--neural-green);
+                border-color: rgba(57, 255, 20, 0.8);
+            }
+        }
+        
+        .cyber-code-editor-3d::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--neural-green), 
+                var(--neon-cyan), 
+                var(--electric-purple), 
+                var(--cyber-pink),
+                var(--quantum-blue),
+                transparent
+            );
+            animation: advancedCodeScan3D 10s linear infinite;
+            filter: blur(2px);
+        }
+        
+        .cyber-code-editor-3d::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 48%, rgba(57, 255, 20, 0.04) 49%, rgba(57, 255, 20, 0.04) 51%, transparent 52%),
+                linear-gradient(135deg, transparent 48%, rgba(0, 255, 255, 0.03) 49%, rgba(0, 255, 255, 0.03) 51%, transparent 52%),
+                linear-gradient(60deg, transparent 48%, rgba(138, 43, 226, 0.02) 49%, rgba(138, 43, 226, 0.02) 51%, transparent 52%);
+            background-size: 20px 20px, 20px 20px, 20px 20px;
+            animation: advancedCodePattern 30s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes advancedCodeScan3D {
+            0% { left: -100%; opacity: 0.9; transform: scaleY(1); }
+            25% { opacity: 1.2; transform: scaleY(1.3); }
+            50% { opacity: 1; transform: scaleY(1); }
+            75% { opacity: 1.1; transform: scaleY(1.2); }
+            100% { left: 100%; opacity: 0.9; transform: scaleY(1); }
+        }
+        
+        @keyframes advancedCodePattern {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(10px, 10px) rotate(90deg); }
+            50% { transform: translate(20px, 20px) rotate(180deg); }
+            75% { transform: translate(10px, 30px) rotate(270deg); }
+            100% { transform: translate(0, 40px) rotate(360deg); }
+        }
+        
+        .code-line-3d {
+            display: flex;
+            margin-bottom: 18px;
+            padding: 12px 0;
+            border-radius: 12px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: advancedCodeLineAppear3D 2.5s ease-out;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        
+        .code-line-3d::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: linear-gradient(180deg, 
+                transparent, 
+                var(--neural-green), 
+                var(--neon-cyan), 
+                var(--electric-purple),
+                transparent
+            );
+            opacity: 0;
+            transition: all 0.5s ease;
+            border-radius: 3px;
+            filter: blur(1px);
+        }
+        
+        .code-line-3d:hover {
+            background: 
+                linear-gradient(135deg, rgba(57, 255, 20, 0.3) 0%, rgba(0, 255, 255, 0.2) 50%, rgba(57, 255, 20, 0.15) 100%),
+                radial-gradient(circle at 30% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 70%),
+                rgba(0, 0, 0, 0.5);
+            transform: translateX(25px) translateZ(15px) rotateY(3deg) scale(1.03);
+            box-shadow: 
+                0 12px 35px rgba(57, 255, 20, 0.6), 
+                inset 0 0 30px rgba(0, 255, 255, 0.4);
+            border: 2px solid rgba(57, 255, 20, 0.6);
+            backdrop-filter: blur(15px);
+        }
+        
+        .code-line-3d:hover::before {
+            width: 8px;
+            opacity: 1;
+        }
+        
+        @keyframes advancedCodeLineAppear3D {
+            from { 
+                opacity: 0; 
+                transform: translateX(-100px) translateZ(-30px) rotateY(-15deg) scale(0.7);
+                filter: blur(12px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0) translateZ(0) rotateY(0deg) scale(1);
+                filter: blur(0);
+            }
+        }
+        
+        .line-number-3d {
+            color: rgba(255, 255, 255, 0.7);
+            margin-right: 35px;
+            width: 70px;
+            text-align: right;
+            font-weight: 800;
+            user-select: none;
+            position: relative;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+            animation: lineNumberGlow 6s ease-in-out infinite;
+        }
+        
+        @keyframes lineNumberGlow {
+            0%, 100% { 
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+                color: rgba(255, 255, 255, 0.7);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 12px rgba(255, 255, 255, 0.6),
+                    0 0 20px rgba(0, 255, 255, 0.3);
+                color: rgba(255, 255, 255, 0.9);
+            }
+        }
+        
+        .line-number-3d::after {
+            content: '';
+            position: absolute;
+            right: -18px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, 
+                transparent, 
+                rgba(0, 255, 255, 0.7), 
+                rgba(138, 43, 226, 0.5),
+                transparent
+            );
+            border-radius: 2px;
+            animation: lineNumberBar 8s ease-in-out infinite;
+        }
+        
+        @keyframes lineNumberBar {
+            0%, 100% { 
+                background: linear-gradient(180deg, 
+                    transparent, 
+                    rgba(0, 255, 255, 0.7), 
+                    rgba(138, 43, 226, 0.5),
+                    transparent
+                );
+            }
+            50% { 
+                background: linear-gradient(180deg, 
+                    transparent, 
+                    rgba(57, 255, 20, 0.8), 
+                    rgba(255, 0, 128, 0.6),
+                    transparent
+                );
+            }
+        }
+        
+        /* Ultra-Enhanced Syntax Highlighting with Advanced Glow Effects */
+        .keyword-3d { 
+            color: #ff6b6b; 
+            font-weight: 900;
+            text-shadow: 
+                0 0 25px rgba(255, 107, 107, 0.9),
+                0 0 50px rgba(255, 107, 107, 0.4);
+            animation: advancedKeywordPulse3D 12s ease-in-out infinite;
+            position: relative;
+        }
+        
+        @keyframes advancedKeywordPulse3D {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 25px rgba(255, 107, 107, 0.9),
+                    0 0 50px rgba(255, 107, 107, 0.4);
+                transform: scale(1);
+                color: #ff6b6b;
+            }
+            33% { 
+                text-shadow: 
+                    0 0 35px rgba(255, 107, 107, 1.2),
+                    0 0 70px rgba(255, 107, 107, 0.6);
+                transform: scale(1.05);
+                color: #ff8a8a;
+            }
+            66% { 
+                text-shadow: 
+                    0 0 30px rgba(255, 107, 107, 1),
+                    0 0 60px rgba(255, 107, 107, 0.5);
+                transform: scale(1.03);
+                color: #ff7777;
+            }
+        }
+        
+        .string-3d { 
+            color: #4ecdc4; 
+            font-weight: 800;
+            text-shadow: 
+                0 0 22px rgba(78, 205, 196, 0.8),
+                0 0 45px rgba(78, 205, 196, 0.3);
+            animation: advancedStringShimmer3D 14s ease-in-out infinite;
+        }
+        
+        @keyframes advancedStringShimmer3D {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 22px rgba(78, 205, 196, 0.8),
+                    0 0 45px rgba(78, 205, 196, 0.3);
+                color: #4ecdc4;
+            }
+            25% { 
+                text-shadow: 
+                    0 0 30px rgba(78, 205, 196, 1),
+                    0 0 60px rgba(78, 205, 196, 0.4);
+                color: #6ee6dd;
+            }
+            50% { 
+                text-shadow: 
+                    0 0 35px rgba(78, 205, 196, 1.1),
+                    0 0 70px rgba(78, 205, 196, 0.5);
+                color: #5fede6;
+            }
+            75% { 
+                text-shadow: 
+                    0 0 28px rgba(78, 205, 196, 0.9),
+                    0 0 55px rgba(78, 205, 196, 0.35);
+                color: #3dbcb5;
+            }
+        }
+        
+        .function-3d { 
+            color: #ffe66d; 
+            font-weight: 900;
+            text-shadow: 
+                0 0 25px rgba(255, 230, 109, 0.8),
+                0 0 50px rgba(255, 230, 109, 0.3);
+            animation: advancedFunctionGlow3D 13s ease-in-out infinite;
+        }
+        
+        @keyframes advancedFunctionGlow3D {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 25px rgba(255, 230, 109, 0.8),
+                    0 0 50px rgba(255, 230, 109, 0.3);
+                color: #ffe66d;
+            }
+            20% { 
+                text-shadow: 
+                    0 0 35px rgba(255, 230, 109, 1),
+                    0 0 70px rgba(255, 230, 109, 0.4);
+                color: #ffed7d;
+            }
+            40% { 
+                text-shadow: 
+                    0 0 40px rgba(255, 230, 109, 1.2),
+                    0 0 80px rgba(255, 230, 109, 0.5);
+                color: #fff48d;
+            }
+            60% { 
+                text-shadow: 
+                    0 0 32px rgba(255, 230, 109, 0.9),
+                    0 0 65px rgba(255, 230, 109, 0.35);
+                color: #ffdf5d;
+            }
+            80% { 
+                text-shadow: 
+                    0 0 28px rgba(255, 230, 109, 0.85),
+                    0 0 55px rgba(255, 230, 109, 0.32);
+                color: #ffe970;
+            }
+        }
+        
+        /* Enhanced Live Coding Terminal with Advanced Simulation */
+        .live-terminal-3d {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 30, 18, 0.9) 50%, rgba(0, 25, 15, 0.9) 100%),
+                radial-gradient(circle at 30% 30%, rgba(57, 255, 20, 0.08) 0%, transparent 70%),
+                rgba(0, 0, 0, 0.85);
+            border: 4px solid var(--neural-green);
+            border-radius: 20px;
+            padding: 30px;
+            font-family: 'Fira Code', monospace;
+            font-size: 15px;
+            color: var(--neural-green);
+            height: 400px;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 
+                inset 0 0 50px rgba(57, 255, 20, 0.2),
+                0 0 40px rgba(57, 255, 20, 0.5);
+            transform-style: preserve-3d;
+            animation: terminalPulse 10s ease-in-out infinite;
+        }
+        
+        @keyframes terminalPulse {
+            0%, 100% { 
+                box-shadow: 
+                    inset 0 0 50px rgba(57, 255, 20, 0.2),
+                    0 0 40px rgba(57, 255, 20, 0.5);
+                border-color: var(--neural-green);
+            }
+            50% { 
+                box-shadow: 
+                    inset 0 0 60px rgba(57, 255, 20, 0.3),
+                    0 0 60px rgba(57, 255, 20, 0.7);
+                border-color: rgba(57, 255, 20, 0.8);
+            }
+        }
+        
+        .live-terminal-3d::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--neural-green), 
+                var(--neon-cyan), 
+                var(--electric-purple),
+                transparent
+            );
+            animation: advancedTerminalScan3D 6s linear infinite;
+            filter: blur(1px);
+        }
+        
+        @keyframes advancedTerminalScan3D {
+            0% { transform: translateX(-100%) scaleX(1); opacity: 0.8; }
+            25% { transform: translateX(-50%) scaleX(1.2); opacity: 1; }
+            50% { transform: translateX(0%) scaleX(1); opacity: 1.2; }
+            75% { transform: translateX(50%) scaleX(1.1); opacity: 1; }
+            100% { transform: translateX(100%) scaleX(1); opacity: 0.8; }
+        }
+        
+        .terminal-line-3d {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            animation: advancedTerminalLineAppear3D 2s ease-out;
+            position: relative;
+            padding: 8px 0;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+        }
+        
+        .terminal-line-3d:hover {
+            background: rgba(57, 255, 20, 0.15);
+            transform: translateX(15px) scale(1.02);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+            backdrop-filter: blur(10px);
+        }
+        
+        @keyframes advancedTerminalLineAppear3D {
+            from { 
+                opacity: 0; 
+                transform: translateX(-40px) scale(0.8);
+                filter: blur(5px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0) scale(1);
+                filter: blur(0);
+            }
+        }
+        
+        .terminal-prompt-3d {
+            color: var(--cyber-pink);
+            margin-right: 15px;
+            font-weight: 800;
+            text-shadow: 
+                0 0 15px rgba(255, 0, 128, 0.7),
+                0 0 30px rgba(255, 0, 128, 0.3);
+            animation: advancedPromptPulse 5s ease-in-out infinite;
+        }
+        
+        @keyframes advancedPromptPulse {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 15px rgba(255, 0, 128, 0.7),
+                    0 0 30px rgba(255, 0, 128, 0.3);
+                transform: scale(1);
+                color: var(--cyber-pink);
+            }
+            33% { 
+                text-shadow: 
+                    0 0 22px rgba(255, 0, 128, 0.9),
+                    0 0 45px rgba(255, 0, 128, 0.4);
+                transform: scale(1.05);
+                color: #ff1a8a;
+            }
+            66% { 
+                text-shadow: 
+                    0 0 18px rgba(255, 0, 128, 0.8),
+                    0 0 35px rgba(255, 0, 128, 0.35);
+                transform: scale(1.03);
+                color: #ff0d7d;
+            }
+        }
+        
+        .terminal-cursor-3d {
+            display: inline-block;
+            width: 15px;
+            height: 22px;
+            background: var(--neural-green);
+            animation: advancedCursorBlink3D 1.5s infinite;
+            box-shadow: 
+                0 0 20px var(--neural-green),
+                0 0 40px rgba(57, 255, 20, 0.3);
+            border-radius: 3px;
+            position: relative;
+        }
+        
+        .terminal-cursor-3d::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: radial-gradient(ellipse, rgba(57, 255, 20, 0.4) 0%, transparent 70%);
+            border-radius: 5px;
+            animation: cursorHalo 2s ease-in-out infinite;
+        }
+        
+        @keyframes cursorHalo {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            50% { 
+                transform: scale(1.3);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes advancedCursorBlink3D {
+            0%, 45% { 
+                opacity: 1; 
+                transform: scale(1);
+                box-shadow: 
+                    0 0 20px var(--neural-green),
+                    0 0 40px rgba(57, 255, 20, 0.3);
+            }
+            46%, 100% { 
+                opacity: 0; 
+                transform: scale(1.1);
+                box-shadow: 
+                    0 0 25px var(--neural-green),
+                    0 0 50px rgba(57, 255, 20, 0.4);
+            }
+        }
+        
+        /* Missing CSS for Analytics and Activity Feed */
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid rgba(0, 255, 255, 0.4);
+            position: relative;
+        }
+        
+        .panel-header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                var(--neon-cyan), 
+                var(--electric-purple), 
+                var(--cyber-pink),
+                var(--neural-green)
+            );
+            animation: advancedHeaderUnderline 4s ease-in-out infinite;
+        }
+        
+        @keyframes advancedHeaderUnderline {
+            0%, 100% { width: 0; opacity: 0.8; }
+            50% { width: 100%; opacity: 1; }
+        }
+        
+        .panel-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--neon-cyan);
+            text-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.7),
+                0 0 40px rgba(0, 255, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: panelTitleGlow 8s ease-in-out infinite;
+        }
+        
+        @keyframes panelTitleGlow {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 20px rgba(0, 255, 255, 0.7),
+                    0 0 40px rgba(0, 255, 255, 0.3);
+                color: var(--neon-cyan);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 30px rgba(0, 255, 255, 0.9),
+                    0 0 60px rgba(0, 255, 255, 0.4);
+                color: #1affff;
+            }
+        }
+        
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+        
+        .metric-card {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 100%),
+                radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.08) 0%, transparent 70%),
+                rgba(0, 255, 255, 0.06);
+            border: 3px solid rgba(0, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            animation: metricCardFloat 15s ease-in-out infinite;
+        }
+        
+        @keyframes metricCardFloat {
+            0%, 100% { transform: translateY(0) rotateZ(0deg); }
+            50% { transform: translateY(-3px) rotateZ(0.5deg); }
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-8px) scale(1.03) rotateZ(1deg);
+            border-color: rgba(0, 255, 255, 0.7);
+            box-shadow: 
+                0 15px 40px rgba(0, 255, 255, 0.4),
+                inset 0 0 30px rgba(0, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+        }
+        
+        .metric-label {
+            font-size: 1rem;
+            color: #ddd;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--neon-cyan);
+            text-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.7),
+                0 0 40px rgba(0, 255, 255, 0.3);
+            margin-bottom: 15px;
+            animation: metricValuePulse 6s ease-in-out infinite;
+        }
+        
+        @keyframes metricValuePulse {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 20px rgba(0, 255, 255, 0.7),
+                    0 0 40px rgba(0, 255, 255, 0.3);
+                transform: scale(1);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 30px rgba(0, 255, 255, 0.9),
+                    0 0 60px rgba(0, 255, 255, 0.4);
+                transform: scale(1.05);
+            }
+        }
+        
+        .metric-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .metric-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
+            position: relative;
+            overflow: hidden;
+            animation: metricFillPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes metricFillPulse {
+            0%, 100% { filter: brightness(1) saturate(1); }
+            50% { filter: brightness(1.2) saturate(1.3); }
+        }
+        
+        .cpu-fill {
+            background: linear-gradient(90deg, 
+                var(--cyber-pink), 
+                var(--electric-purple), 
+                var(--neon-magenta)
+            );
+            width: 87%;
+            box-shadow: 
+                0 0 20px rgba(255, 0, 128, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        
+        .memory-fill {
+            background: linear-gradient(90deg, 
+                var(--neural-green), 
+                var(--neon-cyan), 
+                var(--cyber-teal)
+            );
+            width: 74%;
+            box-shadow: 
+                0 0 20px rgba(57, 255, 20, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        
+        .network-fill {
+            background: linear-gradient(90deg, 
+                var(--quantum-blue), 
+                var(--neon-cyan), 
+                var(--electric-purple)
+            );
+            width: 68%;
+            box-shadow: 
+                0 0 20px rgba(0, 128, 255, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        
+        .storage-fill {
+            background: linear-gradient(90deg, 
+                var(--solar-orange), 
+                var(--holo-yellow), 
+                var(--electric-lime)
+            );
+            width: 62%;
+            box-shadow: 
+                0 0 20px rgba(255, 68, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        
+        .data-viz {
+            height: 140px;
+            position: relative;
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 100%),
+                radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+            border: 3px solid rgba(0, 255, 255, 0.3);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            animation: dataVizPulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes dataVizPulse {
+            0%, 100% { 
+                border-color: rgba(0, 255, 255, 0.3);
+                box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.1);
+            }
+            50% { 
+                border-color: rgba(0, 255, 255, 0.5);
+                box-shadow: 
+                    inset 0 0 30px rgba(0, 255, 255, 0.2),
+                    0 0 20px rgba(0, 255, 255, 0.3);
+            }
+        }
+        
+        .viz-line {
+            position: absolute;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, 
+                transparent, 
+                var(--neon-cyan), 
+                var(--electric-purple), 
+                var(--cyber-pink)
+            );
+            border-radius: 3px 3px 0 0;
+            animation: advancedVizPulse 4s ease-in-out infinite;
+            box-shadow: 
+                0 0 15px rgba(0, 255, 255, 0.6),
+                0 0 30px rgba(0, 255, 255, 0.3);
+        }
+        
+        @keyframes advancedVizPulse {
+            0%, 100% { 
+                height: 25%; 
+                opacity: 0.7;
+                box-shadow: 
+                    0 0 15px rgba(0, 255, 255, 0.6),
+                    0 0 30px rgba(0, 255, 255, 0.3);
+            }
+            25% { 
+                height: 85%; 
+                opacity: 1;
+                box-shadow: 
+                    0 0 25px rgba(0, 255, 255, 0.8),
+                    0 0 50px rgba(0, 255, 255, 0.4);
+            }
+            50% { 
+                height: 65%; 
+                opacity: 0.9;
+                box-shadow: 
+                    0 0 20px rgba(138, 43, 226, 0.7),
+                    0 0 40px rgba(138, 43, 226, 0.35);
+            }
+            75% { 
+                height: 95%; 
+                opacity: 1.1;
+                box-shadow: 
+                    0 0 30px rgba(255, 0, 128, 0.8),
+                    0 0 60px rgba(255, 0, 128, 0.4);
+            }
+        }
+        
+        .activity-feed {
+            max-height: 350px;
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 2px solid rgba(0, 255, 255, 0.15);
+            animation: advancedActivityAppear 1.5s ease-out;
+            transition: all 0.3s ease;
+        }
+        
+        .activity-item:hover {
+            background: rgba(0, 255, 255, 0.05);
+            transform: translateX(10px);
+            border-bottom-color: rgba(0, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .activity-time {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 700;
+            min-width: 70px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+            animation: activityTimeGlow 10s ease-in-out infinite;
+        }
+        
+        @keyframes activityTimeGlow {
+            0%, 100% { 
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+                color: rgba(255, 255, 255, 0.7);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 12px rgba(255, 255, 255, 0.6),
+                    0 0 20px rgba(0, 255, 255, 0.3);
+                color: rgba(255, 255, 255, 0.9);
+            }
+        }
+        
+        .activity-message {
+            font-size: 1rem;
+            color: #e0e0e0;
+            line-height: 1.5;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+        
+        @keyframes advancedActivityAppear {
+            from { 
+                opacity: 0; 
+                transform: translateX(-30px) scale(0.9);
+                filter: blur(3px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0) scale(1);
+                filter: blur(0);
+            }
+        }
+        
+        .comment {
+            color: #888;
+            font-style: italic;
+            text-shadow: 0 0 5px rgba(136, 136, 136, 0.3);
+        }
+        
+        .property {
+            color: #a8e6cf;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(168, 230, 207, 0.4);
+        }
+        
+        .operator {
+            color: #ff8b94;
+            font-weight: 800;
+            text-shadow: 0 0 12px rgba(255, 139, 148, 0.5);
+        }
+        
+        /* Ultra-Enhanced Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 16px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%),
+                radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
+            border-radius: 8px;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, 
+                var(--neon-cyan), 
+                var(--electric-purple), 
+                var(--cyber-pink), 
+                var(--neural-green),
+                var(--quantum-blue),
+                var(--solar-orange)
+            );
+            background-size: 400% 400%;
+            border-radius: 8px;
+            box-shadow: 
+                var(--glow-intensity) var(--neon-cyan),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+            animation: scrollbarGlow 8s ease-in-out infinite;
+        }
+        
+        @keyframes scrollbarGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, 
+                var(--cyber-pink), 
+                var(--neural-green), 
+                var(--quantum-blue), 
+                var(--solar-orange),
+                var(--holo-yellow),
+                var(--neon-magenta)
+            );
+            box-shadow: 
+                0 0 70px var(--cyber-pink),
+                inset 0 2px 0 rgba(255, 255, 255, 0.5);
+            transform: scale(1.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1600px) {
+            .cyber-interface {
+                grid-template-columns: 400px 1fr 450px;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 1400px) {
+            .cyber-interface {
+                grid-template-columns: 350px 1fr 400px;
+                gap: 25px;
+            }
+            
+            .cyber-title {
+                font-size: 3.5rem;
+                letter-spacing: 6px;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .cyber-interface {
+                grid-template-columns: 320px 1fr 360px;
+                gap: 20px;
+            }
+            
+            .cyber-title {
+                font-size: 3rem;
+                letter-spacing: 5px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .cyber-interface {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .cyber-header {
+                flex-direction: column;
+                gap: 35px;
+                padding: 40px;
+            }
+            
+            .cyber-title {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Ultra-Enhanced Glitch and Scan Effects -->
+    <div class="glitch-overlay"></div>
+    <div class="scan-lines"></div>
+
+    <div class="container">
+        <!-- Ultra-Enhanced Header -->
+        <header class="cyber-header">
+            <h1 class="cyber-title">CyberCode Nexus 3D</h1>
+            <div class="neural-status">
+                <div class="status-indicator"></div>
+                <span>Neural Link Active • Advanced 3D Mode • Holographic Interface</span>
+            </div>
+        </header>
+        
+        <!-- Main Ultra-Advanced 3D Interface -->
+        <div class="cyber-interface">
+            <!-- Left Panel: Ultra-Advanced 3D Interactive File Explorer -->
+            <div class="holo-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">3D Neural Explorer</h2>
+                    <span style="color: #666; font-size: 1.4rem;">🗂️</span>
+                </div>
+                
+                <div class="file-explorer-3d">
+                    <ul class="file-tree-3d">
+                        <li class="file-item-3d active" data-file="neural_system.js">
+                            <span class="file-icon-3d">🧠</span>
+                            <span class="file-name-3d">neural_system.js</span>
+                        </li>
+                        <li class="file-item-3d" data-file="cyber_core.ts">
+                            <span class="file-icon-3d">⚡</span>
+                            <span class="file-name-3d">cyber_core.ts</span>
+                        </li>
+                        <li class="file-item-3d" data-file="holo_interface.jsx">
+                            <span class="file-icon-3d">🔮</span>
+                            <span class="file-name-3d">holo_interface.jsx</span>
+                        </li>
+                        <li class="file-item-3d" data-file="quantum_data.py">
+                            <span class="file-icon-3d">🌌</span>
+                            <span class="file-name-3d">quantum_data.py</span>
+                        </li>
+                        <li class="file-item-3d" data-file="matrix_ai.cpp">
+                            <span class="file-icon-3d">🤖</span>
+                            <span class="file-name-3d">matrix_ai.cpp</span>
+                        </li>
+                        <li class="file-item-3d" data-file="hologram_engine.rs">
+                            <span class="file-icon-3d">🔷</span>
+                            <span class="file-name-3d">hologram_engine.rs</span>
+                        </li>
+                        <li class="file-item-3d" data-file="plasma_renderer.glsl">
+                            <span class="file-icon-3d">✨</span>
+                            <span class="file-name-3d">plasma_renderer.glsl</span>
+                        </li>
+                        <li class="file-item-3d">
+                            <span class="file-icon-3d">📁</span>
+                            <span class="file-name-3d">components/</span>
+                        </li>
+                        <li class="file-item-3d" style="margin-left: 35px;" data-file="HoloPanel.jsx">
+                            <span class="file-icon-3d">🔷</span>
+                            <span class="file-name-3d">HoloPanel.jsx</span>
+                        </li>
+                        <li class="file-item-3d" style="margin-left: 35px;" data-file="NeuralFeed.jsx">
+                            <span class="file-icon-3d">📡</span>
+                            <span class="file-name-3d">NeuralFeed.jsx</span>
+                        </li>
+                        <li class="file-item-3d" style="margin-left: 35px;" data-file="DataViz3D.jsx">
+                            <span class="file-icon-3d">📊</span>
+                            <span class="file-name-3d">DataViz3D.jsx</span>
+                        </li>
+                        <li class="file-item-3d" style="margin-left: 35px;" data-file="GlitchEngine.jsx">
+                            <span class="file-icon-3d">⚡</span>
+                            <span class="file-name-3d">GlitchEngine.jsx</span>
+                        </li>
+                        <li class="file-item-3d" style="margin-left: 35px;" data-file="ParticleSystem3D.jsx">
+                            <span class="file-icon-3d">🎆</span>
+                            <span class="file-name-3d">ParticleSystem3D.jsx</span>
+                        </li>
+                        <li class="file-item-3d">
+                            <span class="file-icon-3d">📁</span>
+                            <span class="file-name-3d">shaders/</span>
+                        </li>
+                        <li class="file-item-3d" style="margin-left: 35px;" data-file="hologram.glsl">
+                            <span class="file-icon-3d">✨</span>
+                            <span class="file-name-3d">hologram.glsl</span>
+                        </li>
+                        <li class="file-item-3d" style="margin-left: 35px;" data-file="neural_glow.frag">
+                            <span class="file-icon-3d">🌟</span>
+                            <span class="file-name-3d">neural_glow.frag</span>
+                        </li>
+                        <li class="file-item-3d" data-file="config.json">
+                            <span class="file-icon-3d">⚙️</span>
+                            <span class="file-name-3d">config.json</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div style="margin-top: 40px;">
+                    <div class="panel-header">
+                        <h3 class="panel-title" style="font-size: 1.2rem;">Live Neural Terminal</h3>
+                    </div>
+                    <div class="live-terminal-3d" id="liveTerminal">
+                        <div class="terminal-line-3d">
+                            <span class="terminal-prompt-3d">cyber@nexus:~$</span>
+                            <span>npm start --neural --3d --holographic</span>
+                        </div>
+                        <div class="terminal-line-3d">
+                            <span style="color: var(--neural-green);">✓ Advanced 3D Neural system initialized</span>
+                        </div>
+                        <div class="terminal-line-3d">
+                            <span style="color: var(--neon-cyan);">→ Holographic interface projection active</span>
+                        </div>
+                        <div class="terminal-line-3d">
+                            <span style="color: var(--cyber-pink);">⚡ Quantum processors online (32 cores)</span>
+                        </div>
+                        <div class="terminal-line-3d">
+                            <span style="color: var(--electric-purple);">🔮 Matrix connection established</span>
+                        </div>
+                        <div class="terminal-line-3d">
+                            <span style="color: var(--solar-orange);">🌌 Advanced 3D rendering engine loaded</span>
+                        </div>
+                        <div class="terminal-line-3d">
+                            <span style="color: var(--holo-yellow);">✨ Plasma particle system activated</span>
+                        </div>
+                        <div class="terminal-line-3d">
+                            <span style="color: var(--neon-magenta);">🎆 Neural glow effects initialized</span>
+                        </div>
+                        <div class="terminal-line-3d">
+                            <span class="terminal-prompt-3d">cyber@nexus:~$</span>
+                            <span class="terminal-cursor-3d"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Center Panel: Ultra-Enhanced 3D Code Editor -->
+            <div class="holo-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Neural Code Matrix 3D</h2>
+                    <span style="color: #666; font-size: 1.1rem;" id="currentFile3D">neural_system.js</span>
+                </div>
+                
+                <!-- Ultra-Enhanced Holographic Metrics Overlay -->
+                <div class="holo-metrics-overlay" id="holoMetrics">
+                    <div class="metric-item">
+                        <span>Lines:</span>
+                        <span class="metric-value" id="linesCount">52</span>
+                    </div>
+                    <div class="metric-item">
+                        <span>Chars:</span>
+                        <span class="metric-value" id="charsCount">2,147</span>
+                    </div>
+                    <div class="metric-item">
+                        <span>Functions:</span>
+                        <span class="metric-value" id="functionsCount">9</span>
+                    </div>
+                    <div class="metric-item">
+                        <span>Complexity:</span>
+                        <span class="metric-value" id="complexityScore">Ultra High</span>
+                    </div>
+                </div>
+                
+                <div class="cyber-code-editor-3d" id="codeEditor3D">
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">1</span>
+                        <span class="code-content"><span class="keyword-3d">import</span> { <span class="function-3d">AdvancedNeuralProcessor</span>, <span class="function-3d">HoloCore3D</span>, <span class="function-3d">QuantumMatrix</span>, <span class="function-3d">PlasmaRenderer</span> } <span class="keyword-3d">from</span> <span class="string-3d">'@cyber/neural-core-3d'</span>;</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">2</span>
+                        <span class="code-content"><span class="keyword-3d">import</span> { <span class="function-3d">Analytics3D</span>, <span class="function-3d">DataViz3D</span>, <span class="function-3d">RealTimeMonitor</span>, <span class="function-3d">MetricsOverlay</span> } <span class="keyword-3d">from</span> <span class="string-3d">'@cyber/analytics-3d'</span>;</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">3</span>
+                        <span class="code-content"><span class="keyword-3d">import</span> { <span class="function-3d">GlassMorphism3D</span>, <span class="function-3d">ParticleSystem3D</span>, <span class="function-3d">GlitchEngine</span>, <span class="function-3d">NeuralGlow</span> } <span class="keyword-3d">from</span> <span class="string-3d">'@cyber/effects-3d'</span>;</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">4</span>
+                        <span class="code-content"><span class="keyword-3d">import</span> { <span class="function-3d">HolographicOverlay</span>, <span class="function-3d">ScanLineRenderer</span>, <span class="function-3d">CyberInterface</span> } <span class="keyword-3d">from</span> <span class="string-3d">'@cyber/holo-ui'</span>;</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">5</span>
+                        <span class="code-content"><span class="keyword-3d">import</span> { <span class="function-3d">AdvancedShaderEngine</span>, <span class="function-3d">NeuralRenderer</span>, <span class="function-3d">HoloProjector</span> } <span class="keyword-3d">from</span> <span class="string-3d">'@cyber/rendering-3d'</span>;</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">6</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">7</span>
+                        <span class="code-content"><span class="comment">// Ultra-Advanced 3D Cyberpunk Neural System with Holographic Interface and Plasma Effects</span></span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">8</span>
+                        <span class="code-content"><span class="keyword-3d">class</span> <span class="function-3d">CyberNeuralSystemAdvanced3D</span> {</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">9</span>
+                        <span class="code-content">  <span class="keyword-3d">constructor</span>(<span class="property">config</span>) {</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">10</span>
+                        <span class="code-content">    <span class="keyword-3d">this</span><span class="operator">.</span><span class="property">neuralProcessor</span> <span class="operator">=</span> <span class="keyword-3d">new</span> <span class="function-3d">AdvancedNeuralProcessor</span>(<span class="property">config</span>);</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">11</span>
+                        <span class="code-content">    <span class="keyword-3d">this</span><span class="operator">.</span><span class="property">holoCore3D</span> <span class="operator">=</span> <span class="keyword-3d">new</span> <span class="function-3d">HoloCore3D</span>({ <span class="property">dimension</span>: <span class="string-3d">'quantum'</span>, <span class="property">layers</span>: <span class="string-3d">32</span>, <span class="property">depth</span>: <span class="string-3d">true</span>, <span class="property">holographic</span>: <span class="string-3d">true</span> });</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">12</span>
+                        <span class="code-content">    <span class="keyword-3d">this</span><span class="operator">.</span><span class="property">quantumMatrix</span> <span class="operator">=</span> <span class="keyword-3d">new</span> <span class="function-3d">QuantumMatrix</span>({ <span class="property">neural</span>: <span class="keyword-3d">true</span>, <span class="property">holographic</span>: <span class="keyword-3d">true</span>, <span class="property">threeDimensional</span>: <span class="keyword-3d">true</span>, <span class="property">plasma</span>: <span class="keyword-3d">true</span> });</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">13</span>
+                        <span class="code-content">    <span class="keyword-3d">this</span><span class="operator">.</span><span class="property">plasmaRenderer</span> <span class="operator">=</span> <span class="keyword-3d">new</span> <span class="function-3d">PlasmaRenderer</span>({ <span class="property">advanced</span>: <span class="keyword-3d">true</span>, <span class="property">neural</span>: <span class="keyword-3d">true</span>, <span class="property">cyberpunk</span>: <span class="keyword-3d">true</span> });</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">14</span>
+                        <span class="code-content">    <span class="keyword-3d">this</span><span class="operator">.</span><span class="property">analytics3D</span> <span class="operator">=</span> <span class="keyword-3d">new</span> <span class="function-3d">Analytics3D</span>({ <span class="property">realTime</span>: <span class="keyword-3d">true</span>, <span class="property">cyberpunk</span>: <span class="keyword-3d">true</span>, <span class="property">holographic</span>: <span class="keyword-3d">true</span>, <span class="property">advanced</span>: <span class="keyword-3d">true</span> });</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">15</span>
+                        <span class="code-content">    <span class="keyword-3d">this</span><span class="operator">.</span><span class="property">dataViz3D</span> <span class="operator">=</span> <span class="keyword-3d">new</span> <span class="function-3d">DataViz3D</span>({ <span class="property">holographic</span>: <span class="keyword-3d">true</span>, <span class="property">interactive</span>: <span class="keyword-3d">true</span>, <span class="property">depth</span>: <span class="keyword-3d">true</span>, <span class="property">plasma</span>: <span class="keyword-3d">true</span> });</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">16</span>
+                        <span class="code-content">    <span class="keyword-3d">this</span><span class="operator">.</span><span class="property">monitor</span> <span class="operator">=</span> <span class="keyword-3d">new</span> <span class="function-3d">RealTimeMonitor</span>({ <span class="property">neural</span>: <span class="keyword-3d">true</span>, <span class="property">quantum</span>: <span class="keyword-3d">true</span>, <span class="property">threeDimensional</span>: <span class="keyword-3d">true</span>, <span class="property">advanced</span>: <span class="keyword-3d">true</span> });</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">17</span>
+                        <span class="code-content">    <span class="keyword-3d">this</span><span class="operator">.</span><span class="property">metricsOverlay</span> <span class="operator">=</span> <span class="keyword-3d">new</span> <span class="function-3d">MetricsOverlay</span>({ <span class="property">holographic</span>: <span class="keyword-3d">true</span>, <span class="property">floating</span>: <span class="keyword-3d">true</span>, <span class="property">realTime</span>: <span class="keyword-3d">true</span> });</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">18</span>
+                        <span class="code-content">    <span class="keyword-3d">this</span><span class="operator">.</span><span class="property">glassMorphism3D</span> <span class="operator">=</span> <span class="keyword-3d">new</span> <span class="function-3d">GlassMorphism3D</span>({ <span class="property">blur</span>: <span class="string-3d">'40px'</span>, <span class="property">opacity</span>: <span class="string-3d">0.18</span>, <span class="property">depth</span>: <span class="string-3d">true</span>, <span class="property">advanced</span>: <span class="string-3d">true</span> });</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">19</span>
+                        <span class="code-content">    <span class="keyword-3d">this</span><span class="operator">.</span><span class="property">particles3D</span> <span class="operator">=</span> <span class="keyword-3d">new</span> <span class="function-3d">ParticleSystem3D</span>({ <span class="property">neural</span>: <span class="keyword-3d">true</span>, <span class="property">floating</span>: <span class="keyword-3d">true</span>, <span class="property">holographic</span>: <span class="keyword-3d">true</span>, <span class="property">plasma</span>: <span class="keyword-3d">true</span> });</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">20</span>
+                        <span class="code-content">    <span class="keyword-3d">this</span><span class="operator">.</span><span class="property">glitchEngine</span> <span class="operator">=</span> <span class="keyword-3d">new</span> <span class="function-3d">GlitchEngine</span>({ <span class="property">intensity</span>: <span class="string-3d">'ultra'</span>, <span class="property">scanLines</span>: <span class="keyword-3d">true</span>, <span class="property">cyberpunk</span>: <span class="keyword-3d">true</span>, <span class="property">colorShift</span>: <span class="keyword-3d">true</span> });</span>
+                    </div>
+                    <div class="code-line-3d">
+                        <span class="line-number-3d">21</span>
+                        <span class="code-content">    <span class="keyword-3d">this</span><span class="operator">.</span><span class="<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96e8840313bcd612',t:'MTc1NTA5MTI4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
