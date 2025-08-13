@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCode Matrix - Neural IDE</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;700;900&family=Fira+Code:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --neon-cyan: #00ffff;
+            --electric-purple: #8a2be2;
+            --cyber-pink: #ff0080;
+            --neural-green: #39ff14;
+            --quantum-blue: #0080ff;
+            --solar-orange: #ff4500;
+            --void-black: #000000;
+            --glass-primary: rgba(255, 255, 255, 0.12);
+            --glass-secondary: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.25);
+            --glow-intensity: 0 0 30px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Fira Code', monospace;
+            background: 
+                radial-gradient(ellipse at 15% 15%, rgba(0, 255, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 15%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 15% 85%, rgba(255, 0, 128, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 85%, rgba(57, 255, 20, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(0, 128, 255, 0.1) 0%, transparent 60%),
+                linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 25%, #0a1a1a 50%, #1a1a0a 75%, #0a0a0a 100%);
+            color: var(--neon-cyan);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Enhanced Holographic Grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.15) 1px, transparent 1px),
+                linear-gradient(45deg, rgba(138, 43, 226, 0.1) 1px, transparent 1px),
+                linear-gradient(135deg, rgba(255, 0, 128, 0.08) 1px, transparent 1px);
+            background-size: 50px 50px, 50px 50px, 35px 35px, 35px 35px;
+            pointer-events: none;
+            z-index: -2;
+            animation: holoGrid 25s linear infinite;
+            filter: blur(0.5px);
+        }
+        
+        /* Dynamic Lighting Layer */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(0, 255, 255, 0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(138, 43, 226, 0.2) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(255, 0, 128, 0.18) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(57, 255, 20, 0.18) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: -1;
+            animation: dynamicLighting 20s ease-in-out infinite;
+            mix-blend-mode: screen;
+        }
+        
+        @keyframes holoGrid {
+            0% { 
+                transform: translate(0, 0) scale(1); 
+                opacity: 0.4; 
+                filter: blur(0.5px) hue-rotate(0deg);
+            }
+            25% { 
+                transform: translate(25px, 25px) scale(1.1); 
+                opacity: 0.7; 
+                filter: blur(0.3px) hue-rotate(90deg);
+            }
+            50% { 
+                transform: translate(50px, 50px) scale(0.9); 
+                opacity: 0.5; 
+                filter: blur(0.8px) hue-rotate(180deg);
+            }
+            75% { 
+                transform: translate(25px, 75px) scale(1.05); 
+                opacity: 0.6; 
+                filter: blur(0.4px) hue-rotate(270deg);
+            }
+            100% { 
+                transform: translate(0, 100px) scale(1); 
+                opacity: 0.4; 
+                filter: blur(0.5px) hue-rotate(360deg);
+            }
+        }
+        
+        @keyframes dynamicLighting {
+            0%, 100% { 
+                opacity: 0.6; 
+                transform: scale(1) rotate(0deg);
+                filter: blur(20px) brightness(1.1);
+            }
+            25% { 
+                opacity: 0.9; 
+                transform: scale(1.2) rotate(90deg);
+                filter: blur(15px) brightness(1.3);
+            }
+            50% { 
+                opacity: 0.7; 
+                transform: scale(0.8) rotate(180deg);
+                filter: blur(25px) brightness(1.0);
+            }
+            75% { 
+                opacity: 0.8; 
+                transform: scale(1.1) rotate(270deg);
+                filter: blur(18px) brightness(1.2);
+            }
+        }
+        
+        /* Enhanced Neural Particles */
+        .neural-particle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: var(--neon-cyan);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            animation: neuralFloat 20s linear infinite;
+            box-shadow: 
+                var(--glow-intensity) currentColor,
+                0 0 60px rgba(0, 255, 255, 0.4);
+        }
+        
+        .neural-particle::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            border: 2px solid currentColor;
+            opacity: 0.3;
+            animation: particleRing 3s ease-in-out infinite;
+        }
+        
+        @keyframes particleRing {
+            0% { transform: scale(0.5); opacity: 0.8; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+        
+        @keyframes neuralFloat {
+            0% { 
+                transform: translateY(100vh) translateX(0) scale(0) rotate(0deg);
+                opacity: 0;
+                filter: hue-rotate(0deg);
+            }
+            5% { opacity: 1; transform: scale(1) rotate(45deg); }
+            10% { transform: translateY(90vh) translateX(50px) scale(1.5) rotate(90deg); }
+            25% { transform: translateY(75vh) translateX(-30px) scale(1.2) rotate(180deg); }
+            50% { 
+                transform: translateY(50vh) translateX(80px) scale(1.8) rotate(270deg);
+                filter: hue-rotate(180deg);
+            }
+            75% { transform: translateY(25vh) translateX(-50px) scale(1.3) rotate(360deg); }
+            90% { opacity: 1; transform: scale(1.1) rotate(450deg); }
+            100% { 
+                transform: translateY(-100px) translateX(200px) scale(0) rotate(540deg);
+                opacity: 0;
+                filter: hue-rotate(360deg);
+            }
+        }
+        
+        /* Advanced Scan Lines */
+        .scan-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+            background: 
+                linear-gradient(
+                    transparent 98%,
+                    rgba(0, 255, 255, 0.05) 99%,
+                    rgba(138, 43, 226, 0.03) 100%
+                ),
+                linear-gradient(
+                    90deg,
+                    transparent 99%,
+                    rgba(255, 0, 128, 0.02) 100%
+                );
+            background-size: 100% 3px, 3px 100%;
+            animation: scanLines 0.08s linear infinite, scanLinesVertical 0.12s linear infinite;
+            mix-blend-mode: screen;
+        }
+        
+        @keyframes scanLines {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(3px); }
+        }
+        
+        @keyframes scanLinesVertical {
+            0% { background-position: 0 0, 0 0; }
+            100% { background-position: 0 0, 3px 0; }
+        }
+        
+        .container {
+            max-width: 1900px;
+            margin: 0 auto;
+            padding: 25px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Enhanced Header */
+        .cyber-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 35px 50px;
+            background: 
+                linear-gradient(135deg, var(--glass-primary) 0%, var(--glass-secondary) 100%),
+                radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.2) 0%, transparent 70%),
+                rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--glass-border);
+            border-radius: 25px;
+            backdrop-filter: blur(25px) saturate(200%);
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.2),
+                0 0 60px rgba(0, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cyber-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--electric-purple), transparent);
+            animation: headerScan 8s linear infinite;
+        }
+        
+        @keyframes headerScan {
+            0% { left: -100%; opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { left: 100%; opacity: 0.6; }
+        }
+        
+        .cyber-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, 
+                var(--neon-cyan), var(--electric-purple), var(--cyber-pink), 
+                var(--neural-green), var(--quantum-blue)
+            );
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleFlow 6s ease-in-out infinite;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes titleFlow {
+            0%, 100% { background-position: 0% 50%; }
+            25% { background-position: 100% 25%; }
+            50% { background-position: 50% 100%; }
+            75% { background-position: 0% 75%; }
+        }
+        
+        .neural-status {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: 
+                linear-gradient(135deg, rgba(57, 255, 20, 0.15) 0%, rgba(57, 255, 20, 0.05) 100%),
+                rgba(0, 0, 0, 0.3);
+            padding: 20px 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(57, 255, 20, 0.4);
+            font-size: 1rem;
+            color: var(--neural-green);
+            backdrop-filter: blur(15px);
+            box-shadow: 
+                0 5px 20px rgba(57, 255, 20, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            animation: statusPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes statusPulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 5px 20px rgba(57, 255, 20, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 
+                    0 8px 30px rgba(57, 255, 20, 0.5),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                    var(--glow-intensity) var(--neural-green);
+                transform: scale(1.05);
+            }
+        }
+        
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            background: var(--neural-green);
+            border-radius: 50%;
+            animation: indicatorPulse 2s infinite;
+            position: relative;
+        }
+        
+        .status-indicator::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            border: 2px solid var(--neural-green);
+            animation: indicatorWave 2s infinite;
+        }
+        
+        @keyframes indicatorPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.5); }
+        }
+        
+        @keyframes indicatorWave {
+            0% { transform: scale(0.5); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+        
+        /* Main Interface */
+        .cyber-interface {
+            display: grid;
+            grid-template-columns: 320px 1fr 380px;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        
+        /* Enhanced Glass Morphism Panels */
+        .holo-panel {
+            background: 
+                linear-gradient(135deg, var(--glass-primary) 0%, var(--glass-secondary) 100%),
+                rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(25px) saturate(200%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .holo-panel:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                inset 0 2px 0 rgba(255, 255, 255, 0.2),
+                var(--glow-intensity) var(--neon-cyan);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .holo-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 18px;
+            padding: 2px;
+            background: linear-gradient(135deg, 
+                var(--neon-cyan), transparent, var(--electric-purple), 
+                transparent, var(--cyber-pink), transparent
+            );
+            background-size: 400% 400%;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            animation: panelGlow 12s ease-in-out infinite;
+        }
+        
+        @keyframes panelGlow {
+            0%, 100% { background-position: 0% 50%; opacity: 0.6; }
+            25% { background-position: 100% 25%; opacity: 0.9; }
+            50% { background-position: 50% 100%; opacity: 0.7; }
+            75% { background-position: 0% 75%; opacity: 0.8; }
+        }
+        
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+            position: relative;
+        }
+        
+        .panel-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--electric-purple), transparent);
+            animation: headerLine 6s linear infinite;
+        }
+        
+        @keyframes headerLine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .panel-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            text-shadow: var(--glow-intensity) currentColor;
+            position: relative;
+        }
+        
+        .panel-title::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -10px;
+            right: -10px;
+            bottom: -5px;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            border-radius: 10px;
+            animation: titleHalo 8s ease-in-out infinite;
+            z-index: -1;
+        }
+        
+        @keyframes titleHalo {
+            0%, 100% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        /* Enhanced Code Editor */
+        .cyber-code-editor {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 30, 15, 0.8) 100%),
+                rgba(0, 0, 0, 0.6);
+            border: 2px solid var(--neural-green);
+            border-radius: 15px;
+            padding: 25px;
+            font-family: 'Fira Code', monospace;
+            font-size: 15px;
+            color: var(--neural-green);
+            min-height: 700px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                inset 0 0 60px rgba(57, 255, 20, 0.2),
+                var(--glow-intensity) var(--neural-green);
+        }
+        
+        .cyber-code-editor::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--neural-green), var(--neon-cyan), transparent);
+            animation: codeScan 10s linear infinite;
+        }
+        
+        @keyframes codeScan {
+            0% { left: -100%; opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { left: 100%; opacity: 0.7; }
+        }
+        
+        .code-line {
+            display: flex;
+            margin-bottom: 12px;
+            padding: 8px 0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            animation: codeLineAppear 1.5s ease-out;
+        }
+        
+        .code-line::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, transparent, var(--neural-green), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .code-line:hover {
+            background: 
+                linear-gradient(135deg, rgba(57, 255, 20, 0.2) 0%, rgba(0, 255, 255, 0.1) 100%),
+                rgba(0, 0, 0, 0.3);
+            transform: translateX(15px) scale(1.02);
+            box-shadow: 
+                0 5px 20px rgba(57, 255, 20, 0.4), 
+                inset 0 0 20px rgba(0, 255, 255, 0.2);
+            border: 1px solid rgba(57, 255, 20, 0.4);
+        }
+        
+        .code-line:hover::before {
+            opacity: 1;
+        }
+        
+        @keyframes codeLineAppear {
+            from { 
+                opacity: 0; 
+                transform: translateX(-50px) scale(0.8);
+                filter: blur(5px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0) scale(1);
+                filter: blur(0);
+            }
+        }
+        
+        .line-number {
+            color: rgba(255, 255, 255, 0.5);
+            margin-right: 25px;
+            width: 50px;
+            text-align: right;
+            font-weight: 600;
+            user-select: none;
+            position: relative;
+        }
+        
+        .line-number::after {
+            content: '';
+            position: absolute;
+            right: -12px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, transparent, rgba(0, 255, 255, 0.5), transparent);
+        }
+        
+        .code-content {
+            flex: 1;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        
+        /* Enhanced Syntax Highlighting */
+        .keyword { 
+            color: #ff6b6b; 
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(255, 107, 107, 0.7);
+            animation: keywordPulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes keywordPulse {
+            0%, 100% { 
+                text-shadow: 0 0 15px rgba(255, 107, 107, 0.7);
+                transform: scale(1);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 20px rgba(255, 107, 107, 1),
+                    0 0 30px rgba(255, 107, 107, 0.5);
+                transform: scale(1.05);
+            }
+        }
+        
+        .string { 
+            color: #4ecdc4; 
+            font-weight: 600;
+            text-shadow: 0 0 12px rgba(78, 205, 196, 0.6);
+            animation: stringShimmer 10s ease-in-out infinite;
+        }
+        
+        @keyframes stringShimmer {
+            0%, 100% { 
+                text-shadow: 0 0 12px rgba(78, 205, 196, 0.6);
+                color: #4ecdc4;
+            }
+            33% { 
+                text-shadow: 0 0 18px rgba(78, 205, 196, 0.8);
+                color: #5fede6;
+            }
+            66% { 
+                text-shadow: 0 0 15px rgba(78, 205, 196, 0.7);
+                color: #3dbcb5;
+            }
+        }
+        
+        .comment { 
+            color: #888; 
+            font-style: italic;
+            opacity: 0.8;
+            animation: commentFade 12s ease-in-out infinite;
+        }
+        
+        @keyframes commentFade {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+        }
+        
+        .function { 
+            color: #ffe66d; 
+            font-weight: 700;
+            text-shadow: 0 0 14px rgba(255, 230, 109, 0.6);
+            animation: functionGlow 9s ease-in-out infinite;
+        }
+        
+        @keyframes functionGlow {
+            0%, 100% { 
+                text-shadow: 0 0 14px rgba(255, 230, 109, 0.6);
+                color: #ffe66d;
+            }
+            25% { 
+                text-shadow: 0 0 20px rgba(255, 230, 109, 0.8);
+                color: #ffed7d;
+            }
+            50% { 
+                text-shadow: 0 0 18px rgba(255, 230, 109, 0.9);
+                color: #ffdf5d;
+            }
+            75% { 
+                text-shadow: 0 0 16px rgba(255, 230, 109, 0.7);
+                color: #ffe970;
+            }
+        }
+        
+        .property { 
+            color: #ff8b94; 
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(255, 139, 148, 0.5);
+        }
+        
+        .operator { 
+            color: #a8e6cf; 
+            font-weight: 800;
+            text-shadow: 0 0 8px rgba(168, 230, 207, 0.4);
+        }
+        
+        /* Interactive File Explorer */
+        .file-tree {
+            list-style: none;
+        }
+        
+        .file-item {
+            padding: 12px 15px;
+            margin: 3px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .file-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: linear-gradient(90deg, var(--neon-cyan), transparent);
+            transition: width 0.3s ease;
+        }
+        
+        .file-item:hover {
+            background: 
+                linear-gradient(135deg, rgba(0, 255, 255, 0.15) 0%, rgba(0, 255, 255, 0.05) 100%),
+                rgba(0, 0, 0, 0.2);
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 
+                0 5px 15px rgba(0, 255, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .file-item:hover::before {
+            width: 4px;
+        }
+        
+        .file-item.active {
+            background: 
+                linear-gradient(135deg, rgba(0, 255, 255, 0.25) 0%, rgba(0, 255, 255, 0.1) 100%),
+                rgba(0, 0, 0, 0.3);
+            border-left: 4px solid var(--neon-cyan);
+            box-shadow: 
+                0 8px 25px rgba(0, 255, 255, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        .file-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            filter: drop-shadow(0 0 5px currentColor);
+        }
+        
+        .file-name {
+            font-weight: 500;
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+        
+        .file-item:hover .file-name,
+        .file-item.active .file-name {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        
+        /* Enhanced Analytics */
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+        
+        .metric-card {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%),
+                rgba(0, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+            animation: metricScan 8s linear infinite;
+        }
+        
+        @keyframes metricScan {
+            0% { left: -100%; opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { left: 100%; opacity: 0.6; }
+        }
+        
+        .metric-card:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 
+                var(--glow-intensity) var(--neon-cyan),
+                0 8px 25px rgba(0, 255, 255, 0.3);
+            transform: translateY(-5px) scale(1.05);
+            background: 
+                linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 255, 255, 0.05) 100%),
+                rgba(0, 0, 0, 0.4);
+        }
+        
+        .metric-label {
+            color: var(--neon-cyan);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+        }
+        
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 12px;
+            text-shadow: 
+                0 0 15px rgba(255, 255, 255, 0.6),
+                0 0 30px rgba(255, 255, 255, 0.3);
+            animation: valueGlow 5s ease-in-out infinite;
+        }
+        
+        @keyframes valueGlow {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 15px rgba(255, 255, 255, 0.6),
+                    0 0 30px rgba(255, 255, 255, 0.3);
+                transform: scale(1);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 20px rgba(255, 255, 255, 0.8),
+                    0 0 40px rgba(255, 255, 255, 0.4),
+                    0 0 60px rgba(0, 255, 255, 0.3);
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Real-time Progress Bars */
+        .metric-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 255, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .metric-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: barShine 3s ease-in-out infinite;
+        }
+        
+        @keyframes barShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .metric-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metric-fill::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: fillShine 2s ease-in-out infinite;
+        }
+        
+        @keyframes fillShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .cpu-fill {
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neural-green));
+            width: 75%;
+            animation: cpuPulse 4s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+        
+        .memory-fill {
+            background: linear-gradient(90deg, var(--electric-purple), var(--cyber-pink));
+            width: 60%;
+            animation: memoryPulse 3.5s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+        }
+        
+        .network-fill {
+            background: linear-gradient(90deg, var(--neural-green), var(--quantum-blue));
+            width: 90%;
+            animation: networkPulse 4.5s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+        }
+        
+        .storage-fill {
+            background: linear-gradient(90deg, var(--solar-orange), var(--cyber-pink));
+            width: 45%;
+            animation: storagePulse 5s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(255, 68, 0, 0.5);
+        }
+        
+        @keyframes cpuPulse {
+            0%, 100% { width: 75%; box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); }
+            50% { width: 85%; box-shadow: 0 0 25px rgba(0, 255, 255, 0.8); }
+        }
+        
+        @keyframes memoryPulse {
+            0%, 100% { width: 60%; box-shadow: 0 0 15px rgba(138, 43, 226, 0.5); }
+            50% { width: 70%; box-shadow: 0 0 25px rgba(138, 43, 226, 0.8); }
+        }
+        
+        @keyframes networkPulse {
+            0%, 100% { width: 90%; box-shadow: 0 0 15px rgba(57, 255, 20, 0.5); }
+            50% { width: 95%; box-shadow: 0 0 25px rgba(57, 255, 20, 0.8); }
+        }
+        
+        @keyframes storagePulse {
+            0%, 100% { width: 45%; box-shadow: 0 0 15px rgba(255, 68, 0, 0.5); }
+            50% { width: 55%; box-shadow: 0 0 25px rgba(255, 68, 0, 0.8); }
+        }
+        
+        /* Complex Data Visualization */
+        .data-viz {
+            height: 250px;
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%),
+                rgba(0, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .data-viz::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 48%, rgba(0, 255, 255, 0.1) 49%, rgba(0, 255, 255, 0.1) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(138, 43, 226, 0.08) 49%, rgba(138, 43, 226, 0.08) 51%, transparent 52%);
+            background-size: 20px 20px;
+            animation: vizGrid 15s linear infinite;
+        }
+        
+        @keyframes vizGrid {
+            0% { transform: translate(0, 0); opacity: 0.3; }
+            100% { transform: translate(20px, 20px); opacity: 0.6; }
+        }
+        
+        .viz-line {
+            position: absolute;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to top, transparent, var(--neon-cyan), transparent);
+            animation: dataFlow 4s ease-in-out infinite;
+            border-radius: 2px;
+            box-shadow: 0 0 10px currentColor;
+        }
+        
+        @keyframes dataFlow {
+            0%, 100% { 
+                height: 20%; 
+                opacity: 0.6;
+                filter: hue-rotate(0deg);
+            }
+            25% { 
+                height: 60%; 
+                opacity: 0.9;
+                filter: hue-rotate(90deg);
+            }
+            50% { 
+                height: 90%; 
+                opacity: 1;
+                filter: hue-rotate(180deg);
+            }
+            75% { 
+                height: 40%; 
+                opacity: 0.8;
+                filter: hue-rotate(270deg);
+            }
+        }
+        
+        /* Activity Feed */
+        .activity-feed {
+            max-height: 350px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .activity-item {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%),
+                rgba(0, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--neon-cyan);
+            animation: feedItemAppear 2s ease-out;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+        
+        .activity-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            animation: feedGlow 10s linear infinite;
+        }
+        
+        @keyframes feedGlow {
+            0% { left: -100%; opacity: 0.4; }
+            50% { opacity: 0.8; }
+            100% { left: 100%; opacity: 0.4; }
+        }
+        
+        .activity-item:hover {
+            background: 
+                linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 255, 255, 0.05) 100%),
+                rgba(0, 0, 0, 0.3);
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 
+                0 5px 20px rgba(0, 255, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border-left-width: 6px;
+        }
+        
+        @keyframes feedItemAppear {
+            from { 
+                opacity: 0; 
+                transform: translateX(-30px) scale(0.9);
+                filter: blur(3px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0) scale(1);
+                filter: blur(0);
+            }
+        }
+        
+        .activity-time {
+            color: var(--neon-cyan);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .activity-message {
+            color: #ddd;
+            margin-top: 6px;
+            line-height: 1.5;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Enhanced Terminal */
+        .cyber-terminal {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 20, 10, 0.8) 100%),
+                rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--neural-green);
+            border-radius: 12px;
+            padding: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            color: var(--neural-green);
+            height: 250px;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 
+                inset 0 0 30px rgba(57, 255, 20, 0.1),
+                0 0 20px rgba(57, 255, 20, 0.3);
+        }
+        
+        .cyber-terminal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neural-green), transparent);
+            animation: terminalScan 6s linear infinite;
+        }
+        
+        @keyframes terminalScan {
+            0% { transform: translateX(-100%); opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%); opacity: 0.6; }
+        }
+        
+        .terminal-line {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            animation: terminalLineAppear 1s ease-out;
+        }
+        
+        @keyframes terminalLineAppear {
+            from { 
+                opacity: 0; 
+                transform: translateX(-20px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0);
+            }
+        }
+        
+        .terminal-prompt {
+            color: var(--cyber-pink);
+            margin-right: 10px;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(255, 0, 128, 0.5);
+        }
+        
+        .terminal-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 16px;
+            background: var(--neural-green);
+            animation: cursorBlink 1s infinite;
+            box-shadow: 0 0 10px var(--neural-green);
+        }
+        
+        @keyframes cursorBlink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1400px) {
+            .cyber-interface {
+                grid-template-columns: 280px 1fr 340px;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .cyber-interface {
+                grid-template-columns: 250px 1fr 300px;
+                gap: 18px;
+            }
+            
+            .cyber-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .cyber-interface {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .cyber-header {
+                flex-direction: column;
+                gap: 25px;
+                padding: 30px;
+            }
+            
+            .cyber-title {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+            
+            .analytics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Enhanced Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+            border-radius: 6px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, var(--neon-cyan), var(--electric-purple), var(--cyber-pink));
+            border-radius: 6px;
+            box-shadow: 
+                var(--glow-intensity) var(--neon-cyan),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, var(--cyber-pink), var(--neural-green), var(--quantum-blue));
+            box-shadow: 
+                0 0 40px var(--cyber-pink),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Scan Lines -->
+    <div class="scan-lines"></div>
+
+    <div class="container">
+        <!-- Enhanced Header -->
+        <header class="cyber-header">
+            <h1 class="cyber-title">CyberCode Matrix</h1>
+            <div class="neural-status">
+                <div class="status-indicator"></div>
+                <span>Neural Link Active</span>
+            </div>
+        </header>
+        
+        <!-- Main Interface -->
+        <div class="cyber-interface">
+            <!-- Left Panel: Interactive File Explorer -->
+            <div class="holo-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Explorer</h2>
+                    <span style="color: #666; font-size: 1.2rem;">📁</span>
+                </div>
+                
+                <ul class="file-tree">
+                    <li class="file-item active" data-file="neural_system.js">
+                        <span class="file-icon">🧠</span>
+                        <span class="file-name">neural_system.js</span>
+                    </li>
+                    <li class="file-item" data-file="cyber_core.ts">
+                        <span class="file-icon">⚡</span>
+                        <span class="file-name">cyber_core.ts</span>
+                    </li>
+                    <li class="file-item" data-file="holo_interface.jsx">
+                        <span class="file-icon">🔮</span>
+                        <span class="file-name">holo_interface.jsx</span>
+                    </li>
+                    <li class="file-item" data-file="quantum_data.py">
+                        <span class="file-icon">🌌</span>
+                        <span class="file-name">quantum_data.py</span>
+                    </li>
+                    <li class="file-item" data-file="matrix_ai.cpp">
+                        <span class="file-icon">🤖</span>
+                        <span class="file-name">matrix_ai.cpp</span>
+                    </li>
+                    <li class="file-item">
+                        <span class="file-icon">📁</span>
+                        <span class="file-name">components/</span>
+                    </li>
+                    <li class="file-item" style="margin-left: 25px;" data-file="HoloPanel.jsx">
+                        <span class="file-icon">🔷</span>
+                        <span class="file-name">HoloPanel.jsx</span>
+                    </li>
+                    <li class="file-item" style="margin-left: 25px;" data-file="NeuralFeed.jsx">
+                        <span class="file-icon">📡</span>
+                        <span class="file-name">NeuralFeed.jsx</span>
+                    </li>
+                    <li class="file-item" style="margin-left: 25px;" data-file="DataViz.jsx">
+                        <span class="file-icon">📊</span>
+                        <span class="file-name">DataViz.jsx</span>
+                    </li>
+                    <li class="file-item">
+                        <span class="file-icon">📁</span>
+                        <span class="file-name">assets/</span>
+                    </li>
+                    <li class="file-item" data-file="config.json">
+                        <span class="file-icon">⚙️</span>
+                        <span class="file-name">config.json</span>
+                    </li>
+                </ul>
+                
+                <div style="margin-top: 30px;">
+                    <div class="panel-header">
+                        <h3 class="panel-title" style="font-size: 1rem;">Terminal</h3>
+                    </div>
+                    <div class="cyber-terminal" id="terminal">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">cyber@matrix:~$</span>
+                            <span>npm start --neural</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span style="color: var(--neural-green);">✓ Neural system initialized</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span style="color: var(--neon-cyan);">→ Holographic interface active</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span style="color: var(--cyber-pink);">⚡ Quantum processors online</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span style="color: var(--electric-purple);">🔮 Matrix connection established</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">cyber@matrix:~$</span>
+                            <span class="terminal-cursor"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Center Panel: Enhanced Code Editor -->
+            <div class="holo-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Code Matrix</h2>
+                    <span style="color: #666; font-size: 0.9rem;" id="currentFile">neural_system.js</span>
+                </div>
+                
+                <div class="cyber-code-editor" id="codeEditor">
+                    <div class="code-line">
+                        <span class="line-number">1</span>
+                        <span class="code-content"><span class="keyword">import</span> { <span class="function">NeuralProcessor</span>, <span class="function">HoloCore</span>, <span class="function">QuantumMatrix</span> } <span class="keyword">from</span> <span class="string">'@cyber/neural-core'</span>;</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">2</span>
+                        <span class="code-content"><span class="keyword">import</span> { <span class="function">Analytics</span>, <span class="function">DataViz</span>, <span class="function">RealTimeMonitor</span> } <span class="keyword">from</span> <span class="string">'@cyber/analytics'</span>;</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">3</span>
+                        <span class="code-content"><span class="keyword">import</span> { <span class="function">GlassMorphism</span>, <span class="function">ParticleSystem</span> } <span class="keyword">from</span> <span class="string">'@cyber/effects'</span>;</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">4</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">5</span>
+                        <span class="code-content"><span class="comment">// Advanced Cyberpunk Neural System with Holographic Interface</span></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">6</span>
+                        <span class="code-content"><span class="keyword">class</span> <span class="function">CyberNeuralSystem</span> {</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">7</span>
+                        <span class="code-content">  <span class="keyword">constructor</span>(<span class="property">config</span>) {</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">8</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">neuralProcessor</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">NeuralProcessor</span>(<span class="property">config</span>);</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">9</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">holoCore</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">HoloCore</span>({ <span class="property">dimension</span>: <span class="string">'quantum'</span>, <span class="property">layers</span>: <span class="string">12</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">10</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">quantumMatrix</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">QuantumMatrix</span>({ <span class="property">neural</span>: <span class="keyword">true</span>, <span class="property">holographic</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">11</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">analytics</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">Analytics</span>({ <span class="property">realTime</span>: <span class="keyword">true</span>, <span class="property">cyberpunk</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">12</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">dataViz</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">DataViz</span>({ <span class="property">holographic</span>: <span class="keyword">true</span>, <span class="property">interactive</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">13</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">monitor</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">RealTimeMonitor</span>({ <span class="property">neural</span>: <span class="keyword">true</span>, <span class="property">quantum</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">14</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">glassMorphism</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">GlassMorphism</span>({ <span class="property">blur</span>: <span class="string">'25px'</span>, <span class="property">opacity</span>: <span class="string">0.12</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">15</span>
+                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">particles</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">ParticleSystem</span>({ <span class="property">neural</span>: <span class="keyword">true</span>, <span class="property">floating</span>: <span class="keyword">true</span> });</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">16</span>
+                        <span class="code-content">  }</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">17</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">18</span>
+                        <span class="code-content">  <span class="keyword">async</span> <span class="function">initializeMatrix</span>() {</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">19</span>
+                        <span class="code-content">    <span class="comment">// Initialize cyberpunk neural network with holographic effects</span></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">20</span>
+                        <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">neuralProcessor</span><span class="operator">.</span><span class="function">connect</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">21</span>
+                        <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">holoCore</span><span class="operator">.</span><span class="function">projectHologram</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">22</span>
+                        <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">quantumMatrix</span><span class="operator">.</span><span class="function">synchronize</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">23</span>
+                        <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">analytics</span><span class="operator">.</span><span class="function">startMonitoring</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">24</span>
+                        <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">glassMorphism</span><span class="operator">.</span><span class="function">activate</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">25</span>
+                        <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">particles</span><span class="operator">.</span><span class="function">startAnimation</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">26</span>
+                        <span class="code-content">    <span class="keyword">return</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">dataViz</span><span class="operator">.</span><span class="function">render</span>();</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">27</span>
+                        <span class="code-content">  }</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">28</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">29</span>
+                        <span class="code-content">  <span class="keyword">async</span> <span class="function">processNeuralData</span>(<span class="property">input</span>) {</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">30</span>
+                        <span class="code-content">    <span class="comment">// Process data through quantum neural network</span></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">31</span>
+                        <span class="code-content">    <span class="keyword">const</span> <span class="property">neuralOutput</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">neuralProcessor</span><span class="operator">.</span><span class="function">process</span>(<span class="property">input</span>);</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">32</span>
+                        <span class="code-content">    <span class="keyword">const</span> <span class="property">holoData</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">holoCore</span><span class="operator">.</span><span class="function">enhance</span>(<span class="property">neuralOutput</span>);</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">33</span>
+                        <span class="code-content">    <span class="keyword">const</span> <span class="property">quantumResult</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">quantumMatrix</span><span class="operator">.</span><span class="function">transform</span>(<span class="property">holoData</span>);</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">34</span>
+                        <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">analytics</span><span class="operator">.</span><span class="function">track</span>(<span class="property">quantumResult</span>);</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">35</span>
+                        <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">monitor</span><span class="operator">.</span><span class="function">update</span>(<span class="property">quantumResult</span>);</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">36</span>
+                        <span class="code-content">    <span class="keyword">return</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">dataViz</span><span class="operator">.</span><span class="function">visualize</span>(<span class="property">quantumResult</span>);</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">37</span>
+                        <span class="code-content">  }</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">38</span>
+                        <span class="code-content">}</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">39</span>
+                        <span class="code-content"></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">40</span>
+                        <span class="code-content"><span class="comment">// Initialize the cyberpunk neural system</span></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">41</span>
+                        <span class="code-content"><span class="keyword">const</span> <span class="property">cyberSystem</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">CyberNeuralSystem</span>({</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">42</span>
+                        <span class="code-content">  <span class="property">mode</span>: <span class="string">'holographic'</span>,</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">43</span>
+                        <span class="code-content">  <span class="property">neural</span>: { <span class="property">layers</span>: <span class="string">16</span>, <span class="property">quantum</span>: <span class="keyword">true</span>, <span class="property">cyberpunk</span>: <span class="keyword">true</span> },</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">44</span>
+                        <span class="code-content">  <span class="property">interface</span>: <span class="string">'advanced-cyberpunk'</span>,</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">45</span>
+                        <span class="code-content">  <span class="property">effects</span>: { <span class="property">glassMorphism</span>: <span class="keyword">true</span>, <span class="property">particles</span>: <span class="keyword">true</span>, <span class="property">scanLines</span>: <span class="keyword">true</span> }</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">46</span>
+                        <span class="code-content">});</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Panel: Real-time Analytics & Monitor -->
+            <div class="holo-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">System Monitor</h2>
+                    <span style="color: #666; font-size: 1.2rem;">📊</span>
+                </div>
+                
+                <div class="analytics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">⚡ CPU Usage</div>
+                        <div class="metric-value" id="cpuValue">75%</div>
+                        <div class="metric-bar">
+                            <div class="metric-fill cpu-fill"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-label">🧠 Memory</div>
+                        <div class="metric-value" id="memoryValue">8.2 GB</div>
+                        <div class="metric-bar">
+                            <div class="metric-fill memory-fill"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-label">🌐 Network</div>
+                        <div class="metric-value" id="networkValue">2.4 MB/s</div>
+                        <div class="metric-bar">
+                            <div class="metric-fill network-fill"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-label">💾 Storage</div>
+                        <div class="metric-value" id="storageValue">45%</div>
+                        <div class="metric-bar">
+                            <div class="metric-fill storage-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="data-viz">
+                    <div class="viz-line" style="left: 8%; animation-delay: 0s;"></div>
+                    <div class="viz-line" style="left: 16%; animation-delay: 0.3s;"></div>
+                    <div class="viz-line" style="left: 24%; animation-delay: 0.6s;"></div>
+                    <div class="viz-line" style="left: 32%; animation-delay: 0.9s;"></div>
+                    <div class="viz-line" style="left: 40%; animation-delay: 1.2s;"></div>
+                    <div class="viz-line" style="left: 48%; animation-delay: 1.5s;"></div>
+                    <div class="viz-line" style="left: 56%; animation-delay: 1.8s;"></div>
+                    <div class="viz-line" style="left: 64%; animation-delay: 2.1s;"></div>
+                    <div class="viz-line" style="left: 72%; animation-delay: 2.4s;"></div>
+                    <div class="viz-line" style="left: 80%; animation-delay: 2.7s;"></div>
+                    <div class="viz-line" style="left: 88%; animation-delay: 3s;"></div>
+                </div>
+                
+                <div class="panel-header">
+                    <h3 class="panel-title" style="font-size: 1rem;">Neural Feed</h3>
+                </div>
+                
+                <div class="activity-feed" id="activityFeed">
+                    <div class="activity-item">
+                        <div class="activity-time">16:42:15</div>
+                        <div class="activity-message">🧠 Neural processor initialized with quantum enhancement</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">16:42:18</div>
+                        <div class="activity-message">🔮 Holographic interface projection activated</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">16:42:21</div>
+                        <div class="activity-message">⚡ Quantum data processing enabled with 16 neural layers</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">16:42:24</div>
+                        <div class="activity-message">📊 Real-time analytics monitoring started</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">16:42:27</div>
+                        <div class="activity-message">🌌 Matrix synchronization complete</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">16:42:30</div>
+                        <div class="activity-message">✨ Glass morphism effects fully operational</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-time">16:42:33</div>
+                        <div class="activity-message">🎯 Neural particle system activated</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced neural particles system
+        function createNeuralParticles() {
+            const colors = ['#00ffff', '#8a2be2', '#ff0080', '#39ff14', '#0080ff', '#ff4500'];
+            
+            setInterval(() => {
+                const particle = document.createElement('div');
+                particle.className = 'neural-particle';
+                particle.style.left = Math.random() * window.innerWidth + 'px';
+                particle.style.color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.animationDelay = Math.random() * 3 + 's';
+                particle.style.animationDuration = (Math.random() * 15 + 15) + 's';
+                
+                document.body.appendChild(particle);
+                
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.remove();
+                    }
+                }, 20000);
+            }, 400);
+        }
+        
+        // Real-time metrics simulation
+        function updateMetrics() {
+            const metrics = [
+                { 
+                    id: 'cpu', 
+                    valueId: 'cpuValue', 
+                    min: 65, 
+                    max: 95, 
+                    suffix: '%',
+                    fillClass: 'cpu-fill'
+                },
+                { 
+                    id: 'memory', 
+                    valueId: 'memoryValue', 
+                    min: 6.5, 
+                    max: 12.8, 
+                    suffix: ' GB',
+                    fillClass: 'memory-fill',
+                    decimal: 1
+                },
+                { 
+                    id: 'network', 
+                    valueId: 'networkValue', 
+                    min: 1.2, 
+                    max: 8.7, 
+                    suffix: ' MB/s',
+                    fillClass: 'network-fill',
+                    decimal: 1
+                },
+                { 
+                    id: 'storage', 
+                    valueId: 'storageValue', 
+                    min: 35, 
+                    max: 75, 
+                    suffix: '%',
+                    fillClass: 'storage-fill'
+                }
+            ];
+            
+            metrics.forEach(metric => {
+                const newValue = Math.random() * (metric.max - metric.min) + metric.min;
+                const displayValue = metric.decimal ? 
+                    newValue.toFixed(metric.decimal) : 
+                    Math.round(newValue);
+                
+                const valueElement = document.getElementById(metric.valueId);
+                const fillElement = document.querySelector(`.${metric.fillClass}`);
+                
+                if (valueElement) {
+                    valueElement.textContent = displayValue + metric.suffix;
+                }
+                
+                if (fillElement) {
+                    const percentage = metric.suffix === '%' ? 
+                        newValue : 
+                        ((newValue - metric.min) / (metric.max - metric.min)) * 100;
+                    fillElement.style.width = Math.min(percentage, 100) + '%';
+                }
+            });
+        }
+        
+        // Interactive file explorer
+        function initializeFileExplorer() {
+            const fileItems = document.querySelectorAll('.file-item[data-file]');
+            const currentFileSpan = document.getElementById('currentFile');
+            
+            const fileContents = {
+                'neural_system.js': `// Advanced Cyberpunk Neural System
+import { NeuralProcessor, HoloCore, QuantumMatrix } from '@cyber/neural-core';
+import { Analytics, DataViz, RealTimeMonitor } from '@cyber/analytics';
+
+class CyberNeuralSystem {
+  constructor(config) {
+    this.neuralProcessor = new NeuralProcessor(config);
+    this.holoCore = new HoloCore({ dimension: 'quantum', layers: 12 });
+    this.quantumMatrix = new QuantumMatrix({ neural: true });
+  }
+  
+  async initializeMatrix() {
+    await this.neuralProcessor.connect();
+    await this.holoCore.projectHologram();
+    return this.dataViz.render();
+  }
+}`,
+                'cyber_core.ts': `// TypeScript Cyber Core Module
+interface CyberConfig {
+  neural: boolean;
+  quantum: boolean;
+  holographic: boolean;
+}
+
+class CyberCore {
+  private config: CyberConfig;
+  private matrix: QuantumMatrix;
+  
+  constructor(config: CyberConfig) {
+    this.config = config;
+    this.matrix = new QuantumMatrix();
+  }
+  
+  public async initialize(): Promise<void> {
+    await this.matrix.synchronize();
+  }
+}`,
+                'holo_interface.jsx': `// React Holographic Interface Component
+import React, { useState, useEffect } from 'react';
+import { HoloPanel, NeuralFeed, DataViz } from './components';
+
+const HoloInterface = () => {
+  const [neuralData, setNeuralData] = useState([]);
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNeuralData(prev => [...prev, generateNeuralData()]);
+    }, 1000);
+    
+    return () => clearInterval(interval);
+  }, []);
+  
+  return (
+    <div className="holo-interface">
+      <HoloPanel>
+        <NeuralFeed data={neuralData} />
+        <DataViz data={neuralData} />
+      </HoloPanel>
+    </div>
+  );
+};`,
+                'quantum_data.py': `# Python Quantum Data Processing
+import numpy as np
+from quantum_matrix import QuantumProcessor
+from neural_network import NeuralNet
+
+class QuantumDataProcessor:
+    def __init__(self, dimensions=12):
+        self.dimensions = dimensions
+        self.quantum_processor = QuantumProcessor()
+        self.neural_net = NeuralNet(layers=16)
+    
+    def process_data(self, input_data):
+        quantum_enhanced = self.quantum_processor.enhance(input_data)
+        neural_output = self.neural_net.forward(quantum_enhanced)
+        return self.holographic_transform(neural_output)
+    
+    def holographic_transform(self, data):
+        return np.fft.fft2(data.reshape(-1, self.dimensions))`,
+                'matrix_ai.cpp': `// C++ Matrix AI Core
+#include <vector>
+#include <memory>
+#include "neural_processor.h"
+#include "quantum_matrix.h"
+
+class MatrixAI {
+private:
+    std::unique_ptr<NeuralProcessor> processor;
+    std::unique_ptr<QuantumMatrix> matrix;
+    
+public:
+    MatrixAI(int neural_layers = 16) {
+        processor = std::make_unique<NeuralProcessor>(neural_layers);
+        matrix = std::make_unique<QuantumMatrix>();
+    }
+    
+    std::vector<float> processData(const std::vector<float>& input) {
+        auto neural_output = processor->forward(input);
+        return matrix->quantumTransform(neural_output);
+    }
+};`
+            };
+            
+            fileItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Remove active class from all items
+                    fileItems.forEach(i => i.classList.remove('active'));
+                    // Add active class to clicked item
+                    item.classList.add('active');
+                    
+                    const fileName = item.dataset.file;
+                    if (currentFileSpan) {
+                        currentFileSpan.textContent = fileName;
+                    }
+                    
+                    // Update code editor content (simplified)
+                    const codeEditor = document.getElementById('codeEditor');
+                    if (codeEditor && fileContents[fileName]) {
+                        const lines = fileContents[fileName].split('\n');
+                        let html = '';
+                        lines.forEach((line, index) => {
+                            html += `
+                                <div class="code-line">
+                                    <span class="line-number">${index + 1}</span>
+                                    <span class="code-content">${highlightSyntax(line)}</span>
+                                </div>
+                            `;
+                        });
+                        codeEditor.innerHTML = html;
+                    }
+                });
+            });
+        }
+        
+        // Simple syntax highlighting
+        function highlightSyntax(line) {
+            return line
+                .replace(/\b(import|export|class|function|const|let|var|if|else|for|while|return|async|await|interface|public|private)\b/g, '<span class="keyword">$1</span>')
+                .replace(/(['"`])((?:(?!\1)[^\\]|\\.)*)(\1)/g, '<span class="string">$1$2$3</span>')
+                .replace(/\/\/.*$/g, '<span class="comment">$&</span>')
+                .replace(/\b([A-Z][a-zA-Z0-9]*)\b/g, '<span class="function">$1</span>')
+                .replace(/\.([a-zA-Z_][a-zA-Z0-9_]*)/g, '.<span class="property">$1</span>')
+                .replace(/([=+\-*/<>!&|])/g, '<span class="operator">$1</span>');
+        }
+        
+        // Enhanced terminal activity
+        function addTerminalActivity() {
+            const terminal = document.getElementById('terminal');
+            const commands = [
+                'git commit -m "Enhanced neural processing"',
+                'npm run build:holographic',
+                'cyber-deploy --quantum --neural',
+                'holo-test --dimension=4D',
+                'neural-sync --matrix-link',
+                'quantum-compile --optimize',
+                'matrix-debug --verbose',
+                'cyber-analyze --deep-scan',
+                'holo-render --real-time',
+                'neural-train --epochs=1000'
+            ];
+            
+            setInterval(() => {
+                const command = commands[Math.floor(Math.random() * commands.length)];
+                const line = document.createElement('div');
+                line.className = 'terminal-line';
+                line.innerHTML = `
+                    <span class="terminal-prompt">cyber@matrix:~$</span>
+                    <span>${command}</span>
+                `;
+                
+                const cursor = terminal.querySelector('.terminal-cursor');
+                if (cursor && cursor.parentElement) {
+                    terminal.insertBefore(line, cursor.parentElement);
+                }
+                
+                // Keep only last 12 lines
+                const lines = terminal.querySelectorAll('.terminal-line');
+                if (lines.length > 12) {
+                    lines[0].remove();
+                }
+            }, 4000);
+        }
+        
+        // Enhanced activity feed
+        function addActivityFeedItems() {
+            const feed = document.getElementById('activityFeed');
+            const activities = [
+                '🔄 Quantum matrix recalibration in progress',
+                '⚡ Neural network optimization complete',
+                '🌐 Holographic data stream synchronized',
+                '🎯 Particle system performance enhanced',
+                '🔮 Glass morphism effects updated',
+                '📊 Real-time analytics data refreshed',
+                '🧠 Neural processor load balanced',
+                '🌌 Quantum entanglement established',
+                '✨ Cyberpunk interface fully operational',
+                '🚀 System performance optimized'
+            ];
+            
+            setInterval(() => {
+                const activity = activities[Math.floor(Math.random() * activities.length)];
+                const now = new Date();
+                const timeString = now.toTimeString().split(' ')[0];
+                
+                const item = document.createElement('div');
+                item.className = 'activity-item';
+                item.innerHTML = `
+                    <div class="activity-time">${timeString}</div>
+                    <div class="activity-message">${activity}</div>
+                `;
+                
+                feed.insertBefore(item, feed.firstChild);
+                
+                // Keep only last 10 items
+                const items = feed.querySelectorAll('.activity-item');
+                if (items.length > 10) {
+                    items[items.length - 1].remove();
+                }
+            }, 6000);
+        }
+        
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createNeuralParticles();
+            initializeFileExplorer();
+            setInterval(updateMetrics, 2500);
+            addTerminalActivity();
+            addActivityFeedItems();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96e8817710bdd612',t:'MTc1NTA5MTE4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
