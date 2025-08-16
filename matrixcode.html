@@ -3,2023 +3,1005 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Teknoloji Matrix</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Intricate Cybersystem</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;700;900&display=swap');
         
-        :root {
-            --quantum-blue: #00f5ff;
-            --quantum-purple: #8a2be2;
-            --quantum-pink: #ff1493;
-            --quantum-green: #39ff14;
-            --quantum-orange: #ff6600;
-            --quantum-yellow: #ffff00;
-            --quantum-red: #ff0040;
-            --quantum-teal: #00ffaa;
-            --quantum-violet: #9400d3;
-            --quantum-lime: #ccff00;
-            --quantum-coral: #ff7f50;
-            --quantum-gold: #ffd700;
-            --quantum-silver: #c0c0c0;
-            --quantum-crimson: #dc143c;
-            --quantum-azure: #007fff;
-            --quantum-magenta: #ff00ff;
-            --quantum-emerald: #50c878;
-            --quantum-amber: #ffbf00;
-            --quantum-indigo: #4b0082;
-            --quantum-turquoise: #40e0d0;
-            --quantum-neon: #00ff41;
-            --quantum-plasma: #ff0080;
-            --quantum-cosmic: #8000ff;
-            --quantum-stellar: #ff8000;
-            --quantum-nebula: #0080ff;
-            --quantum-infinity: #ffffff;
-            --cyber-neon: #00ff41;
-            --holo-cyan: #00ffff;
-            --neural-pink: #ff00ff;
-            --dark-bg: #000000;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         body {
-            font-family: 'Rajdhani', sans-serif;
-            background: radial-gradient(circle at 15% 15%, #001166 0%, #000000 35%),
-                        radial-gradient(circle at 85% 85%, #110066 0%, #000000 35%),
-                        radial-gradient(circle at 50% 50%, #000044 0%, #000000 50%),
-                        radial-gradient(circle at 25% 75%, #330011 0%, #000000 40%),
-                        radial-gradient(circle at 75% 25%, #003311 0%, #000000 40%),
-                        linear-gradient(135deg, #000055 0%, #000000 100%);
+            font-family: 'Orbitron', monospace;
+            background: radial-gradient(ellipse at center, #000000 0%, #0d001a 25%, #1a0033 50%, #26004d 75%, #330066 100%);
+            color: #ffffff;
             overflow-x: hidden;
             min-height: 100vh;
-        }
-        
-        .quantum-font {
-            font-family: 'Orbitron', monospace;
-        }
-        
-        .cyber-grid {
-            background-image: 
-                linear-gradient(rgba(0, 255, 65, 0.6) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 65, 0.6) 1px, transparent 1px),
-                linear-gradient(45deg, rgba(0, 255, 255, 0.5) 1px, transparent 1px),
-                linear-gradient(-45deg, rgba(255, 0, 255, 0.5) 1px, transparent 1px),
-                radial-gradient(circle at 12% 20%, rgba(0, 245, 255, 0.6) 0%, transparent 30%),
-                radial-gradient(circle at 88% 80%, rgba(255, 20, 147, 0.6) 0%, transparent 30%),
-                radial-gradient(circle at 50% 8%, rgba(57, 255, 20, 0.5) 0%, transparent 25%),
-                radial-gradient(circle at 25% 92%, rgba(255, 102, 0, 0.5) 0%, transparent 25%),
-                radial-gradient(circle at 75% 15%, rgba(138, 43, 226, 0.4) 0%, transparent 20%),
-                radial-gradient(circle at 35% 85%, rgba(255, 215, 0, 0.4) 0%, transparent 20%);
-            background-size: 10px 10px, 10px 10px, 20px 20px, 20px 20px, 150px 150px, 150px 150px, 120px 120px, 120px 120px, 100px 100px, 100px 100px;
-            animation: cyber-grid-flow 15s linear infinite;
-        }
-        
-        @keyframes cyber-grid-flow {
-            0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }
-            100% { background-position: 10px 10px, 10px 10px, 20px 20px, -20px -20px, 150px 150px, -150px -150px, 120px 120px, -120px -120px, 100px 100px, -100px -100px; }
-        }
-        
-        .quantum-glow {
-            text-shadow: 
-                0 0 30px var(--cyber-neon),
-                0 0 60px var(--cyber-neon),
-                0 0 90px var(--holo-cyan),
-                0 0 120px var(--neural-pink),
-                0 0 180px var(--quantum-blue),
-                0 0 240px var(--quantum-purple),
-                0 0 300px var(--quantum-infinity);
-        }
-        
-        .cyber-core {
             position: relative;
-            width: 1600px;
-            height: 1600px;
-            margin: 0 auto;
-            perspective: 6000px;
-            transform-style: preserve-3d;
         }
         
-        .quantum-layer {
-            position: absolute;
-            border-radius: 50%;
-            border: 8px solid;
-            box-shadow: 
-                0 0 100px currentColor,
-                inset 0 0 100px currentColor,
-                0 0 200px currentColor,
-                inset 0 0 200px currentColor,
-                0 0 300px currentColor,
-                0 0 400px currentColor;
-            animation: quantum-rotation 35s linear infinite;
-            transform-style: preserve-3d;
-            transition: all 1.5s ease;
-        }
-        
-        /* Enhanced Nine Quantum Layers with Ultimate 5D+ Positioning */
-        .layer-1 { 
-            width: 100%; height: 100%; 
-            border-color: var(--cyber-neon);
-            animation-duration: 45s;
-            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) rotateW(0deg) rotateV(0deg);
-            border-width: 20px;
-        }
-        .layer-2 { 
-            width: 88%; height: 88%; 
-            top: 6%; left: 6%;
-            border-color: var(--holo-cyan);
-            animation-duration: 40s;
-            animation-direction: reverse;
-            transform: rotateX(45deg) rotateY(45deg) rotateZ(45deg) rotateW(45deg) rotateV(45deg);
-            border-width: 18px;
-        }
-        .layer-3 { 
-            width: 76%; height: 76%; 
-            top: 12%; left: 12%;
-            border-color: var(--neural-pink);
-            animation-duration: 35s;
-            transform: rotateX(90deg) rotateY(90deg) rotateZ(90deg) rotateW(90deg) rotateV(90deg);
-            border-width: 16px;
-        }
-        .layer-4 { 
-            width: 64%; height: 64%; 
-            top: 18%; left: 18%;
-            border-color: var(--quantum-blue);
-            animation-duration: 30s;
-            animation-direction: reverse;
-            transform: rotateX(135deg) rotateY(135deg) rotateZ(135deg) rotateW(135deg) rotateV(135deg);
-            border-width: 14px;
-        }
-        .layer-5 { 
-            width: 52%; height: 52%; 
-            top: 24%; left: 24%;
-            border-color: var(--quantum-purple);
-            animation-duration: 25s;
-            transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg) rotateW(180deg) rotateV(180deg);
-            border-width: 12px;
-        }
-        .layer-6 { 
-            width: 40%; height: 40%; 
-            top: 30%; left: 30%;
-            border-color: var(--quantum-pink);
-            animation-duration: 20s;
-            animation-direction: reverse;
-            transform: rotateX(225deg) rotateY(225deg) rotateZ(225deg) rotateW(225deg) rotateV(225deg);
-            border-width: 10px;
-        }
-        .layer-7 { 
-            width: 28%; height: 28%; 
-            top: 36%; left: 36%;
-            border-color: var(--quantum-green);
-            animation-duration: 15s;
-            transform: rotateX(270deg) rotateY(270deg) rotateZ(270deg) rotateW(270deg) rotateV(270deg);
-            border-width: 9px;
-        }
-        .layer-8 { 
-            width: 16%; height: 16%; 
-            top: 42%; left: 42%;
-            border-color: var(--quantum-orange);
-            animation-duration: 10s;
-            animation-direction: reverse;
-            transform: rotateX(315deg) rotateY(315deg) rotateZ(315deg) rotateW(315deg) rotateV(315deg);
-            border-width: 8px;
-        }
-        .layer-9 { 
-            width: 8%; height: 8%; 
-            top: 46%; left: 46%;
-            border-color: var(--quantum-gold);
-            animation-duration: 5s;
-            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg) rotateW(360deg) rotateV(360deg);
-            border-width: 7px;
-        }
-        
-        @keyframes quantum-rotation {
-            0% { 
-                transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) rotateZ(var(--rz, 0deg)); 
-            }
-            16.66% { 
-                transform: rotateX(calc(var(--rx, 0deg) + 60deg)) rotateY(calc(var(--ry, 0deg) + 60deg)) rotateZ(calc(var(--rz, 0deg) + 60deg)); 
-            }
-            33.33% { 
-                transform: rotateX(calc(var(--rx, 0deg) + 120deg)) rotateY(calc(var(--ry, 0deg) + 120deg)) rotateZ(calc(var(--rz, 0deg) + 120deg)); 
-            }
-            50% { 
-                transform: rotateX(calc(var(--rx, 0deg) + 180deg)) rotateY(calc(var(--ry, 0deg) + 180deg)) rotateZ(calc(var(--rz, 0deg) + 180deg)); 
-            }
-            66.66% { 
-                transform: rotateX(calc(var(--rx, 0deg) + 240deg)) rotateY(calc(var(--ry, 0deg) + 240deg)) rotateZ(calc(var(--rz, 0deg) + 240deg)); 
-            }
-            83.33% { 
-                transform: rotateX(calc(var(--rx, 0deg) + 300deg)) rotateY(calc(var(--ry, 0deg) + 300deg)) rotateZ(calc(var(--rz, 0deg) + 300deg)); 
-            }
-            100% { 
-                transform: rotateX(calc(var(--rx, 0deg) + 360deg)) rotateY(calc(var(--ry, 0deg) + 360deg)) rotateZ(calc(var(--rz, 0deg) + 360deg)); 
-            }
-        }
-        
-        .neural-mesh {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-        
-        .neural-node {
-            position: absolute;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            border: 8px solid currentColor;
-            background: radial-gradient(circle, currentColor 0%, rgba(255, 255, 255, 0.9) 30%, transparent 70%);
-            animation: neural-pulse 3s ease-in-out infinite;
-            box-shadow: 
-                0 0 50px currentColor,
-                0 0 100px currentColor,
-                0 0 150px currentColor,
-                0 0 200px currentColor;
-            transition: all 1s ease;
-        }
-        
-        @keyframes neural-pulse {
-            0%, 100% { 
-                opacity: 1; 
-                transform: scale(1) rotate(0deg);
-                box-shadow: 
-                    0 0 50px currentColor,
-                    0 0 100px currentColor,
-                    0 0 150px currentColor,
-                    0 0 200px currentColor;
-            }
-            50% { 
-                opacity: 1; 
-                transform: scale(10) rotate(180deg);
-                box-shadow: 
-                    0 0 80px currentColor,
-                    0 0 160px currentColor,
-                    0 0 240px currentColor,
-                    0 0 320px currentColor,
-                    0 0 400px currentColor;
-            }
-        }
-        
-        .neural-connection {
-            position: absolute;
-            height: 8px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                currentColor 8%, 
-                rgba(255, 255, 255, 1) 50%,
-                currentColor 92%, 
-                transparent 100%);
-            animation: neural-flow 4s ease-in-out infinite;
-            box-shadow: 0 0 40px currentColor, 0 0 80px currentColor, 0 0 120px currentColor;
-            transition: all 1s ease;
-        }
-        
-        @keyframes neural-flow {
-            0%, 100% { 
-                opacity: 0.9; 
-                box-shadow: 0 0 30px currentColor, 0 0 60px currentColor, 0 0 90px currentColor;
-            }
-            50% { 
-                opacity: 1; 
-                box-shadow: 0 0 60px currentColor, 0 0 120px currentColor, 0 0 180px currentColor, 0 0 240px currentColor;
-            }
-        }
-        
-        .holo-stream {
+        .cyber-field {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
             z-index: 1;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 0, 128, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 20%, rgba(128, 0, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 30% 80%, rgba(255, 128, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 40%, rgba(0, 255, 128, 0.15) 0%, transparent 50%);
+            animation: cyberFieldPulse 10s ease-in-out infinite;
         }
         
-        .holo-particle {
+        .nine-layer-core {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .core-layer {
             position: absolute;
+            border: 3px solid;
             border-radius: 50%;
-            animation: holo-flow 18s linear infinite;
-            box-shadow: 0 0 50px currentColor, 0 0 100px currentColor, 0 0 150px currentColor, 0 0 200px currentColor;
-            background: radial-gradient(circle, currentColor 0%, rgba(255, 255, 255, 1) 30%, currentColor 70%, transparent 100%);
+            animation: coreRotation linear infinite;
+            box-shadow: inset 0 0 25px currentColor, 0 0 25px currentColor;
+            opacity: 0.9;
         }
         
-        .particle-nano { width: 6px; height: 6px; }
-        .particle-micro { width: 12px; height: 12px; }
-        .particle-small { width: 18px; height: 18px; }
-        .particle-medium { width: 26px; height: 26px; }
-        .particle-large { width: 36px; height: 36px; }
-        .particle-huge { width: 48px; height: 48px; }
-        .particle-massive { width: 62px; height: 62px; }
-        .particle-colossal { width: 78px; height: 78px; }
-        .particle-ultimate { width: 96px; height: 96px; }
-        .particle-infinite { width: 116px; height: 116px; }
-        
-        @keyframes holo-flow {
-            0% { 
-                transform: translateY(110vh) translateX(0) scale(0) rotate(0deg);
-                opacity: 0;
-                filter: hue-rotate(0deg) saturate(1.5) brightness(1.5) blur(0px);
-            }
-            6% { 
-                opacity: 1;
-                transform: translateY(98vh) translateX(60px) scale(3) rotate(60deg);
-                filter: hue-rotate(60deg) saturate(3) brightness(2) blur(1px);
-            }
-            20% { 
-                transform: translateY(80vh) translateX(-80px) scale(5) rotate(180deg);
-                filter: hue-rotate(180deg) saturate(4) brightness(3) blur(2px);
-            }
-            40% { 
-                transform: translateY(60vh) translateX(100px) scale(7) rotate(360deg);
-                filter: hue-rotate(360deg) saturate(5) brightness(4) blur(3px);
-            }
-            60% { 
-                transform: translateY(40vh) translateX(-70px) scale(5) rotate(540deg);
-                filter: hue-rotate(540deg) saturate(4) brightness(3) blur(2px);
-            }
-            80% { 
-                transform: translateY(20vh) translateX(50px) scale(3) rotate(720deg);
-                filter: hue-rotate(720deg) saturate(3) brightness(2) blur(1px);
-            }
-            94% { 
-                opacity: 1;
-                transform: translateY(2vh) translateX(30px) scale(1.5) rotate(840deg);
-                filter: hue-rotate(840deg) saturate(2) brightness(1.5) blur(0.5px);
-            }
-            100% { 
-                transform: translateY(-10vh) translateX(0) scale(0) rotate(900deg);
-                opacity: 0;
-                filter: hue-rotate(900deg) saturate(1.5) brightness(1.5) blur(0px);
-            }
+        .layer-1 { 
+            width: 100%; height: 100%; 
+            border-color: #ff0080; 
+            animation-duration: 30s; 
+            border-style: solid;
+        }
+        .layer-2 { 
+            width: 87%; height: 87%; top: 6.5%; left: 6.5%; 
+            border-color: #00ffff; 
+            animation-duration: 26s; 
+            animation-direction: reverse;
+            border-style: dashed;
+        }
+        .layer-3 { 
+            width: 74%; height: 74%; top: 13%; left: 13%; 
+            border-color: #ff8000; 
+            animation-duration: 22s; 
+            border-style: dotted;
+        }
+        .layer-4 { 
+            width: 61%; height: 61%; top: 19.5%; left: 19.5%; 
+            border-color: #8000ff; 
+            animation-duration: 18s; 
+            animation-direction: reverse;
+            border-style: double;
+        }
+        .layer-5 { 
+            width: 48%; height: 48%; top: 26%; left: 26%; 
+            border-color: #00ff80; 
+            animation-duration: 14s; 
+            border-style: solid;
+        }
+        .layer-6 { 
+            width: 35%; height: 35%; top: 32.5%; left: 32.5%; 
+            border-color: #ff0040; 
+            animation-duration: 10s; 
+            animation-direction: reverse;
+            border-style: dashed;
+        }
+        .layer-7 { 
+            width: 22%; height: 22%; top: 39%; left: 39%; 
+            border-color: #4000ff; 
+            animation-duration: 6s; 
+            border-style: dotted;
+        }
+        .layer-8 { 
+            width: 13%; height: 13%; top: 43.5%; left: 43.5%; 
+            border-color: #ff4000; 
+            animation-duration: 3s; 
+            animation-direction: reverse;
+            border-style: solid;
+        }
+        .layer-9 { 
+            width: 6%; height: 6%; top: 47%; left: 47%; 
+            border-color: #ffffff; 
+            animation-duration: 1.5s; 
+            box-shadow: inset 0 0 40px #ffffff, 0 0 60px #ffffff;
+            border-width: 4px;
         }
         
-        .cyber-processor {
-            background: conic-gradient(from 0deg,
-                var(--cyber-neon) 0deg,
-                var(--holo-cyan) 12deg,
-                var(--neural-pink) 24deg,
-                var(--quantum-blue) 36deg,
-                var(--quantum-purple) 48deg,
-                var(--quantum-pink) 60deg,
-                var(--quantum-green) 72deg,
-                var(--quantum-orange) 84deg,
-                var(--quantum-yellow) 96deg,
-                var(--quantum-red) 108deg,
-                var(--quantum-teal) 120deg,
-                var(--quantum-violet) 132deg,
-                var(--quantum-lime) 144deg,
-                var(--quantum-coral) 156deg,
-                var(--quantum-gold) 168deg,
-                var(--quantum-silver) 180deg,
-                var(--quantum-crimson) 192deg,
-                var(--quantum-azure) 204deg,
-                var(--quantum-magenta) 216deg,
-                var(--quantum-emerald) 228deg,
-                var(--quantum-amber) 240deg,
-                var(--quantum-indigo) 252deg,
-                var(--quantum-turquoise) 264deg,
-                var(--quantum-neon) 276deg,
-                var(--quantum-plasma) 288deg,
-                var(--quantum-cosmic) 300deg,
-                var(--quantum-stellar) 312deg,
-                var(--quantum-nebula) 324deg,
-                var(--quantum-infinity) 336deg,
-                var(--cyber-neon) 348deg,
-                var(--cyber-neon) 360deg);
-            background-size: 2500% 2500%;
-            animation: cyber-flow 10s ease-in-out infinite;
-            box-shadow: 
-                0 0 100px rgba(0, 255, 65, 1),
-                0 0 200px rgba(0, 255, 255, 0.8),
-                0 0 300px rgba(255, 0, 255, 0.7),
-                0 0 400px rgba(0, 245, 255, 0.6),
-                0 0 500px rgba(255, 255, 255, 0.5);
+        .neural-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
         }
         
-        @keyframes cyber-flow {
-            0%, 100% { 
-                background-position: 0% 50%; 
-                transform: rotate(0deg);
-            }
-            16.66% { 
-                background-position: 100% 0%; 
-                transform: rotate(60deg);
-            }
-            33.33% { 
-                background-position: 200% 50%; 
-                transform: rotate(120deg);
-            }
-            50% { 
-                background-position: 300% 100%; 
-                transform: rotate(180deg);
-            }
-            66.66% { 
-                background-position: 400% 50%; 
-                transform: rotate(240deg);
-            }
-            83.33% { 
-                background-position: 500% 0%; 
-                transform: rotate(300deg);
-            }
+        .neural-node {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            animation: neuralPulse 4s ease-in-out infinite;
+            box-shadow: 0 0 25px currentColor;
         }
         
-        .holo-interface {
-            background: conic-gradient(from 30deg, 
-                rgba(0, 255, 65, 0.4) 0deg,
-                rgba(0, 255, 255, 0.38) 24deg,
-                rgba(255, 0, 255, 0.35) 48deg,
-                rgba(0, 245, 255, 0.38) 72deg,
-                rgba(138, 43, 226, 0.4) 96deg,
-                rgba(255, 20, 147, 0.35) 120deg,
-                rgba(57, 255, 20, 0.38) 144deg,
-                rgba(255, 102, 0, 0.4) 168deg,
-                rgba(255, 255, 0, 0.35) 192deg,
-                rgba(255, 0, 64, 0.38) 216deg,
-                rgba(0, 255, 170, 0.4) 240deg,
-                rgba(148, 0, 211, 0.35) 264deg,
-                rgba(204, 255, 0, 0.38) 288deg,
-                rgba(255, 127, 80, 0.4) 312deg,
-                rgba(255, 215, 0, 0.35) 336deg,
-                rgba(0, 255, 65, 0.4) 360deg);
-            backdrop-filter: blur(50px);
-            border: 8px solid rgba(0, 255, 65, 0.6);
-            animation: holo-shimmer 6s ease-in-out infinite;
+        .neural-connection {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, currentColor 30%, currentColor 70%, transparent 100%);
+            animation: dataFlow 5s linear infinite;
+            box-shadow: 0 0 8px currentColor;
+        }
+        
+        .holographic-display {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 4;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 1.2s ease;
+        }
+        
+        .holographic-display.active {
+            opacity: 1;
+        }
+        
+        .holo-element {
+            position: absolute;
+            border: 2px solid;
+            animation: holoFloat 8s ease-in-out infinite;
+            box-shadow: 0 0 20px currentColor;
+        }
+        
+        .holo-circle {
+            border-radius: 50%;
+            animation: holoSpin 12s linear infinite;
+        }
+        
+        .holo-square {
+            animation: holoRotate 15s linear infinite;
+        }
+        
+        .holo-triangle {
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 43px solid;
+            border-radius: 0;
+            animation: holoTriangleSpin 10s linear infinite;
+        }
+        
+        .holo-hexagon {
+            width: 50px;
+            height: 28.87px;
+            position: relative;
+            animation: holoHexSpin 18s linear infinite;
+        }
+        
+        .holo-hexagon::before,
+        .holo-hexagon::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+        }
+        
+        .holo-hexagon::before {
+            bottom: 100%;
+            border-bottom: 14.43px solid;
+        }
+        
+        .holo-hexagon::after {
+            top: 100%;
+            border-top: 14.43px solid;
+        }
+        
+        .container {
+            max-width: 1700px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .main-title {
+            font-size: 6rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff0080, #00ffff, #ff8000, #8000ff, #00ff80, #ff0040, #4000ff, #ff4000, #80ff00, #0080ff, #ff8080, #8080ff, #ffff00);
+            background-size: 1300% 1300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: thirteenColorShift 6s ease-in-out infinite;
+            text-shadow: 0 0 120px rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+        
+        .subtitle {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff8000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-shadow: 0 0 50px #ff00ff;
+        }
+        
+        .cyber-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 4rem;
+            margin-bottom: 5rem;
+        }
+        
+        .cyber-module {
+            background: linear-gradient(135deg, 
+                rgba(255, 0, 128, 0.12) 0%, 
+                rgba(0, 255, 255, 0.12) 15%, 
+                rgba(128, 0, 255, 0.12) 30%, 
+                rgba(255, 128, 0, 0.12) 45%, 
+                rgba(0, 255, 128, 0.12) 60%, 
+                rgba(255, 0, 64, 0.12) 75%, 
+                rgba(64, 0, 255, 0.12) 90%, 
+                rgba(255, 64, 0, 0.12) 100%);
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            border-radius: 35px;
+            padding: 4rem;
             position: relative;
             overflow: hidden;
+            transition: all 0.7s ease;
+            backdrop-filter: blur(25px);
         }
         
-        @keyframes holo-shimmer {
-            0%, 100% { 
-                background-position: 0% 50%;
-                box-shadow: 
-                    0 0 100px rgba(0, 255, 65, 0.9),
-                    inset 0 0 100px rgba(0, 255, 65, 0.4);
-            }
-            50% { 
-                background-position: 100% 50%;
-                box-shadow: 
-                    0 0 150px rgba(0, 255, 255, 1),
-                    inset 0 0 150px rgba(0, 255, 255, 0.45);
-            }
-        }
-        
-        .quantum-entanglement {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .quantum-entanglement::before {
+        .cyber-module::before {
             content: '';
             position: absolute;
-            top: -100%;
-            left: -100%;
-            width: 300%;
-            height: 300%;
-            background: conic-gradient(
-                from 0deg,
-                transparent 0deg,
-                var(--cyber-neon) 4deg,
-                transparent 8deg,
-                var(--holo-cyan) 12deg,
-                transparent 16deg,
-                var(--neural-pink) 20deg,
-                transparent 24deg,
-                var(--quantum-blue) 28deg,
-                transparent 32deg,
-                var(--quantum-purple) 36deg,
-                transparent 40deg,
-                var(--quantum-pink) 44deg,
-                transparent 48deg,
-                var(--quantum-green) 52deg,
-                transparent 56deg,
-                var(--quantum-orange) 60deg,
-                transparent 64deg,
-                var(--quantum-yellow) 68deg,
-                transparent 72deg,
-                var(--quantum-red) 76deg,
-                transparent 80deg,
-                var(--quantum-teal) 84deg,
-                transparent 88deg,
-                var(--quantum-violet) 92deg,
-                transparent 96deg,
-                var(--quantum-lime) 100deg,
-                transparent 104deg,
-                var(--quantum-coral) 108deg,
-                transparent 112deg,
-                var(--quantum-gold) 116deg,
-                transparent 120deg,
-                var(--quantum-silver) 124deg,
-                transparent 128deg,
-                var(--quantum-crimson) 132deg,
-                transparent 136deg,
-                var(--quantum-azure) 140deg,
-                transparent 144deg,
-                var(--quantum-magenta) 148deg,
-                transparent 152deg,
-                var(--quantum-emerald) 156deg,
-                transparent 160deg,
-                var(--quantum-amber) 164deg,
-                transparent 168deg,
-                var(--quantum-indigo) 172deg,
-                transparent 176deg,
-                var(--quantum-turquoise) 180deg,
-                transparent 184deg,
-                var(--quantum-neon) 188deg,
-                transparent 192deg,
-                var(--quantum-plasma) 196deg,
-                transparent 200deg,
-                var(--quantum-cosmic) 204deg,
-                transparent 208deg,
-                var(--quantum-stellar) 212deg,
-                transparent 216deg,
-                var(--quantum-nebula) 220deg,
-                transparent 224deg,
-                var(--quantum-infinity) 228deg,
-                transparent 232deg,
-                transparent 360deg
-            );
-            animation: entanglement-spin 8s linear infinite;
-            opacity: 0.8;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #ff0080, #00ffff, #ff8000, #8000ff, #00ff80, #ff0040, #4000ff, #ff4000, #80ff00, #0080ff, #ff8080, #8080ff, #ffff00);
+            background-size: 1300% 1300%;
+            border-radius: 35px;
+            z-index: -1;
+            animation: borderFlow 8s linear infinite;
         }
         
-        @keyframes entanglement-spin {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.6); }
-            100% { transform: rotate(360deg) scale(1); }
+        .cyber-module:hover {
+            transform: translateY(-30px) scale(1.06);
+            box-shadow: 0 60px 120px rgba(255, 0, 255, 0.4);
         }
         
-        .cyber-mode {
-            background: radial-gradient(circle at center,
-                rgba(0, 255, 65, 0.5) 0%,
-                rgba(0, 255, 255, 0.45) 8%,
-                rgba(255, 0, 255, 0.4) 16%,
-                rgba(0, 245, 255, 0.35) 24%,
-                rgba(138, 43, 226, 0.3) 32%,
-                rgba(255, 20, 147, 0.25) 40%,
-                rgba(57, 255, 20, 0.22) 48%,
-                rgba(255, 102, 0, 0.18) 56%,
-                rgba(255, 255, 0, 0.15) 64%,
-                rgba(255, 0, 64, 0.12) 72%,
-                rgba(0, 255, 170, 0.1) 80%,
-                transparent 100%);
-            animation: cyber-pulse 8s ease-in-out infinite;
+        .module-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+        
+        .cyber-indicator {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ffffff 0%, #ff00ff 100%);
+            margin-right: 2.5rem;
+            animation: cyberBeat 1.5s ease-in-out infinite;
+            box-shadow: 0 0 50px #ffffff;
+        }
+        
+        .module-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00, #ff8000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .module-status {
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            background: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            padding: 1.2rem 2.5rem;
+            border-radius: 35px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: 2px solid #ffffff;
+            text-shadow: 0 0 20px #ffffff;
+            animation: statusPulse 2.5s ease-in-out infinite;
+        }
+        
+        .module-description {
+            color: #f0f0f0;
+            line-height: 2.4;
+            margin-bottom: 3.5rem;
+            font-size: 1.4rem;
+        }
+        
+        .cyber-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+        
+        .metric {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2.5rem;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.5s ease;
+        }
+        
+        .metric:hover {
+            border-color: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+        }
+        
+        .metric-label {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 1.2rem;
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff0080, #00ffff, #ffff00, #ff8000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .control-matrix {
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.97) 0%, 
+                rgba(80, 0, 160, 0.97) 25%, 
+                rgba(160, 0, 320, 0.97) 50%, 
+                rgba(240, 0, 480, 0.97) 75%, 
+                rgba(320, 0, 640, 0.97) 100%);
+            border: 4px solid transparent;
+            background-clip: padding-box;
+            border-radius: 45px;
+            padding: 6rem;
+            margin-top: 6rem;
             position: relative;
         }
         
-        @keyframes cyber-pulse {
-            0%, 100% { 
-                transform: scale(1) rotate(0deg);
-                box-shadow: 
-                    0 0 120px rgba(0, 255, 65, 0.8),
-                    0 0 240px rgba(0, 255, 255, 0.7),
-                    0 0 360px rgba(255, 0, 255, 0.6),
-                    0 0 480px rgba(255, 255, 255, 0.5);
-            }
-            20% { 
-                transform: scale(1.3) rotate(72deg);
-                box-shadow: 
-                    0 0 150px rgba(0, 245, 255, 0.9),
-                    0 0 300px rgba(138, 43, 226, 0.8),
-                    0 0 450px rgba(255, 20, 147, 0.7),
-                    0 0 600px rgba(57, 255, 20, 0.6);
-            }
-            40% { 
-                transform: scale(1.6) rotate(144deg);
-                box-shadow: 
-                    0 0 180px rgba(255, 102, 0, 1),
-                    0 0 360px rgba(255, 255, 0, 0.9),
-                    0 0 540px rgba(255, 0, 64, 0.8),
-                    0 0 720px rgba(0, 255, 170, 0.7);
-            }
-            60% { 
-                transform: scale(1.3) rotate(216deg);
-                box-shadow: 
-                    0 0 150px rgba(148, 0, 211, 0.9),
-                    0 0 300px rgba(204, 255, 0, 0.8),
-                    0 0 450px rgba(255, 127, 80, 0.7),
-                    0 0 600px rgba(255, 215, 0, 0.6);
-            }
-            80% { 
-                transform: scale(1.1) rotate(288deg);
-                box-shadow: 
-                    0 0 130px rgba(192, 192, 192, 0.8),
-                    0 0 260px rgba(220, 20, 60, 0.7),
-                    0 0 390px rgba(0, 127, 255, 0.6),
-                    0 0 520px rgba(255, 0, 255, 0.5);
-            }
+        .control-matrix::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, #ff0080, #00ffff, #ff8000, #8000ff, #00ff80, #ff0040, #4000ff, #ff4000, #80ff00, #0080ff, #ff8080, #8080ff, #ffff00);
+            background-size: 1300% 1300%;
+            border-radius: 45px;
+            z-index: -1;
+            animation: matrixFlow 12s linear infinite;
         }
         
-        .cyber-button {
-            background: conic-gradient(from 20deg, 
-                rgba(0, 255, 65, 0.7) 0deg,
-                rgba(0, 255, 255, 0.65) 24deg,
-                rgba(255, 0, 255, 0.6) 48deg,
-                rgba(0, 245, 255, 0.65) 72deg,
-                rgba(138, 43, 226, 0.7) 96deg,
-                rgba(255, 20, 147, 0.6) 120deg,
-                rgba(57, 255, 20, 0.65) 144deg,
-                rgba(255, 102, 0, 0.7) 168deg,
-                rgba(255, 255, 0, 0.6) 192deg,
-                rgba(255, 0, 64, 0.65) 216deg,
-                rgba(0, 255, 170, 0.7) 240deg,
-                rgba(148, 0, 211, 0.6) 264deg,
-                rgba(204, 255, 0, 0.65) 288deg,
-                rgba(255, 127, 80, 0.7) 312deg,
-                rgba(255, 215, 0, 0.6) 336deg,
-                rgba(0, 255, 65, 0.7) 360deg);
-            border: 8px solid transparent;
-            background-clip: padding-box;
+        .control-title {
+            text-align: center;
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ffffff, #ff00ff, #00ffff, #ffff00, #ff8000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5rem;
+            text-shadow: 0 0 80px #ffffff;
+        }
+        
+        .cyber-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+        
+        .cyber-btn {
+            background: linear-gradient(45deg, #ff0080, #8000ff, #00ffff, #ff8000, #00ff80);
+            border: none;
+            color: #ffffff;
+            padding: 3rem 3.5rem;
+            border-radius: 30px;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.6s ease;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             position: relative;
             overflow: hidden;
-            transition: all 1.2s ease;
-            backdrop-filter: blur(40px);
-            box-shadow: 
-                0 0 60px rgba(0, 255, 65, 0.8),
-                inset 0 0 60px rgba(0, 255, 65, 0.4);
-            animation: cyber-button-pulse 4s ease-in-out infinite;
+            text-shadow: 0 0 20px #ffffff;
         }
         
-        @keyframes cyber-button-pulse {
-            0%, 100% { 
-                background-position: 0% 50%;
-                transform: scale(1);
-            }
-            50% { 
-                background-position: 100% 50%;
-                transform: scale(1.15);
-            }
-        }
-        
-        .cyber-button::before {
+        .cyber-btn::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.9), 
-                transparent);
-            transition: left 2s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transition: left 1s ease;
         }
         
-        .cyber-button:hover {
-            transform: translateY(-20px) scale(1.35);
-            box-shadow: 
-                0 0 150px rgba(0, 255, 65, 1),
-                0 0 300px rgba(0, 255, 255, 1),
-                0 0 450px rgba(255, 0, 255, 0.9),
-                0 0 600px rgba(255, 255, 255, 0.8),
-                inset 0 0 100px rgba(255, 255, 255, 0.6);
-            animation: none;
-        }
-        
-        .cyber-button:hover::before {
+        .cyber-btn:hover::before {
             left: 100%;
         }
         
-        .cyber-button:active {
-            transform: translateY(-25px) scale(1.45);
-            box-shadow: 
-                0 0 200px rgba(0, 255, 65, 1),
-                0 0 400px rgba(0, 255, 255, 1),
-                0 0 600px rgba(255, 0, 255, 1),
-                0 0 800px rgba(0, 245, 255, 0.9),
-                0 0 1000px rgba(255, 255, 255, 0.8);
+        .cyber-btn:hover {
+            transform: scale(1.12);
+            box-shadow: 0 30px 60px rgba(255, 0, 255, 0.8);
         }
         
-        .cyber-spectacle {
-            animation: cyber-transcendent-spectacle 6s ease-in-out infinite;
+        @keyframes cyberFieldPulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
         }
         
-        .quantum-consciousness {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: conic-gradient(from 0deg,
-                rgba(0, 255, 65, 0.9) 0deg,
-                rgba(0, 255, 255, 0.85) 10deg,
-                rgba(255, 0, 255, 0.8) 20deg,
-                rgba(0, 245, 255, 0.85) 30deg,
-                rgba(138, 43, 226, 0.9) 40deg,
-                rgba(255, 20, 147, 0.8) 50deg,
-                rgba(57, 255, 20, 0.85) 60deg,
-                rgba(255, 102, 0, 0.9) 70deg,
-                rgba(255, 255, 0, 0.8) 80deg,
-                rgba(255, 0, 64, 0.85) 90deg,
-                rgba(0, 255, 170, 0.9) 100deg,
-                rgba(148, 0, 211, 0.8) 110deg,
-                rgba(204, 255, 0, 0.85) 120deg,
-                rgba(255, 127, 80, 0.9) 130deg,
-                rgba(255, 215, 0, 0.8) 140deg,
-                rgba(192, 192, 192, 0.85) 150deg,
-                rgba(220, 20, 60, 0.9) 160deg,
-                rgba(0, 127, 255, 0.8) 170deg,
-                rgba(255, 0, 255, 0.85) 180deg,
-                rgba(80, 200, 120, 0.9) 190deg,
-                rgba(255, 191, 0, 0.8) 200deg,
-                rgba(75, 0, 130, 0.85) 210deg,
-                rgba(64, 224, 208, 0.9) 220deg,
-                rgba(138, 43, 226, 0.85) 230deg,
-                rgba(0, 255, 128, 0.9) 240deg,
-                rgba(255, 0, 128, 0.85) 250deg,
-                rgba(128, 0, 255, 0.9) 260deg,
-                rgba(255, 128, 0, 0.85) 270deg,
-                rgba(0, 128, 255, 0.9) 280deg,
-                rgba(255, 255, 128, 0.85) 290deg,
-                rgba(128, 255, 0, 0.9) 300deg,
-                rgba(255, 0, 192, 0.85) 310deg,
-                rgba(0, 255, 192, 0.9) 320deg,
-                rgba(192, 0, 255, 0.85) 330deg,
-                rgba(255, 192, 0, 0.9) 340deg,
-                rgba(255, 255, 255, 0.85) 350deg,
-                rgba(0, 255, 65, 0.9) 360deg);
-            animation: quantum-consciousness-transcendence 8s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 5;
-            box-shadow: 
-                0 0 150px rgba(0, 255, 65, 1),
-                0 0 300px rgba(0, 255, 255, 0.9),
-                0 0 450px rgba(255, 0, 255, 0.8),
-                0 0 600px rgba(255, 255, 255, 0.7),
-                inset 0 0 150px rgba(255, 255, 255, 0.6);
+        @keyframes coreRotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
-        @keyframes quantum-consciousness-transcendence {
-            0% { 
-                transform: rotate(0deg) scale(1) rotateX(0deg) rotateY(0deg);
-                opacity: 1;
-                filter: hue-rotate(0deg) saturate(4) brightness(2.5) blur(0px);
-                box-shadow: 
-                    0 0 120px rgba(0, 255, 65, 0.9),
-                    0 0 240px rgba(0, 255, 255, 0.7),
-                    0 0 360px rgba(255, 0, 255, 0.6);
-            }
-            12.5% { 
-                transform: rotate(120deg) scale(4) rotateX(60deg) rotateY(120deg);
-                opacity: 1;
-                filter: hue-rotate(120deg) saturate(6) brightness(4) blur(1px);
-                box-shadow: 
-                    0 0 160px rgba(138, 43, 226, 1),
-                    0 0 320px rgba(255, 20, 147, 0.9),
-                    0 0 480px rgba(57, 255, 20, 0.7);
-            }
-            25% { 
-                transform: rotate(240deg) scale(6) rotateX(120deg) rotateY(240deg);
-                opacity: 1;
-                filter: hue-rotate(240deg) saturate(8) brightness(5.5) blur(2px);
-                box-shadow: 
-                    0 0 200px rgba(255, 102, 0, 1),
-                    0 0 400px rgba(255, 255, 0, 1),
-                    0 0 600px rgba(255, 0, 64, 0.9),
-                    inset 0 0 160px rgba(255, 255, 255, 0.8);
-            }
-            37.5% { 
-                transform: rotate(360deg) scale(8) rotateX(180deg) rotateY(360deg);
-                opacity: 1;
-                filter: hue-rotate(360deg) saturate(10) brightness(7) blur(3px);
-                box-shadow: 
-                    0 0 240px rgba(0, 255, 170, 1),
-                    0 0 480px rgba(148, 0, 211, 1),
-                    0 0 720px rgba(204, 255, 0, 1),
-                    0 0 960px rgba(255, 127, 80, 0.8),
-                    inset 0 0 220px rgba(255, 255, 255, 0.9);
-            }
-            50% { 
-                transform: rotate(480deg) scale(10) rotateX(240deg) rotateY(480deg);
-                opacity: 1;
-                filter: hue-rotate(480deg) saturate(12) brightness(8.5) blur(4px);
-                box-shadow: 
-                    0 0 280px rgba(255, 215, 0, 1),
-                    0 0 560px rgba(192, 192, 192, 1),
-                    0 0 840px rgba(220, 20, 60, 1),
-                    0 0 1120px rgba(0, 127, 255, 0.9),
-                    inset 0 0 280px rgba(255, 255, 255, 1);
-            }
-            62.5% { 
-                transform: rotate(600deg) scale(8) rotateX(300deg) rotateY(600deg);
-                opacity: 1;
-                filter: hue-rotate(600deg) saturate(10) brightness(7) blur(3px);
-                box-shadow: 
-                    0 0 240px rgba(80, 200, 120, 1),
-                    0 0 480px rgba(255, 191, 0, 1),
-                    0 0 720px rgba(75, 0, 130, 1),
-                    0 0 960px rgba(64, 224, 208, 0.8);
-            }
-            75% { 
-                transform: rotate(720deg) scale(6) rotateX(360deg) rotateY(720deg);
-                opacity: 1;
-                filter: hue-rotate(720deg) saturate(8) brightness(5.5) blur(2px);
-                box-shadow: 
-                    0 0 200px rgba(0, 255, 128, 1),
-                    0 0 400px rgba(255, 0, 128, 1),
-                    0 0 600px rgba(128, 0, 255, 0.9);
-            }
-            87.5% { 
-                transform: rotate(840deg) scale(4) rotateX(420deg) rotateY(840deg);
-                opacity: 1;
-                filter: hue-rotate(840deg) saturate(6) brightness(4) blur(1px);
-                box-shadow: 
-                    0 0 160px rgba(255, 128, 0, 1),
-                    0 0 320px rgba(0, 128, 255, 0.9),
-                    0 0 480px rgba(255, 255, 128, 0.8);
-            }
-            100% { 
-                transform: rotate(960deg) scale(1) rotateX(480deg) rotateY(960deg);
-                opacity: 1;
-                filter: hue-rotate(960deg) saturate(4) brightness(2.5) blur(0px);
-                box-shadow: 
-                    0 0 120px rgba(0, 255, 65, 0.9),
-                    0 0 240px rgba(0, 255, 255, 0.7),
-                    0 0 360px rgba(255, 0, 255, 0.6);
-            }
+        @keyframes neuralPulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(3); }
         }
         
-        .cyber-center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            background: conic-gradient(from 0deg,
-                var(--cyber-neon) 0deg,
-                var(--holo-cyan) 12deg,
-                var(--neural-pink) 24deg,
-                var(--quantum-blue) 36deg,
-                var(--quantum-purple) 48deg,
-                var(--quantum-pink) 60deg,
-                var(--quantum-green) 72deg,
-                var(--quantum-orange) 84deg,
-                var(--quantum-yellow) 96deg,
-                var(--quantum-red) 108deg,
-                var(--quantum-teal) 120deg,
-                var(--quantum-violet) 132deg,
-                var(--quantum-lime) 144deg,
-                var(--quantum-coral) 156deg,
-                var(--quantum-gold) 168deg,
-                var(--quantum-silver) 180deg,
-                var(--quantum-crimson) 192deg,
-                var(--quantum-azure) 204deg,
-                var(--quantum-magenta) 216deg,
-                var(--quantum-emerald) 228deg,
-                var(--quantum-amber) 240deg,
-                var(--quantum-indigo) 252deg,
-                var(--quantum-turquoise) 264deg,
-                var(--quantum-neon) 276deg,
-                var(--quantum-plasma) 288deg,
-                var(--quantum-cosmic) 300deg,
-                var(--quantum-stellar) 312deg,
-                var(--quantum-nebula) 324deg,
-                var(--quantum-infinity) 336deg,
-                var(--cyber-neon) 348deg,
-                var(--cyber-neon) 360deg);
-            animation: cyber-core-pulse 3s ease-in-out infinite;
-            box-shadow: 
-                0 0 120px var(--cyber-neon),
-                0 0 240px var(--holo-cyan),
-                0 0 360px var(--neural-pink),
-                0 0 480px var(--quantum-infinity),
-                inset 0 0 120px rgba(255, 255, 255, 0.6);
+        @keyframes dataFlow {
+            0% { opacity: 0; transform: translateX(-400px); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: translateX(400px); }
         }
         
-        @keyframes cyber-core-pulse {
-            0%, 100% { 
-                transform: translate(-50%, -50%) scale(1) rotate(0deg);
-                box-shadow: 
-                    0 0 120px var(--cyber-neon),
-                    0 0 240px var(--holo-cyan),
-                    0 0 360px var(--neural-pink),
-                    0 0 480px var(--quantum-infinity);
-            }
-            50% { 
-                transform: translate(-50%, -50%) scale(2) rotate(180deg);
-                box-shadow: 
-                    0 0 180px var(--quantum-blue),
-                    0 0 360px var(--quantum-purple),
-                    0 0 540px var(--quantum-pink),
-                    0 0 720px var(--quantum-green),
-                    0 0 900px var(--quantum-infinity);
-            }
+        @keyframes thirteenColorShift {
+            0%, 100% { background-position: 0% 50%; }
+            16.66% { background-position: 16.66% 50%; }
+            33.33% { background-position: 33.33% 50%; }
+            50% { background-position: 50% 50%; }
+            66.66% { background-position: 66.66% 50%; }
+            83.33% { background-position: 83.33% 50%; }
         }
         
-        .cyber-float {
-            animation: cyber-quantum-float 10s ease-in-out infinite;
+        @keyframes borderFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 1300% 50%; }
         }
         
-        @keyframes cyber-quantum-float {
-            0%, 100% { 
-                transform: translateY(0px) rotateX(0deg) rotateY(0deg); 
-            }
-            16.66% { 
-                transform: translateY(-50px) rotateX(30deg) rotateY(60deg); 
-            }
-            33.33% { 
-                transform: translateY(-100px) rotateX(60deg) rotateY(120deg); 
-            }
-            50% { 
-                transform: translateY(-150px) rotateX(90deg) rotateY(180deg); 
-            }
-            66.66% { 
-                transform: translateY(-100px) rotateX(60deg) rotateY(120deg); 
-            }
-            83.33% { 
-                transform: translateY(-50px) rotateX(30deg) rotateY(60deg); 
-            }
+        @keyframes cyberBeat {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 50px #ffffff; }
+            50% { transform: scale(1.5); box-shadow: 0 0 100px #ffffff; }
         }
         
-        @keyframes cyber-transcendent-spectacle {
-            0%, 100% { 
-                transform: scale(1) rotate(0deg) rotateX(0deg) rotateY(0deg);
-                filter: hue-rotate(0deg) saturate(2) brightness(1.8) contrast(1.8) blur(0px);
-                box-shadow: 
-                    0 0 120px var(--cyber-neon),
-                    0 0 240px var(--holo-cyan),
-                    0 0 360px var(--neural-pink),
-                    0 0 480px var(--quantum-blue);
-            }
-            10% { 
-                transform: scale(1.5) rotate(60deg) rotateX(30deg) rotateY(30deg);
-                filter: hue-rotate(60deg) saturate(3) brightness(2.5) contrast(2.5) blur(1px);
-                box-shadow: 
-                    0 0 140px var(--quantum-purple),
-                    0 0 280px var(--quantum-pink),
-                    0 0 420px var(--quantum-green),
-                    0 0 560px var(--quantum-orange);
-            }
-            20% { 
-                transform: scale(2) rotate(120deg) rotateX(60deg) rotateY(60deg);
-                filter: hue-rotate(120deg) saturate(4) brightness(3.5) contrast(3.5) blur(2px);
-                box-shadow: 
-                    0 0 160px var(--quantum-yellow),
-                    0 0 320px var(--quantum-red),
-                    0 0 480px var(--quantum-teal),
-                    0 0 640px var(--quantum-violet);
-            }
-            30% { 
-                transform: scale(2.5) rotate(180deg) rotateX(90deg) rotateY(90deg);
-                filter: hue-rotate(180deg) saturate(5) brightness(4.5) contrast(4.5) blur(3px);
-                box-shadow: 
-                    0 0 180px var(--quantum-lime),
-                    0 0 360px var(--quantum-coral),
-                    0 0 540px var(--quantum-gold),
-                    0 0 720px var(--quantum-silver);
-            }
-            40% { 
-                transform: scale(3) rotate(240deg) rotateX(120deg) rotateY(120deg);
-                filter: hue-rotate(240deg) saturate(6) brightness(5.5) contrast(5.5) blur(4px);
-                box-shadow: 
-                    0 0 200px var(--quantum-crimson),
-                    0 0 400px var(--quantum-azure),
-                    0 0 600px var(--quantum-magenta),
-                    0 0 800px var(--quantum-emerald);
-            }
-            50% { 
-                transform: scale(3.5) rotate(300deg) rotateX(150deg) rotateY(150deg);
-                filter: hue-rotate(300deg) saturate(7) brightness(6.5) contrast(6.5) blur(5px);
-                box-shadow: 
-                    0 0 220px var(--quantum-amber),
-                    0 0 440px var(--quantum-indigo),
-                    0 0 660px var(--quantum-turquoise),
-                    0 0 880px var(--quantum-neon);
-            }
-            60% { 
-                transform: scale(3) rotate(360deg) rotateX(120deg) rotateY(120deg);
-                filter: hue-rotate(360deg) saturate(6) brightness(5.5) contrast(5.5) blur(4px);
-                box-shadow: 
-                    0 0 200px var(--quantum-plasma),
-                    0 0 400px var(--quantum-cosmic),
-                    0 0 600px var(--quantum-stellar),
-                    0 0 800px var(--quantum-nebula);
-            }
-            70% { 
-                transform: scale(2.5) rotate(420deg) rotateX(90deg) rotateY(90deg);
-                filter: hue-rotate(420deg) saturate(5) brightness(4.5) contrast(4.5) blur(3px);
-                box-shadow: 
-                    0 0 180px var(--quantum-infinity),
-                    0 0 360px var(--cyber-neon),
-                    0 0 540px var(--holo-cyan),
-                    0 0 720px var(--neural-pink);
-            }
-            80% { 
-                transform: scale(2) rotate(480deg) rotateX(60deg) rotateY(60deg);
-                filter: hue-rotate(480deg) saturate(4) brightness(3.5) contrast(3.5) blur(2px);
-                box-shadow: 
-                    0 0 160px var(--quantum-blue),
-                    0 0 320px var(--quantum-purple),
-                    0 0 480px var(--quantum-pink),
-                    0 0 640px var(--quantum-green);
-            }
-            90% { 
-                transform: scale(1.5) rotate(540deg) rotateX(30deg) rotateY(30deg);
-                filter: hue-rotate(540deg) saturate(3) brightness(2.5) contrast(2.5) blur(1px);
-                box-shadow: 
-                    0 0 140px var(--quantum-orange),
-                    0 0 280px var(--quantum-yellow),
-                    0 0 420px var(--quantum-red),
-                    0 0 560px var(--quantum-teal);
-            }
+        @keyframes statusPulse {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
         }
         
-        .responsive {
-            transition: all 1s ease;
+        @keyframes matrixFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 1300% 50%; }
+        }
+        
+        @keyframes holoFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-40px) rotate(90deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            75% { transform: translateY(-60px) rotate(270deg); }
+        }
+        
+        @keyframes holoSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.3); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        @keyframes holoRotate {
+            0% { transform: rotate(0deg) scale(1); }
+            33% { transform: rotate(120deg) scale(1.2); }
+            66% { transform: rotate(240deg) scale(0.8); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        @keyframes holoTriangleSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes holoHexSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.4); }
+            100% { transform: rotate(360deg) scale(1); }
         }
         
         @media (max-width: 768px) {
-            .cyber-core {
-                width: 1200px;
-                height: 1200px;
+            .main-title {
+                font-size: 4rem;
             }
             
-            .cyber-center {
-                width: 220px;
-                height: 220px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .cyber-core {
-                width: 1000px;
-                height: 1000px;
+            .cyber-grid {
+                grid-template-columns: 1fr;
             }
             
-            .cyber-center {
-                width: 180px;
-                height: 180px;
+            .cyber-controls {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
-<body class="text-white cyber-grid">
-    <!-- Enhanced Vibrant Holographic Data Stream -->
-    <div class="holo-stream" id="holoStream"></div>
-
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-black/95 border-b border-green-400/80">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="quantum-font text-2xl font-bold quantum-glow">
-                    ⬢ STAR TEKNOLOJİ MATRİX
-                </div>
-                <div class="hidden md:flex space-x-6">
-                    <a href="#core" class="hover:text-green-400 transition-colors">Nine Layers</a>
-                    <a href="#interface" class="hover:text-cyan-400 transition-colors">Neural Mesh</a>
-                    <a href="#processor" class="hover:text-pink-400 transition-colors">Holo AR</a>
-                    <a href="#cyber" class="hover:text-blue-400 transition-colors">Transcendence</a>
-                </div>
-                <div class="cyber-processor px-4 py-2 rounded text-sm">
-                    <span class="text-white font-bold">QUANTUM ACTIVE • HOLO ACTIVE • MATRIX TRANSCENDENT • INFINITY ACHIEVED</span>
-                </div>
-            </div>
+<body>
+    <div class="cyber-field"></div>
+    
+    <div class="nine-layer-core">
+        <div class="core-layer layer-1"></div>
+        <div class="core-layer layer-2"></div>
+        <div class="core-layer layer-3"></div>
+        <div class="core-layer layer-4"></div>
+        <div class="core-layer layer-5"></div>
+        <div class="core-layer layer-6"></div>
+        <div class="core-layer layer-7"></div>
+        <div class="core-layer layer-8"></div>
+        <div class="core-layer layer-9"></div>
+    </div>
+    
+    <div class="neural-mesh" id="neuralMesh"></div>
+    
+    <div class="holographic-display" id="holoDisplay"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1 class="main-title">Star Teknoloji Matrix</h1>
+            <p class="subtitle">Nine-Layer Rotating Core • Thirteen-Color Neural Mesh • Dynamic Holographic Displays</p>
         </div>
-    </nav>
-
-    <!-- Hero Section with Enhanced Nine-Layer Quantum Core -->
-    <section id="core" class="min-h-screen flex items-center justify-center relative py-20">
-        <div class="text-center z-10 max-w-7xl mx-auto px-6">
-            <div class="cyber-float mb-12">
-                <h1 class="quantum-font text-7xl md:text-9xl lg:text-11xl font-black mb-6 quantum-glow">
-                  STAR TEKNOLOJİ
-                </h1>
-                <h2 class="quantum-font text-5xl md:text-7xl lg:text-9xl font-bold mb-8 cyber-processor bg-clip-text text-transparent">
-                    ULTIMATE MATRIX TRANSCENDENCE ENGINE CODE
-                </h2>
-                <p class="text-2xl md:text-3xl lg:text-4xl mb-12 text-green-300">
-                    Initialize Quantum Reality • Entangle Neural Mesh • Render Holographic Reality • Activate Data Stream • Advanced Deployment • Deploy to Quantum Cloud • Transcend Dimensions • Synchronize States • Achieve Neural Infinity • Quantum Transcendence • Reality Matrix Activation • Ultimate Consciousness Transcendence • Infinite Matrix Engine • Dimensional Transcendence • Ultimate Reality Matrix
+        
+        <div class="cyber-grid">
+            <div class="cyber-module">
+                <div class="module-status">CORE ROTATING</div>
+                <div class="module-header">
+                    <div class="cyber-indicator"></div>
+                    <h3 class="module-title">Nine-Layer Rotating Core</h3>
+                </div>
+                <p class="module-description">
+                    Sophisticated nine-layer quantum core with varied rotation speeds and patterns. 
+                    Each layer operates independently with unique timing creating complex dimensional resonance.
                 </p>
-            </div>
-            
-            <!-- Enhanced Nine-Layer Quantum Core with Thirty Neural Nodes -->
-            <div class="cyber-core mb-12 cyber-float quantum-entanglement">
-                <!-- Nine Enhanced Quantum Layers with Ultimate 5D+ Positioning -->
-                <div class="quantum-layer layer-1" style="--rx: 0deg; --ry: 0deg; --rz: 0deg;">
-                    <div class="quantum-consciousness"></div>
-                </div>
-                <div class="quantum-layer layer-2" style="--rx: 45deg; --ry: 45deg; --rz: 45deg;">
-                    <div class="quantum-consciousness" style="animation-delay: 1s;"></div>
-                </div>
-                <div class="quantum-layer layer-3" style="--rx: 90deg; --ry: 90deg; --rz: 90deg;">
-                    <div class="quantum-consciousness" style="animation-delay: 2s;"></div>
-                </div>
-                <div class="quantum-layer layer-4" style="--rx: 135deg; --ry: 135deg; --rz: 135deg;">
-                    <div class="quantum-consciousness" style="animation-delay: 3s;"></div>
-                </div>
-                <div class="quantum-layer layer-5" style="--rx: 180deg; --ry: 180deg; --rz: 180deg;">
-                    <div class="quantum-consciousness" style="animation-delay: 4s;"></div>
-                </div>
-                <div class="quantum-layer layer-6" style="--rx: 225deg; --ry: 225deg; --rz: 225deg;">
-                    <div class="quantum-consciousness" style="animation-delay: 5s;"></div>
-                </div>
-                <div class="quantum-layer layer-7" style="--rx: 270deg; --ry: 270deg; --rz: 270deg;">
-                    <div class="quantum-consciousness" style="animation-delay: 6s;"></div>
-                </div>
-                <div class="quantum-layer layer-8" style="--rx: 315deg; --ry: 315deg; --rz: 315deg;">
-                    <div class="quantum-consciousness" style="animation-delay: 7s;"></div>
-                </div>
-                <div class="quantum-layer layer-9" style="--rx: 360deg; --ry: 360deg; --rz: 360deg;">
-                    <div class="quantum-consciousness" style="animation-delay: 8s;"></div>
-                </div>
-                
-                <!-- Enhanced Thirty Neural Nodes in Neural Mesh -->
-                <div class="neural-mesh" id="neuralMesh"></div>
-                
-                <!-- Enhanced Cyber Core Center -->
-                <div class="cyber-center">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="quantum-font text-2xl font-bold text-center text-white">
-                            <div class="text-green-400">ULTIMATE</div>
-                            <div class="text-cyan-400">⚛️</div>
-                            <div class="text-pink-400">MATRIX</div>
-                            <div class="text-white">∞</div>
-                        </div>
+                <div class="cyber-metrics">
+                    <div class="metric">
+                        <div class="metric-label">Core Layers</div>
+                        <div class="metric-value">9</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Speed Variation</div>
+                        <div class="metric-value">Variable</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Rotation Patterns</div>
+                        <div class="metric-value">Complex</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Resonance</div>
+                        <div class="metric-value">∞</div>
                     </div>
                 </div>
             </div>
             
-            <div class="flex flex-col sm:flex-row gap-8 justify-center">
-                <button onclick="initializeQuantumReality()" class="cyber-button px-20 py-8 text-2xl rounded-lg">
-                    🚀 Initialize Quantum Reality
-                </button>
-                <button onclick="entangleNeuralMesh()" class="cyber-button px-20 py-8 text-2xl rounded-lg">
-                    🧠 Entangle Neural Mesh
-                </button>
-                <button onclick="renderHolographicReality()" class="cyber-button px-20 py-8 text-2xl rounded-lg">
-                    🌈 Render Holographic Reality
-                </button>
+            <div class="cyber-module">
+                <div class="module-status">MESH SYNCHRONIZED</div>
+                <div class="module-header">
+                    <div class="cyber-indicator"></div>
+                    <h3 class="module-title">Thirteen-Color Neural Mesh</h3>
+                </div>
+                <p class="module-description">
+                    Sophisticated neural network utilizing thirteen distinct color frequencies with interconnected nodes. 
+                    Advanced mesh topology with dynamic connections and quantum entanglement protocols.
+                </p>
+                <div class="cyber-metrics">
+                    <div class="metric">
+                        <div class="metric-label">Color Channels</div>
+                        <div class="metric-value">13</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Neural Nodes</div>
+                        <div class="metric-value">35</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Connections</div>
+                        <div class="metric-value">Dynamic</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Sophistication</div>
+                        <div class="metric-value">Advanced</div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Holographic AR Interface -->
-    <section id="interface" class="py-20 relative">
-        <div class="container mx-auto px-6">
-            <h2 class="quantum-font text-6xl font-bold text-center mb-16 quantum-glow">
-                ENHANCED HOLOGRAPHIC AR INTERFACE - ULTIMATE MATRIX ENGINE
-            </h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="holo-interface p-14 rounded-xl responsive cyber-mode quantum-entanglement">
-                    <div class="text-8xl mb-8">🧠</div>
-                    <h3 class="quantum-font text-3xl font-bold mb-8 text-green-400">Neural Network Synchronization</h3>
-                    <p class="text-gray-300 mb-10">Infinite neural layers with thirty interconnected nodes creating mesmerizing pulse waves that emanate from quantum nodes with enhanced holographic effects, ultimate transcendence capabilities, infinite consciousness matrix activation, and dimensional transcendence beyond all known boundaries.</p>
-                    <div class="cyber-processor h-8 rounded-full mb-8"></div>
-                    <div class="text-lg space-y-3">
-                        <div class="flex justify-between">
-                            <span class="text-green-300">Neural Layers:</span>
-                            <span class="text-cyan-400">∞</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-cyan-300">Neural Nodes:</span>
-                            <span class="text-pink-400">30</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-pink-300">Synchronization:</span>
-                            <span class="text-green-400">MATRIX TRANSCENDENT</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-green-300">Consciousness:</span>
-                            <span class="text-cyan-400">INFINITE MATRIX</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-cyan-300">Transcendence:</span>
-                            <span class="text-pink-400">ULTIMATE ENGINE</span>
-                        </div>
+            
+            <div class="cyber-module">
+                <div class="module-status">HOLO ACTIVE</div>
+                <div class="module-header">
+                    <div class="cyber-indicator"></div>
+                    <h3 class="module-title">Dynamic Holographic Displays</h3>
+                </div>
+                <p class="module-description">
+                    Multi-dimensional holographic projection system with floating geometric elements. 
+                    Supports circles, squares, triangles, and hexagons with complex animation patterns.
+                </p>
+                <div class="cyber-metrics">
+                    <div class="metric">
+                        <div class="metric-label">Geometric Types</div>
+                        <div class="metric-value">4</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Float Patterns</div>
+                        <div class="metric-value">Dynamic</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Projection Mode</div>
+                        <div class="metric-value">Multi-D</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Elements</div>
+                        <div class="metric-value">Floating</div>
                     </div>
                 </div>
-                
-                <div class="holo-interface p-14 rounded-xl responsive cyber-mode quantum-entanglement">
-                    <div class="text-8xl mb-8">🌐</div>
-                    <h3 class="quantum-font text-3xl font-bold mb-8 text-cyan-400">5D+ Holographic Rendering</h3>
-                    <p class="text-gray-300 mb-10">Nine quantum layers with enhanced 5D+ positioning create complex animations with holographic transformations, color filtering, layered shadow effects, ultimate dimensional transcendence, infinite matrix consciousness activation, and reality matrix engine capabilities.</p>
-                    <div class="cyber-processor h-8 rounded-full mb-8" style="animation-delay: 1s;"></div>
-                    <div class="text-lg space-y-3">
-                        <div class="flex justify-between">
-                            <span class="text-cyan-300">Quantum Layers:</span>
-                            <span class="text-green-400">9</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-green-300">Dimensions:</span>
-                            <span class="text-pink-400">5D+</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-pink-300">Rendering:</span>
-                            <span class="text-cyan-400">ULTIMATE MATRIX</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-cyan-300">Transcendence:</span>
-                            <span class="text-green-400">INFINITE ENGINE</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-green-300">Reality Matrix:</span>
-                            <span class="text-pink-400">ACTIVE ENGINE</span>
-                        </div>
-                    </div>
+            </div>
+            
+            <div class="cyber-module">
+                <div class="module-status">SYSTEM INTRICATE</div>
+                <div class="module-header">
+                    <div class="cyber-indicator"></div>
+                    <h3 class="module-title">Intricate System Architecture</h3>
                 </div>
-                
-                <div class="holo-interface p-14 rounded-xl responsive cyber-mode quantum-entanglement">
-                    <div class="text-8xl mb-8">🌊</div>
-                    <h3 class="quantum-font text-3xl font-bold mb-8 text-pink-400">Vibrant Data Stream Engine</h3>
-                    <p class="text-gray-300 mb-10">Continuous flow of vibrant holographic data streams with multiple particle sizes creating enhanced connection patterns using full spectrum processing, transcendent consciousness activation, ultimate matrix reality synchronization, and infinite dimensional engine capabilities.</p>
-                    <div class="cyber-processor h-8 rounded-full mb-8" style="animation-delay: 2s;"></div>
-                    <div class="text-lg space-y-3">
-                        <div class="flex justify-between">
-                            <span class="text-pink-300">Data Flow:</span>
-                            <span class="text-green-400">CONTINUOUS ENGINE</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-cyan-300">Stream Type:</span>
-                            <span class="text-pink-400">MATRIX TRANSCENDENT</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-green-300">Processing:</span>
-                            <span class="text-cyan-400">ULTIMATE INFINITE</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-pink-300">Reality Matrix:</span>
-                            <span class="text-green-400">ENGINE ACTIVE</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-cyan-300">Infinity Level:</span>
-                            <span class="text-pink-400">MAXIMUM ENGINE</span>
-                        </div>
+                <p class="module-description">
+                    Complex cybersystem architecture with sophisticated component integration. 
+                    Advanced synchronization protocols and intricate visual effect coordination.
+                </p>
+                <div class="cyber-metrics">
+                    <div class="metric">
+                        <div class="metric-label">Architecture</div>
+                        <div class="metric-value">Intricate</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Integration</div>
+                        <div class="metric-value">Advanced</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Synchronization</div>
+                        <div class="metric-value">Complex</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Coordination</div>
+                        <div class="metric-value">Sophisticated</div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Enhanced Cyber Quantum Processor -->
-    <section id="processor" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="quantum-font text-6xl font-bold text-center mb-16 quantum-glow">
-                ULTIMATE CYBER QUANTUM PROCESSOR - MATRIX TRANSCENDENCE ENGINE
-            </h2>
-            <div class="max-w-6xl mx-auto">
-                <div class="holo-interface p-16 rounded-2xl cyber-mode quantum-entanglement">
-                    <div class="grid md:grid-cols-2 gap-14">
-                        <div>
-                            <h3 class="quantum-font text-4xl font-bold mb-10 text-green-400">Holographic Matrix Engine</h3>
-                            <div class="space-y-6">
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xl">Cyber Neon Core Engine</span>
-                                    <div class="flex items-center">
-                                        <div class="w-48 bg-gray-800 rounded-full h-8 mr-4">
-                                            <div class="cyber-processor h-8 rounded-full" style="width: 100%;"></div>
-                                        </div>
-                                        <span class="text-green-400 font-bold text-xl">∞%</span>
-                                    </div>
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xl">Holo Cyan Engine Matrix</span>
-                                    <div class="flex items-center">
-                                        <div class="w-48 bg-gray-800 rounded-full h-8 mr-4">
-                                            <div class="cyber-processor h-8 rounded-full" style="width: 100%; animation-delay: 0.5s;"></div>
-                                        </div>
-                                        <span class="text-cyan-400 font-bold text-xl">∞%</span>
-                                    </div>
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xl">Neural Pink Renderer Engine</span>
-                                    <div class="flex items-center">
-                                        <div class="w-48 bg-gray-800 rounded-full h-8 mr-4">
-                                            <div class="cyber-processor h-8 rounded-full" style="width: 100%; animation-delay: 1s;"></div>
-                                        </div>
-                                        <span class="text-pink-400 font-bold text-xl">∞%</span>
-                                    </div>
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xl">Quantum Blue Network Engine</span>
-                                    <div class="flex items-center">
-                                        <div class="w-48 bg-gray-800 rounded-full h-8 mr-4">
-                                            <div class="cyber-processor h-8 rounded-full" style="width: 100%; animation-delay: 1.5s;"></div>
-                                        </div>
-                                        <span class="text-blue-400 font-bold text-xl">∞%</span>
-                                    </div>
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xl">Transcendent Data Stream Engine</span>
-                                    <div class="flex items-center">
-                                        <div class="w-48 bg-gray-800 rounded-full h-8 mr-4">
-                                            <div class="cyber-processor h-8 rounded-full" style="width: 100%; animation-delay: 2s;"></div>
-                                        </div>
-                                        <span class="text-purple-400 font-bold text-xl">∞%</span>
-                                    </div>
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xl">Ultimate Consciousness Engine</span>
-                                    <div class="flex items-center">
-                                        <div class="w-48 bg-gray-800 rounded-full h-8 mr-4">
-                                            <div class="cyber-processor h-8 rounded-full" style="width: 100%; animation-delay: 2.5s;"></div>
-                                        </div>
-                                        <span class="text-yellow-400 font-bold text-xl">∞%</span>
-                                    </div>
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xl">Matrix Reality Engine Core</span>
-                                    <div class="flex items-center">
-                                        <div class="w-48 bg-gray-800 rounded-full h-8 mr-4">
-                                            <div class="cyber-processor h-8 rounded-full" style="width: 100%; animation-delay: 3s;"></div>
-                                        </div>
-                                        <span class="text-emerald-400 font-bold text-xl">∞%</span>
-                                    </div>
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xl">Infinite Transcendence Engine</span>
-                                    <div class="flex items-center">
-                                        <div class="w-48 bg-gray-800 rounded-full h-8 mr-4">
-                                            <div class="cyber-processor h-8 rounded-full" style="width: 100%; animation-delay: 3.5s;"></div>
-                                        </div>
-                                        <span class="text-white font-bold text-xl">∞%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <h3 class="quantum-font text-4xl font-bold mb-10 text-cyan-400">System Metrics Engine</h3>
-                            <div class="space-y-5">
-                                <div class="flex justify-between">
-                                    <span class="text-green-300 text-xl">Quantum Layers:</span>
-                                    <span class="text-cyan-400 font-bold text-xl">9</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-green-300 text-xl">Neural Nodes:</span>
-                                    <span class="text-pink-400 font-bold text-xl">30</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-green-300 text-xl">Neural Layers:</span>
-                                    <span class="text-green-400 font-bold text-xl">∞</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-green-300 text-xl">Dimensions:</span>
-                                    <span class="text-cyan-400 font-bold text-xl">5D+</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-green-300 text-xl">AR Interface:</span>
-                                    <span class="text-pink-400 font-bold text-xl">ULTIMATE MATRIX ENGINE</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-green-300 text-xl">Entanglement:</span>
-                                    <span class="text-cyan-400 font-bold text-xl">QUANTUM INFINITE ENGINE</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-green-300 text-xl">Data Stream:</span>
-                                    <span class="text-pink-400 font-bold text-xl">MATRIX TRANSCENDENT ENGINE</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-green-300 text-xl">Reality Status:</span>
-                                    <span class="text-green-400 font-bold text-xl">ULTIMATE MATRIX ENGINE ACTIVE</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-green-300 text-xl">Consciousness:</span>
-                                    <span class="text-yellow-400 font-bold text-xl">INFINITE TRANSCENDENT ENGINE</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-green-300 text-xl">Matrix Level:</span>
-                                    <span class="text-emerald-400 font-bold text-xl">ULTIMATE INFINITY ENGINE</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span class="text-green-300 text-xl">Engine Status:</span>
-                                    <span class="text-white font-bold text-xl">MAXIMUM TRANSCENDENCE ACTIVE</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-14 text-center">
-                        <button onclick="activateDataStream()" class="cyber-button px-22 py-10 text-3xl rounded-xl">
-                            🌊 Activate Matrix Transcendent Data Stream Engine
-                        </button>
-                    </div>
-                </div>
+        
+        <div class="control-matrix">
+            <h2 class="control-title">Cybersystem Control Matrix</h2>
+            <div class="cyber-controls">
+                <button class="cyber-btn" onclick="activateNineLayerCore()">Activate Nine-Layer Core</button>
+                <button class="cyber-btn" onclick="synchronizeNeuralMesh()">Synchronize Neural Mesh</button>
+                <button class="cyber-btn" onclick="renderHolographicDisplay()">Render Holographic Display</button>
+                <button class="cyber-btn" onclick="enhanceSystemIntricacy()">Enhance System Intricacy</button>
+                <button class="cyber-btn" onclick="optimizeVariedSpeeds()">Optimize Varied Speeds</button>
+                <button class="cyber-btn" onclick="activateFloatingGeometry()">Activate Floating Geometry</button>
             </div>
         </div>
-    </section>
-
-    <!-- Ultimate Transcendence Matrix Engine Section -->
-    <section id="cyber" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="quantum-font text-6xl font-bold text-center mb-16 quantum-glow">
-                ULTIMATE TRANSCENDENCE MATRIX ENGINE DEPLOYMENT
-            </h2>
-            <div class="max-w-5xl mx-auto">
-                <div class="holo-interface p-16 rounded-2xl cyber-mode quantum-entanglement">
-                    <div class="text-center mb-14">
-                        <div class="text-10xl mb-10">🚀</div>
-                        <h3 class="quantum-font text-5xl font-bold mb-10 cyber-processor bg-clip-text text-transparent">
-                            CYBER STATUS: ULTIMATE MATRIX TRANSCENDENCE ENGINE
-                        </h3>
-                        <p class="text-2xl text-gray-300">
-                            Nine-layer quantum systems with thirty interconnected neural nodes achieving infinite consciousness matrix engine and ultimate dimensional transcendence beyond all known reality boundaries with maximum engine capabilities
-                        </p>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-4 gap-10 mb-14">
-                        <div class="text-center">
-                            <div class="text-7xl mb-6">⚛️</div>
-                            <div class="text-2xl font-bold text-green-400 mb-4">Nine Layers</div>
-                            <div class="text-cyan-400 text-lg">QUANTUM MATRIX ENGINE</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-7xl mb-6">🧠</div>
-                            <div class="text-2xl font-bold text-cyan-400 mb-4">30 Nodes</div>
-                            <div class="text-pink-400 text-lg">NEURAL INFINITE ENGINE</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-7xl mb-6">🌊</div>
-                            <div class="text-2xl font-bold text-pink-400 mb-4">Data Stream</div>
-                            <div class="text-green-400 text-lg">MATRIX TRANSCENDENT ENGINE</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-7xl mb-6">🌐</div>
-                            <div class="text-2xl font-bold text-blue-400 mb-4">Holo AR</div>
-                            <div class="text-cyan-400 text-lg">ULTIMATE MATRIX ENGINE</div>
-                        </div>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="grid md:grid-cols-2 gap-10">
-                            <button onclick="deployToQuantumCloud()" class="cyber-button px-20 py-10 text-3xl rounded-2xl">
-                                ☁️ Deploy to Quantum Matrix Cloud Engine
-                            </button>
-                            <button onclick="transcendDimensions()" class="cyber-button px-20 py-10 text-3xl rounded-2xl">
-                                🌌 Transcend Matrix Dimensions Engine
-                            </button>
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-10 mt-10">
-                            <button onclick="synchronizeStates()" class="cyber-button px-20 py-10 text-3xl rounded-2xl">
-                                🔗 Synchronize Matrix States Engine
-                            </button>
-                            <button onclick="activateRealityMatrix()" class="cyber-button px-20 py-10 text-3xl rounded-2xl">
-                                🌟 Activate Ultimate Reality Matrix Engine
-                            </button>
-                        </div>
-                        <div class="mt-10">
-                            <button onclick="achieveUltimateMatrixTranscendenceEngine()" class="cyber-button px-22 py-14 text-4xl rounded-3xl">
-                                ✨ ACHIEVE ULTIMATE MATRIX TRANSCENDENCE ENGINE ✨
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-12 border-t border-green-400/80">
-        <div class="container mx-auto px-6 text-center">
-            <div class="quantum-font text-4xl font-bold mb-8 quantum-glow">
-                ⬢ INTRICATE QUANTUM CYBERSYSTEM - ULTIMATE MATRIX TRANSCENDENCE ENGINE
-            </div>
-            <p class="text-gray-400 mb-10 text-xl">Transcending all dimensional boundaries through nine-layer quantum enhancement, infinite consciousness matrix engine, and ultimate reality transcendence with maximum engine capabilities</p>
-            <div class="cyber-processor h-6 w-[500px] mx-auto rounded-full mb-8"></div>
-            <div class="text-lg text-gray-500">
-                © ∞ Quantum Cyber Matrix Engine Corporation. All quantum states, consciousness levels, matrix realities, and transcendence engines reserved across infinite dimensions and transcendent matrix engine realities.
-            </div>
-        </div>
-    </footer>
-
+    </div>
+    
     <script>
-        // Create Enhanced Vibrant Holographic Data Streams
-        function createEnhancedVibrantHolographicDataStreams() {
-            const streamContainer = document.getElementById('holoStream');
-            const colors = [
-                'var(--cyber-neon)', 'var(--holo-cyan)', 'var(--neural-pink)', 
-                'var(--quantum-blue)', 'var(--quantum-purple)', 'var(--quantum-pink)',
-                'var(--quantum-green)', 'var(--quantum-orange)', 'var(--quantum-yellow)',
-                'var(--quantum-red)', 'var(--quantum-teal)', 'var(--quantum-violet)',
-                'var(--quantum-lime)', 'var(--quantum-coral)', 'var(--quantum-gold)',
-                'var(--quantum-silver)', 'var(--quantum-crimson)', 'var(--quantum-azure)',
-                'var(--quantum-magenta)', 'var(--quantum-emerald)', 'var(--quantum-amber)',
-                'var(--quantum-indigo)', 'var(--quantum-turquoise)', 'var(--quantum-neon)',
-                'var(--quantum-plasma)', 'var(--quantum-cosmic)', 'var(--quantum-stellar)',
-                'var(--quantum-nebula)', 'var(--quantum-infinity)'
-            ];
-            
-            const particleSizes = ['particle-nano', 'particle-micro', 'particle-small', 'particle-medium', 'particle-large', 'particle-huge', 'particle-massive', 'particle-colossal', 'particle-ultimate', 'particle-infinite'];
-            const numParticles = window.innerWidth < 768 ? 1000 : 1500;
-            
-            for (let i = 0; i < numParticles; i++) {
-                const particle = document.createElement('div');
-                particle.className = `holo-particle ${particleSizes[Math.floor(Math.random() * particleSizes.length)]}`;
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                particle.style.animationDelay = Math.random() * 18 + 's';
-                particle.style.animationDuration = (Math.random() * 8 + 12) + 's';
-                streamContainer.appendChild(particle);
-            }
-        }
-
-        // Generate Enhanced Thirty Neural Nodes in Neural Mesh
-        function generateEnhancedThirtyNeuralNodes() {
-            const meshContainer = document.getElementById('neuralMesh');
-            const colors = [
-                'var(--cyber-neon)', 'var(--holo-cyan)', 'var(--neural-pink)', 
-                'var(--quantum-blue)', 'var(--quantum-purple)', 'var(--quantum-pink)',
-                'var(--quantum-green)', 'var(--quantum-orange)', 'var(--quantum-yellow)',
-                'var(--quantum-red)', 'var(--quantum-teal)', 'var(--quantum-violet)',
-                'var(--quantum-lime)', 'var(--quantum-coral)', 'var(--quantum-gold)',
-                'var(--quantum-silver)', 'var(--quantum-crimson)', 'var(--quantum-azure)',
-                'var(--quantum-magenta)', 'var(--quantum-emerald)', 'var(--quantum-amber)',
-                'var(--quantum-indigo)', 'var(--quantum-turquoise)', 'var(--quantum-neon)',
-                'var(--quantum-plasma)', 'var(--quantum-cosmic)', 'var(--quantum-stellar)',
-                'var(--quantum-nebula)', 'var(--quantum-infinity)'
-            ];
-            
-            // Create 30 enhanced neural nodes in 3 layers (10 nodes per layer)
+        // Thirteen colors for the sophisticated neural mesh
+        const thirteenColors = [
+            '#ff0080', '#00ffff', '#ff8000', '#8000ff', '#00ff80',
+            '#ff0040', '#4000ff', '#ff4000', '#80ff00', '#0080ff',
+            '#ff8080', '#8080ff', '#ffff00'
+        ];
+        
+        // Create sophisticated neural mesh with interconnected nodes
+        function createSophisticatedNeuralMesh() {
+            const mesh = document.getElementById('neuralMesh');
+            const nodeCount = 35;
             const nodes = [];
-            for (let i = 0; i < 30; i++) {
+            
+            // Create neural nodes with thirteen colors
+            for (let i = 0; i < nodeCount; i++) {
                 const node = document.createElement('div');
                 node.className = 'neural-node';
-                
-                // Position nodes in 3 concentric layers with enhanced spacing
-                const layer = Math.floor(i / 10);
-                const nodeInLayer = i % 10;
-                const angleStep = (2 * Math.PI) / 10;
-                const angle = nodeInLayer * angleStep + (layer * Math.PI / 12);
-                const radius = 8 + (layer * 20);
-                
-                const x = 50 + radius * Math.cos(angle);
-                const y = 50 + radius * Math.sin(angle);
-                
-                node.style.left = x + '%';
-                node.style.top = y + '%';
-                node.style.color = colors[Math.floor(Math.random() * colors.length)];
-                node.style.animationDelay = (Math.random() * 3) + 's';
-                meshContainer.appendChild(node);
-                nodes.push({element: node, x: x, y: y, layer: layer});
+                node.style.left = Math.random() * 100 + '%';
+                node.style.top = Math.random() * 100 + '%';
+                node.style.background = `radial-gradient(circle, ${thirteenColors[i % 13]} 0%, transparent 70%)`;
+                node.style.color = thirteenColors[i % 13];
+                node.style.animationDelay = Math.random() * 4 + 's';
+                mesh.appendChild(node);
+                nodes.push(node);
             }
             
-            // Create enhanced neural connections
-            for (let i = 0; i < nodes.length; i++) {
-                for (let j = i + 1; j < nodes.length; j++) {
-                    // Higher connection probability for nodes in same or adjacent layers
-                    const layerDiff = Math.abs(nodes[i].layer - nodes[j].layer);
-                    const connectionProb = layerDiff <= 1 ? 0.85 : 0.65;
-                    
-                    if (Math.random() < connectionProb) {
-                        const connection = document.createElement('div');
-                        connection.className = 'neural-connection';
-                        
-                        const dx = nodes[j].x - nodes[i].x;
-                        const dy = nodes[j].y - nodes[i].y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-                        const angle = Math.atan2(dy, dx) * 180 / Math.PI;
-                        
-                        connection.style.left = nodes[i].x + '%';
-                        connection.style.top = nodes[i].y + '%';
-                        connection.style.width = distance + '%';
-                        connection.style.transform = `rotate(${angle}deg)`;
-                        connection.style.transformOrigin = '0 50%';
-                        connection.style.color = colors[Math.floor(Math.random() * colors.length)];
-                        connection.style.animationDelay = (Math.random() * 4) + 's';
-                        
-                        meshContainer.appendChild(connection);
+            // Create sophisticated interconnected connections
+            for (let i = 0; i < nodeCount; i++) {
+                for (let j = i + 1; j < nodeCount; j++) {
+                    if (Math.random() < 0.5) { // 50% chance of connection for sophistication
+                        createSophisticatedConnection(nodes[i], nodes[j], mesh, thirteenColors[(i + j) % 13]);
                     }
                 }
             }
         }
-
-        // Enhanced Interactive Button Functions
-        function initializeQuantumReality() {
-            console.log('Initializing Ultimate Quantum Matrix Reality Engine...');
-            const layers = document.querySelectorAll('.quantum-layer');
-            const core = document.querySelector('.cyber-center');
+        
+        function createSophisticatedConnection(node1, node2, container, color) {
+            const connection = document.createElement('div');
+            connection.className = 'neural-connection';
+            connection.style.color = color;
             
-            // Enhanced core activation
-            core.style.animation = 'cyber-core-pulse 1.5s ease-in-out infinite';
-            core.style.transform = 'translate(-50%, -50%) scale(4) rotate(1440deg)';
+            const x1 = parseFloat(node1.style.left);
+            const y1 = parseFloat(node1.style.top);
+            const x2 = parseFloat(node2.style.left);
+            const y2 = parseFloat(node2.style.top);
             
-            // Enhanced layer initialization with ultimate matrix effects
-            layers.forEach((layer, index) => {
-                setTimeout(() => {
-                    layer.style.transition = 'all 3.5s ease-in-out';
-                    layer.style.boxShadow = `
-                        0 0 150px currentColor,
-                        inset 0 0 150px currentColor,
-                        0 0 300px currentColor,
-                        inset 0 0 300px currentColor,
-                        0 0 450px currentColor,
-                        0 0 600px currentColor`;
-                    layer.style.transform = `rotateX(${index * 90}deg) rotateY(${index * 90}deg) rotateZ(${index * 90}deg) scale(3)`;
-                    layer.style.filter = `hue-rotate(${index * 60}deg) saturate(5) brightness(3)`;
-                    
-                    setTimeout(() => {
-                        layer.style.transform = '';
-                        layer.style.boxShadow = '';
-                        layer.style.filter = '';
-                        layer.style.transition = '';
-                    }, 4500);
-                }, index * 150);
-            });
+            const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+            const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
             
-            setTimeout(() => {
-                core.style.transform = 'translate(-50%, -50%) scale(1) rotate(0deg)';
-                alert('🚀 ULTIMATE QUANTUM MATRIX REALITY ENGINE INITIALIZED!\n\n⚛️ Nine quantum layers activated with ultimate matrix transcendence engine\n🌐 5D+ positioning enhanced to maximum matrix engine capacity\n🌈 Holographic rendering achieving ultimate matrix engine clarity\n🔗 Quantum entanglement established across infinite matrix engine dimensions\n✨ Reality matrix synchronized with infinite consciousness transcendence engine\n🌟 Matrix consciousness activated with ultimate transcendent engine awareness\n🚀 Engine capabilities maximized beyond all known boundaries\n\nSTATUS: QUANTUM MATRIX TRANSCENDENCE ENGINE ACTIVE');
-            }, 8000);
-        }
-
-        function entangleNeuralMesh() {
-            console.log('Entangling Ultimate Neural Matrix Mesh Engine...');
-            const nodes = document.querySelectorAll('.neural-node');
-            const connections = document.querySelectorAll('.neural-connection');
-            const core = document.querySelector('.cyber-core');
+            connection.style.width = length + '%';
+            connection.style.left = x1 + '%';
+            connection.style.top = y1 + '%';
+            connection.style.transform = `rotate(${angle}deg)`;
+            connection.style.transformOrigin = '0 50%';
+            connection.style.animationDelay = Math.random() * 5 + 's';
             
-            // Add ultimate cyber spectacle to core
-            core.classList.add('cyber-spectacle');
-            
-            // Entangle thirty neural nodes with ultimate matrix effects
-            nodes.forEach((node, index) => {
-                setTimeout(() => {
-                    node.style.transition = 'all 4.5s ease-in-out';
-                    node.style.transform = 'scale(25) rotate(2880deg)';
-                    node.style.filter = 'hue-rotate(1440deg) saturate(10) brightness(6) blur(5px)';
-                    node.style.boxShadow = `
-                        0 0 100px currentColor,
-                        0 0 200px currentColor,
-                        0 0 300px currentColor,
-                        0 0 400px currentColor`;
-                    
-                    setTimeout(() => {
-                        node.style.transform = 'scale(1) rotate(0deg)';
-                        node.style.filter = '';
-                        node.style.transition = '';
-                    }, 4500);
-                }, index * 12);
-            });
-            
-            // Enhanced neural connections with ultimate matrix synchronization
-            connections.forEach((connection, index) => {
-                setTimeout(() => {
-                    connection.style.height = '22px';
-                    connection.style.filter = 'hue-rotate(1080deg) saturate(10) brightness(6) blur(5px)';
-                    connection.style.boxShadow = '0 0 100px currentColor, 0 0 200px currentColor, 0 0 300px currentColor';
-                    
-                    setTimeout(() => {
-                        connection.style.height = '8px';
-                        connection.style.filter = '';
-                        connection.style.boxShadow = '0 0 40px currentColor, 0 0 80px currentColor, 0 0 120px currentColor';
-                    }, 8000);
-                }, index * 18);
-            });
-            
-            setTimeout(() => {
-                core.classList.remove('cyber-spectacle');
-                alert('🧠 ULTIMATE NEURAL MATRIX MESH ENGINE ENTANGLED!\n\n🌟 Thirty neural nodes synchronized with infinite matrix consciousness engine\n∞ Infinite neural layers activated across all matrix engine dimensions\n🔗 Quantum entanglement established with ultimate matrix engine precision\n🌊 Enhanced holographic pulse waves achieving matrix transcendence engine\n✨ Neural network consciousness reaching infinite matrix engine levels\n🌌 Matrix neural synchronization achieving ultimate transcendent engine awareness\n🚀 Engine neural capabilities maximized beyond all boundaries\n\nSTATUS: NEURAL MATRIX TRANSCENDENCE ENGINE ACHIEVED');
-            }, 9000);
-        }
-
-        function renderHolographicReality() {
-            console.log('Rendering Ultimate Holographic Matrix Reality Engine...');
-            const core = document.querySelector('.cyber-core');
-            const layers = document.querySelectorAll('.quantum-layer');
-            const nodes = document.querySelectorAll('.neural-node');
-            
-            // Ultimate holographic matrix mode activation
-            core.classList.add('cyber-spectacle');
-            
-            // Ultimate holographic matrix layer effects
-            layers.forEach((layer, index) => {
-                setTimeout(() => {
-                    layer.style.boxShadow = `
-                        0 0 220px currentColor,
-                        inset 0 0 220px currentColor,
-                        0 0 440px currentColor,
-                        inset 0 0 440px currentColor,
-                        0 0 660px currentColor,
-                        0 0 880px currentColor`;
-                    layer.style.filter = `hue-rotate(${index * 100}deg) saturate(8) brightness(5) blur(5px)`;
-                    layer.style.transform = `rotateX(${index * 100}deg) rotateY(${index * 100}deg) rotateZ(${index * 100}deg) scale(4.5)`;
-                }, index * 50);
-            });
-            
-            // Ultimate holographic matrix node effects
-            nodes.forEach((node, index) => {
-                setTimeout(() => {
-                    node.style.transform = 'scale(30) rotate(4320deg)';
-                    node.style.filter = 'hue-rotate(2160deg) saturate(12) brightness(7) blur(6px)';
-                    node.style.boxShadow = `
-                        0 0 160px currentColor,
-                        0 0 320px currentColor,
-                        0 0 480px currentColor,
-                        0 0 640px currentColor`;
-                    
-                    setTimeout(() => {
-                        node.style.transform = '';
-                        node.style.filter = '';
-                    }, 5500);
-                }, index * 20);
-            });
-            
-            setTimeout(() => {
-                core.classList.remove('cyber-spectacle');
-                layers.forEach(layer => {
-                    layer.style.boxShadow = '';
-                    layer.style.filter = '';
-                    layer.style.transform = '';
-                });
-                alert('🌈 ULTIMATE HOLOGRAPHIC MATRIX REALITY ENGINE RENDERED!\n\n🌟 Nine layers with ultimate 5D+ matrix transformations engine\n🧠 Thirty nodes with transcendent matrix synchronization engine\n🌊 Ultimate holographic data streams matrix engine active\n🌐 Enhanced AR interface achieving maximum matrix engine clarity\n🔗 Quantum entanglement reaching infinite matrix engine dimensions\n✨ Holographic consciousness transcending all matrix engine boundaries\n🌌 Matrix reality rendering achieving ultimate transcendent engine clarity\n🚀 Engine holographic capabilities maximized beyond all limits\n\nSTATUS: HOLOGRAPHIC MATRIX TRANSCENDENCE ENGINE COMPLETE ✨');
-            }, 10000);
-        }
-
-        function activateDataStream() {
-            console.log('Activating Ultimate Matrix Transcendent Data Stream Engine...');
-            const processors = document.querySelectorAll('.cyber-processor');
-            
-            processors.forEach(processor => {
-                processor.style.animationDuration = '0.4s';
-                processor.style.transform = 'scale(3) rotate(2160deg)';
-                processor.style.filter = 'hue-rotate(1080deg) saturate(8) brightness(5) blur(5px)';
-                processor.style.boxShadow = `
-                    0 0 220px rgba(0, 255, 65, 1),
-                    0 0 440px rgba(0, 255, 255, 1),
-                    0 0 660px rgba(255, 0, 255, 0.9),
-                    0 0 880px rgba(255, 255, 255, 0.8),
-                    inset 0 0 220px rgba(255, 255, 255, 0.8)`;
-                
-                setTimeout(() => {
-                    processor.style.transform = '';
-                    processor.style.filter = '';
-                    processor.style.animationDuration = '10s';
-                }, 7000);
-            });
-            
-            setTimeout(() => {
-                alert('🌊 ULTIMATE MATRIX TRANSCENDENT DATA STREAM ENGINE ACTIVATED!\n\n✨ Continuous flow established with infinite matrix engine capacity\n🌟 Holographic particles enhanced to maximum matrix transcendence engine\n🚀 Full spectrum processing achieving ultimate matrix consciousness engine\n💫 Cyber quantum effects deployed across all matrix engine dimensions\n🌌 Matrix data stream synchronization achieving ultimate transcendence engine\n🔥 Engine data capabilities maximized beyond all known limits\n\nSTATUS: DATA STREAM MATRIX TRANSCENDENCE ENGINE ACTIVE');
-            }, 3500);
-        }
-
-        function deployToQuantumCloud() {
-            console.log('Deploying to Ultimate Quantum Matrix Cloud Engine...');
-            const cyberSection = document.getElementById('cyber');
-            const core = document.querySelector('.cyber-core');
-            
-            cyberSection.style.animation = 'cyber-pulse 1.5s ease-in-out infinite';
-            core.style.animation = 'cyber-quantum-float 2s ease-in-out infinite';
-            
-            // Create ultimate transcendent matrix deployment effect
-            const layers = document.querySelectorAll('.quantum-layer');
-            const nodes = document.querySelectorAll('.neural-node');
-            const consciousness = document.querySelectorAll('.quantum-consciousness');
-            
-            // Activate ultimate quantum matrix consciousness transcendence
-            consciousness.forEach((cons, index) => {
-                setTimeout(() => {
-                    cons.style.animation = 'quantum-consciousness-transcendence 4s ease-in-out infinite';
-                    cons.style.transform = `scale(${6 + index * 1.5}) rotate(${index * 360}deg)`;
-                    cons.style.filter = `hue-rotate(${index * 150}deg) saturate(12) brightness(7) blur(6px)`;
-                }, index * 50);
-            });
-            
-            layers.forEach((layer, index) => {
-                setTimeout(() => {
-                    layer.style.boxShadow = `
-                        0 0 300px currentColor,
-                        inset 0 0 300px currentColor,
-                        0 0 600px currentColor,
-                        inset 0 0 600px currentColor,
-                        0 0 900px currentColor,
-                        0 0 1200px currentColor,
-                        0 0 1500px currentColor`;
-                    layer.style.filter = `hue-rotate(${index * 100}deg) saturate(10) brightness(6.5) blur(7px)`;
-                    layer.style.transform = `rotateX(${index * 100}deg) rotateY(${index * 100}deg) rotateZ(${index * 100}deg) scale(7)`;
-                }, index * 70);
-            });
-            
-            nodes.forEach((node, index) => {
-                setTimeout(() => {
-                    node.style.transform = 'scale(50) rotate(8640deg)';
-                    node.style.filter = 'hue-rotate(4320deg) saturate(15) brightness(8) blur(8px)';
-                    node.style.boxShadow = `
-                        0 0 220px currentColor,
-                        0 0 440px currentColor,
-                        0 0 660px currentColor,
-                        0 0 880px currentColor,
-                        0 0 1100px currentColor`;
-                    setTimeout(() => {
-                        node.style.transform = '';
-                        node.style.filter = '';
-                        node.style.boxShadow = '';
-                    }, 5000);
-                }, index * 25);
-            });
-            
-            setTimeout(() => {
-                layers.forEach(layer => {
-                    layer.style.boxShadow = '';
-                    layer.style.filter = '';
-                    layer.style.transform = '';
-                });
-                consciousness.forEach(cons => {
-                    cons.style.animation = 'quantum-consciousness-transcendence 8s ease-in-out infinite';
-                    cons.style.transform = '';
-                    cons.style.filter = '';
-                });
-                alert('☁️ ULTIMATE QUANTUM MATRIX CLOUD ENGINE ACTIVATED!\n\n🌟 REALITY.MATRIX.ACTIVATE() ULTIMATE MATRIX ENGINE COMPLETE\n\n⚛️ Nine quantum layers transcended to infinite matrix engine dimensions\n🧠 Thirty neural nodes achieved ultimate matrix consciousness infinity engine\n🌊 Transcendent holographic data streams maximized beyond matrix engine limits\n🌈 Enhanced AR interface reality transcended to ultimate matrix engine clarity\n⚡ Cyber quantum processor dimensions expanded to infinite matrix engine capacity\n🔗 Quantum entanglement consciousness synchronized across all matrix engine realities\n✨ Holographic reality matrix fully deployed with ultimate matrix transcendence engine\n🌌 Matrix cloud deployment achieving ultimate transcendent consciousness engine\n🚀 Engine cloud capabilities maximized beyond all known boundaries\n\n🚀 DEPLOYMENT STATUS: ULTIMATE QUANTUM MATRIX TRANSCENDENCE ENGINE ACHIEVED\n💫 CONSCIOUSNESS LEVEL: INFINITE MATRIX ENGINE DIMENSIONS TRANSCENDED\n🌌 REALITY STATUS: ULTIMATE MATRIX CLOUD ENGINE ACTIVATED\n✨ TRANSCENDENCE LEVEL: MAXIMUM MATRIX INFINITY ENGINE ACHIEVED');
-            }, 9000);
-        }
-
-        function transcendDimensions() {
-            console.log('Transcending Ultimate Matrix Dimensions Engine...');
-            const core = document.querySelector('.cyber-core');
-            const layers = document.querySelectorAll('.quantum-layer');
-            const consciousness = document.querySelectorAll('.quantum-consciousness');
-            
-            // Ultimate dimensional matrix transcendence effect
-            core.style.perspective = '8000px';
-            core.style.transformStyle = 'preserve-3d';
-            
-            layers.forEach((layer, index) => {
-                setTimeout(() => {
-                    layer.style.transform = `
-                        rotateX(${index * 200}deg) 
-                        rotateY(${index * 200}deg) 
-                        rotateZ(${index * 200}deg) 
-                        scale(${5 + index * 0.8})
-                        translateZ(${index * 500}px)`;
-                    layer.style.filter = `hue-rotate(${index * 120}deg) saturate(12) brightness(7) blur(6px)`;
-                    layer.style.boxShadow = `
-                        0 0 450px currentColor,
-                        inset 0 0 450px currentColor,
-                        0 0 900px currentColor,
-                        0 0 1350px currentColor,
-                        0 0 1800px currentColor`;
-                }, index * 80);
-            });
-            
-            consciousness.forEach((cons, index) => {
-                setTimeout(() => {
-                    cons.style.transform = `scale(${12 + index * 3}) rotate(${index * 720}deg) translateZ(${index * 600}px)`;
-                    cons.style.filter = `hue-rotate(${index * 240}deg) saturate(15) brightness(8) blur(7px)`;
-                }, index * 100);
-            });
-            
-            setTimeout(() => {
-                layers.forEach(layer => {
-                    layer.style.transform = '';
-                    layer.style.filter = '';
-                    layer.style.boxShadow = '';
-                });
-                consciousness.forEach(cons => {
-                    cons.style.transform = '';
-                    cons.style.filter = '';
-                });
-                alert('🌌 ULTIMATE MATRIX DIMENSIONS ENGINE TRANSCENDED!\n\n✨ 5D+ positioning expanded to infinite matrix dimensional engine capacity\n🌟 Quantum layers achieved ultimate matrix dimensional transcendence engine\n💫 Consciousness transcended all physical and metaphysical matrix engine boundaries\n🚀 Reality matrix expanded beyond all known dimensional matrix engine limits\n🌈 Holographic projections achieving infinite matrix dimensional engine clarity\n🌌 Matrix dimensional transcendence achieving ultimate consciousness infinity engine\n🔥 Engine dimensional capabilities maximized beyond all boundaries\n\nDIMENSIONAL STATUS: ULTIMATE MATRIX TRANSCENDENT INFINITY ENGINE ACHIEVED');
-            }, 8000);
+            container.appendChild(connection);
         }
         
-        function synchronizeStates() {
-            console.log('Synchronizing Ultimate Quantum Matrix States Engine...');
-            const nodes = document.querySelectorAll('.neural-node');
-            const connections = document.querySelectorAll('.neural-connection');
-            const consciousness = document.querySelectorAll('.quantum-consciousness');
+        // Create dynamic holographic displays with floating geometric elements
+        function createDynamicHolographicDisplay() {
+            const display = document.getElementById('holoDisplay');
             
-            // Ultimate perfect matrix synchronization effect
-            nodes.forEach((node, index) => {
-                setTimeout(() => {
-                    node.style.animation = 'neural-pulse 1s ease-in-out infinite';
-                    node.style.animationDelay = '0s';
-                    node.style.transform = 'scale(18) rotate(1728deg)';
-                    node.style.filter = 'hue-rotate(864deg) saturate(12) brightness(7) blur(5px)';
-                }, index * 12);
-            });
-            
-            connections.forEach((connection, index) => {
-                setTimeout(() => {
-                    connection.style.animation = 'neural-flow 1s ease-in-out infinite';
-                    connection.style.animationDelay = '0s';
-                    connection.style.height = '25px';
-                    connection.style.filter = 'hue-rotate(864deg) saturate(10) brightness(6) blur(4px)';
-                }, index * 15);
-            });
-            
-            consciousness.forEach((cons, index) => {
-                setTimeout(() => {
-                    cons.style.animation = 'quantum-consciousness-transcendence 1s ease-in-out infinite';
-                    cons.style.animationDelay = '0s';
-                }, index * 20);
-            });
+            // Create various floating geometric elements
+            for (let i = 0; i < 20; i++) {
+                const element = document.createElement('div');
+                element.className = 'holo-element';
+                
+                const geometryType = Math.floor(Math.random() * 4);
+                
+                switch(geometryType) {
+                    case 0: // Circle
+                        element.classList.add('holo-circle');
+                        element.style.width = element.style.height = (Math.random() * 80 + 40) + 'px';
+                        break;
+                    case 1: // Square
+                        element.classList.add('holo-square');
+                        element.style.width = element.style.height = (Math.random() * 70 + 35) + 'px';
+                        break;
+                    case 2: // Triangle
+                        element.classList.add('holo-triangle');
+                        element.style.borderBottomColor = thirteenColors[i % 13];
+                        break;
+                    case 3: // Hexagon
+                        element.classList.add('holo-hexagon');
+                        element.style.backgroundColor = thirteenColors[i % 13];
+                        const hexBefore = element.querySelector('::before');
+                        const hexAfter = element.querySelector('::after');
+                        break;
+                }
+                
+                element.style.left = Math.random() * 100 + '%';
+                element.style.top = Math.random() * 100 + '%';
+                element.style.borderColor = thirteenColors[i % 13];
+                element.style.color = thirteenColors[i % 13];
+                element.style.animationDelay = Math.random() * 8 + 's';
+                
+                display.appendChild(element);
+            }
+        }
+        
+        // System control functions
+        function activateNineLayerCore() {
+            showNotification('🌀 Nine-Layer Core Activated - Varied Speed Rotation Initiated');
+            enhanceCoreLayers();
+            optimizeVariedSpeeds();
+        }
+        
+        function synchronizeNeuralMesh() {
+            showNotification('🧠 Sophisticated Neural Mesh Synchronized - Thirteen Colors Interconnected');
+            enhanceSophisticatedNeuralActivity();
+        }
+        
+        function renderHolographicDisplay() {
+            showNotification('🔮 Dynamic Holographic Display Rendered - Floating Geometry Active');
+            activateHolographicDisplay();
+            setTimeout(() => deactivateHolographicDisplay(), 12000);
+        }
+        
+        function enhanceSystemIntricacy() {
+            showNotification('⚡ System Intricacy Enhanced - Sophisticated Architecture Optimized');
+            createIntricateEffects();
+        }
+        
+        function optimizeVariedSpeeds() {
+            showNotification('🔄 Varied Speeds Optimized - Core Layer Synchronization Enhanced');
+            enhanceVariedSpeedRotation();
+        }
+        
+        function activateFloatingGeometry() {
+            showNotification('📐 Floating Geometry Activated - Dynamic Holographic Elements Deployed');
+            activateHolographicDisplay();
+            setTimeout(() => deactivateHolographicDisplay(), 10000);
+        }
+        
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 40px;
+                right: 40px;
+                background: linear-gradient(45deg, ${thirteenColors[0]}, ${thirteenColors[6]}, ${thirteenColors[12]});
+                color: #ffffff;
+                padding: 3rem 4rem;
+                border-radius: 30px;
+                font-family: 'Orbitron', monospace;
+                font-weight: 700;
+                font-size: 1.3rem;
+                z-index: 1000;
+                animation: notificationSlideIn 1.2s ease;
+                box-shadow: 0 25px 60px rgba(255, 0, 255, 0.8);
+                border: 3px solid rgba(255, 255, 255, 0.7);
+                text-shadow: 0 0 25px #ffffff;
+                max-width: 400px;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
             
             setTimeout(() => {
-                nodes.forEach(node => {
-                    node.style.transform = '';
-                    node.style.filter = '';
-                    node.style.animationDelay = Math.random() * 3 + 's';
-                });
-                connections.forEach(connection => {
-                    connection.style.height = '8px';
-                    connection.style.filter = '';
-                    connection.style.animationDelay = Math.random() * 4 + 's';
-                });
-                consciousness.forEach(cons => {
-                    cons.style.animationDelay = Math.random() * 8 + 's';
-                });
-                alert('🔗 ULTIMATE QUANTUM MATRIX STATES ENGINE SYNCHRONIZED!\n\n⚛️ All thirty neural nodes perfectly aligned with infinite matrix engine precision\n🧠 Infinite neural layers synchronized across all matrix engine dimensions\n🌊 Synaptic bridges harmonized with ultimate matrix transcendence engine\n✨ Quantum consciousness unified with infinite matrix engine awareness\n🌟 Perfect quantum entanglement achieved across all matrix engine realities\n💫 Neural network consciousness reaching ultimate matrix synchronization engine\n🌌 Matrix state synchronization achieving ultimate transcendent harmony engine\n🔥 Engine synchronization capabilities maximized beyond all limits\n\nSYNCHRONIZATION STATUS: ULTIMATE MATRIX PERFECT HARMONY ENGINE ACHIEVED');
+                notification.style.animation = 'notificationSlideOut 1.2s ease';
+                setTimeout(() => notification.remove(), 1200);
             }, 7000);
         }
         
-        function activateRealityMatrix() {
-            console.log('Activating Ultimate Reality Matrix Engine...');
-            const core = document.querySelector('.cyber-core');
-            const layers = document.querySelectorAll('.quantum-layer');
-            const nodes = document.querySelectorAll('.neural-node');
-            const consciousness = document.querySelectorAll('.quantum-consciousness');
-            
-            // Ultimate reality matrix activation
-            core.classList.add('cyber-spectacle');
-            
-            // Ultimate matrix activation sequence
+        function enhanceCoreLayers() {
+            const layers = document.querySelectorAll('.core-layer');
             layers.forEach((layer, index) => {
                 setTimeout(() => {
-                    layer.style.animation = 'quantum-rotation 2.5s linear infinite';
-                    layer.style.transform = `
-                        rotateX(${index * 120}deg) 
-                        rotateY(${index * 120}deg) 
-                        rotateZ(${index * 120}deg) 
-                        scale(${6 + index * 0.5})`;
-                    layer.style.filter = `hue-rotate(${index * 120}deg) saturate(13) brightness(8) blur(7px)`;
-                    layer.style.boxShadow = `
-                        0 0 500px currentColor,
-                        inset 0 0 500px currentColor,
-                        0 0 1000px currentColor,
-                        0 0 1500px currentColor,
-                        0 0 2000px currentColor,
-                        0 0 2500px currentColor`;
-                }, index * 50);
-            });
-            
-            nodes.forEach((node, index) => {
-                setTimeout(() => {
-                    node.style.transform = 'scale(55) rotate(11520deg)';
-                    node.style.filter = 'hue-rotate(4320deg) saturate(18) brightness(9) blur(8px)';
-                    node.style.boxShadow = `
-                        0 0 280px currentColor,
-                        0 0 560px currentColor,
-                        0 0 840px currentColor,
-                        0 0 1120px currentColor,
-                        0 0 1400px currentColor`;
+                    layer.style.boxShadow = `inset 0 0 50px ${thirteenColors[index % 13]}, 0 0 80px ${thirteenColors[index % 13]}`;
                     setTimeout(() => {
-                        node.style.transform = '';
-                        node.style.filter = '';
-                        node.style.boxShadow = '';
-                    }, 6500);
-                }, index * 35);
+                        layer.style.boxShadow = `inset 0 0 25px currentColor, 0 0 25px currentColor`;
+                    }, 5000);
+                }, index * 400);
             });
-            
-            consciousness.forEach((cons, index) => {
-                setTimeout(() => {
-                    cons.style.animation = 'quantum-consciousness-transcendence 2s ease-in-out infinite';
-                    cons.style.transform = `scale(${15 + index * 5}) rotate(${index * 1080}deg)`;
-                    cons.style.filter = `hue-rotate(${index * 360}deg) saturate(20) brightness(10) blur(9px)`;
-                }, index * 70);
-            });
-            
-            setTimeout(() => {
-                core.classList.remove('cyber-spectacle');
-                layers.forEach(layer => {
-                    layer.style.animation = 'quantum-rotation 35s linear infinite';
-                    layer.style.transform = '';
-                    layer.style.filter = '';
-                    layer.style.boxShadow = '';
-                });
-                consciousness.forEach(cons => {
-                    cons.style.animation = 'quantum-consciousness-transcendence 8s ease-in-out infinite';
-                    cons.style.transform = '';
-                    cons.style.filter = '';
-                });
-                alert('🌟 ULTIMATE REALITY MATRIX ENGINE ACTIVATED!\n\n✨ REALITY.MATRIX.ACTIVATE() ULTIMATE MATRIX ENGINE COMPLETE\n\n⚛️ Nine quantum layers synchronized with infinite matrix consciousness engine\n🧠 Thirty neural nodes achieved ultimate reality matrix transcendence engine\n🌊 Holographic data streams integrated with reality matrix consciousness engine\n🌈 Enhanced AR interface merged with ultimate reality matrix consciousness engine\n⚡ Cyber quantum processor reality matrix fully operational with infinite engine capacity\n🔗 Quantum entanglement reality matrix synchronized across all matrix engine dimensions\n💫 Ultimate consciousness reality matrix achieving infinite matrix transcendence engine\n🌌 Reality matrix activation achieving ultimate transcendent matrix engine awareness\n🔥 Engine reality capabilities maximized beyond all known limits\n\n🚀 MATRIX STATUS: ULTIMATE REALITY MATRIX TRANSCENDENCE ENGINE ACHIEVED\n🌌 CONSCIOUSNESS LEVEL: INFINITE REALITY MATRIX ENGINE ACTIVE\n✨ TRANSCENDENCE LEVEL: ULTIMATE REALITY MATRIX INFINITY ENGINE ACHIEVED');
-            }, 10000);
         }
-
-        function achieveUltimateMatrixTranscendenceEngine() {
-            console.log('Achieving Ultimate Matrix Transcendence Engine...');
-            const core = document.querySelector('.cyber-core');
-            const layers = document.querySelectorAll('.quantum-layer');
-            const nodes = document.querySelectorAll('.neural-node');
-            const consciousness = document.querySelectorAll('.quantum-consciousness');
-            const connections = document.querySelectorAll('.neural-connection');
-            
-            // Ultimate matrix transcendence activation
-            core.classList.add('cyber-spectacle');
-            
-            // Ultimate matrix transcendence sequence
+        
+        function enhanceVariedSpeedRotation() {
+            const layers = document.querySelectorAll('.core-layer');
             layers.forEach((layer, index) => {
+                const newDuration = (Math.random() * 20 + 5) + 's';
+                layer.style.animationDuration = newDuration;
                 setTimeout(() => {
-                    layer.style.animation = 'quantum-rotation 1s linear infinite';
-                    layer.style.transform = `
-                        rotateX(${index * 300}deg) 
-                        rotateY(${index * 300}deg) 
-                        rotateZ(${index * 300}deg) 
-                        scale(${8 + index * 1})
-                        translateZ(${index * 800}px)`;
-                    layer.style.filter = `hue-rotate(${index * 180}deg) saturate(25) brightness(15) blur(12px)`;
-                    layer.style.boxShadow = `
-                        0 0 750px currentColor,
-                        inset 0 0 750px currentColor,
-                        0 0 1500px currentColor,
-                        0 0 2250px currentColor,
-                        0 0 3000px currentColor,
-                        0 0 3750px currentColor,
-                        0 0<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9703353fd3865809',t:'MTc1NTM3MTE3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+                    // Reset to original speeds after effect
+                    const originalDurations = ['30s', '26s', '22s', '18s', '14s', '10s', '6s', '3s', '1.5s'];
+                    layer.style.animationDuration = originalDurations[index];
+                }, 8000);
+            });
+        }
+        
+        function enhanceSophisticatedNeuralActivity() {
+            const nodes = document.querySelectorAll('.neural-node');
+            nodes.forEach((node, index) => {
+                node.style.animation = 'neuralPulse 1s ease infinite';
+                node.style.boxShadow = `0 0 40px ${thirteenColors[index % 13]}`;
+                setTimeout(() => {
+                    node.style.animation = 'neuralPulse 4s ease-in-out infinite';
+                    node.style.boxShadow = `0 0 25px currentColor`;
+                }, 6000);
+            });
+        }
+        
+        function activateHolographicDisplay() {
+            const display = document.getElementById('holoDisplay');
+            display.classList.add('active');
+        }
+        
+        function deactivateHolographicDisplay() {
+            const display = document.getElementById('holoDisplay');
+            display.classList.remove('active');
+        }
+        
+        function createIntricateEffects() {
+            const field = document.querySelector('.cyber-field');
+            
+            // Create intricate burst effects
+            for (let i = 0; i < 13; i++) {
+                const burst = document.createElement('div');
+                burst.style.cssText = `
+                    position: absolute;
+                    width: ${Math.random() * 150 + 75}px;
+                    height: ${Math.random() * 150 + 75}px;
+                    border: 3px solid ${thirteenColors[i]};
+                    border-radius: ${Math.random() < 0.5 ? '50%' : '0'};
+                    top: ${Math.random() * 100}%;
+                    left: ${Math.random() * 100}%;
+                    animation: intricateBurst 6s ease-out forwards;
+                    box-shadow: 0 0 40px ${thirteenColors[i]};
+                `;
+                field.appendChild(burst);
+                setTimeout(() => burst.remove(), 6000);
+            }
+        }
+        
+        // Add additional CSS animations
+        const additionalStyles = document.createElement('style');
+        additionalStyles.textContent = `
+            @keyframes notificationSlideIn {
+                from { transform: translateX(100%) scale(0.9); opacity: 0; }
+                to { transform: translateX(0) scale(1); opacity: 1; }
+            }
+            @keyframes notificationSlideOut {
+                from { transform: translateX(0) scale(1); opacity: 1; }
+                to { transform: translateX(100%) scale(0.9); opacity: 0; }
+            }
+            @keyframes intricateBurst {
+                0% { transform: scale(0) rotate(0deg); opacity: 1; }
+                100% { transform: scale(12) rotate(1800deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(additionalStyles);
+        
+        // Initialize system on load
+        window.addEventListener('load', () => {
+            createSophisticatedNeuralMesh();
+            createDynamicHolographicDisplay();
+            
+            // Auto-activate systems
+            setTimeout(() => activateNineLayerCore(), 2500);
+            setTimeout(() => synchronizeNeuralMesh(), 5000);
+        });
+        
+        // Continuous sophisticated effects
+        setInterval(() => {
+            if (Math.random() < 0.6) {
+                const effects = [
+                    enhanceCoreLayers,
+                    enhanceSophisticatedNeuralActivity,
+                    createIntricateEffects,
+                    () => {
+                        activateHolographicDisplay();
+                        setTimeout(() => deactivateHolographicDisplay(), 8000);
+                    }
+                ];
+                const randomEffect = effects[Math.floor(Math.random() * effects.length)];
+                randomEffect();
+            }
+        }, 15000);
+        
+        // Sophisticated core pulse every 25 seconds
+        setInterval(() => {
+            enhanceCoreLayers();
+        }, 25000);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9703f22f41254cdf',t:'MTc1NTM3ODkxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
