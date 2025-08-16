@@ -1106,509 +1106,7 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // Matrix Rain Effect
-        function createMatrixRain() {
-            const matrixContainer = document.getElementById('matrix-rain');
-            const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-            
-            for (let i = 0; i < 25; i++) {
-                const column = document.createElement('div');
-                column.className = 'matrix-column';
-                column.style.left = Math.random() * 100 + '%';
-                column.style.animationDelay = Math.random() * 10 + 's';
-                column.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                
-                let text = '';
-                for (let j = 0; j < 25; j++) {
-                    text += characters.charAt(Math.floor(Math.random() * characters.length)) + '<br>';
-                }
-                column.innerHTML = text;
-                
-                matrixContainer.appendChild(column);
-            }
-        }
-        
-        // Neural Network Background
-        function createNeuralNetwork() {
-            const neuralContainer = document.getElementById('neural-network');
-            
-            for (let i = 0; i < 50; i++) {
-                const node = document.createElement('div');
-                node.className = 'neural-node';
-                node.style.left = Math.random() * 100 + '%';
-                node.style.top = Math.random() * 100 + '%';
-                node.style.animationDelay = Math.random() * 3 + 's';
-                
-                neuralContainer.appendChild(node);
-            }
-        }
-        
-        // Initialize effects
-        createMatrixRain();
-        createNeuralNetwork();
-        
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-        });
-        
-        // Close mobile menu when clicking on links
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-            });
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Counter animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const increment = target / 100;
-                let current = 0;
-                
-                const updateCounter = () => {
-                    if (current < target) {
-                        current += increment;
-                        counter.textContent = Math.ceil(current);
-                        setTimeout(updateCounter, 20);
-                    } else {
-                        counter.textContent = target;
-                    }
-                };
-                
-                updateCounter();
-            });
-        }
-        
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    if (entry.target.id === 'home' || entry.target.id === 'about') {
-                        animateCounters();
-                    }
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('section[id]').forEach(section => {
-            observer.observe(section);
-        });
-        
-        // Enhanced form submission
-        const contactForm = document.getElementById('contact-form');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
-            if (!name || !email || !subject || !message) {
-                showNotification('Lütfen tüm alanları doldurun.', 'error');
-                return;
-            }
-            
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showNotification('Lütfen geçerli bir e-posta adresi girin.', 'error');
-                return;
-            }
-            
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<div class="cyber-loader mx-auto"></div>';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                showNotification('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.', 'success');
-                this.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-        
-        // Enhanced notification system
-        function showNotification(message, type) {
-            const notification = document.createElement('div');
-            notification.className = `fixed top-20 right-4 z-50 p-4 rounded-lg border max-w-sm transform translate-x-full transition-all duration-500 ${
-                type === 'success' 
-                    ? 'bg-green-900/90 border-green-500 text-green-400 glow-border' 
-                    : 'bg-red-900/90 border-red-500 text-red-400 glow-border'
-            }`;
-            notification.innerHTML = `
-                <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        ${type === 'success' 
-                            ? '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>'
-                            : '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>'
-                        }
-                    </svg>
-                    <span class="cyber-font">${message}</span>
-                </div>
-            `;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.classList.remove('translate-x-full');
-            }, 100);
-            
-            setTimeout(() => {
-                notification.classList.add('translate-x-full');
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 500);
-            }, 5000);
-        }
-        
-        // Enhanced button ripple effects
-        document.querySelectorAll('.cyber-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.classList.add('ripple');
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-        });
-        
-        // Active navigation highlighting
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('text-cyan-400');
-                link.classList.add('text-gray-300');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.remove('text-gray-300');
-                    link.classList.add('text-cyan-400');
-                }
-            });
-        });
-        
-        // Parallax effect for floating elements
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.floating');
-            
-            parallaxElements.forEach((element, index) => {
-                const speed = 0.3 + (index * 0.1);
-                const yPos = -(scrolled * speed);
-                element.style.transform = `translateY(${yPos}px)`;
-            });
-        });
-        
-        // Dynamic particle generation
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 2 + 's';
-            particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
-            
-            // Random colors
-            const colors = ['var(--cyber-blue)', 'var(--cyber-purple)', 'var(--cyber-pink)', 'var(--cyber-green)'];
-            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-            
-            document.body.appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 10000);
-        }
-        
-        // Generate particles periodically
-        setInterval(createParticle, 2000);
-        
-        // Enhanced glitch effects
-        document.querySelectorAll('.glitch').forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                element.style.animation = 'glitch 0.3s infinite';
-            });
-            
-            element.addEventListener('mouseleave', () => {
-                element.style.animation = 'glitch 2s infinite';
-            });
-        });
-        
-        // Tech card hover effects
-        document.querySelectorAll('.tech-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.boxShadow = '0 20px 40px rgba(0, 245, 255, 0.3), inset 0 0 30px rgba(0, 245, 255, 0.1)';
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.boxShadow = '';
-            });
-        });
-        
-        // Network Flow Optimization Algorithm
-        function optimizeNetworkFlow(nodes, connections) {
-            // Initialize optimization parameters
-            const flowCapacity = new Map();
-            const optimalPaths = [];
-            
-            // Calculate network centrality
-            nodes.forEach(node => {
-                const centrality = calculateCentrality(node, connections);
-                node.importance = centrality * node.dataFlow;
-            });
-            
-            // Find optimal routing paths
-            connections.forEach(conn => {
-                const sourceImportance = conn.source.importance;
-                const targetImportance = conn.target.importance;
-                const pathPriority = sourceImportance + targetImportance;
-                flowCapacity.set(conn.id, pathPriority);
-            });
-            
-            return { flowCapacity, optimalPaths };
-        }
-        
-        // Calculate node centrality in network
-        function calculateCentrality(node, connections) {
-            let degree = 0;
-            let betweenness = 0;
-            
-            // Calculate degree centrality
-            connections.forEach(conn => {
-                if (conn.source.id === node.id || conn.target.id === node.id) {
-                    degree++;
-                }
-            });
-            
-            // Simplified betweenness centrality calculation
-            const totalNodes = connections.length;
-            betweenness = degree / (totalNodes > 1 ? totalNodes - 1 : 1);
-            
-            return (degree * 0.6) + (betweenness * 0.4);
-        }
-        
-        // Quantum Network Simulation
-        function simulateQuantumNetwork() {
-            const quantumNodes = [
-                { id: 'qn1', dataFlow: 1000, x: 100, y: 150, type: 'quantum' },
-                { id: 'qn2', dataFlow: 800, x: 300, y: 100, type: 'neural' },
-                { id: 'qn3', dataFlow: 1200, x: 500, y: 200, type: 'blockchain' },
-                { id: 'qn4', dataFlow: 900, x: 200, y: 300, type: 'ai' },
-                { id: 'qn5', dataFlow: 1100, x: 400, y: 250, type: 'iot' }
-            ];
-            
-            const quantumConnections = [
-                { id: 'qc1', source: quantumNodes[0], target: quantumNodes[1], bandwidth: 500 },
-                { id: 'qc2', source: quantumNodes[1], target: quantumNodes[2], bandwidth: 750 },
-                { id: 'qc3', source: quantumNodes[2], target: quantumNodes[3], bandwidth: 600 },
-                { id: 'qc4', source: quantumNodes[3], target: quantumNodes[4], bandwidth: 800 },
-                { id: 'qc5', source: quantumNodes[0], target: quantumNodes[4], bandwidth: 700 }
-            ];
-            
-            // Optimize network flow
-            const optimization = optimizeNetworkFlow(quantumNodes, quantumConnections);
-            
-            // Display network status in console for demo
-            console.log('🌐 Quantum Network Optimization Results:');
-            console.log('Flow Capacities:', optimization.flowCapacity);
-            console.log('Node Importance Rankings:');
-            quantumNodes.sort((a, b) => b.importance - a.importance);
-            quantumNodes.forEach((node, index) => {
-                console.log(`${index + 1}. ${node.type.toUpperCase()} Node: ${node.importance.toFixed(2)} importance`);
-            });
-            
-            return optimization;
-        }
-        
-        // Real-time Network Monitoring
-        function startNetworkMonitoring() {
-            const networkStatus = document.createElement('div');
-            networkStatus.className = 'fixed bottom-4 right-4 tech-card rounded-lg p-4 z-50 max-w-xs';
-            networkStatus.innerHTML = `
-                <div class="scan-line"></div>
-                <h4 class="cyber-font text-sm font-bold text-cyan-400 mb-2 glow-text">NETWORK STATUS</h4>
-                <div class="space-y-2 text-xs">
-                    <div class="flex justify-between">
-                        <span class="text-gray-400">Quantum Nodes:</span>
-                        <span class="text-green-400 cyber-font" id="quantum-nodes">5</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-400">Data Flow:</span>
-                        <span class="text-cyan-400 cyber-font" id="data-flow">1.2TB/s</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-400">Optimization:</span>
-                        <span class="text-purple-400 cyber-font" id="optimization">98.7%</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-400">Latency:</span>
-                        <span class="text-orange-400 cyber-font" id="latency">0.3ms</span>
-                    </div>
-                </div>
-                <div class="mt-3 p-2 bg-green-500/10 border border-green-500/30 rounded">
-                    <div class="flex items-center">
-                        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2"></div>
-                        <span class="text-green-400 text-xs cyber-font">OPTIMAL FLOW ACTIVE</span>
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(networkStatus);
-            
-            // Simulate real-time updates
-            setInterval(() => {
-                const dataFlowElement = document.getElementById('data-flow');
-                const optimizationElement = document.getElementById('optimization');
-                const latencyElement = document.getElementById('latency');
-                
-                if (dataFlowElement) {
-                    const flow = (Math.random() * 0.5 + 1.0).toFixed(1);
-                    dataFlowElement.textContent = `${flow}TB/s`;
-                }
-                
-                if (optimizationElement) {
-                    const opt = (Math.random() * 2 + 97).toFixed(1);
-                    optimizationElement.textContent = `${opt}%`;
-                }
-                
-                if (latencyElement) {
-                    const lat = (Math.random() * 0.3 + 0.1).toFixed(1);
-                    latencyElement.textContent = `${lat}ms`;
-                }
-            }, 2000);
-        }
-        
-        // Enhanced Neural Network Visualization
-        function enhanceNeuralNetwork() {
-            const neuralContainer = document.getElementById('neural-network');
-            
-            // Create network connections
-            for (let i = 0; i < 20; i++) {
-                const connection = document.createElement('div');
-                connection.style.position = 'absolute';
-                connection.style.width = '2px';
-                connection.style.height = Math.random() * 200 + 50 + 'px';
-                connection.style.background = 'linear-gradient(to bottom, transparent, rgba(0, 245, 255, 0.3), transparent)';
-                connection.style.left = Math.random() * 100 + '%';
-                connection.style.top = Math.random() * 100 + '%';
-                connection.style.transform = `rotate(${Math.random() * 360}deg)`;
-                connection.style.animation = `neural-pulse ${Math.random() * 3 + 2}s infinite`;
-                connection.style.animationDelay = Math.random() * 2 + 's';
-                
-                neuralContainer.appendChild(connection);
-            }
-        }
-        
-        // Blockchain Network Simulation
-        function simulateBlockchainNetwork() {
-            const blockchainNodes = [];
-            const blockchainConnections = [];
-            
-            // Generate blockchain network topology
-            for (let i = 0; i < 8; i++) {
-                blockchainNodes.push({
-                    id: `bc${i}`,
-                    dataFlow: Math.random() * 500 + 500,
-                    x: Math.random() * 600 + 100,
-                    y: Math.random() * 400 + 100,
-                    type: 'blockchain',
-                    blocks: Math.floor(Math.random() * 1000) + 500
-                });
-            }
-            
-            // Create mesh network connections
-            for (let i = 0; i < blockchainNodes.length; i++) {
-                for (let j = i + 1; j < blockchainNodes.length; j++) {
-                    if (Math.random() > 0.6) { // 40% connection probability
-                        blockchainConnections.push({
-                            id: `bc_conn_${i}_${j}`,
-                            source: blockchainNodes[i],
-                            target: blockchainNodes[j],
-                            bandwidth: Math.random() * 300 + 200
-                        });
-                    }
-                }
-            }
-            
-            const blockchainOptimization = optimizeNetworkFlow(blockchainNodes, blockchainConnections);
-            
-            console.log('⛓️ Blockchain Network Analysis:');
-            console.log(`Total Nodes: ${blockchainNodes.length}`);
-            console.log(`Total Connections: ${blockchainConnections.length}`);
-            console.log('Network Optimization:', blockchainOptimization);
-            
-            return blockchainOptimization;
-        }
-        
-        // Initialize all animations on load
-        window.addEventListener('load', () => {
-            // Trigger initial counter animation for visible sections
-            const homeSection = document.getElementById('home');
-            if (homeSection.getBoundingClientRect().top < window.innerHeight) {
-                animateCounters();
-            }
-            
-            // Initialize network systems
-            setTimeout(() => {
-                simulateQuantumNetwork();
-                simulateBlockchainNetwork();
-                enhanceNeuralNetwork();
-                startNetworkMonitoring();
-                
-                // Show network initialization notification
-                showNotification('🌐 Quantum Network Systems Initialized - Optimal Flow Active', 'success');
-            }, 2000);
-        });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'967a57add679d3d8',t:'MTc1MzkzNjAzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
-   <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+ <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
            <div class="tech-card hologram glow-border rounded-lg p-8 relative overflow-hidden">
            <div class="scan-line"></div>
            <h3 class="cyber-font text-2xl font-bold text-cyan-400 mb-6 glow-text">Network</h3>
@@ -2874,3 +2372,505 @@
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96fe5f28e260c154',t:'MTc1NTMyMDQ2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
 </section>
+    <script>
+        // Matrix Rain Effect
+        function createMatrixRain() {
+            const matrixContainer = document.getElementById('matrix-rain');
+            const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+            
+            for (let i = 0; i < 25; i++) {
+                const column = document.createElement('div');
+                column.className = 'matrix-column';
+                column.style.left = Math.random() * 100 + '%';
+                column.style.animationDelay = Math.random() * 10 + 's';
+                column.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                
+                let text = '';
+                for (let j = 0; j < 25; j++) {
+                    text += characters.charAt(Math.floor(Math.random() * characters.length)) + '<br>';
+                }
+                column.innerHTML = text;
+                
+                matrixContainer.appendChild(column);
+            }
+        }
+        
+        // Neural Network Background
+        function createNeuralNetwork() {
+            const neuralContainer = document.getElementById('neural-network');
+            
+            for (let i = 0; i < 50; i++) {
+                const node = document.createElement('div');
+                node.className = 'neural-node';
+                node.style.left = Math.random() * 100 + '%';
+                node.style.top = Math.random() * 100 + '%';
+                node.style.animationDelay = Math.random() * 3 + 's';
+                
+                neuralContainer.appendChild(node);
+            }
+        }
+        
+        // Initialize effects
+        createMatrixRain();
+        createNeuralNetwork();
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Close mobile menu when clicking on links
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        setTimeout(updateCounter, 20);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'home' || entry.target.id === 'about') {
+                        animateCounters();
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Enhanced form submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            if (!name || !email || !subject || !message) {
+                showNotification('Lütfen tüm alanları doldurun.', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNotification('Lütfen geçerli bir e-posta adresi girin.', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<div class="cyber-loader mx-auto"></div>';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                showNotification('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.', 'success');
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+        
+        // Enhanced notification system
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-20 right-4 z-50 p-4 rounded-lg border max-w-sm transform translate-x-full transition-all duration-500 ${
+                type === 'success' 
+                    ? 'bg-green-900/90 border-green-500 text-green-400 glow-border' 
+                    : 'bg-red-900/90 border-red-500 text-red-400 glow-border'
+            }`;
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        ${type === 'success' 
+                            ? '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>'
+                            : '<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>'
+                        }
+                    </svg>
+                    <span class="cyber-font">${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 5000);
+        }
+        
+        // Enhanced button ripple effects
+        document.querySelectorAll('.cyber-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+        
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-cyan-400');
+                link.classList.add('text-gray-300');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-gray-300');
+                    link.classList.add('text-cyan-400');
+                }
+            });
+        });
+        
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.3 + (index * 0.1);
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+        
+        // Dynamic particle generation
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 2 + 's';
+            particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            
+            // Random colors
+            const colors = ['var(--cyber-blue)', 'var(--cyber-purple)', 'var(--cyber-pink)', 'var(--cyber-green)'];
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 10000);
+        }
+        
+        // Generate particles periodically
+        setInterval(createParticle, 2000);
+        
+        // Enhanced glitch effects
+        document.querySelectorAll('.glitch').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                element.style.animation = 'glitch 0.3s infinite';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                element.style.animation = 'glitch 2s infinite';
+            });
+        });
+        
+        // Tech card hover effects
+        document.querySelectorAll('.tech-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.boxShadow = '0 20px 40px rgba(0, 245, 255, 0.3), inset 0 0 30px rgba(0, 245, 255, 0.1)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.boxShadow = '';
+            });
+        });
+        
+        // Network Flow Optimization Algorithm
+        function optimizeNetworkFlow(nodes, connections) {
+            // Initialize optimization parameters
+            const flowCapacity = new Map();
+            const optimalPaths = [];
+            
+            // Calculate network centrality
+            nodes.forEach(node => {
+                const centrality = calculateCentrality(node, connections);
+                node.importance = centrality * node.dataFlow;
+            });
+            
+            // Find optimal routing paths
+            connections.forEach(conn => {
+                const sourceImportance = conn.source.importance;
+                const targetImportance = conn.target.importance;
+                const pathPriority = sourceImportance + targetImportance;
+                flowCapacity.set(conn.id, pathPriority);
+            });
+            
+            return { flowCapacity, optimalPaths };
+        }
+        
+        // Calculate node centrality in network
+        function calculateCentrality(node, connections) {
+            let degree = 0;
+            let betweenness = 0;
+            
+            // Calculate degree centrality
+            connections.forEach(conn => {
+                if (conn.source.id === node.id || conn.target.id === node.id) {
+                    degree++;
+                }
+            });
+            
+            // Simplified betweenness centrality calculation
+            const totalNodes = connections.length;
+            betweenness = degree / (totalNodes > 1 ? totalNodes - 1 : 1);
+            
+            return (degree * 0.6) + (betweenness * 0.4);
+        }
+        
+        // Quantum Network Simulation
+        function simulateQuantumNetwork() {
+            const quantumNodes = [
+                { id: 'qn1', dataFlow: 1000, x: 100, y: 150, type: 'quantum' },
+                { id: 'qn2', dataFlow: 800, x: 300, y: 100, type: 'neural' },
+                { id: 'qn3', dataFlow: 1200, x: 500, y: 200, type: 'blockchain' },
+                { id: 'qn4', dataFlow: 900, x: 200, y: 300, type: 'ai' },
+                { id: 'qn5', dataFlow: 1100, x: 400, y: 250, type: 'iot' }
+            ];
+            
+            const quantumConnections = [
+                { id: 'qc1', source: quantumNodes[0], target: quantumNodes[1], bandwidth: 500 },
+                { id: 'qc2', source: quantumNodes[1], target: quantumNodes[2], bandwidth: 750 },
+                { id: 'qc3', source: quantumNodes[2], target: quantumNodes[3], bandwidth: 600 },
+                { id: 'qc4', source: quantumNodes[3], target: quantumNodes[4], bandwidth: 800 },
+                { id: 'qc5', source: quantumNodes[0], target: quantumNodes[4], bandwidth: 700 }
+            ];
+            
+            // Optimize network flow
+            const optimization = optimizeNetworkFlow(quantumNodes, quantumConnections);
+            
+            // Display network status in console for demo
+            console.log('🌐 Quantum Network Optimization Results:');
+            console.log('Flow Capacities:', optimization.flowCapacity);
+            console.log('Node Importance Rankings:');
+            quantumNodes.sort((a, b) => b.importance - a.importance);
+            quantumNodes.forEach((node, index) => {
+                console.log(`${index + 1}. ${node.type.toUpperCase()} Node: ${node.importance.toFixed(2)} importance`);
+            });
+            
+            return optimization;
+        }
+        
+        // Real-time Network Monitoring
+        function startNetworkMonitoring() {
+            const networkStatus = document.createElement('div');
+            networkStatus.className = 'fixed bottom-4 right-4 tech-card rounded-lg p-4 z-50 max-w-xs';
+            networkStatus.innerHTML = `
+                <div class="scan-line"></div>
+                <h4 class="cyber-font text-sm font-bold text-cyan-400 mb-2 glow-text">NETWORK STATUS</h4>
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Quantum Nodes:</span>
+                        <span class="text-green-400 cyber-font" id="quantum-nodes">5</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Data Flow:</span>
+                        <span class="text-cyan-400 cyber-font" id="data-flow">1.2TB/s</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Optimization:</span>
+                        <span class="text-purple-400 cyber-font" id="optimization">98.7%</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Latency:</span>
+                        <span class="text-orange-400 cyber-font" id="latency">0.3ms</span>
+                    </div>
+                </div>
+                <div class="mt-3 p-2 bg-green-500/10 border border-green-500/30 rounded">
+                    <div class="flex items-center">
+                        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2"></div>
+                        <span class="text-green-400 text-xs cyber-font">OPTIMAL FLOW ACTIVE</span>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(networkStatus);
+            
+            // Simulate real-time updates
+            setInterval(() => {
+                const dataFlowElement = document.getElementById('data-flow');
+                const optimizationElement = document.getElementById('optimization');
+                const latencyElement = document.getElementById('latency');
+                
+                if (dataFlowElement) {
+                    const flow = (Math.random() * 0.5 + 1.0).toFixed(1);
+                    dataFlowElement.textContent = `${flow}TB/s`;
+                }
+                
+                if (optimizationElement) {
+                    const opt = (Math.random() * 2 + 97).toFixed(1);
+                    optimizationElement.textContent = `${opt}%`;
+                }
+                
+                if (latencyElement) {
+                    const lat = (Math.random() * 0.3 + 0.1).toFixed(1);
+                    latencyElement.textContent = `${lat}ms`;
+                }
+            }, 2000);
+        }
+        
+        // Enhanced Neural Network Visualization
+        function enhanceNeuralNetwork() {
+            const neuralContainer = document.getElementById('neural-network');
+            
+            // Create network connections
+            for (let i = 0; i < 20; i++) {
+                const connection = document.createElement('div');
+                connection.style.position = 'absolute';
+                connection.style.width = '2px';
+                connection.style.height = Math.random() * 200 + 50 + 'px';
+                connection.style.background = 'linear-gradient(to bottom, transparent, rgba(0, 245, 255, 0.3), transparent)';
+                connection.style.left = Math.random() * 100 + '%';
+                connection.style.top = Math.random() * 100 + '%';
+                connection.style.transform = `rotate(${Math.random() * 360}deg)`;
+                connection.style.animation = `neural-pulse ${Math.random() * 3 + 2}s infinite`;
+                connection.style.animationDelay = Math.random() * 2 + 's';
+                
+                neuralContainer.appendChild(connection);
+            }
+        }
+        
+        // Blockchain Network Simulation
+        function simulateBlockchainNetwork() {
+            const blockchainNodes = [];
+            const blockchainConnections = [];
+            
+            // Generate blockchain network topology
+            for (let i = 0; i < 8; i++) {
+                blockchainNodes.push({
+                    id: `bc${i}`,
+                    dataFlow: Math.random() * 500 + 500,
+                    x: Math.random() * 600 + 100,
+                    y: Math.random() * 400 + 100,
+                    type: 'blockchain',
+                    blocks: Math.floor(Math.random() * 1000) + 500
+                });
+            }
+            
+            // Create mesh network connections
+            for (let i = 0; i < blockchainNodes.length; i++) {
+                for (let j = i + 1; j < blockchainNodes.length; j++) {
+                    if (Math.random() > 0.6) { // 40% connection probability
+                        blockchainConnections.push({
+                            id: `bc_conn_${i}_${j}`,
+                            source: blockchainNodes[i],
+                            target: blockchainNodes[j],
+                            bandwidth: Math.random() * 300 + 200
+                        });
+                    }
+                }
+            }
+            
+            const blockchainOptimization = optimizeNetworkFlow(blockchainNodes, blockchainConnections);
+            
+            console.log('⛓️ Blockchain Network Analysis:');
+            console.log(`Total Nodes: ${blockchainNodes.length}`);
+            console.log(`Total Connections: ${blockchainConnections.length}`);
+            console.log('Network Optimization:', blockchainOptimization);
+            
+            return blockchainOptimization;
+        }
+        
+        // Initialize all animations on load
+        window.addEventListener('load', () => {
+            // Trigger initial counter animation for visible sections
+            const homeSection = document.getElementById('home');
+            if (homeSection.getBoundingClientRect().top < window.innerHeight) {
+                animateCounters();
+            }
+            
+            // Initialize network systems
+            setTimeout(() => {
+                simulateQuantumNetwork();
+                simulateBlockchainNetwork();
+                enhanceNeuralNetwork();
+                startNetworkMonitoring();
+                
+                // Show network initialization notification
+                showNotification('🌐 Quantum Network Systems Initialized - Optimal Flow Active', 'success');
+            }, 2000);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'967a57add679d3d8',t:'MTc1MzkzNjAzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+  
