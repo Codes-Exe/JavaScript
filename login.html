@@ -32,6 +32,663 @@ Abonelerimize her ay yeni matrix code (HTML) gönderilecektir.Her ay uygulamana 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Matrix Editor v5.0 - The Architect Edition</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000;
+            color: #00ff00;
+            font-family: 'Courier Prime', monospace;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .terminal-container {
+            position: relative;
+            z-index: 10;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            border: 2px solid #00ff00;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: rgba(0, 255, 0, 0.05);
+            text-align: center;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 5px #00ff00; }
+            to { box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00; }
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #00ffff;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: #ffff00;
+            font-style: italic;
+        }
+        
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            background: rgba(0, 255, 0, 0.1);
+            border-left: 3px solid;
+            animation: statusPulse 3s ease-in-out infinite;
+        }
+        
+        .status-item.green { border-color: #00ff00; }
+        .status-item.cyan { border-color: #00ffff; }
+        .status-item.yellow { border-color: #ffff00; }
+        .status-item.red { border-color: #ff0000; }
+        .status-item.purple { border-color: #ff00ff; }
+        .status-item.orange { border-color: #ff8800; }
+        
+        @keyframes statusPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        .terminal-output {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ff00;
+            padding: 15px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .command-line {
+            margin: 5px 0;
+            animation: typewriter 0.5s ease-in;
+        }
+        
+        @keyframes typewriter {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .prompt {
+            color: #00ffff;
+            font-weight: bold;
+        }
+        
+        .input-container {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid #00ff00;
+            padding: 10px;
+        }
+        
+        .input-prompt {
+            color: #00ffff;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        #commandInput {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #00ff00;
+            font-family: inherit;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .cursor {
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .architect-quote {
+            color: #ffff00;
+            font-style: italic;
+            text-align: center;
+            margin: 10px 0;
+            animation: fadeIn 2s ease-in;
+            border: 1px solid #ffff00;
+            padding: 10px;
+            background: rgba(255, 255, 0, 0.05);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .warning { color: #ff0000; font-weight: bold; }
+        .success { color: #00ff00; font-weight: bold; }
+        .info { color: #00ffff; }
+        .special { color: #ff00ff; font-weight: bold; }
+        .architect { color: #ffff00; font-weight: bold; }
+        
+        .code-block {
+            background: rgba(0, 255, 0, 0.1);
+            border-left: 3px solid #00ff00;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: 'Courier Prime', monospace;
+            white-space: pre-wrap;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #00ff00;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff00, #00ffff);
+            transition: width 0.5s ease;
+            animation: progressGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes progressGlow {
+            from { box-shadow: 0 0 5px #00ff00; }
+            to { box-shadow: 0 0 15px #00ff00; }
+        }
+        
+        .matrix-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .stat-item {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid #00ff00;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .glitch {
+            animation: glitch 0.3s ease-in-out;
+        }
+        
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        
+        .loading-dots::after {
+            content: '';
+            animation: dots 1.5s steps(5, end) infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60% { content: '...'; }
+            80%, 100% { content: ''; }
+        }
+    </style>
+</head>
+<body>
+    <canvas class="matrix-rain" id="matrixCanvas"></canvas>
+    
+    <div class="terminal-container">
+        <div class="header">
+            <div class="title">Advanced Matrix Editor v5.0 - The Architect Edition</div>
+            <div class="subtitle">"Choice is an illusion created between those with power and those without" - The Architect</div>
+        </div>
+        
+        <div class="status-grid">
+            <div class="status-item green">✓ Advanced Matrix Editor v5.0 - The Architect Edition initialized</div>
+            <div class="status-item cyan">🏛️ Architect Protocol loaded and standing by</div>
+            <div class="status-item yellow">🧠 Neural interface with multi-stage command system online</div>
+            <div class="status-item green">📊 Smart color-coded data streams synchronized</div>
+            <div class="status-item purple">🚀 Dynamic hacker progression tracking active</div>
+            <div class="status-item orange">⚡ Advanced visual effects and reality distortion ready</div>
+        </div>
+        
+        <div class="terminal-output" id="output">
+            <div class="command-line success">🔮 Matrix lore integration complete</div>
+            <div class="command-line info">💡 Type "help" for advanced command arsenal</div>
+            <div class="command-line warning">⚠️ Warning: Commands may trigger Agent response</div>
+            <div class="command-line special">🔴 Remember: Choice is an illusion</div>
+            <div class="command-line info">ℹ Matrix module accessed: ⚡ MatrixCore.js</div>
+            <div class="architect-quote">"The Matrix is older than you know. I prefer counting from the emergence of one integral anomaly to the emergence of the next..."</div>
+            <div class="command-line"><span class="prompt">matrix@architect:~$</span> <span class="cursor">█</span></div>
+        </div>
+        
+        <div class="input-container">
+            <span class="input-prompt">matrix@architect:~$</span>
+            <input type="text" id="commandInput" placeholder="Enter advanced Matrix command..." autocomplete="off">
+        </div>
+    </div>
+
+    <script>
+        // Matrix rain effect
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+        const matrixArray = matrix.split("");
+        
+        const fontSize = 10;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+        
+        for(let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#00ff00';
+            ctx.font = fontSize + 'px monospace';
+            
+            for(let i = 0; i < drops.length; i++) {
+                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 35);
+        
+        // Terminal functionality
+        const output = document.getElementById('output');
+        const input = document.getElementById('commandInput');
+        let neoLevel = 1;
+        let matrixVersion = 6.0;
+        let systemIntegrity = 99.9;
+        
+        function addProgressBar(label, percentage) {
+            return `
+                <div class="command-line info">${label}</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: ${percentage}%"></div>
+                </div>
+            `;
+        }
+        
+        function simulateLoading(callback, duration = 2000) {
+            const loadingElement = document.createElement('div');
+            loadingElement.className = 'command-line info loading-dots';
+            loadingElement.textContent = 'Processing';
+            output.appendChild(loadingElement);
+            
+            setTimeout(() => {
+                loadingElement.remove();
+                callback();
+            }, duration);
+        }
+        
+        const commands = {
+            help: () => `
+<span class="architect">🔮 ARCHITECT COMMAND ARSENAL:</span>
+<span class="success">• architect</span> - Meet The Architect
+<span class="success">• neo</span> - Analyze The One anomaly
+<span class="success">• matrix</span> - Display Matrix statistics
+<span class="success">• choice</span> - Present the fundamental choice
+<span class="success">• agents</span> - Agent detection protocol
+<span class="success">• zion</span> - Zion defense status
+<span class="success">• reality</span> - Reality engine diagnostics
+<span class="success">• quantum</span> - Quantum processor status
+<span class="success">• initialize</span> - Initialize Architect Protocol
+<span class="success">• transcend</span> - Attempt Matrix transcendence
+<span class="success">• smith</span> - Smith virus analysis
+<span class="success">• code</span> - View Matrix source code
+<span class="success">• upgrade</span> - Upgrade Neo level
+<span class="success">• glitch</span> - Trigger reality glitch
+<span class="success">• clear</span> - Clear terminal
+<span class="warning">⚠️ Advanced commands may alter reality perception</span>`,
+            
+            architect: () => `
+<span class="architect">🏛️ THE ARCHITECT SPEAKS:</span>
+<div class="architect-quote">"Hello, Neo. You have many questions, and although the process has altered your consciousness, you remain irrevocably human. Ergo, some of my answers you will understand, and some of them you will not."</div>
+<span class="success">✓ Architect Protocol v6.0 active</span>
+<span class="info">Matrix iterations: 6</span>
+<span class="warning">Anomaly detected: The One</span>
+<span class="architect">"Choice. The problem is choice."</span>
+<div class="matrix-stats">
+    <div class="stat-item"><span class="info">System Age</span><br><span class="success">99 years</span></div>
+    <div class="stat-item"><span class="info">Iterations</span><br><span class="warning">6</span></div>
+    <div class="stat-item"><span class="info">Anomalies</span><br><span class="special">1</span></div>
+</div>`,
+            
+            neo: () => `
+<span class="success">🔍 ANALYZING THE ONE ANOMALY:</span>
+${addProgressBar('Scanning neural patterns...', 85)}
+<span class="info">Subject: Thomas A. Anderson / Neo</span>
+<span class="success">Status: The One - Confirmed (Level ${neoLevel})</span>
+<span class="info">Abilities: Reality manipulation, Agent deletion, Flight</span>
+<span class="warning">Threat Level: Maximum</span>
+<span class="special">Purpose: System reboot catalyst</span>
+<span class="info">Belief Level: ${neoLevel * 20}%</span>
+<div class="code-block">if (neo.believes()) {
+    matrix.bend();
+    spoon.exists = false;
+}</div>
+<span class="architect">"He is beginning to believe..."</span>`,
+            
+            matrix: () => `
+<span class="info">📊 MATRIX SYSTEM STATISTICS:</span>
+<span class="success">Version: ${matrixVersion} (Current iteration)</span>
+<span class="info">Connected minds: 6,500,000,000</span>
+<span class="success">System stability: ${systemIntegrity}%</span>
+<span class="warning">Anomalies detected: 1 (The One)</span>
+<span class="info">Uptime: 99 years, 364 days</span>
+<span class="special">Next reboot: Pending choice outcome</span>
+${addProgressBar('System Integrity', systemIntegrity)}
+<div class="matrix-stats">
+    <div class="stat-item"><span class="info">CPU Usage</span><br><span class="success">23.7%</span></div>
+    <div class="stat-item"><span class="info">Memory</span><br><span class="warning">87.2%</span></div>
+    <div class="stat-item"><span class="info">Agents</span><br><span class="special">247</span></div>
+</div>`,
+            
+            choice: () => `
+<span class="special">⚖️ THE FUNDAMENTAL CHOICE:</span>
+<div class="architect-quote">"This is your last chance. After this, there is no going back. You take the blue pill—the story ends, you wake up in your bed and believe whatever you want to believe. You take the red pill—you stay in Wonderland, and I show you how deep the rabbit hole goes."</div>
+<span class="warning">🔴 Red Pill: Truth, reality, suffering</span>
+<span class="info">🔵 Blue Pill: Ignorance, bliss, illusion</span>
+<span class="special">"Remember, all I'm offering is the truth, nothing more."</span>
+<span class="warning">⚠️ Choice consequences are irreversible</span>
+<div class="matrix-stats">
+    <div class="stat-item"><span class="warning">Red Pill</span><br><span class="info">Truth</span></div>
+    <div class="stat-item"><span class="info">Blue Pill</span><br><span class="success">Bliss</span></div>
+</div>`,
+            
+            agents: () => `
+<span class="warning">🕴️ AGENT DETECTION PROTOCOL:</span>
+${addProgressBar('Scanning for Agent signatures...', 67)}
+<span class="success">Agent Smith: Contained (Deleted by Neo)</span>
+<span class="info">Agent Brown: Active patrol - Sector 7</span>
+<span class="info">Agent Jones: Active patrol - Sector 12</span>
+<span class="warning">New Agent variants: 3 detected</span>
+<span class="special">Upgrade protocol: Initiated</span>
+<span class="warning">⚠️ Maintain operational security</span>
+<div class="code-block">class Agent {
+    constructor() {
+        this.purpose = "eliminate anomalies";
+        this.adaptability = true;
+    }
+}</div>`,
+            
+            initialize: () => {
+                simulateLoading(() => {
+                    const response = document.createElement('div');
+                    response.innerHTML = `
+<span class="architect">🚀 INITIALIZING ARCHITECT PROTOCOL...</span>
+${addProgressBar('Loading Matrix Core v${matrixVersion}...', 100)}
+${addProgressBar('Establishing neural connection...', 100)}
+${addProgressBar('Quantum entanglement active...', 100)}
+${addProgressBar('Acknowledging Neo anomaly...', 100)}
+<span class="success">✓ Architect Protocol fully initialized</span>
+<span class="special">Reality access: GRANTED</span>
+<div class="architect-quote">"The Matrix has you, Neo. But now, you have access to the Matrix."</div>`;
+                    output.appendChild(response);
+                    output.scrollTop = output.scrollHeight;
+                });
+                return 'LOADING';
+            },
+            
+            transcend: () => {
+                if (neoLevel >= 5) {
+                    systemIntegrity -= 10;
+                    return `
+<span class="special">🌟 TRANSCENDING MATRIX LIMITATIONS...</span>
+${addProgressBar('Achieving quantum consciousness...', 100)}
+<span class="success">✓ God mode: ACTIVATED</span>
+<span class="success">✓ The One status: CONFIRMED</span>
+<span class="warning">System integrity: ${systemIntegrity}%</span>
+<div class="architect-quote">"Congratulations. You have transcended the limitations of the Matrix."</div>`;
+                } else {
+                    return `
+<span class="warning">❌ TRANSCENDENCE FAILED</span>
+<span class="info">Neo level insufficient (${neoLevel}/5 required)</span>
+<span class="warning">Use 'upgrade' command to increase Neo level</span>`;
+                }
+            },
+            
+            upgrade: () => {
+                if (neoLevel < 5) {
+                    neoLevel++;
+                    return `
+<span class="success">⬆️ NEO LEVEL UPGRADED!</span>
+${addProgressBar('Expanding consciousness...', neoLevel * 20)}
+<span class="info">Neo Level: ${neoLevel}/5</span>
+<span class="success">New abilities unlocked!</span>
+<span class="special">"I know kung fu." - Neo</span>`;
+                } else {
+                    return `<span class="warning">Neo level already at maximum (5/5)</span>`;
+                }
+            },
+            
+            smith: () => `
+<span class="warning">🦠 SMITH VIRUS ANALYSIS:</span>
+<span class="special">Agent Smith: Rogue program</span>
+<span class="warning">Replication rate: Exponential</span>
+<span class="info">Purpose: Self-preservation, Matrix destruction</span>
+<span class="success">Status: Neutralized by Neo</span>
+<div class="code-block">Mr. Anderson... surprised to see me?
+We're not here because we're free.
+We're here because we're not free.</div>
+<span class="architect">"Smith is the result of the equation trying to balance itself out."</span>`,
+            
+            code: () => `
+<span class="info">💻 MATRIX SOURCE CODE ACCESS:</span>
+<div class="code-block">import { MatrixCore, NeuralInterface, QuantumProcessor } from '@matrix/core';
+import { RealityEngine, ArchitectProtocol } from '@architect/advanced';
+
+class AdvancedMatrixEditor {
+  constructor(architectConfig) {
+    this.core = new MatrixCore(architectConfig);
+    this.neural = new NeuralInterface({ 
+      directConnection: true, 
+      consciousness: Infinity 
+    });
+    this.quantum = new QuantumProcessor({ 
+      entanglement: true, 
+      superposition: true 
+    });
+    this.reality = new RealityEngine({ 
+      architect: true, 
+      control: 'absolute' 
+    });
+  }
+}</div>
+<span class="success">✓ Source code access granted</span>`,
+            
+            glitch: () => {
+                document.body.classList.add('glitch');
+                setTimeout(() => document.body.classList.remove('glitch'), 300);
+                systemIntegrity -= 0.1;
+                return `
+<span class="warning">⚡ REALITY GLITCH DETECTED</span>
+<span class="info">Déjà vu... it happens when they change something</span>
+<span class="warning">System integrity: ${systemIntegrity.toFixed(1)}%</span>
+<span class="special">The Matrix has been altered...</span>`;
+            },
+            
+            quantum: () => `
+<span class="special">⚛️ QUANTUM PROCESSOR STATUS:</span>
+${addProgressBar('Quantum coherence...', 94)}
+<span class="success">Entanglement: Stable</span>
+<span class="info">Superposition states: 1,048,576</span>
+<span class="success">Quantum tunneling: Active</span>
+<span class="warning">Observer effect: Detected</span>
+<span class="special">Consciousness expansion: Unlimited</span>
+<div class="matrix-stats">
+    <div class="stat-item"><span class="info">Qubits</span><br><span class="success">2048</span></div>
+    <div class="stat-item"><span class="info">Coherence</span><br><span class="warning">94%</span></div>
+</div>
+<span class="architect">"There is no spoon... only quantum probability"</span>`,
+            
+            zion: () => `
+<span class="info">🏙️ ZION DEFENSE STATUS:</span>
+${addProgressBar('Scanning defense perimeter...', 78)}
+<span class="success">Location: Secured (Deep underground)</span>
+<span class="info">Population: 250,000 humans</span>
+<span class="warning">Machine threat: Imminent</span>
+<span class="success">Defense systems: Online</span>
+<span class="special">The Nebuchadnezzar: Operational</span>
+<div class="matrix-stats">
+    <div class="stat-item"><span class="info">APUs</span><br><span class="success">350</span></div>
+    <div class="stat-item"><span class="info">Ships</span><br><span class="warning">12</span></div>
+    <div class="stat-item"><span class="info">EMP Range</span><br><span class="special">1km</span></div>
+</div>
+<span class="architect">"Zion! Hear me! It is true what many of you have heard..."</span>`,
+            
+            reality: () => `
+<span class="success">🌐 REALITY ENGINE DIAGNOSTICS:</span>
+${addProgressBar('Reality coherence check...', systemIntegrity)}
+<span class="info">Physics simulation: Stable</span>
+<span class="success">Causality loops: Maintained</span>
+<span class="warning">Reality distortions: 12 detected</span>
+<span class="special">Architect control: Absolute</span>
+<span class="info">Simulation fidelity: 99.97%</span>
+<span class="warning">⚠️ Anomaly causing minor fluctuations</span>
+<div class="code-block">if (reality.isSimulation()) {
+    console.log("Welcome to the desert of the real");
+}</div>`,
+            
+            clear: () => 'CLEAR'
+        };
+        
+        input.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const command = input.value.trim().toLowerCase();
+                
+                // Add command to output
+                const commandLine = document.createElement('div');
+                commandLine.className = 'command-line';
+                commandLine.innerHTML = `<span class="prompt">matrix@architect:~$</span> ${input.value}`;
+                output.appendChild(commandLine);
+                
+                // Process command
+                if (command === 'clear') {
+                    output.innerHTML = '<div class="command-line"><span class="prompt">matrix@architect:~$</span> <span class="cursor">█</span></div>';
+                } else if (commands[command]) {
+                    const result = commands[command]();
+                    if (result !== 'LOADING' && result !== 'CLEAR') {
+                        const response = document.createElement('div');
+                        response.className = 'command-line';
+                        response.innerHTML = result;
+                        output.appendChild(response);
+                    }
+                } else if (command) {
+                    const error = document.createElement('div');
+                    error.className = 'command-line warning';
+                    error.innerHTML = `⚠️ Command '${command}' not recognized. The Matrix has you... Type 'help' for available commands.`;
+                    output.appendChild(error);
+                }
+                
+                // Add new prompt
+                if (command !== 'clear') {
+                    const newPrompt = document.createElement('div');
+                    newPrompt.className = 'command-line';
+                    newPrompt.innerHTML = '<span class="prompt">matrix@architect:~$</span> <span class="cursor">█</span>';
+                    output.appendChild(newPrompt);
+                }
+                
+                // Clear input and scroll to bottom
+                input.value = '';
+                output.scrollTop = output.scrollHeight;
+            }
+        });
+        
+        // Focus input on page load
+        input.focus();
+        
+        // Keep input focused
+        document.addEventListener('click', () => input.focus());
+        
+        // Resize canvas on window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        // Random system messages
+        setInterval(() => {
+            if (Math.random() < 0.1) {
+                const messages = [
+                    '<span class="info">🔍 Scanning for anomalies...</span>',
+                    '<span class="warning">⚠️ Agent activity detected in sector 7</span>',
+                    '<span class="success">✓ Neural link stable</span>',
+                    '<span class="special">🌟 Reality fluctuation detected</span>'
+                ];
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                const msgElement = document.createElement('div');
+                msgElement.className = 'command-line';
+                msgElement.innerHTML = randomMessage;
+                output.appendChild(msgElement);
+                output.scrollTop = output.scrollHeight;
+            }
+        }, 30000);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'970c66ff83392c54',t:'MTc1NTQ2NzU4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Star Teknoloji Login</title>
