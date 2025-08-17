@@ -32,6 +32,846 @@ Abonelerimize her ay yeni matrix code (HTML) gönderilecektir.Her ay uygulamana 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neo-Tokyo Cityscape</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --neon-blue: #00f3ff;
+      --neon-purple: #9d00ff;
+      --neon-pink: #ff00c8;
+      --neon-green: #00ff66;
+      --neon-yellow: #fcee09;
+      --neon-red: #ff3c3c;
+      --neon-orange: #ff6600;
+      --dark-blue: #0a0a20;
+      --darker-blue: #050510;
+      --darkest-blue: #020208;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background-color: var(--darkest-blue);
+      color: #ffffff;
+      overflow-x: hidden;
+      height: 100vh;
+    }
+    
+    .cityscape-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(0deg, 
+        var(--darkest-blue) 0%, 
+        var(--darker-blue) 30%, 
+        #101035 60%, 
+        #1a1a40 80%, 
+        #2a2a50 100%);
+      overflow: hidden;
+      perspective: 2000px;
+    }
+    
+    .atmosphere-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center bottom, 
+        rgba(0, 243, 255, 0.1) 0%, 
+        rgba(157, 0, 255, 0.05) 40%, 
+        transparent 70%);
+      z-index: 1;
+    }
+    
+    .fog-layer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 60%;
+      background: linear-gradient(to top, 
+        rgba(2, 2, 8, 0.9) 0%, 
+        rgba(10, 10, 32, 0.6) 30%, 
+        rgba(20, 20, 50, 0.3) 60%, 
+        transparent 100%);
+      z-index: 15;
+      pointer-events: none;
+    }
+    
+    .building {
+      position: absolute;
+      bottom: 0;
+      background: linear-gradient(to bottom, 
+        rgba(15, 15, 40, 0.95) 0%, 
+        rgba(8, 8, 25, 0.98) 50%, 
+        rgba(3, 3, 12, 1) 100%);
+      border-top: 3px solid;
+      box-shadow: 0 0 20px currentColor;
+      transform-style: preserve-3d;
+    }
+    
+    .building-far {
+      z-index: 2;
+      opacity: 0.6;
+      filter: blur(1px);
+    }
+    
+    .building-mid {
+      z-index: 5;
+      opacity: 0.8;
+    }
+    
+    .building-close {
+      z-index: 8;
+      opacity: 1;
+    }
+    
+    .window {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+      animation: window-flicker 4s infinite;
+    }
+    
+    @keyframes window-flicker {
+      0%, 100% { opacity: 1; }
+      25% { opacity: 0.8; }
+      50% { opacity: 0.6; }
+      75% { opacity: 0.9; }
+    }
+    
+    .neon-window {
+      animation: neon-window-pulse 3s infinite;
+    }
+    
+    @keyframes neon-window-pulse {
+      0%, 100% { 
+        opacity: 1; 
+        box-shadow: 0 0 8px currentColor, 0 0 16px currentColor;
+      }
+      50% { 
+        opacity: 0.7; 
+        box-shadow: 0 0 4px currentColor, 0 0 8px currentColor;
+      }
+    }
+    
+    .hologram-ad {
+      position: absolute;
+      border-radius: 8px;
+      overflow: hidden;
+      opacity: 0.85;
+      animation: hologram-flicker 5s infinite;
+      box-shadow: 0 0 25px currentColor, inset 0 0 15px rgba(255, 255, 255, 0.1);
+      z-index: 12;
+      border: 2px solid currentColor;
+    }
+    
+    @keyframes hologram-flicker {
+      0%, 100% { opacity: 0.85; transform: translateY(0px); }
+      25% { opacity: 0.7; transform: translateY(-2px); }
+      50% { opacity: 0.6; transform: translateY(1px); }
+      75% { opacity: 0.8; transform: translateY(-1px); }
+    }
+    
+    .hologram-content {
+      padding: 15px;
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px currentColor;
+      position: relative;
+    }
+    
+    .hologram-logo {
+      margin: 10px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .scanlines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.4) 2px,
+        rgba(0, 0, 0, 0.4) 4px
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .flying-vehicle {
+      position: absolute;
+      width: 40px;
+      height: 16px;
+      background: linear-gradient(45deg, rgba(255, 255, 255, 0.9), rgba(200, 200, 255, 0.8));
+      border-radius: 60% 60% 20% 20%;
+      box-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-blue);
+      z-index: 18;
+      animation: vehicle-fly linear infinite;
+    }
+    
+    .vehicle-trail {
+      position: absolute;
+      bottom: -3px;
+      left: 8px;
+      width: 24px;
+      height: 6px;
+      background: linear-gradient(90deg, 
+        rgba(0, 243, 255, 0.8) 0%, 
+        rgba(0, 243, 255, 0.4) 50%, 
+        transparent 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 15px var(--neon-blue);
+    }
+    
+    @keyframes vehicle-fly {
+      0% { transform: translateX(-100px) translateY(0px); }
+      25% { transform: translateX(25vw) translateY(-10px); }
+      50% { transform: translateX(50vw) translateY(5px); }
+      75% { transform: translateX(75vw) translateY(-5px); }
+      100% { transform: translateX(calc(100vw + 100px)) translateY(0px); }
+    }
+    
+    .vehicle-reverse {
+      animation: vehicle-fly-reverse linear infinite;
+      transform: scaleX(-1);
+    }
+    
+    @keyframes vehicle-fly-reverse {
+      0% { transform: translateX(calc(100vw + 100px)) translateY(0px) scaleX(-1); }
+      25% { transform: translateX(75vw) translateY(-8px) scaleX(-1); }
+      50% { transform: translateX(50vw) translateY(3px) scaleX(-1); }
+      75% { transform: translateX(25vw) translateY(-6px) scaleX(-1); }
+      100% { transform: translateX(-100px) translateY(0px) scaleX(-1); }
+    }
+    
+    .digital-rain {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 20;
+      opacity: 0.4;
+    }
+    
+    .rain-column {
+      position: absolute;
+      top: -200px;
+      font-family: 'Courier New', monospace;
+      color: var(--neon-green);
+      font-size: 16px;
+      line-height: 1.2;
+      animation: rain-fall linear infinite;
+      text-shadow: 0 0 5px currentColor;
+    }
+    
+    @keyframes rain-fall {
+      0% { transform: translateY(-200px); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(calc(100vh + 200px)); opacity: 0; }
+    }
+    
+    .atmospheric-rain {
+      position: absolute;
+      width: 2px;
+      background: linear-gradient(to bottom, 
+        transparent, 
+        rgba(0, 243, 255, 0.6), 
+        rgba(0, 243, 255, 0.3), 
+        transparent);
+      top: -100px;
+      animation: rain-drop linear infinite;
+      z-index: 16;
+    }
+    
+    @keyframes rain-drop {
+      0% { transform: translateY(-100px); opacity: 0; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.8; }
+      100% { transform: translateY(calc(100vh + 100px)); opacity: 0; }
+    }
+    
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      z-index: 1;
+    }
+    
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: star-twinkle linear infinite;
+      box-shadow: 0 0 4px white;
+    }
+    
+    @keyframes star-twinkle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.8); }
+    }
+    
+    .antenna {
+      position: absolute;
+      width: 3px;
+      background: linear-gradient(to top, 
+        rgba(255, 255, 255, 0.8), 
+        rgba(255, 255, 255, 0.4));
+      box-shadow: 0 0 8px white;
+    }
+    
+    .antenna-light {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--neon-red);
+      box-shadow: 0 0 15px var(--neon-red);
+      animation: blink 2s infinite;
+    }
+    
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0.3; }
+    }
+    
+    .rooftop-detail {
+      position: absolute;
+      background: linear-gradient(45deg, 
+        rgba(20, 20, 50, 0.9), 
+        rgba(10, 10, 30, 0.95));
+      border-top: 2px solid;
+      box-shadow: 0 0 15px currentColor;
+    }
+    
+    .glitch-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      pointer-events: none;
+      z-index: 25;
+      opacity: 0;
+    }
+    
+    .glitch-overlay:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 243, 255, 0.1) 25%, 
+        rgba(255, 0, 200, 0.1) 50%, 
+        rgba(0, 255, 102, 0.1) 75%, 
+        transparent 100%);
+      animation: glitch-sweep 15s infinite;
+    }
+    
+    @keyframes glitch-sweep {
+      0%, 90% { opacity: 0; }
+      91% { opacity: 0.3; }
+      92% { opacity: 0; }
+      93% { opacity: 0.5; }
+      94% { opacity: 0; }
+      95% { opacity: 0.2; }
+      96%, 100% { opacity: 0; }
+    }
+    
+    .texture-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%23ffffff' fill-opacity='0.03' d='M2 6h1v1H2V6zm3-3h1v1H5V3z'%3E%3C/path%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 22;
+    }
+    
+    .noise-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 21;
+      opacity: 0.6;
+    }
+    
+    .data-stream {
+      position: absolute;
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      color: var(--neon-blue);
+      white-space: nowrap;
+      opacity: 0.6;
+      animation: data-flow 8s linear infinite;
+      pointer-events: none;
+      z-index: 10;
+      text-shadow: 0 0 5px currentColor;
+    }
+    
+    @keyframes data-flow {
+      0% { transform: translateY(-50px) translateX(0); opacity: 0; }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% { transform: translateY(calc(100vh + 50px)) translateX(20px); opacity: 0; }
+    }
+    
+    .parallax-layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="cityscape-container">
+    <!-- Texture and Noise Overlays -->
+    <div class="texture-overlay"></div>
+    <div class="noise-overlay"></div>
+    
+    <!-- Atmospheric Effects -->
+    <div class="atmosphere-layer"></div>
+    <div class="glitch-overlay"></div>
+    
+    <!-- Stars -->
+    <div class="stars" id="stars-container"></div>
+    
+    <!-- Parallax Building Layers -->
+    <div class="parallax-layer" id="far-buildings"></div>
+    <div class="parallax-layer" id="mid-buildings"></div>
+    <div class="parallax-layer" id="close-buildings"></div>
+    
+    <!-- Holographic Advertisements -->
+    <div class="parallax-layer" id="hologram-ads"></div>
+    
+    <!-- Flying Vehicles -->
+    <div class="parallax-layer" id="vehicles"></div>
+    
+    <!-- Data Streams -->
+    <div class="parallax-layer" id="data-streams"></div>
+    
+    <!-- Digital Rain -->
+    <div class="digital-rain" id="digital-rain"></div>
+    
+    <!-- Atmospheric Rain -->
+    <div class="parallax-layer" id="atmospheric-rain"></div>
+    
+    <!-- Fog Layer -->
+    <div class="fog-layer"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeCityscape();
+      
+      // Continuous regeneration for dynamic feel
+      setInterval(() => {
+        generateVehicles();
+        generateDataStreams();
+      }, 30000);
+      
+      // Periodic glitch effects
+      setInterval(() => {
+        triggerGlitch();
+      }, 12000);
+    });
+    
+    function initializeCityscape() {
+      generateStars();
+      generateBuildings();
+      generateHologramAds();
+      generateVehicles();
+      generateDigitalRain();
+      generateAtmosphericRain();
+      generateDataStreams();
+    }
+    
+    function generateStars() {
+      const container = document.getElementById('stars-container');
+      const starCount = 300;
+      
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        const size = Math.random() * 3 + 1;
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const duration = Math.random() * 4 + 3;
+        
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${x}%`;
+        star.style.top = `${y}%`;
+        star.style.animationDuration = `${duration}s`;
+        star.style.animationDelay = `${Math.random() * 5}s`;
+        
+        container.appendChild(star);
+      }
+    }
+    
+    function generateBuildings() {
+      generateBuildingLayer('far-buildings', 30, 0.3, 0.5, 'building-far');
+      generateBuildingLayer('mid-buildings', 25, 0.5, 0.7, 'building-mid');
+      generateBuildingLayer('close-buildings', 20, 0.7, 1.0, 'building-close');
+    }
+    
+    function generateBuildingLayer(containerId, count, minHeight, maxHeight, className) {
+      const container = document.getElementById(containerId);
+      const containerWidth = window.innerWidth;
+      const containerHeight = window.innerHeight;
+      
+      for (let i = 0; i < count; i++) {
+        const building = document.createElement('div');
+        building.className = `building ${className}`;
+        
+        const width = Math.random() * 120 + 60;
+        const height = (Math.random() * (maxHeight - minHeight) + minHeight) * containerHeight;
+        const left = (i * (containerWidth / count)) + (Math.random() * 40 - 20);
+        
+        building.style.width = `${width}px`;
+        building.style.height = `${height}px`;
+        building.style.left = `${left}px`;
+        
+        // Random neon color for building outline
+        const colors = ['var(--neon-blue)', 'var(--neon-purple)', 'var(--neon-pink)', 'var(--neon-green)', 'var(--neon-orange)'];
+        const buildingColor = colors[Math.floor(Math.random() * colors.length)];
+        building.style.borderTopColor = buildingColor;
+        building.style.boxShadow = `0 0 20px ${buildingColor}`;
+        
+        // Generate windows
+        const windowRows = Math.floor(height / 20);
+        const windowsPerRow = Math.floor(width / 12);
+        
+        for (let j = 0; j < windowRows; j++) {
+          for (let k = 0; k < windowsPerRow; k++) {
+            if (Math.random() > 0.25) {
+              const windowEl = document.createElement('div');
+              windowEl.className = 'window';
+              
+              const windowWidth = Math.random() * 4 + 4;
+              const windowHeight = Math.random() * 6 + 6;
+              
+              windowEl.style.width = `${windowWidth}px`;
+              windowEl.style.height = `${windowHeight}px`;
+              windowEl.style.left = `${k * 12 + 4}px`;
+              windowEl.style.top = `${j * 20 + 8}px`;
+              windowEl.style.animationDelay = `${Math.random() * 8}s`;
+              
+              // Some windows have neon colors
+              if (Math.random() > 0.7) {
+                const neonColors = ['#00f3ff', '#9d00ff', '#ff00c8', '#00ff66', '#fcee09', '#ff6600'];
+                const neonColor = neonColors[Math.floor(Math.random() * neonColors.length)];
+                windowEl.style.background = neonColor;
+                windowEl.style.boxShadow = `0 0 12px ${neonColor}`;
+                windowEl.className += ' neon-window';
+                windowEl.style.color = neonColor;
+              }
+              
+              building.appendChild(windowEl);
+            }
+          }
+        }
+        
+        // Add antennas and rooftop details
+        if (Math.random() > 0.6) {
+          const antenna = document.createElement('div');
+          antenna.className = 'antenna';
+          const antennaHeight = Math.random() * 50 + 30;
+          antenna.style.height = `${antennaHeight}px`;
+          antenna.style.bottom = `${height}px`;
+          antenna.style.left = `${width / 2}px`;
+          
+          const light = document.createElement('div');
+          light.className = 'antenna-light';
+          light.style.bottom = `${height + antennaHeight - 3}px`;
+          light.style.left = `${width / 2 - 3}px`;
+          light.style.animationDelay = `${Math.random() * 2}s`;
+          
+          building.appendChild(antenna);
+          building.appendChild(light);
+        }
+        
+        // Add rooftop structures
+        if (Math.random() > 0.5) {
+          const rooftop = document.createElement('div');
+          rooftop.className = 'rooftop-detail';
+          rooftop.style.width = `${width * 0.8}px`;
+          rooftop.style.height = `${Math.random() * 25 + 15}px`;
+          rooftop.style.bottom = `${height}px`;
+          rooftop.style.left = `${width * 0.1}px`;
+          
+          const rooftopColor = colors[Math.floor(Math.random() * colors.length)];
+          rooftop.style.borderTopColor = rooftopColor;
+          rooftop.style.boxShadow = `0 0 15px ${rooftopColor}`;
+          
+          building.appendChild(rooftop);
+        }
+        
+        container.appendChild(building);
+      }
+    }
+    
+    function generateHologramAds() {
+      const container = document.getElementById('hologram-ads');
+      const adCount = 18;
+      
+      const adContents = [
+        { text: 'NEURAL IMPLANTS', subtext: 'UPGRADE YOUR MIND', color: 'var(--neon-blue)' },
+        { text: 'SYNTHETIC DREAMS', subtext: 'ESCAPE REALITY', color: 'var(--neon-purple)' },
+        { text: 'CYBER ENHANCEMENTS', subtext: 'BECOME MORE', color: 'var(--neon-pink)' },
+        { text: 'MEMORY BACKUP', subtext: 'NEVER FORGET', color: 'var(--neon-green)' },
+        { text: 'DIGITAL IMMORTALITY', subtext: 'LIVE FOREVER', color: 'var(--neon-yellow)' },
+        { text: 'QUANTUM PROCESSING', subtext: 'THINK FASTER', color: 'var(--neon-blue)' },
+        { text: 'NEURALINK PRO', subtext: 'DIRECT CONNECTION', color: 'var(--neon-purple)' },
+        { text: 'CYBERSPACE ACCESS', subtext: 'ENTER THE MATRIX', color: 'var(--neon-green)' },
+        { text: 'ARASAKA SECURITY', subtext: 'TOTAL PROTECTION', color: 'var(--neon-red)' },
+        { text: 'NIGHTCITY TOURS', subtext: 'SEE THE FUTURE', color: 'var(--neon-yellow)' },
+        { text: 'CHROME UPGRADES', subtext: 'ENHANCED REALITY', color: 'var(--neon-blue)' },
+        { text: 'VIRTUAL PARADISE', subtext: 'PERFECT WORLD', color: 'var(--neon-purple)' },
+        { text: 'DATA MINING', subtext: 'INFORMATION IS POWER', color: 'var(--neon-orange)' },
+        { text: 'BIOTECH SOLUTIONS', subtext: 'EVOLVE BEYOND', color: 'var(--neon-pink)' },
+        { text: 'QUANTUM ENCRYPTION', subtext: 'ABSOLUTE SECURITY', color: 'var(--neon-green)' },
+        { text: 'HOLOGRAPHIC DISPLAYS', subtext: 'SEE THE IMPOSSIBLE', color: 'var(--neon-blue)' }
+      ];
+      
+      for (let i = 0; i < adCount; i++) {
+        const ad = document.createElement('div');
+        ad.className = 'hologram-ad';
+        
+        const width = Math.random() * 180 + 120;
+        const height = Math.random() * 100 + 80;
+        const left = Math.random() * (window.innerWidth - width);
+        const top = Math.random() * (window.innerHeight * 0.6) + 100;
+        
+        ad.style.width = `${width}px`;
+        ad.style.height = `${height}px`;
+        ad.style.left = `${left}px`;
+        ad.style.top = `${top}px`;
+        
+        const adContent = adContents[Math.floor(Math.random() * adContents.length)];
+        ad.style.color = adContent.color;
+        ad.style.borderColor = adContent.color;
+        ad.style.animationDelay = `${Math.random() * 5}s`;
+        
+        const content = document.createElement('div');
+        content.className = 'hologram-content';
+        content.innerHTML = `
+          <div style="font-size: ${Math.random() * 4 + 12}px; margin-bottom: 8px;">${adContent.text}</div>
+          <div style="font-size: ${Math.random() * 2 + 8}px; opacity: 0.8;">${adContent.subtext}</div>
+        `;
+        
+        const logo = document.createElement('div');
+        logo.className = 'hologram-logo';
+        
+        const logoSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        logoSvg.setAttribute('width', '50');
+        logoSvg.setAttribute('height', '50');
+        logoSvg.setAttribute('viewBox', '0 0 50 50');
+        
+        const logoShapes = [
+          '<circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="25" cy="25" r="12" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="25" cy="25" r="6" fill="currentColor"/>',
+          '<polygon points="25,5 40,15 40,35 25,45 10,35 10,15" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="25,15 32,20 32,30 25,35 18,30 18,20" fill="currentColor"/>',
+          '<path d="M10,25 L20,15 L30,15 L40,25 L30,35 L20,35 Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20,20 L30,20 L30,30 L20,30 Z" fill="currentColor"/>',
+          '<ellipse cx="25" cy="25" rx="20" ry="15" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="25" cy="25" r="8" fill="currentColor"/>',
+          '<polygon points="25,8 38,35 12,35" fill="none" stroke="currentColor" stroke-width="2"/><path d="M25,8 L25,20 L20,25 L30,25 L25,30 L25,35" stroke="currentColor" stroke-width="2" fill="none"/>',
+          '<rect x="10" y="10" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="25" cy="25" r="8" fill="currentColor"/>'
+        ];
+        
+        logoSvg.innerHTML = logoShapes[Math.floor(Math.random() * logoShapes.length)];
+        logo.appendChild(logoSvg);
+        
+        const scanlines = document.createElement('div');
+        scanlines.className = 'scanlines';
+        
+        ad.appendChild(content);
+        ad.appendChild(logo);
+        ad.appendChild(scanlines);
+        
+        container.appendChild(ad);
+      }
+    }
+    
+    function generateVehicles() {
+      const container = document.getElementById('vehicles');
+      container.innerHTML = '';
+      
+      const vehicleCount = 20;
+      
+      for (let i = 0; i < vehicleCount; i++) {
+        const vehicle = document.createElement('div');
+        vehicle.className = 'flying-vehicle';
+        
+        const top = Math.random() * (window.innerHeight * 0.7) + 100;
+        const delay = Math.random() * 20;
+        const duration = Math.random() * 15 + 12;
+        const size = Math.random() * 25 + 30;
+        
+        vehicle.style.top = `${top}px`;
+        vehicle.style.width = `${size}px`;
+        vehicle.style.height = `${size * 0.4}px`;
+        vehicle.style.animationDuration = `${duration}s`;
+        vehicle.style.animationDelay = `${delay}s`;
+        
+        // Random direction
+        if (Math.random() > 0.5) {
+          vehicle.classList.add('vehicle-reverse');
+        }
+        
+        const trail = document.createElement('div');
+        trail.className = 'vehicle-trail';
+        trail.style.width = `${size * 0.6}px`;
+        trail.style.height = `${size * 0.15}px`;
+        trail.style.left = `${size * 0.2}px`;
+        
+        vehicle.appendChild(trail);
+        container.appendChild(vehicle);
+      }
+    }
+    
+    function generateDigitalRain() {
+      const container = document.getElementById('digital-rain');
+      const columnCount = Math.floor(window.innerWidth / 25);
+      
+      const katakana = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+      const latin = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+      const symbols = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+      const chars = (katakana + latin + symbols).split('');
+      
+      for (let i = 0; i < columnCount; i++) {
+        const column = document.createElement('div');
+        column.className = 'rain-column';
+        
+        const left = (i / columnCount) * 100;
+        const delay = Math.random() * 8;
+        const duration = Math.random() * 12 + 8;
+        
+        column.style.left = `${left}%`;
+        column.style.animationDuration = `${duration}s`;
+        column.style.animationDelay = `${delay}s`;
+        
+        const charCount = Math.floor(Math.random() * 25) + 15;
+        let columnText = '';
+        
+        for (let j = 0; j < charCount; j++) {
+          const char = chars[Math.floor(Math.random() * chars.length)];
+          columnText += char + '\n';
+        }
+        
+        column.textContent = columnText;
+        container.appendChild(column);
+      }
+    }
+    
+    function generateAtmosphericRain() {
+      const container = document.getElementById('atmospheric-rain');
+      const rainCount = 150;
+      
+      for (let i = 0; i < rainCount; i++) {
+        const drop = document.createElement('div');
+        drop.className = 'atmospheric-rain';
+        
+        const left = Math.random() * 100;
+        const delay = Math.random() * 8;
+        const duration = Math.random() * 2 + 1;
+        const height = Math.random() * 30 + 20;
+        
+        drop.style.left = `${left}%`;
+        drop.style.height = `${height}px`;
+        drop.style.animationDuration = `${duration}s`;
+        drop.style.animationDelay = `${delay}s`;
+        
+        container.appendChild(drop);
+      }
+    }
+    
+    function generateDataStreams() {
+      const container = document.getElementById('data-streams');
+      container.innerHTML = '';
+      
+      const streamCount = 40;
+      const binaryChars = '01';
+      const hexChars = '0123456789ABCDEF';
+      
+      for (let i = 0; i < streamCount; i++) {
+        const stream = document.createElement('div');
+        stream.className = 'data-stream';
+        
+        const left = Math.random() * 100;
+        const delay = Math.random() * 10;
+        const duration = Math.random() * 8 + 6;
+        
+        stream.style.left = `${left}%`;
+        stream.style.animationDuration = `${duration}s`;
+        stream.style.animationDelay = `${delay}s`;
+        
+        // Random color
+        const colors = ['var(--neon-blue)', 'var(--neon-purple)', 'var(--neon-green)', 'var(--neon-orange)'];
+        stream.style.color = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Generate data string
+        let text = '';
+        const charSet = Math.random() > 0.5 ? binaryChars : hexChars;
+        const length = Math.floor(Math.random() * 30) + 15;
+        
+        for (let j = 0; j < length; j++) {
+          text += charSet[Math.floor(Math.random() * charSet.length)];
+        }
+        
+        stream.textContent = text;
+        container.appendChild(stream);
+      }
+    }
+    
+    function triggerGlitch() {
+      const glitchOverlay = document.querySelector('.glitch-overlay');
+      glitchOverlay.style.opacity = '1';
+      
+      setTimeout(() => {
+        glitchOverlay.style.opacity = '0';
+      }, 200);
+    }
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'970c4652008750c4',t:'MTc1NTQ2NjI0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star Teknoloji Login</title>
