@@ -3,21 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuantumCode AR - Holographic Development Interface</title>
+    <title>Star Teknoloji Login</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;700;900&family=Fira+Code:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
-        
-        :root {
-            --primary-cyan: #00ffff;
-            --primary-magenta: #ff00ff;
-            --primary-yellow: #ffff00;
-            --primary-green: #00ff00;
-            --primary-orange: #ff6600;
-            --dark-bg: #0a0a0a;
-            --glass-bg: rgba(0, 255, 255, 0.03);
-            --neon-glow: 0 0 20px;
-            --data-stream-color: #00ccff;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;700;900&family=Exo+2:wght@300;400;500;600;700;800;900&display=swap');
         
         * {
             margin: 0;
@@ -26,1399 +14,1388 @@
         }
         
         body {
-            font-family: 'Fira Code', monospace;
-            background: 
-                radial-gradient(ellipse at top left, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at top right, rgba(255, 0, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom left, rgba(0, 255, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom right, rgba(255, 255, 0, 0.1) 0%, transparent 50%),
-                linear-gradient(135deg, #000000 0%, #0a0a1a 25%, #1a0a1a 50%, #0a1a1a 75%, #000000 100%);
-            color: var(--primary-cyan);
-            overflow-x: hidden;
-            min-height: 100vh;
-            position: relative;
-        }
-        
-        /* Abstract Data Stream Background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(45deg, transparent 40%, rgba(0, 255, 255, 0.02) 50%, transparent 60%),
-                linear-gradient(-45deg, transparent 40%, rgba(255, 0, 255, 0.02) 50%, transparent 60%),
-                linear-gradient(90deg, transparent 98%, rgba(0, 255, 255, 0.05) 100%),
-                linear-gradient(0deg, transparent 98%, rgba(255, 0, 255, 0.05) 100%);
-            background-size: 100px 100px, 150px 150px, 30px 30px, 30px 30px;
-            pointer-events: none;
-            z-index: -2;
-            animation: dataStreamFlow 25s linear infinite;
-        }
-        
-        @keyframes dataStreamFlow {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(100px, 100px) rotate(360deg); }
-        }
-        
-        /* Floating Data Particles */
-        .data-particle {
-            position: fixed;
-            width: 4px;
-            height: 4px;
-            background: var(--data-stream-color);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
-            animation: particleFloat 15s linear infinite;
-            box-shadow: 0 0 10px var(--data-stream-color);
-        }
-        
-        @keyframes particleFloat {
-            0% { 
-                transform: translateY(100vh) translateX(0) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            90% {
-                opacity: 1;
-            }
-            100% { 
-                transform: translateY(-100px) translateX(200px) scale(0);
-                opacity: 0;
-            }
-        }
-        
-        /* Holographic AR Elements */
-        .holo-element {
-            position: fixed;
-            pointer-events: none;
-            z-index: 1000;
-            animation: holoFloat 8s ease-in-out infinite;
-            filter: blur(0.5px);
-        }
-        
-        .holo-element:nth-child(1) { 
-            top: 15%; 
-            left: 5%; 
-            animation-delay: 0s; 
-        }
-        .holo-element:nth-child(2) { 
-            top: 25%; 
-            right: 8%; 
-            animation-delay: 2.5s; 
-        }
-        .holo-element:nth-child(3) { 
-            bottom: 20%; 
-            left: 10%; 
-            animation-delay: 5s; 
-        }
-        .holo-element:nth-child(4) { 
-            top: 60%; 
-            right: 15%; 
-            animation-delay: 7.5s; 
-        }
-        
-        @keyframes holoFloat {
-            0%, 100% { 
-                transform: translateY(0px) translateX(0px) rotateZ(0deg) scale(1);
-                opacity: 0.3;
-            }
-            25% { 
-                transform: translateY(-30px) translateX(20px) rotateZ(90deg) scale(1.2);
-                opacity: 0.7;
-            }
-            50% { 
-                transform: translateY(-10px) translateX(-15px) rotateZ(180deg) scale(0.8);
-                opacity: 0.5;
-            }
-            75% { 
-                transform: translateY(20px) translateX(10px) rotateZ(270deg) scale(1.1);
-                opacity: 0.6;
-            }
-        }
-        
-        .container {
-            max-width: 1900px;
-            margin: 0 auto;
-            padding: 25px;
-            position: relative;
-        }
-        
-        /* Enhanced Header with Floating Elements */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            padding: 25px;
-            background: var(--glass-bg);
-            border: 3px solid transparent;
-            border-radius: 25px;
-            backdrop-filter: blur(25px);
-            position: relative;
+            background: radial-gradient(ellipse at center, 
+                #0a0a3e 0%, 
+                #1a1a5e 10%, 
+                #2a2a7e 20%, 
+                #3a3a9e 35%, 
+                #4a4abe 50%, 
+                #5a5ade 70%,
+                #6a6afe 90%,
+                #7a7aff 100%);
+            font-family: 'Exo 2', sans-serif;
+            color: #00ffff;
             overflow: hidden;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 25px;
-            padding: 3px;
-            background: linear-gradient(45deg, var(--primary-cyan), var(--primary-magenta), var(--primary-yellow), var(--primary-green));
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            animation: borderRotate 4s linear infinite;
-        }
-        
-        @keyframes borderRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .title {
-            font-family: 'Orbitron', monospace;
-            font-size: 3rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, var(--primary-cyan), var(--primary-magenta), var(--primary-yellow), var(--primary-green));
-            background-size: 400% 400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: holographicShift 4s ease-in-out infinite, titlePulse 2s ease-in-out infinite alternate;
-            text-transform: uppercase;
-            letter-spacing: 4px;
+            height: 100vh;
             position: relative;
-            z-index: 1;
+            cursor: none;
+            animation: cosmicResonance 10s ease-in-out infinite;
+            filter: contrast(4.8) saturate(9.5) brightness(2.8);
         }
         
-        @keyframes holographicShift {
+        @keyframes cosmicResonance {
             0%, 100% { 
-                background-position: 0% 50%; 
-                filter: hue-rotate(0deg) brightness(1);
+                filter: hue-rotate(0deg) brightness(2.8) contrast(4.8) saturate(9.5);
+                transform: scale(1) rotate(0deg);
             }
-            25% { 
-                background-position: 100% 50%; 
-                filter: hue-rotate(90deg) brightness(1.2);
+            16% { 
+                filter: hue-rotate(60deg) brightness(3.5) contrast(5.2) saturate(10.8);
+                transform: scale(1.03) rotate(0.5deg);
+            }
+            33% { 
+                filter: hue-rotate(120deg) brightness(4.2) contrast(4.5) saturate(11.5);
+                transform: scale(0.97) rotate(-0.8deg);
             }
             50% { 
-                background-position: 0% 100%; 
-                filter: hue-rotate(180deg) brightness(0.8);
+                filter: hue-rotate(180deg) brightness(4.8) contrast(5.8) saturate(12.2);
+                transform: scale(1.06) rotate(1.2deg);
             }
-            75% { 
-                background-position: 100% 0%; 
-                filter: hue-rotate(270deg) brightness(1.1);
+            66% { 
+                filter: hue-rotate(240deg) brightness(3.8) contrast(4.2) saturate(10.5);
+                transform: scale(0.94) rotate(-1.5deg);
             }
-        }
-        
-        @keyframes titlePulse {
-            from { 
-                text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-                transform: scale(1);
-            }
-            to { 
-                text-shadow: 0 0 40px rgba(255, 0, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.3);
-                transform: scale(1.02);
+            83% { 
+                filter: hue-rotate(300deg) brightness(4.5) contrast(5.5) saturate(11.8);
+                transform: scale(1.09) rotate(0.9deg);
             }
         }
         
-        .theme-controls {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .theme-btn {
+        /* Hyper-Detailed Cosmic Cursor */
+        .cosmic-cursor {
+            position: fixed;
             width: 50px;
             height: 50px;
-            border: 3px solid;
+            background: radial-gradient(circle, 
+                #ff00ff 0%, 
+                #00ffff 20%, 
+                #ffff00 40%, 
+                #ff69b4 60%, 
+                #00ff80 80%, 
+                transparent 100%);
             border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            background: radial-gradient(circle, transparent 30%, currentColor 70%);
-        }
-        
-        .theme-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            transition: all 0.4s ease;
-            transform: translate(-50%, -50%);
-            background: currentColor;
-            opacity: 0.3;
-        }
-        
-        .theme-btn:hover {
-            transform: scale(1.2) rotate(180deg);
-            box-shadow: var(--neon-glow) currentColor;
-        }
-        
-        .theme-btn:hover::before {
-            width: 80%;
-            height: 80%;
-        }
-        
-        .theme-cyan { color: var(--primary-cyan); }
-        .theme-magenta { color: var(--primary-magenta); }
-        .theme-green { color: var(--primary-green); }
-        .theme-yellow { color: var(--primary-yellow); }
-        .theme-orange { color: var(--primary-orange); }
-        
-        /* Advanced Interface Layout */
-        .main-interface {
-            display: grid;
-            grid-template-columns: 1fr 2.5fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        /* Holographic Panels with Floating Code */
-        .holo-panel {
-            background: var(--glass-bg);
-            border: 2px solid transparent;
-            border-radius: 25px;
-            padding: 30px;
-            backdrop-filter: blur(20px);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .holo-panel::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 25px;
-            padding: 2px;
-            background: linear-gradient(135deg, var(--primary-cyan), transparent, var(--primary-magenta), transparent, var(--primary-green));
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            animation: panelGlow 6s ease-in-out infinite;
-        }
-        
-        @keyframes panelGlow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-        
-        .panel-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid rgba(0, 255, 255, 0.2);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .panel-title {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.4rem;
-            color: var(--primary-cyan);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 700;
-            text-shadow: 0 0 10px currentColor;
-        }
-        
-        /* Floating Code Editor */
-        .floating-code-editor {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 20, 40, 0.8) 100%);
-            border: 2px solid rgba(0, 255, 255, 0.3);
-            border-radius: 20px;
-            padding: 25px;
-            font-family: 'Fira Code', monospace;
-            font-size: 15px;
-            color: var(--primary-green);
-            min-height: 600px;
-            position: relative;
-            overflow: hidden;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: screen;
+            animation: cursorCosmicPulse 1.2s ease-in-out infinite;
             box-shadow: 
-                inset 0 0 50px rgba(0, 255, 255, 0.1),
-                0 0 50px rgba(0, 255, 255, 0.2);
+                0 0 60px #ff00ff,
+                0 0 120px #00ffff,
+                0 0 180px rgba(255, 0, 255, 1.0),
+                0 0 240px rgba(0, 255, 255, 0.8),
+                0 0 300px rgba(255, 255, 0, 0.6);
         }
         
-        .floating-code-editor::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary-cyan), var(--primary-magenta), transparent);
-            animation: scanLine 3s linear infinite;
-        }
-        
-        @keyframes scanLine {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-        
-        .floating-code-line {
-            display: flex;
-            margin-bottom: 8px;
-            padding: 4px 0;
-            border-radius: 6px;
-            transition: all 0.4s ease;
-            position: relative;
-            animation: codeFloat 0.8s ease-out;
-            transform-style: preserve-3d;
-        }
-        
-        .floating-code-line:hover {
-            background: rgba(0, 255, 255, 0.1);
-            transform: translateZ(10px) scale(1.02);
-            box-shadow: 
-                0 5px 15px rgba(0, 255, 255, 0.3),
-                0 0 20px rgba(0, 255, 255, 0.2);
-        }
-        
-        @keyframes codeFloat {
-            from { 
-                opacity: 0; 
-                transform: translateX(-30px) translateY(20px) rotateY(-15deg);
-            }
-            to { 
-                opacity: 1; 
-                transform: translateX(0) translateY(0) rotateY(0deg);
-            }
-        }
-        
-        .line-number {
-            color: rgba(255, 255, 255, 0.4);
-            margin-right: 20px;
-            width: 40px;
-            text-align: right;
-            font-weight: 500;
-            user-select: none;
-            text-shadow: 0 0 5px currentColor;
-        }
-        
-        .code-content {
-            flex: 1;
-            font-weight: 400;
-            position: relative;
-        }
-        
-        /* Enhanced Syntax Highlighting with Glow Effects */
-        .keyword { 
-            color: #ff6b6b; 
-            font-weight: 700;
-            text-shadow: 0 0 10px rgba(255, 107, 107, 0.6);
-            animation: keywordPulse 3s ease-in-out infinite;
-        }
-        
-        @keyframes keywordPulse {
-            0%, 100% { text-shadow: 0 0 10px rgba(255, 107, 107, 0.6); }
-            50% { text-shadow: 0 0 20px rgba(255, 107, 107, 0.9); }
-        }
-        
-        .string { 
-            color: #4ecdc4; 
-            font-weight: 500;
-            text-shadow: 0 0 8px rgba(78, 205, 196, 0.5);
-        }
-        .comment { 
-            color: #95a5a6; 
-            font-style: italic;
-            opacity: 0.7;
-            text-shadow: 0 0 5px currentColor;
-        }
-        .function { 
-            color: #f39c12; 
-            font-weight: 700;
-            text-shadow: 0 0 12px rgba(243, 156, 18, 0.6);
-            animation: functionGlow 4s ease-in-out infinite;
-        }
-        
-        @keyframes functionGlow {
-            0%, 100% { text-shadow: 0 0 12px rgba(243, 156, 18, 0.6); }
-            50% { text-shadow: 0 0 25px rgba(243, 156, 18, 0.9); }
-        }
-        
-        .property {
-            color: #e74c3c;
-            font-weight: 600;
-            text-shadow: 0 0 8px rgba(231, 76, 60, 0.5);
-        }
-        .operator {
-            color: #9b59b6;
-            font-weight: 700;
-            text-shadow: 0 0 6px currentColor;
-        }
-        
-        /* Advanced Autocomplete with Holographic Effects */
-        .holo-autocomplete {
-            position: absolute;
-            background: rgba(0, 0, 0, 0.95);
-            border: 2px solid var(--primary-cyan);
-            border-radius: 15px;
-            padding: 15px;
-            max-height: 250px;
-            overflow-y: auto;
-            z-index: 2000;
-            display: none;
-            box-shadow: 
-                var(--neon-glow) var(--primary-cyan),
-                inset 0 0 30px rgba(0, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-        }
-        
-        .autocomplete-item {
-            padding: 12px 15px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 5px;
-        }
-        
-        .autocomplete-item:hover {
-            background: rgba(0, 255, 255, 0.2);
-            transform: translateX(5px);
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
-        }
-        
-        .autocomplete-icon {
-            width: 20px;
-            height: 20px;
-            background: var(--primary-yellow);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            color: #000;
-            font-weight: bold;
-            box-shadow: 0 0 10px currentColor;
-        }
-        
-        /* Collaboration Hub with Real-time Updates */
-        .collab-hub {
-            max-height: 450px;
-            overflow-y: auto;
-            position: relative;
-        }
-        
-        .user-avatar {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px;
-            background: rgba(0, 255, 255, 0.08);
-            border-radius: 12px;
-            margin-bottom: 12px;
-            border-left: 4px solid var(--primary-cyan);
-            transition: all 0.3s ease;
-            animation: userActivity 2s ease-in-out infinite;
-        }
-        
-        @keyframes userActivity {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
-        
-        .user-avatar:hover {
-            background: rgba(0, 255, 255, 0.15);
-            transform: translateX(5px);
-        }
-        
-        .avatar-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--primary-cyan), var(--primary-magenta));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #000;
-            font-size: 14px;
-            box-shadow: 0 0 15px currentColor;
-        }
-        
-        .user-status {
-            flex: 1;
-        }
-        
-        .user-name {
-            font-weight: 700;
-            color: var(--primary-cyan);
-            text-shadow: 0 0 5px currentColor;
-        }
-        
-        .user-activity {
-            font-size: 0.85rem;
-            color: #aaa;
-            margin-top: 2px;
-        }
-        
-        .status-indicator {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--primary-green);
-            animation: statusPulse 2s infinite;
-            box-shadow: 0 0 10px currentColor;
-        }
-        
-        @keyframes statusPulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.5); }
-        }
-        
-        /* Advanced Version Control */
-        .git-panel {
-            background: rgba(0, 255, 0, 0.05);
-            border: 2px solid var(--primary-green);
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 25px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .git-panel::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary-green), transparent);
-            animation: gitScan 4s linear infinite;
-        }
-        
-        @keyframes gitScan {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-        
-        .git-status {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .branch-name {
-            background: rgba(0, 255, 0, 0.2);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--primary-green);
-            font-weight: 700;
-            text-shadow: 0 0 5px currentColor;
-            border: 1px solid var(--primary-green);
-        }
-        
-        .commit-btn {
-            background: linear-gradient(45deg, var(--primary-green), #00cc00);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            color: #000;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .commit-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 255, 0, 0.5);
-        }
-        
-        /* Quantum Deployment Hub */
-        .deploy-hub {
-            background: rgba(255, 0, 255, 0.05);
-            border: 2px solid var(--primary-magenta);
-            border-radius: 20px;
-            padding: 25px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .deploy-hub::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
-            animation: deployAura 8s ease-in-out infinite;
-        }
-        
-        @keyframes deployAura {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.1); }
-        }
-        
-        .quantum-deploy-btn {
-            width: 100%;
-            background: linear-gradient(45deg, var(--primary-magenta), var(--primary-cyan), var(--primary-yellow));
-            background-size: 300% 300%;
-            border: none;
-            padding: 20px 40px;
-            border-radius: 30px;
-            color: #000;
-            font-family: 'Orbitron', monospace;
-            font-weight: 900;
-            font-size: 1.3rem;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            animation: quantumPulse 4s ease-in-out infinite;
-            z-index: 1;
-        }
-        
-        @keyframes quantumPulse {
+        @keyframes cursorCosmicPulse {
             0%, 100% { 
-                background-position: 0% 50%;
-                box-shadow: 0 5px 30px rgba(255, 0, 255, 0.4);
-                transform: scale(1);
+                transform: scale(1) rotate(0deg); 
+                opacity: 1;
+                filter: hue-rotate(0deg) brightness(3.0);
             }
             50% { 
-                background-position: 100% 50%;
-                box-shadow: 0 10px 50px rgba(0, 255, 255, 0.6);
-                transform: scale(1.02);
+                transform: scale(4.0) rotate(180deg); 
+                opacity: 0.8;
+                filter: hue-rotate(180deg) brightness(5.0);
             }
         }
         
-        .quantum-deploy-btn:hover {
-            transform: scale(1.08) translateY(-5px);
-            box-shadow: 0 20px 60px rgba(255, 0, 255, 0.8);
-        }
-        
-        .quantum-deploy-btn::before {
-            content: '';
-            position: absolute;
+        /* Complex Quantum Rotations - Hyper-Detailed */
+        .quantum-nexus-system {
+            position: fixed;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.6s;
+            z-index: 1;
+            pointer-events: none;
         }
         
-        .quantum-deploy-btn:hover::before {
-            left: 100%;
-        }
-        
-        /* Holographic Terminal */
-        .holo-terminal {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 30, 0, 0.9) 100%);
-            border: 3px solid var(--primary-green);
-            border-radius: 25px;
-            padding: 25px;
-            margin-top: 30px;
-            font-family: 'Fira Code', monospace;
-            min-height: 350px;
-            box-shadow: 
-                var(--neon-glow) var(--primary-green),
-                inset 0 0 50px rgba(0, 255, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .holo-terminal::before {
-            content: '';
+        .quantum-nexus-particle {
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--primary-green), var(--primary-cyan), transparent);
-            animation: terminalScan 3s linear infinite;
-        }
-        
-        @keyframes terminalScan {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-        
-        .terminal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid rgba(0, 255, 0, 0.3);
-        }
-        
-        .terminal-controls {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .terminal-dot {
             width: 15px;
             height: 15px;
             border-radius: 50%;
-            animation: terminalDotPulse 2s ease-in-out infinite;
-            box-shadow: 0 0 10px currentColor;
         }
         
-        .terminal-dot.red { background: #ff5f56; animation-delay: 0s; }
-        .terminal-dot.yellow { background: #ffbd2e; animation-delay: 0.4s; }
-        .terminal-dot.green { background: #27ca3f; animation-delay: 0.8s; }
-        
-        @keyframes terminalDotPulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.3); }
+        .quantum-nexus-particle.nexus-1 { 
+            background: #ff00ff;
+            box-shadow: 
+                0 0 35px #ff00ff, 
+                0 0 70px #ff00ff,
+                0 0 105px rgba(255, 0, 255, 0.9),
+                0 0 140px rgba(255, 0, 255, 0.7),
+                0 0 175px rgba(255, 0, 255, 0.5);
+            animation: nexusRotation1 4s ease-in-out infinite;
+        }
+        .quantum-nexus-particle.nexus-2 { 
+            background: #00ffff;
+            box-shadow: 
+                0 0 35px #00ffff, 
+                0 0 70px #00ffff,
+                0 0 105px rgba(0, 255, 255, 0.9),
+                0 0 140px rgba(0, 255, 255, 0.7),
+                0 0 175px rgba(0, 255, 255, 0.5);
+            animation: nexusRotation2 6s ease-in-out infinite;
+        }
+        .quantum-nexus-particle.nexus-3 { 
+            background: #ffff00;
+            box-shadow: 
+                0 0 35px #ffff00, 
+                0 0 70px #ffff00,
+                0 0 105px rgba(255, 255, 0, 0.9),
+                0 0 140px rgba(255, 255, 0, 0.7),
+                0 0 175px rgba(255, 255, 0, 0.5);
+            animation: nexusRotation3 3s ease-in-out infinite;
+        }
+        .quantum-nexus-particle.nexus-4 { 
+            background: #ff69b4;
+            box-shadow: 
+                0 0 35px #ff69b4, 
+                0 0 70px #ff69b4,
+                0 0 105px rgba(255, 105, 180, 0.9),
+                0 0 140px rgba(255, 105, 180, 0.7),
+                0 0 175px rgba(255, 105, 180, 0.5);
+            animation: nexusRotation4 8s ease-in-out infinite;
+        }
+        .quantum-nexus-particle.nexus-5 { 
+            background: #00ff80;
+            box-shadow: 
+                0 0 35px #00ff80, 
+                0 0 70px #00ff80,
+                0 0 105px rgba(0, 255, 128, 0.9),
+                0 0 140px rgba(0, 255, 128, 0.7),
+                0 0 175px rgba(0, 255, 128, 0.5);
+            animation: nexusRotation5 5s ease-in-out infinite;
+        }
+        .quantum-nexus-particle.nexus-6 { 
+            background: #ff8040;
+            box-shadow: 
+                0 0 35px #ff8040, 
+                0 0 70px #ff8040,
+                0 0 105px rgba(255, 128, 64, 0.9),
+                0 0 140px rgba(255, 128, 64, 0.7),
+                0 0 175px rgba(255, 128, 64, 0.5);
+            animation: nexusRotation6 7s ease-in-out infinite;
+        }
+        .quantum-nexus-particle.nexus-7 { 
+            background: #8040ff;
+            box-shadow: 
+                0 0 35px #8040ff, 
+                0 0 70px #8040ff,
+                0 0 105px rgba(128, 64, 255, 0.9),
+                0 0 140px rgba(128, 64, 255, 0.7),
+                0 0 175px rgba(128, 64, 255, 0.5);
+            animation: nexusRotation7 9s ease-in-out infinite;
+        }
+        .quantum-nexus-particle.nexus-8 { 
+            background: #40ff80;
+            box-shadow: 
+                0 0 35px #40ff80, 
+                0 0 70px #40ff80,
+                0 0 105px rgba(64, 255, 128, 0.9),
+                0 0 140px rgba(64, 255, 128, 0.7),
+                0 0 175px rgba(64, 255, 128, 0.5);
+            animation: nexusRotation8 11s ease-in-out infinite;
         }
         
-        .terminal-title {
-            color: var(--primary-green);
+        @keyframes nexusRotation1 {
+            0% {
+                transform: translate(50vw, 50vh) 
+                          rotateX(0deg) rotateY(0deg) rotateZ(0deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.2);
+                opacity: 0;
+                filter: hue-rotate(0deg) brightness(2.5);
+            }
+            8% { opacity: 1; }
+            20% {
+                transform: translate(50vw, 50vh) 
+                          rotateX(72deg) rotateY(36deg) rotateZ(108deg) 
+                          translateX(280px) translateY(-140px) translateZ(120px) 
+                          scale(3.2);
+                filter: hue-rotate(72deg) brightness(4.0);
+            }
+            40% {
+                transform: translate(50vw, 50vh) 
+                          rotateX(144deg) rotateY(72deg) rotateZ(216deg) 
+                          translateX(450px) translateY(225px) translateZ(-180px) 
+                          scale(5.8);
+                filter: hue-rotate(144deg) brightness(5.2);
+            }
+            60% {
+                transform: translate(50vw, 50vh) 
+                          rotateX(216deg) rotateY(108deg) rotateZ(324deg) 
+                          translateX(320px) translateY(-320px) translateZ(240px) 
+                          scale(2.5);
+                filter: hue-rotate(216deg) brightness(3.8);
+            }
+            80% {
+                transform: translate(50vw, 50vh) 
+                          rotateX(288deg) rotateY(144deg) rotateZ(432deg) 
+                          translateX(180px) translateY(90px) translateZ(-120px) 
+                          scale(4.2);
+                filter: hue-rotate(288deg) brightness(4.5);
+            }
+            92% { opacity: 1; }
+            100% {
+                transform: translate(50vw, 50vh) 
+                          rotateX(360deg) rotateY(180deg) rotateZ(540deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.2);
+                opacity: 0;
+                filter: hue-rotate(360deg) brightness(2.5);
+            }
+        }
+        
+        @keyframes nexusRotation2 {
+            0% {
+                transform: translate(15vw, 85vh) 
+                          rotateX(0deg) rotateY(0deg) rotateZ(0deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.3);
+                opacity: 0;
+                filter: hue-rotate(120deg) brightness(2.8);
+            }
+            10% { opacity: 1; }
+            25% {
+                transform: translate(15vw, 85vh) 
+                          rotateX(90deg) rotateY(45deg) rotateZ(135deg) 
+                          translateX(350px) translateY(-175px) translateZ(150px) 
+                          scale(3.8);
+                filter: hue-rotate(210deg) brightness(4.2);
+            }
+            50% {
+                transform: translate(15vw, 85vh) 
+                          rotateX(180deg) rotateY(90deg) rotateZ(270deg) 
+                          translateX(520px) translateY(260px) translateZ(-220px) 
+                          scale(6.2);
+                filter: hue-rotate(300deg) brightness(5.5);
+            }
+            75% {
+                transform: translate(15vw, 85vh) 
+                          rotateX(270deg) rotateY(135deg) rotateZ(405deg) 
+                          translateX(280px) translateY(-380px) translateZ(280px) 
+                          scale(2.8);
+                filter: hue-rotate(390deg) brightness(3.5);
+            }
+            90% { opacity: 1; }
+            100% {
+                transform: translate(15vw, 85vh) 
+                          rotateX(360deg) rotateY(180deg) rotateZ(540deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.3);
+                opacity: 0;
+                filter: hue-rotate(480deg) brightness(2.8);
+            }
+        }
+        
+        @keyframes nexusRotation3 {
+            0% {
+                transform: translate(85vw, 15vh) 
+                          rotateX(0deg) rotateY(0deg) rotateZ(0deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.4);
+                opacity: 0;
+                filter: hue-rotate(60deg) brightness(3.0);
+            }
+            15% { opacity: 1; }
+            30% {
+                transform: translate(85vw, 15vh) 
+                          rotateX(120deg) rotateY(60deg) rotateZ(180deg) 
+                          translateX(400px) translateY(-200px) translateZ(180px) 
+                          scale(4.5);
+                filter: hue-rotate(180deg) brightness(4.8);
+            }
+            70% { opacity: 1; }
+            100% {
+                transform: translate(85vw, 15vh) 
+                          rotateX(360deg) rotateY(180deg) rotateZ(540deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.4);
+                opacity: 0;
+                filter: hue-rotate(420deg) brightness(3.0);
+            }
+        }
+        
+        @keyframes nexusRotation4 {
+            0% {
+                transform: translate(25vw, 75vh) 
+                          rotateX(0deg) rotateY(0deg) rotateZ(0deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.25);
+                opacity: 0;
+                filter: hue-rotate(240deg) brightness(2.2);
+            }
+            6% { opacity: 1; }
+            18% {
+                transform: translate(25vw, 75vh) 
+                          rotateX(54deg) rotateY(27deg) rotateZ(81deg) 
+                          translateX(240px) translateY(-120px) translateZ(100px) 
+                          scale(2.8);
+                filter: hue-rotate(294deg) brightness(3.5);
+            }
+            35% {
+                transform: translate(25vw, 75vh) 
+                          rotateX(108deg) rotateY(54deg) rotateZ(162deg) 
+                          translateX(420px) translateY(210px) translateZ(-160px) 
+                          scale(5.2);
+                filter: hue-rotate(348deg) brightness(4.8);
+            }
+            55% {
+                transform: translate(25vw, 75vh) 
+                          rotateX(162deg) rotateY(81deg) rotateZ(243deg) 
+                          translateX(580px) translateY(-290px) translateZ(260px) 
+                          scale(6.8);
+                filter: hue-rotate(402deg) brightness(5.8);
+            }
+            75% {
+                transform: translate(25vw, 75vh) 
+                          rotateX(216deg) rotateY(108deg) rotateZ(324deg) 
+                          translateX(350px) translateY(175px) translateZ(-200px) 
+                          scale(3.2);
+                filter: hue-rotate(456deg) brightness(4.0);
+            }
+            94% { opacity: 1; }
+            100% {
+                transform: translate(25vw, 75vh) 
+                          rotateX(360deg) rotateY(180deg) rotateZ(540deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.25);
+                opacity: 0;
+                filter: hue-rotate(600deg) brightness(2.2);
+            }
+        }
+        
+        @keyframes nexusRotation5 {
+            0% {
+                transform: translate(75vw, 25vh) 
+                          rotateX(0deg) rotateY(0deg) rotateZ(0deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.5);
+                opacity: 0;
+                filter: hue-rotate(30deg) brightness(2.6);
+            }
+            12% { opacity: 1; }
+            28% {
+                transform: translate(75vw, 25vh) 
+                          rotateX(108deg) rotateY(54deg) rotateZ(162deg) 
+                          translateX(380px) translateY(-190px) translateZ(170px) 
+                          scale(4.0);
+                filter: hue-rotate(138deg) brightness(4.2);
+            }
+            56% {
+                transform: translate(75vw, 25vh) 
+                          rotateX(216deg) rotateY(108deg) rotateZ(324deg) 
+                          translateX(500px) translateY(250px) translateZ(-240px) 
+                          scale(6.5);
+                filter: hue-rotate(246deg) brightness(5.2);
+            }
+            88% { opacity: 1; }
+            100% {
+                transform: translate(75vw, 25vh) 
+                          rotateX(360deg) rotateY(180deg) rotateZ(540deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.5);
+                opacity: 0;
+                filter: hue-rotate(390deg) brightness(2.6);
+            }
+        }
+        
+        @keyframes nexusRotation6 {
+            0% {
+                transform: translate(40vw, 60vh) 
+                          rotateX(0deg) rotateY(0deg) rotateZ(0deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.35);
+                opacity: 0;
+                filter: hue-rotate(300deg) brightness(2.4);
+            }
+            9% { opacity: 1; }
+            22% {
+                transform: translate(40vw, 60vh) 
+                          rotateX(77deg) rotateY(38deg) rotateZ(115deg) 
+                          translateX(320px) translateY(-160px) translateZ(140px) 
+                          scale(3.5);
+                filter: hue-rotate(377deg) brightness(3.8);
+            }
+            44% {
+                transform: translate(40vw, 60vh) 
+                          rotateX(154deg) rotateY(77deg) rotateZ(231deg) 
+                          translateX(480px) translateY(240px) translateZ(-200px) 
+                          scale(5.8);
+                filter: hue-rotate(454deg) brightness(5.0);
+            }
+            66% {
+                transform: translate(40vw, 60vh) 
+                          rotateX(231deg) rotateY(115deg) rotateZ(346deg) 
+                          translateX(600px) translateY(-300px) translateZ(280px) 
+                          scale(7.2);
+                filter: hue-rotate(531deg) brightness(6.0);
+            }
+            91% { opacity: 1; }
+            100% {
+                transform: translate(40vw, 60vh) 
+                          rotateX(360deg) rotateY(180deg) rotateZ(540deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.35);
+                opacity: 0;
+                filter: hue-rotate(660deg) brightness(2.4);
+            }
+        }
+        
+        @keyframes nexusRotation7 {
+            0% {
+                transform: translate(60vw, 40vh) 
+                          rotateX(0deg) rotateY(0deg) rotateZ(0deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.28);
+                opacity: 0;
+                filter: hue-rotate(180deg) brightness(2.1);
+            }
+            7% { opacity: 1; }
+            16% {
+                transform: translate(60vw, 40vh) 
+                          rotateX(48deg) rotateY(24deg) rotateZ(72deg) 
+                          translateX(220px) translateY(-110px) translateZ(90px) 
+                          scale(2.5);
+                filter: hue-rotate(228deg) brightness(3.2);
+            }
+            32% {
+                transform: translate(60vw, 40vh) 
+                          rotateX(96deg) rotateY(48deg) rotateZ(144deg) 
+                          translateX(380px) translateY(190px) translateZ(-150px) 
+                          scale(4.8);
+                filter: hue-rotate(276deg) brightness(4.5);
+            }
+            48% {
+                transform: translate(60vw, 40vh) 
+                          rotateX(144deg) rotateY(72deg) rotateZ(216deg) 
+                          translateX(520px) translateY(-260px) translateZ(220px) 
+                          scale(6.5);
+                filter: hue-rotate(324deg) brightness(5.5);
+            }
+            64% {
+                transform: translate(60vw, 40vh) 
+                          rotateX(192deg) rotateY(96deg) rotateZ(288deg) 
+                          translateX(420px) translateY(210px) translateZ(-180px) 
+                          scale(4.2);
+                filter: hue-rotate(372deg) brightness(4.8);
+            }
+            80% {
+                transform: translate(60vw, 40vh) 
+                          rotateX(240deg) rotateY(120deg) rotateZ(360deg) 
+                          translateX(280px) translateY(-140px) translateZ(120px) 
+                          scale(2.8);
+                filter: hue-rotate(420deg) brightness(3.5);
+            }
+            93% { opacity: 1; }
+            100% {
+                transform: translate(60vw, 40vh) 
+                          rotateX(360deg) rotateY(180deg) rotateZ(540deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.28);
+                opacity: 0;
+                filter: hue-rotate(540deg) brightness(2.1);
+            }
+        }
+        
+        @keyframes nexusRotation8 {
+            0% {
+                transform: translate(30vw, 70vh) 
+                          rotateX(0deg) rotateY(0deg) rotateZ(0deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.32);
+                opacity: 0;
+                filter: hue-rotate(90deg) brightness(2.3);
+            }
+            5% { opacity: 1; }
+            12% {
+                transform: translate(30vw, 70vh) 
+                          rotateX(39deg) rotateY(19deg) rotateZ(58deg) 
+                          translateX(200px) translateY(-100px) translateZ(80px) 
+                          scale(2.2);
+                filter: hue-rotate(129deg) brightness(3.0);
+            }
+            24% {
+                transform: translate(30vw, 70vh) 
+                          rotateX(78deg) rotateY(39deg) rotateZ(117deg) 
+                          translateX(340px) translateY(170px) translateZ(-130px) 
+                          scale(4.0);
+                filter: hue-rotate(168deg) brightness(4.2);
+            }
+            36% {
+                transform: translate(30vw, 70vh) 
+                          rotateX(117deg) rotateY(58deg) rotateZ(175deg) 
+                          translateX(460px) translateY(-230px) translateZ(190px) 
+                          scale(5.8);
+                filter: hue-rotate(207deg) brightness(5.2);
+            }
+            48% {
+                transform: translate(30vw, 70vh) 
+                          rotateX(156deg) rotateY(78deg) rotateZ(234deg) 
+                          translateX(580px) translateY(290px) translateZ(-250px) 
+                          scale(7.5);
+                filter: hue-rotate(246deg) brightness(6.2);
+            }
+            60% {
+                transform: translate(30vw, 70vh) 
+                          rotateX(195deg) rotateY(97deg) rotateZ(292deg) 
+                          translateX(480px) translateY(-240px) translateZ(200px) 
+                          scale(5.2);
+                filter: hue-rotate(285deg) brightness(5.0);
+            }
+            72% {
+                transform: translate(30vw, 70vh) 
+                          rotateX(234deg) rotateY(117deg) rotateZ(351deg) 
+                          translateX(360px) translateY(180px) translateZ(-160px) 
+                          scale(3.8);
+                filter: hue-rotate(324deg) brightness(4.2);
+            }
+            84% {
+                transform: translate(30vw, 70vh) 
+                          rotateX(273deg) rotateY(136deg) rotateZ(409deg) 
+                          translateX(240px) translateY(-120px) translateZ(100px) 
+                          scale(2.5);
+                filter: hue-rotate(363deg) brightness(3.2);
+            }
+            95% { opacity: 1; }
+            100% {
+                transform: translate(30vw, 70vh) 
+                          rotateX(360deg) rotateY(180deg) rotateZ(540deg) 
+                          translateX(0px) translateY(0px) translateZ(0px) 
+                          scale(0.32);
+                opacity: 0;
+                filter: hue-rotate(450deg) brightness(2.3);
+            }
+        }
+        
+        /* Deep Holographic Cascades - Ultra-Detailed */
+        .holographic-nexus-system {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+            perspective: 3000px;
+        }
+        
+        .holo-nexus-cascade {
+            position: absolute;
+            width: 12px;
+            background: linear-gradient(180deg, 
+                transparent 0%,
+                rgba(0, 255, 255, 1) 2%,
+                rgba(255, 0, 255, 1) 8%,
+                rgba(255, 255, 0, 1) 16%,
+                rgba(255, 105, 180, 1) 26%,
+                rgba(0, 255, 128, 1) 38%,
+                rgba(255, 128, 64, 1) 52%,
+                rgba(128, 64, 255, 1) 68%,
+                rgba(64, 255, 128, 1) 84%,
+                rgba(255, 64, 192, 1) 92%,
+                rgba(192, 255, 64, 1) 98%,
+                transparent 100%);
+            border-radius: 6px;
+            box-shadow: 
+                0 0 40px currentColor,
+                0 0 80px currentColor,
+                0 0 120px currentColor,
+                0 0 160px currentColor;
+            transform-style: preserve-3d;
+            animation: holoNexusFlow 3s linear infinite;
+        }
+        
+        .holo-nexus-cascade.depth-1 {
+            animation: holoNexusDepth1 4s linear infinite;
+            filter: blur(0.5px);
+            opacity: 0.98;
+            transform: translateZ(-150px) rotateX(25deg) rotateY(12deg);
+        }
+        
+        .holo-nexus-cascade.depth-2 {
+            animation: holoNexusDepth2 5s linear infinite;
+            filter: blur(1.0px);
+            opacity: 0.85;
+            transform: translateZ(-300px) rotateX(40deg) rotateY(20deg);
+        }
+        
+        .holo-nexus-cascade.depth-3 {
+            animation: holoNexusDepth3 6s linear infinite;
+            filter: blur(1.8px);
+            opacity: 0.72;
+            transform: translateZ(-450px) rotateX(55deg) rotateY(28deg);
+        }
+        
+        .holo-nexus-cascade.depth-4 {
+            animation: holoNexusDepth4 7s linear infinite;
+            filter: blur(2.5px);
+            opacity: 0.58;
+            transform: translateZ(-600px) rotateX(70deg) rotateY(35deg);
+        }
+        
+        .holo-nexus-cascade.depth-5 {
+            animation: holoNexusDepth5 8s linear infinite;
+            filter: blur(3.2px);
+            opacity: 0.45;
+            transform: translateZ(-750px) rotateX(85deg) rotateY(42deg);
+        }
+        
+        .holo-nexus-cascade.depth-6 {
+            animation: holoNexusDepth6 9s linear infinite;
+            filter: blur(4.0px);
+            opacity: 0.32;
+            transform: translateZ(-900px) rotateX(100deg) rotateY(50deg);
+        }
+        
+        @keyframes holoNexusFlow {
+            0% {
+                height: 0;
+                top: -80px;
+                opacity: 0;
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+                filter: hue-rotate(0deg) brightness(3.0);
+            }
+            4% { 
+                opacity: 1;
+                filter: hue-rotate(14deg) brightness(3.8);
+            }
+            20% {
+                transform: rotateX(8deg) rotateY(4deg) rotateZ(2deg);
+                filter: hue-rotate(72deg) brightness(4.5);
+            }
+            40% {
+                transform: rotateX(16deg) rotateY(8deg) rotateZ(4deg);
+                filter: hue-rotate(144deg) brightness(5.2);
+            }
+            60% {
+                transform: rotateX(24deg) rotateY(12deg) rotateZ(6deg);
+                filter: hue-rotate(216deg) brightness(4.8);
+            }
+            80% {
+                transform: rotateX(32deg) rotateY(16deg) rotateZ(8deg);
+                filter: hue-rotate(288deg) brightness(4.0);
+            }
+            96% { 
+                opacity: 1;
+                filter: hue-rotate(346deg) brightness(3.5);
+            }
+            100% {
+                height: 160vh;
+                top: 0;
+                opacity: 0;
+                transform: rotateX(40deg) rotateY(20deg) rotateZ(10deg);
+                filter: hue-rotate(360deg) brightness(3.0);
+            }
+        }
+        
+        @keyframes holoNexusDepth1 {
+            0% {
+                height: 0;
+                top: -90px;
+                opacity: 0;
+                transform: translateZ(-150px) rotateX(25deg) rotateY(12deg) rotateZ(0deg);
+            }
+            6% { opacity: 0.98; }
+            94% { opacity: 0.98; }
+            100% {
+                height: 170vh;
+                top: 0;
+                opacity: 0;
+                transform: translateZ(-150px) rotateX(45deg) rotateY(22deg) rotateZ(18deg);
+            }
+        }
+        
+        @keyframes holoNexusDepth2 {
+            0% {
+                height: 0;
+                top: -100px;
+                opacity: 0;
+                transform: translateZ(-300px) rotateX(40deg) rotateY(20deg) rotateZ(0deg);
+            }
+            8% { opacity: 0.85; }
+            92% { opacity: 0.85; }
+            100% {
+                height: 180vh;
+                top: 0;
+                opacity: 0;
+                transform: translateZ(-300px) rotateX(60deg) rotateY(30deg) rotateZ(25deg);
+            }
+        }
+        
+        @keyframes holoNexusDepth3 {
+            0% {
+                height: 0;
+                top: -110px;
+                opacity: 0;
+                transform: translateZ(-450px) rotateX(55deg) rotateY(28deg) rotateZ(0deg);
+            }
+            10% { opacity: 0.72; }
+            90% { opacity: 0.72; }
+            100% {
+                height: 190vh;
+                top: 0;
+                opacity: 0;
+                transform: translateZ(-450px) rotateX(75deg) rotateY(38deg) rotateZ(32deg);
+            }
+        }
+        
+        @keyframes holoNexusDepth4 {
+            0% {
+                height: 0;
+                top: -120px;
+                opacity: 0;
+                transform: translateZ(-600px) rotateX(70deg) rotateY(35deg) rotateZ(0deg);
+            }
+            12% { opacity: 0.58; }
+            88% { opacity: 0.58; }
+            100% {
+                height: 200vh;
+                top: 0;
+                opacity: 0;
+                transform: translateZ(-600px) rotateX(90deg) rotateY(45deg) rotateZ(40deg);
+            }
+        }
+        
+        @keyframes holoNexusDepth5 {
+            0% {
+                height: 0;
+                top: -130px;
+                opacity: 0;
+                transform: translateZ(-750px) rotateX(85deg) rotateY(42deg) rotateZ(0deg);
+            }
+            14% { opacity: 0.45; }
+            86% { opacity: 0.45; }
+            100% {
+                height: 210vh;
+                top: 0;
+                opacity: 0;
+                transform: translateZ(-750px) rotateX(105deg) rotateY(52deg) rotateZ(48deg);
+            }
+        }
+        
+        @keyframes holoNexusDepth6 {
+            0% {
+                height: 0;
+                top: -140px;
+                opacity: 0;
+                transform: translateZ(-900px) rotateX(100deg) rotateY(50deg) rotateZ(0deg);
+            }
+            16% { opacity: 0.32; }
+            84% { opacity: 0.32; }
+            100% {
+                height: 220vh;
+                top: 0;
+                opacity: 0;
+                transform: translateZ(-900px) rotateX(120deg) rotateY(60deg) rotateZ(55deg);
+            }
+        }
+        
+        /* Dense Energy Waves - Circular and Radial Patterns */
+        .energy-nexus-system {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+        }
+        
+        .energy-nexus-wave {
+            position: absolute;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 0, 255, 1) 5%,
+                rgba(0, 255, 255, 1) 12%,
+                rgba(255, 255, 0, 1) 22%,
+                rgba(255, 105, 180, 1) 34%,
+                rgba(0, 255, 128, 1) 48%,
+                rgba(255, 128, 64, 1) 62%,
+                rgba(128, 64, 255, 1) 76%,
+                rgba(64, 255, 128, 1) 88%,
+                rgba(255, 64, 192, 1) 95%,
+                transparent);
+            box-shadow: 
+                0 0 50px currentColor,
+                0 0 100px currentColor,
+                0 0 150px currentColor,
+                0 0 200px currentColor,
+                0 0 250px currentColor;
+        }
+        
+        .energy-nexus-wave.circular {
+            border-radius: 50%;
+            animation: nexusCircularWave 2.5s ease-in-out infinite;
+        }
+        
+        .energy-nexus-wave.radial {
+            border-radius: 50%;
+            animation: nexusRadialWave 4s ease-in-out infinite;
+        }
+        
+        @keyframes nexusCircularWave {
+            0%, 100% {
+                width: 80px;
+                height: 80px;
+                opacity: 0;
+                transform: rotate(0deg) scale(1);
+                filter: hue-rotate(0deg) brightness(3.0);
+            }
+            15% {
+                width: 200px;
+                height: 200px;
+                opacity: 1;
+                transform: rotate(54deg) scale(1.5);
+                filter: hue-rotate(54deg) brightness(4.2);
+            }
+            30% {
+                width: 400px;
+                height: 400px;
+                opacity: 0.95;
+                transform: rotate(108deg) scale(2.2);
+                filter: hue-rotate(108deg) brightness(5.0);
+            }
+            45% {
+                width: 650px;
+                height: 650px;
+                opacity: 0.8;
+                transform: rotate(162deg) scale(3.0);
+                filter: hue-rotate(162deg) brightness(5.8);
+            }
+            60% {
+                width: 900px;
+                height: 900px;
+                opacity: 0.65;
+                transform: rotate(216deg) scale(4.0);
+                filter: hue-rotate(216deg) brightness(6.2);
+            }
+            75% {
+                width: 650px;
+                height: 650px;
+                opacity: 0.9;
+                transform: rotate(270deg) scale(2.8);
+                filter: hue-rotate(270deg) brightness(4.8);
+            }
+            90% {
+                width: 300px;
+                height: 300px;
+                opacity: 1;
+                transform: rotate(324deg) scale(1.8);
+                filter: hue-rotate(324deg) brightness(3.5);
+            }
+        }
+        
+        @keyframes nexusRadialWave {
+            0%, 100% {
+                width: 100px;
+                height: 100px;
+                opacity: 0;
+                transform: rotate(0deg) scale(0.8);
+                filter: hue-rotate(0deg) brightness(2.8);
+            }
+            12% {
+                width: 280px;
+                height: 280px;
+                opacity: 1;
+                transform: rotate(43deg) scale(1.8);
+                filter: hue-rotate(43deg) brightness(3.8);
+            }
+            25% {
+                width: 520px;
+                height: 520px;
+                opacity: 0.9;
+                transform: rotate(86deg) scale(2.8);
+                filter: hue-rotate(86deg) brightness(4.5);
+            }
+            37% {
+                width: 780px;
+                height: 780px;
+                opacity: 0.75;
+                transform: rotate(129deg) scale(3.8);
+                filter: hue-rotate(129deg) brightness(5.2);
+            }
+            50% {
+                width: 1050px;
+                height: 1050px;
+                opacity: 0.6;
+                transform: rotate(172deg) scale(5.0);
+                filter: hue-rotate(172deg) brightness(6.0);
+            }
+            62% {
+                width: 850px;
+                height: 850px;
+                opacity: 0.8;
+                transform: rotate(215deg) scale(4.2);
+                filter: hue-rotate(215deg) brightness(5.5);
+            }
+            75% {
+                width: 600px;
+                height: 600px;
+                opacity: 0.95;
+                transform: rotate(258deg) scale(3.2);
+                filter: hue-rotate(258deg) brightness(4.8);
+            }
+            87% {
+                width: 350px;
+                height: 350px;
+                opacity: 1;
+                transform: rotate(301deg) scale(2.0);
+                filter: hue-rotate(301deg) brightness(3.8);
+            }
+        }
+        
+        /* Minimalist Interface */
+        .cosmic-nexus-interface {
+            position: relative;
+            z-index: 10;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 120px;
+        }
+        
+        .nexus-title {
             font-family: 'Orbitron', monospace;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px currentColor;
-        }
-        
-        .terminal-content {
-            color: var(--primary-green);
-            font-size: 14px;
-            line-height: 1.8;
-        }
-        
-        .prompt {
-            color: var(--primary-cyan);
-            font-weight: 700;
-            text-shadow: 0 0 5px currentColor;
-        }
-        
-        .cursor {
-            background: var(--primary-green);
-            color: #000;
-            animation: cursorBlink 1s infinite;
+            font-size: 7rem;
             font-weight: 900;
-            box-shadow: 0 0 10px var(--primary-green);
+            background: linear-gradient(45deg, 
+                #ff00ff, #00ffff, #ffff00, 
+                #ff69b4, #00ff80, #ff8040,
+                #8040ff, #40ff80);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: nexusTitlePulse 2.5s ease-in-out infinite;
+            text-shadow: 
+                0 0 100px rgba(255, 0, 255, 1.5),
+                0 0 200px rgba(0, 255, 255, 1.2),
+                0 0 300px rgba(255, 255, 0, 1.0),
+                0 0 400px rgba(255, 105, 180, 0.8);
+            background-size: 600% 600%;
+            text-align: center;
+            letter-spacing: 18px;
         }
         
-        @keyframes cursorBlink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+        @keyframes nexusTitlePulse {
+            0%, 100% {
+                filter: hue-rotate(0deg) brightness(3.0) contrast(3.0);
+                transform: scale(1) rotateY(0deg) rotateX(0deg);
+                background-position: 0% 50%;
+            }
+            50% {
+                filter: hue-rotate(180deg) brightness(5.0) contrast(5.0);
+                transform: scale(1.3) rotateY(12deg) rotateX(6deg);
+                background-position: 100% 50%;
+            }
+        }
+        
+        .nexus-controls {
+            display: flex;
+            gap: 100px;
+            align-items: center;
+        }
+        
+        .nexus-button {
+            background: linear-gradient(135deg, 
+                rgba(255, 0, 255, 0.95),
+                rgba(0, 255, 255, 0.95),
+                rgba(255, 255, 0, 0.9),
+                rgba(255, 105, 180, 0.85));
+            border: 8px solid #ff00ff;
+            color: #ffffff;
+            padding: 35px 70px;
+            border-radius: 35px;
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 1s ease;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 
+                0 0 30px currentColor,
+                0 0 60px currentColor;
+            box-shadow: 
+                0 0 60px rgba(255, 0, 255, 1.5),
+                0 0 120px rgba(0, 255, 255, 1.2),
+                0 0 180px rgba(255, 255, 0, 1.0),
+                0 0 240px rgba(255, 105, 180, 0.8),
+                0 0 300px rgba(0, 255, 128, 0.6);
+            animation: nexusButtonFlow 4s ease-in-out infinite;
+            letter-spacing: 4px;
+        }
+        
+        @keyframes nexusButtonFlow {
+            0%, 100% {
+                box-shadow: 
+                    0 0 60px rgba(255, 0, 255, 1.5),
+                    0 0 120px rgba(0, 255, 255, 1.2),
+                    0 0 180px rgba(255, 255, 0, 1.0),
+                    0 0 240px rgba(255, 105, 180, 0.8),
+                    0 0 300px rgba(0, 255, 128, 0.6);
+                border-color: #ff00ff;
+                filter: hue-rotate(0deg);
+            }
+            25% {
+                box-shadow: 
+                    0 0 70px rgba(0, 255, 255, 1.7),
+                    0 0 140px rgba(255, 255, 0, 1.4),
+                    0 0 210px rgba(255, 105, 180, 1.2),
+                    0 0 280px rgba(0, 255, 128, 1.0),
+                    0 0 350px rgba(255, 128, 64, 0.8);
+                border-color: #00ffff;
+                filter: hue-rotate(90deg);
+            }
+            50% {
+                box-shadow: 
+                    0 0 65px rgba(255, 255, 0, 1.6),
+                    0 0 130px rgba(255, 105, 180, 1.3),
+                    0 0 195px rgba(0, 255, 128, 1.1),
+                    0 0 260px rgba(255, 128, 64, 0.9),
+                    0 0 325px rgba(128, 64, 255, 0.7);
+                border-color: #ffff00;
+                filter: hue-rotate(180deg);
+            }
+            75% {
+                box-shadow: 
+                    0 0 75px rgba(255, 105, 180, 1.8),
+                    0 0 150px rgba(0, 255, 128, 1.5),
+                    0 0 225px rgba(255, 128, 64, 1.3),
+                    0 0 300px rgba(128, 64, 255, 1.1),
+                    0 0 375px rgba(64, 255, 128, 0.9);
+                border-color: #ff69b4;
+                filter: hue-rotate(270deg);
+            }
+        }
+        
+        .nexus-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent,
+                rgba(255, 255, 255, 1.0),
+                transparent);
+            transition: left 2s ease;
+        }
+        
+        .nexus-button:hover::before {
+            left: 100%;
+        }
+        
+        .nexus-button:hover {
+            transform: translateY(-25px) scale(1.35) rotateX(12deg);
+            box-shadow: 
+                0 40px 120px rgba(255, 0, 255, 2.0),
+                0 0 200px rgba(0, 255, 255, 1.8),
+                0 0 300px rgba(255, 255, 0, 1.5),
+                0 0 400px rgba(255, 105, 180, 1.2),
+                0 0 500px rgba(0, 255, 128, 1.0);
+            border-color: #ffff00;
+            color: #ffff00;
+        }
+        
+        /* Hyper-Detailed Interactive Particles */
+        .nexus-particle {
+            position: fixed;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 8;
+            animation: nexusParticleLife 2s ease-out forwards;
+        }
+        
+        @keyframes nexusParticleLife {
+            0% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+                filter: brightness(5.0) hue-rotate(0deg);
+            }
+            20% {
+                opacity: 1;
+                transform: scale(5.0) rotate(72deg);
+                filter: brightness(6.5) hue-rotate(72deg);
+            }
+            40% {
+                opacity: 0.95;
+                transform: scale(8.2) rotate(144deg);
+                filter: brightness(5.8) hue-rotate(144deg);
+            }
+            60% {
+                opacity: 0.8;
+                transform: scale(6.5) rotate(216deg);
+                filter: brightness(4.5) hue-rotate(216deg);
+            }
+            80% {
+                opacity: 0.6;
+                transform: scale(3.2) rotate(288deg);
+                filter: brightness(3.0) hue-rotate(288deg);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5) rotate(360deg);
+                filter: brightness(1.0) hue-rotate(360deg);
+            }
         }
         
         /* Responsive Design */
-        @media (max-width: 1600px) {
-            .main-interface {
-                grid-template-columns: 1fr 2fr 1fr;
-            }
-        }
-        
         @media (max-width: 1200px) {
-            .main-interface {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        
-        @media (max-width: 900px) {
-            .main-interface {
-                grid-template-columns: 1fr;
+            .nexus-title {
+                font-size: 5rem;
+                letter-spacing: 12px;
             }
             
-            .header {
+            .nexus-controls {
                 flex-direction: column;
-                gap: 20px;
+                gap: 60px;
             }
             
-            .title {
-                font-size: 2.2rem;
+            .nexus-button {
+                padding: 30px 60px;
+                font-size: 1.3rem;
             }
         }
         
-        @media (max-width: 600px) {
-            .container {
-                padding: 15px;
+        @media (max-width: 768px) {
+            .nexus-title {
+                font-size: 3.2rem;
+                letter-spacing: 8px;
             }
             
-            .floating-code-editor {
-                font-size: 13px;
-                padding: 20px;
+            .nexus-button {
+                padding: 25px 50px;
+                font-size: 1.1rem;
+                letter-spacing: 2px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Holographic AR Elements -->
-    <div class="holo-element">
-        <svg width="80" height="80" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="30" fill="none" stroke="cyan" stroke-width="2" opacity="0.6">
-                <animate attributeName="r" values="30;45;30" dur="6s" repeatCount="indefinite"/>
-                <animate attributeName="stroke-width" values="2;4;2" dur="6s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="40" cy="40" r="15" fill="none" stroke="magenta" stroke-width="1" opacity="0.8">
-                <animate attributeName="r" values="15;25;15" dur="4s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="40" cy="40" r="5" fill="cyan" opacity="0.9">
-                <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2s" repeatCount="indefinite"/>
-            </circle>
-        </svg>
-    </div>
+    <!-- Hyper-Detailed Cosmic Cursor -->
+    <div class="cosmic-cursor" id="cosmicCursor"></div>
     
-    <div class="holo-element">
-        <svg width="100" height="100" viewBox="0 0 100 100">
-            <polygon points="50,10 90,80 10,80" fill="none" stroke="magenta" stroke-width="2" opacity="0.5">
-                <animateTransform attributeName="transform" type="rotate" values="0 50 50;360 50 50" dur="12s" repeatCount="indefinite"/>
-                <animate attributeName="stroke-width" values="2;5;2" dur="3s" repeatCount="indefinite"/>
-            </polygon>
-            <polygon points="50,25 75,65 25,65" fill="yellow" opacity="0.2">
-                <animate attributeName="opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite"/>
-            </polygon>
-        </svg>
-    </div>
+    <!-- Complex Quantum Rotations -->
+    <div class="quantum-nexus-system" id="quantumNexusSystem"></div>
     
-    <div class="holo-element">
-        <svg width="70" height="70" viewBox="0 0 70 70">
-            <rect x="15" y="15" width="40" height="40" fill="none" stroke="yellow" stroke-width="2" opacity="0.4">
-                <animate attributeName="width" values="40;55;40" dur="5s" repeatCount="indefinite"/>
-                <animate attributeName="height" values="40;55;40" dur="5s" repeatCount="indefinite"/>
-                <animate attributeName="x" values="15;7.5;15" dur="5s" repeatCount="indefinite"/>
-                <animate attributeName="y" values="15;7.5;15" dur="5s" repeatCount="indefinite"/>
-            </rect>
-            <rect x="25" y="25" width="20" height="20" fill="green" opacity="0.3">
-                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
-            </rect>
-        </svg>
-    </div>
+    <!-- Deep Holographic Cascades -->
+    <div class="holographic-nexus-system" id="holographicNexusSystem"></div>
     
-    <div class="holo-element">
-        <svg width="60" height="60" viewBox="0 0 60 60">
-            <path d="M30,5 L55,30 L30,55 L5,30 Z" fill="none" stroke="orange" stroke-width="2" opacity="0.6">
-                <animateTransform attributeName="transform" type="rotate" values="0 30 30;-360 30 30" dur="10s" repeatCount="indefinite"/>
-                <animate attributeName="stroke-width" values="2;4;2" dur="2s" repeatCount="indefinite"/>
-            </path>
-        </svg>
-    </div>
-
-    <div class="container">
-        <header class="header">
-            <h1 class="title">QuantumCode AR</h1>
-            <div class="theme-controls">
-                <div class="theme-btn theme-cyan" onclick="changeTheme('cyan')" title="Cyan Hologram"></div>
-                <div class="theme-btn theme-magenta" onclick="changeTheme('magenta')" title="Magenta Matrix"></div>
-                <div class="theme-btn theme-green" onclick="changeTheme('green')" title="Green Grid"></div>
-                <div class="theme-btn theme-yellow" onclick="changeTheme('yellow')" title="Yellow Quantum"></div>
-                <div class="theme-btn theme-orange" onclick="changeTheme('orange')" title="Orange Neural"></div>
-            </div>
-        </header>
+    <!-- Dense Energy Waves -->
+    <div class="energy-nexus-system" id="energyNexusSystem"></div>
+    
+    <!-- Minimalist Cosmic Interface -->
+    <div class="cosmic-nexus-interface">
+        <div class="nexus-title">STAR TEKNOLOJİ</div>
         
-        <div class="main-interface">
-            <!-- Collaboration & Version Control Hub -->
-            <div class="holo-panel">
-                <div class="panel-header">
-                    <h2 class="panel-title">Neural Collaboration</h2>
-                </div>
-                
-                <div class="collab-hub">
-                    <div class="user-avatar">
-                        <div class="avatar-img">ZX</div>
-                        <div class="user-status">
-                            <div class="user-name">Zara X-1</div>
-                            <div class="user-activity">Optimizing quantum algorithms</div>
-                        </div>
-                        <div class="status-indicator"></div>
-                    </div>
-                    
-                    <div class="user-avatar">
-                        <div class="avatar-img">NK</div>
-                        <div class="user-status">
-                            <div class="user-name">Neo Koda</div>
-                            <div class="user-activity">Debugging neural networks</div>
-                        </div>
-                        <div class="status-indicator"></div>
-                    </div>
-                    
-                    <div class="user-avatar">
-                        <div class="avatar-img">CY</div>
-                        <div class="user-status">
-                            <div class="user-name">Cyber Yang</div>
-                            <div class="user-activity">Deploying to AR nodes</div>
-                        </div>
-                        <div class="status-indicator"></div>
-                    </div>
-                    
-                    <div class="user-avatar">
-                        <div class="avatar-img">QR</div>
-                        <div class="user-status">
-                            <div class="user-name">Quantum Ray</div>
-                            <div class="user-activity">Running holographic tests</div>
-                        </div>
-                        <div class="status-indicator"></div>
-                    </div>
-                </div>
-                
-                <div class="git-panel">
-                    <div class="git-status">
-                        <div class="branch-name">🌿 quantum/neural-mesh</div>
-                        <button class="commit-btn" onclick="commitQuantumCode()">Quantum Commit</button>
-                    </div>
-                    <div style="font-size: 0.9rem; color: #888; line-height: 1.6;">
-                        <div>📊 Neural networks: 5 optimized</div>
-                        <div>⚛️ Quantum states: 127 synchronized</div>
-                        <div>🔮 Holographic layers: 23 rendered</div>
-                        <div>🌐 AR nodes: 8 connected</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Floating Holographic Code Editor -->
-            <div class="holo-panel">
-                <div class="panel-header">
-                    <h2 class="panel-title">Quantum Code Matrix</h2>
-                    <div style="font-size: 0.9rem; color: #888;">CyberSystem.quantum • Holographic Mode</div>
-                </div>
-                
-                <div class="floating-code-editor" id="floatingCodeEditor">
-                    <div class="floating-code-line">
-                        <span class="line-number">1</span>
-                        <span class="code-content"><span class="keyword">import</span> { <span class="function">QuantumProcessor</span>, <span class="function">NeuralMesh</span>, <span class="function">HoloRenderer</span> } <span class="keyword">from</span> <span class="string">'@quantum/core'</span>;</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">2</span>
-                        <span class="code-content"><span class="keyword">import</span> { <span class="function">ARInterface</span>, <span class="function">DataStream</span> } <span class="keyword">from</span> <span class="string">'@holo/reality'</span>;</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">3</span>
-                        <span class="code-content"></span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">4</span>
-                        <span class="code-content"><span class="comment">// Advanced Quantum CyberSystem with Holographic AR</span></span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">5</span>
-                        <span class="code-content"><span class="keyword">class</span> <span class="function">QuantumCyberSystem</span> {</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">6</span>
-                        <span class="code-content">  <span class="keyword">constructor</span>(<span class="property">quantumConfig</span>) {</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">7</span>
-                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">quantum</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">QuantumProcessor</span>(<span class="property">quantumConfig</span>);</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">8</span>
-                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">neural</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">NeuralMesh</span>({ <span class="property">layers</span>: <span class="string">∞</span> });</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">9</span>
-                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">holo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">HoloRenderer</span>({ <span class="property">dimensions</span>: <span class="string">'4D+'</span> });</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">10</span>
-                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">ar</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">ARInterface</span>({ <span class="property">reality</span>: <span class="string">'augmented'</span> });</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">11</span>
-                        <span class="code-content">    <span class="keyword">this</span><span class="operator">.</span><span class="property">dataStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">DataStream</span>({ <span class="property">flow</span>: <span class="string">'continuous'</span> });</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">12</span>
-                        <span class="code-content">  }</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">13</span>
-                        <span class="code-content"></span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">14</span>
-                        <span class="code-content">  <span class="keyword">async</span> <span class="function">initializeQuantumReality</span>() {</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">15</span>
-                        <span class="code-content">    <span class="comment">// Synchronize quantum states with holographic reality</span></span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">16</span>
-                        <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">quantum</span><span class="operator">.</span><span class="function">entangle</span>(<span class="keyword">this</span><span class="operator">.</span><span class="property">neural</span>);</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">17</span>
-                        <span class="code-content">    <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">holo</span><span class="operator">.</span><span class="function">renderReality</span>(<span class="keyword">this</span><span class="operator">.</span><span class="property">ar</span>);</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">18</span>
-                        <span class="code-content">    <span class="keyword">return</span> <span class="keyword">this</span><span class="operator">.</span><span class="property">dataStream</span><span class="operator">.</span><span class="function">activate</span>();</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">19</span>
-                        <span class="code-content">  }</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">20</span>
-                        <span class="code-content"></span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">21</span>
-                        <span class="code-content">  <span class="keyword">async</span> <span class="function">deployToQuantumCloud</span>() {</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">22</span>
-                        <span class="code-content">    <span class="comment">// Deploy across multiple quantum dimensions</span></span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">23</span>
-                        <span class="code-content">    <span class="keyword">const</span> <span class="property">deployment</span> <span class="operator">=</span> <span class="keyword">await</span> <span class="keyword">this</span><span class="operator">.</span><span class="function">initializeQuantumReality</span>();</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">24</span>
-                        <span class="code-content">    <span class="keyword">return</span> <span class="property">deployment</span><span class="operator">.</span><span class="function">transcend</span>();</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">25</span>
-                        <span class="code-content">  }</span>
-                    </div>
-                    <div class="floating-code-line">
-                        <span class="line-number">26</span>
-                        <span class="code-content">}</span>
-                    </div>
-                </div>
-                
-                <!-- Advanced Holographic Autocomplete -->
-                <div class="holo-autocomplete" id="holoAutocomplete">
-                    <div class="autocomplete-item">
-                        <div class="autocomplete-icon">Q</div>
-                        <div>
-                            <div>quantum.entangle()</div>
-                            <div style="font-size: 0.8rem; color: #888;">Quantum Method</div>
-                        </div>
-                    </div>
-                    <div class="autocomplete-item">
-                        <div class="autocomplete-icon">H</div>
-                        <div>
-                            <div>holo.renderReality()</div>
-                            <div style="font-size: 0.8rem; color: #888;">Holographic Function</div>
-                        </div>
-                    </div>
-                    <div class="autocomplete-item">
-                        <div class="autocomplete-icon">A</div>
-                        <div>
-                            <div>ar.augmentDimension()</div>
-                            <div style="font-size: 0.8rem; color: #888;">AR Interface</div>
-                        </div>
-                    </div>
-                    <div class="autocomplete-item">
-                        <div class="autocomplete-icon">D</div>
-                        <div>
-                            <div>dataStream.transcend()</div>
-                            <div style="font-size: 0.8rem; color: #888;">Data Stream</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Quantum Deployment & Analytics Hub -->
-            <div class="holo-panel">
-                <div class="panel-header">
-                    <h2 class="panel-title">Quantum Deploy Hub</h2>
-                </div>
-                
-                <div class="deploy-hub">
-                    <button class="quantum-deploy-btn" onclick="deployQuantumSystem()" id="quantumDeployBtn">
-                        ⚛️ Deploy to Quantum Reality
-                    </button>
-                    
-                    <div style="margin-top: 25px; font-size: 0.9rem; position: relative; z-index: 1;">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-                            <span>Quantum State:</span>
-                            <span style="color: var(--primary-cyan);">⚛️ Entangled</span>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-                            <span>Neural Mesh:</span>
-                            <span style="color: var(--primary-green);">🧠 Active</span>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-                            <span>Holo Render:</span>
-                            <span style="color: var(--primary-magenta);">🔮 4D+</span>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-                            <span>AR Nodes:</span>
-                            <span style="color: var(--primary-yellow);">🌐 127 Connected</span>
-                        </div>
-                        <div style="display: flex; justify-content: space-between;">
-                            <span>Data Flow:</span>
-                            <span style="color: var(--primary-orange);">📊 ∞ TB/s</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 25px; padding: 20px; background: rgba(0, 255, 255, 0.05); border-radius: 15px; border: 1px solid rgba(0, 255, 255, 0.2);">
-                    <h3 style="color: var(--primary-cyan); margin-bottom: 15px; font-size: 1.1rem; text-shadow: 0 0 5px currentColor;">🤖 Quantum AI Assistant</h3>
-                    <div style="font-size: 0.9rem; color: #ccc; line-height: 1.5;">
-                        <div style="margin-bottom: 10px;">
-                            💡 <strong>Neural Optimization:</strong> Quantum entanglement efficiency increased by 347%
-                        </div>
-                        <div style="margin-bottom: 10px;">
-                            🔮 <strong>Holographic Suggestion:</strong> Consider implementing 5D rendering for enhanced AR experience
-                        </div>
-                        <div>
-                            ⚡ <strong>Performance Alert:</strong> Data stream transcendence ready for deployment
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Advanced Holographic Terminal with Data Streams -->
-        <div class="holo-terminal">
-            <div class="terminal-header">
-                <div class="terminal-controls">
-                    <div class="terminal-dot red"></div>
-                    <div class="terminal-dot yellow"></div>
-                    <div class="terminal-dot green"></div>
-                </div>
-                <div class="terminal-title">QuantumTerminal v∞.0 - Holographic Reality Interface</div>
-            </div>
-            <div class="terminal-content" id="quantumTerminalContent">
-                <div><span class="prompt">quantum@reality:~/cybersystem$</span> initialize --mode=holographic --reality=augmented</div>
-                <div>🔮 Initializing quantum holographic interface...</div>
-                <div>⚛️ Quantum processors: ENTANGLED</div>
-                <div>🧠 Neural mesh networks: SYNCHRONIZED</div>
-                <div>🌐 AR reality nodes: CONNECTED (127 nodes)</div>
-                <div>📊 Data streams: FLOWING (∞ dimensions)</div>
-                <div>🔮 Holographic layers: RENDERED (4D+)</div>
-                <div>✨ Quantum reality deployment: READY</div>
-                <div>🌟 QuantumCode AR transcended to next dimension</div>
-                <div><span class="prompt">quantum@reality:~/cybersystem$</span> <span class="cursor">█</span></div>
-            </div>
+        <div class="nexus-controls">
+            <button class="nexus-button" onclick="triggerCosmicBurst()">
+                ⚡ Cosmic Burst
+            </button>
+            <button class="nexus-button" onclick="activateNexusField()">
+                🌀 Nexus Field
+            </button>
         </div>
     </div>
     
     <script>
-        let currentTheme = 'cyan';
-        let deploymentCount = 0;
-        let particleCount = 0;
+        // Ultra-Responsive Cursor Tracking
+        let cursor = document.getElementById('cosmicCursor');
+        let mouseX = 0, mouseY = 0;
         
-        // Create floating data particles
-        function createDataParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'data-particle';
-            particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.animationDelay = Math.random() * 15 + 's';
-            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
             
-            // Random colors for particles
-            const colors = ['#00ffff', '#ff00ff', '#ffff00', '#00ff00', '#ff6600'];
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            particle.style.background = color;
-            particle.style.boxShadow = `0 0 10px ${color}`;
-            
-            document.body.appendChild(particle);
-            
-            // Remove particle after animation
-            setTimeout(() => {
-                if (particle.parentNode) {
-                    particle.parentNode.removeChild(particle);
-                }
-            }, 25000);
-        }
+            cursor.style.left = mouseX - 25 + 'px';
+            cursor.style.top = mouseY - 25 + 'px';
+        });
         
-        // Advanced Theme Management
-        function changeTheme(theme) {
-            const root = document.documentElement;
-            const themes = {
-                cyan: { primary: '#00ffff', secondary: '#0080ff', name: 'Cyan Hologram' },
-                magenta: { primary: '#ff00ff', secondary: '#ff0080', name: 'Magenta Matrix' },
-                green: { primary: '#00ff00', secondary: '#00cc00', name: 'Green Grid' },
-                yellow: { primary: '#ffff00', secondary: '#ffcc00', name: 'Yellow Quantum' },
-                orange: { primary: '#ff6600', secondary: '#ff9900', name: 'Orange Neural' }
-            };
-            
-            if (themes[theme]) {
-                root.style.setProperty('--primary-cyan', themes[theme].primary);
-                root.style.setProperty('--data-stream-color', themes[theme].primary);
-                currentTheme = theme;
-                addQuantumTerminalOutput(`🎨 Reality theme shifted to ${themes[theme].name}`);
-                addQuantumTerminalOutput(`⚛️ Quantum signature updated: ${theme.toUpperCase()}-${Math.random().toString(36).substr(2, 6)}`);
+        // Otherworldly Particle Interactions
+        document.addEventListener('click', (e) => {
+            createOtherworldlyNexusBurst(e.clientX, e.clientY, 'click');
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.88) {
+                createOtherworldlyNexusBurst(e.clientX, e.clientY, 'hover');
             }
-        }
+        });
         
-        // Enhanced Terminal Functions
-        function addQuantumTerminalOutput(text, delay = 0) {
-            setTimeout(() => {
-                const terminal = document.getElementById('quantumTerminalContent');
-                const cursor = terminal.querySelector('.cursor');
-                const newLine = document.createElement('div');
-                newLine.textContent = text;
-                newLine.style.animation = 'codeFloat 0.6s ease-out';
-                terminal.insertBefore(newLine, cursor.parentElement);
-                terminal.scrollTop = terminal.scrollHeight;
-            }, delay);
-        }
-        
-        // Quantum Deployment System
-        function deployQuantumSystem() {
-            const deployBtn = document.getElementById('quantumDeployBtn');
-            
-            deployBtn.disabled = true;
-            deployBtn.textContent = '⚡ TRANSCENDING REALITY...';
-            deployBtn.style.background = 'linear-gradient(45deg, #ff6b6b, #4ecdc4, #f39c12)';
-            
-            const quantumSteps = [
-                '🔍 Scanning quantum dimensions...',
-                '⚛️ Entangling neural networks...',
-                '🧠 Synchronizing consciousness matrices...',
-                '🔮 Rendering holographic reality layers...',
-                '🌐 Connecting to AR multiverse...',
-                '📊 Initializing infinite data streams...',
-                '✨ Transcending dimensional barriers...',
-                '🌟 Deploying to quantum cloud reality...',
-                '🚀 Activating holographic interfaces...',
-                '💫 Achieving quantum consciousness...'
+        function createOtherworldlyNexusBurst(x, y, type = 'click') {
+            const colors = [
+                '#ff00ff', '#00ffff', '#ffff00', '#ff69b4', 
+                '#00ff80', '#ff8040', '#8040ff', '#40ff80',
+                '#ff4080', '#80ff40', '#4080ff', '#ff0080',
+                '#80ff80', '#ff8080', '#8080ff', '#ffff80'
             ];
+            const particleCount = type === 'hover' ? 50 : 150;
+            const spread = type === 'hover' ? 500 : 1000;
+            const intensity = type === 'hover' ? 4.0 : 6.0;
             
-            quantumSteps.forEach((step, index) => {
-                addQuantumTerminalOutput(step, index * 900);
-            });
+            for (let i = 0; i < particleCount; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'nexus-particle';
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    particle.style.background = `radial-gradient(circle, ${color}, transparent)`;
+                    particle.style.boxShadow = `
+                        0 0 50px ${color}, 
+                        0 0 100px ${color},
+                        0 0 150px ${color},
+                        0 0 200px ${color}`;
+                    particle.style.left = x + (Math.random() - 0.5) * spread + 'px';
+                    particle.style.top = y + (Math.random() - 0.5) * spread + 'px';
+                    particle.style.filter = `hue-rotate(${Math.random() * 360}deg) brightness(${intensity})`;
+                    particle.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
+                    document.body.appendChild(particle);
+                    
+                    setTimeout(() => particle.remove(), type === 'hover' ? 2000 : 3000);
+                }, i * (type === 'hover' ? 20 : 40));
+            }
+        }
+        
+        // Create Complex Quantum Nexus Rotations
+        function createQuantumNexusRotations() {
+            const system = document.getElementById('quantumNexusSystem');
+            const nexusTypes = ['nexus-1', 'nexus-2', 'nexus-3', 'nexus-4', 'nexus-5', 'nexus-6', 'nexus-7', 'nexus-8'];
             
-            setTimeout(() => {
-                deploymentCount++;
-                addQuantumTerminalOutput('✅ QUANTUM REALITY DEPLOYMENT TRANSCENDED!');
-                addQuantumTerminalOutput(`🆔 Quantum ID: QR-${Math.random().toString(36).substr(2, 12).toUpperCase()}`);
-                addQuantumTerminalOutput(`🌌 Reality layers: ${Math.floor(Math.random() * 50) + 10} dimensions`);
-                addQuantumTerminalOutput(`📊 Consciousness nodes: ${Math.floor(Math.random() * 1000) + 500} synchronized`);
-                addQuantumTerminalOutput(`🔮 Total transcendences: ${deploymentCount}`);
+            for (let i = 0; i < 400; i++) {
+                const rotator = document.createElement('div');
+                rotator.className = `quantum-nexus-particle ${nexusTypes[Math.floor(Math.random() * nexusTypes.length)]}`;
+                rotator.style.animationDelay = Math.random() * 25 + 's';
+                rotator.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+                system.appendChild(rotator);
+            }
+        }
+        
+        // Create Deep Holographic Nexus Cascades
+        function createHolographicNexusCascades() {
+            const system = document.getElementById('holographicNexusSystem');
+            const depthLayers = ['', 'depth-1', 'depth-2', 'depth-3', 'depth-4', 'depth-5', 'depth-6'];
+            
+            for (let i = 0; i < 120; i++) {
+                const cascade = document.createElement('div');
+                const layerClass = depthLayers[Math.floor(Math.random() * depthLayers.length)];
+                cascade.className = `holo-nexus-cascade ${layerClass}`;
+                cascade.style.left = Math.random() * 100 + '%';
+                cascade.style.animationDelay = Math.random() * 12 + 's';
+                cascade.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+                system.appendChild(cascade);
+            }
+        }
+        
+        // Create Dense Energy Nexus Waves
+        function createEnergyNexusWaves() {
+            const system = document.getElementById('energyNexusSystem');
+            const waveTypes = ['circular', 'radial'];
+            
+            for (let i = 0; i < 80; i++) {
+                const wave = document.createElement('div');
+                const waveType = waveTypes[Math.floor(Math.random() * waveTypes.length)];
+                wave.className = `energy-nexus-wave ${waveType}`;
                 
-                deployBtn.disabled = false;
-                deployBtn.textContent = '⚛️ Deploy to Quantum Reality';
-                deployBtn.style.background = 'linear-gradient(45deg, var(--primary-magenta), var(--primary-cyan), var(--primary-yellow))';
-            }, quantumSteps.length * 900 + 1500);
+                wave.style.left = Math.random() * 100 + '%';
+                wave.style.top = Math.random() * 100 + '%';
+                wave.style.animationDelay = (i * 0.1) + 's';
+                wave.style.filter = `hue-rotate(${i * 4.5}deg)`;
+                system.appendChild(wave);
+            }
         }
         
-        // Quantum Git Commit
-        function commitQuantumCode() {
-            addQuantumTerminalOutput('📝 Initiating quantum commit sequence...');
-            setTimeout(() => {
-                addQuantumTerminalOutput('⚛️ Quantum states synchronized');
-                addQuantumTerminalOutput(`✓ Neural mesh committed: ${Math.random().toString(36).substr(2, 8)}`);
-                addQuantumTerminalOutput('🌿 Branch transcended: quantum/neural-mesh');
-                addQuantumTerminalOutput('🔮 Holographic backup created in 4D+ space');
-            }, 1200);
+        // Interactive Functions
+        function triggerCosmicBurst() {
+            // Create massive cosmic particle burst
+            for (let i = 0; i < 300; i++) {
+                setTimeout(() => {
+                    createOtherworldlyNexusBurst(
+                        Math.random() * window.innerWidth,
+                        Math.random() * window.innerHeight,
+                        'click'
+                    );
+                }, i * 50);
+            }
+            
+            // Create quantum nexus rotation storm
+            for (let i = 0; i < 80; i++) {
+                setTimeout(() => {
+                    const rotator = document.createElement('div');
+                    rotator.className = 'quantum-nexus-particle nexus-5';
+                    rotator.style.left = Math.random() * 100 + '%';
+                    rotator.style.top = Math.random() * 100 + '%';
+                    rotator.style.animationDuration = '1.5s';
+                    rotator.style.filter = `hue-rotate(${Math.random() * 360}deg) brightness(5)`;
+                    document.getElementById('quantumNexusSystem').appendChild(rotator);
+                    
+                    setTimeout(() => rotator.remove(), 1500);
+                }, i * 40);
+            }
         }
         
-        // Advanced Autocomplete System
-        function showHoloAutocomplete() {
-            const popup = document.getElementById('holoAutocomplete');
-            popup.style.display = 'block';
-            popup.style.top = '250px';
-            popup.style.left = '400px';
+        function activateNexusField() {
+            // Create energy nexus wave cascade
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const wave = document.createElement('div');
+                    wave.className = 'energy-nexus-wave radial';
+                    wave.style.left = Math.random() * 100 + '%';
+                    wave.style.top = Math.random() * 100 + '%';
+                    wave.style.animationDuration = '1s';
+                    wave.style.filter = `hue-rotate(${Math.random() * 360}deg) brightness(6)`;
+                    document.getElementById('energyNexusSystem').appendChild(wave);
+                    
+                    setTimeout(() => wave.remove(), 1000);
+                }, i * 60);
+            }
             
-            setTimeout(() => {
-                popup.style.display = 'none';
-            }, 4000);
+            // Create holographic nexus cascade burst
+            for (let i = 0; i < 60; i++) {
+                setTimeout(() => {
+                    const cascade = document.createElement('div');
+                    cascade.className = 'holo-nexus-cascade depth-3';
+                    cascade.style.left = Math.random() * 100 + '%';
+                    cascade.style.animationDuration = '2s';
+                    cascade.style.filter = `hue-rotate(${Math.random() * 360}deg) brightness(5.5)`;
+                    document.getElementById('holographicNexusSystem').appendChild(cascade);
+                    
+                    setTimeout(() => cascade.remove(), 2000);
+                }, i * 50);
+            }
         }
         
-        // Initialize Quantum System
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate floating code lines
-            const codeLines = document.querySelectorAll('.floating-code-line');
-            codeLines.forEach((line, index) => {
-                line.style.animationDelay = `${index * 0.15}s`;
-            });
+        // Initialize Systems
+        window.addEventListener('load', () => {
+            createQuantumNexusRotations();
+            createHolographicNexusCascades();
+            createEnergyNexusWaves();
             
-            // Create continuous data particle stream
-            setInterval(createDataParticle, 800);
-            
-            // Simulate quantum collaborative activity
+            // Continuous regeneration for maximum dynamic effects
             setInterval(() => {
-                const activities = [
-                    '🔄 Zara X-1 synchronized quantum algorithms',
-                    '💬 Neo Koda optimized neural pathways',
-                    '🧪 Cyber Yang deployed AR interface updates',
-                    '🔍 Quantum Ray transcended reality barriers',
-                    '⚡ Neural mesh performance enhanced by 247%',
-                    '🛡️ Quantum security protocols updated',
-                    '🌐 AR nodes expanded to 127 dimensions',
-                    '🔮 Holographic rendering achieved 4D+ clarity'
-                ];
-                
-                const randomActivity = activities[Math.floor(Math.random() * activities.length)];
-                addQuantumTerminalOutput(randomActivity);
-            }, 8000);
+                document.getElementById('quantumNexusSystem').innerHTML = '';
+                createQuantumNexusRotations();
+            }, 35000);
             
-            // Show holographic autocomplete demo
-            setTimeout(showHoloAutocomplete, 6000);
-            setInterval(showHoloAutocomplete, 20000);
+            setInterval(() => {
+                document.getElementById('holographicNexusSystem').innerHTML = '';
+                createHolographicNexusCascades();
+            }, 30000);
+            
+            setInterval(() => {
+                document.getElementById('energyNexusSystem').innerHTML = '';
+                createEnergyNexusWaves();
+            }, 25000);
         });
-        
-        // Enhanced Code Editor Interactions
-        document.getElementById('floatingCodeEditor').addEventListener('click', function(e) {
-            if (Math.random() > 0.6) {
-                showHoloAutocomplete();
-            }
-            
-            // Add quantum interaction effect
-            const ripple = document.createElement('div');
-            ripple.style.position = 'absolute';
-            ripple.style.width = '20px';
-            ripple.style.height = '20px';
-            ripple.style.background = 'radial-gradient(circle, rgba(0, 255, 255, 0.6) 0%, transparent 70%)';
-            ripple.style.borderRadius = '50%';
-            ripple.style.pointerEvents = 'none';
-            ripple.style.left = e.offsetX - 10 + 'px';
-            ripple.style.top = e.offsetY - 10 + 'px';
-            ripple.style.animation = 'quantumRipple 1s ease-out forwards';
-            
-            e.currentTarget.appendChild(ripple);
-            
-            setTimeout(() => {
-                if (ripple.parentNode) {
-                    ripple.parentNode.removeChild(ripple);
-                }
-            }, 1000);
-        });
-        
-        // Add quantum ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes quantumRipple {
-                0% { 
-                    transform: scale(1); 
-                    opacity: 1; 
-                }
-                100% { 
-                    transform: scale(10); 
-                    opacity: 0; 
-                }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96d0c14143306972',t:'MTc1NDg0MjEzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9705c06f82627a05',t:'MTc1NTM5Nzg1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
 
 <script async
   src="https://js.stripe.com/v3/buy-button.js">
