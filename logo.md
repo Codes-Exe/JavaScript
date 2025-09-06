@@ -89,6 +89,6 @@
 ![54ed5878-0ee3-4e2b-8c56-6b2a39ab7e14-size-400x400](https://github.com/user-attachments/assets/fcba9ec6-ad1b-4087-a02e-3c6f5030a4f1)
 ![envato-labs-ai-643b5101-9e6b-45d9-9a00-7096c5865f09](https://github.com/user-attachments/assets/50a21f81-66bf-4940-81b9-06b0509c72be)
 ![envato-labs-ai-26fce983-0963-47c7-9143-618c3c2c61dc](https://github.com/user-attachments/assets/4980e128-57d7-48d8-a235-2d55475cb02b)
-
+![envato-labs-ai-40542ee5-b112-458a-962c-534bb1e35165](https://github.com/user-attachments/assets/005751ff-9fd1-4e21-b300-494f706f4739)
 
 ![envato-labs-ai-845b7ebe-79c2-480d-af48-f46662da81fc](https://github.com/user-attachments/assets/45d93aa5-1413-49c6-81f2-0914795b89f2)
