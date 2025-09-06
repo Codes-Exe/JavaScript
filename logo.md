@@ -1,6 +1,7 @@
 <p align="center" dir="auto">
   <a href="https://ogtal.com"><img src="https://github.com/user-attachments/assets/b05ebc56-fa8c-42a9-88f9-d459979dd618" secured-asset-link="" style="max-width: 100%;"></a>
  </p>
+<img width="2400" height="1213" alt="tablo3 2400px" src="https://github.com/user-attachments/assets/7bfc4bd5-2c7f-429e-ae2a-63a153176097" />
 
 ![envato-labs-ai-75771724-d907-490a-8fd0-f0ae0b807f54](https://github.com/user-attachments/assets/020785f6-f3be-4863-8c78-331590d4c27e)
 ![envato-labs-ai-dcc621a1-d622-4060-bd1f-428436765208](https://github.com/user-attachments/assets/32d712aa-ccb4-4810-a558-79aa94335fc6)
