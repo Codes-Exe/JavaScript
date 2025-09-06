@@ -31,7 +31,7 @@
 ![Complex digital core featuring flowing data streams, interconnected geometric patterns, and detailed microcircuitry enabling energy transfer  Set against a deep black background  High-tech aesthetic wit (1)](https://github.com/user-attachments/assets/0c502b6a-4edf-4dfe-b390-b0885887bb79)
 ![envato-labs-ai-282d4f76-2b9e-41a4-97e1-c1954ca52b76](https://github.com/user-attachments/assets/e0f93272-8d68-4e90-aca3-7d3706f31ae8)
 ![envato-labs-ai-282d4f76-2b9e-41a4-97e1-c1954ca52b76](https://github.com/user-attachments/assets/1d5d0827-cd47-4daa-aae9-27e4436ef07c)
-![envato-labs-ai-a7004f42-7de5-449f-a2ee-35dde156cbfa](https://github.com/user-attachments/assets/5b89e815-4ff8-4962-bdcd-def3f03a83b2)
+
 
 ![computer network and peripherals star technology logo colorful world with broken meteor rocks and planets in the middle of the colorful star inside the world (22)](https://github.com/user-attachments/assets/3d278891-70da-4818-ae3f-82c632fa8d32)
 
