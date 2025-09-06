@@ -93,6 +93,8 @@
 ![Uploading envato-labs-ai-3360d7b3-3dbb-4794-9afb-76bd7bd0540c.jpg…]()
 ![envato-labs-ai-f288ba37-0a73-4530-a417-07310465d85a](https://github.com/user-attachments/assets/0a88cc43-b90d-480d-9714-6058367abdd8)
 ![envato-labs-ai-d9052ca0-c9ba-406d-a7d4-9f0e51f43b62](https://github.com/user-attachments/assets/25bbe104-c88b-4ad2-9419-358474eeea3d)
+![envato-labs-ai-a75175af-f96a-4769-8ed0-79cf27056d10](https://github.com/user-attachments/assets/49765f86-5950-43ca-af60-01be3ed12e17)
+
 ![envato-labs-ai-33e36b63-f6c9-43ff-aa98-142892e1c7d4](https://github.com/user-attachments/assets/d72d9ff3-3840-4be1-820f-a5116b9ff8fb)
 
 ![envato-labs-ai-845b7ebe-79c2-480d-af48-f46662da81fc](https://github.com/user-attachments/assets/45d93aa5-1413-49c6-81f2-0914795b89f2)
