@@ -52,3 +52,7 @@
 ![Intricate digital core integrated with geometric shapes and microcircuitry, displaying internal energy flows  Dark background with glowing blue, green, and purple high-tech illumination  Sharp focus, detail](https://github.com/user-attachments/assets/c3b37e71-e792-4668-ae0c-ad41d1704027)
 ![Complex digital core featuring interconnected geometric patterns and detailed microcircuitry facilitating energy transfer  Set against a deep black backdrop, the design emphasizes a high-tech aesthetic  (1)](https://github.com/user-attachments/assets/4fbfbfc3-b941-465b-be56-169b4c58c550)
 ![envato-labs-ai-6749c2d9-d3b8-4a98-8efb-8ed01bb4030e](https://github.com/user-attachments/assets/44895e36-c6eb-4e67-af4d-a3b905336c5a)
+![envato-labs-ai-0601254c-a76a-4de7-a5dc-19d9c0f6e03f](https://github.com/user-attachments/assets/bd4b8ead-2920-436e-98cf-f732845dc26f)
+![envato-labs-ai-19a1fbbc-609e-49b5-9489-7813ee4ed759](https://github.com/user-attachments/assets/eec0582e-81cd-42b4-9ec6-b1f0d0def0aa)
+![envato-labs-ai-bbd9c816-6952-4557-a338-a344765045ab](https://github.com/user-attachments/assets/19ff8c58-049c-45fa-ba7d-354917d41955)
+![envato-labs-ai-f3f475e3-57de-45b3-9282-44a3d2b4bc63](https://github.com/user-attachments/assets/65d9d532-4f25-4d09-8bea-a99be90fa0bb)
