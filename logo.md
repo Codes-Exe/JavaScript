@@ -100,6 +100,7 @@
 ![envato-labs-ai-d3c3a332-3e5f-4be8-b7c7-0e1a4f97b703](https://github.com/user-attachments/assets/2418d349-8bb5-4e31-881c-25ed78628955)
 ![envato-labs-ai-635c5176-ed16-4012-9e10-58720b51e3d2](https://github.com/user-attachments/assets/48df9bbd-f575-41b5-b3d3-89964a30109c)
 ![envato-labs-ai-130a425a-faa9-4802-b4ff-1af7c8360289](https://github.com/user-attachments/assets/d183151b-d30f-42e7-b2eb-9522a453fc29)
+![envato-labs-ai-4f6f1a57-aa35-42ef-ac1d-15f6a8468d83](https://github.com/user-attachments/assets/86618e7e-b574-45a5-ac6c-a47dc4f12445)
 
 ![envato-labs-ai-33e36b63-f6c9-43ff-aa98-142892e1c7d4](https://github.com/user-attachments/assets/d72d9ff3-3840-4be1-820f-a5116b9ff8fb)
 ![envato-labs-ai-635c5176-ed16-4012-9e10-58720b51e3d2](https://github.com/user-attachments/assets/46b95031-019c-4a6b-a57b-7e72e545c756)
