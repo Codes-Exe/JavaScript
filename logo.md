@@ -1,4 +1,4 @@
-<img width="1200" height="606" alt="tablo v3 1200px" src="https://github.com/user-attachments/assets/ff7412f7-2863-4a03-91ff-d90ce827ea48" />
+<img width="1200" height="606" alt="tablo v3 1200px" src="https://github.com/user-attachments/assets/f73d5c3e-64bf-43fa-8b6d-66d2042a62d7" />
 
 
 
