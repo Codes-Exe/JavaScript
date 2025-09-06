@@ -2,12 +2,39 @@
   <a href="https://starcomputer.space/shop"><img src="https://github.com/user-attachments/assets/d3faa844-0d2a-4df8-b12a-d10a75cc8e1a" secured-asset-link="" style="max-width: 100%;"></a>
  </p>
 
+![envato-labs-ai-f3804c98-4d1c-4eb2-b0c0-beea2e78ac0d](https://github.com/user-attachments/assets/9eb4cf73-e205-4765-9989-9e2531b00192)
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/9b23d55e-7f42-438c-9ce6-7f2b8f680693" />
 
 [![starspceafiş](https://github.com/user-attachments/assets/e2c5377e-8d8b-42c0-a3af-a436e74472dd)](https://starteknoloji.space/index.html)
+![envato-labs-ai-726e4447-d8ae-4fed-af8d-819fc31a7252](https://github.com/user-attachments/assets/1a1ac99d-0a20-4199-b498-6cce2369a3e1)
+![3b6eceb1-dbb3-4c43-b218-4d8c08844eb5-size-400x400](https://github.com/user-attachments/assets/1467bf08-0055-4e7a-bc71-2bba6d903412)
+![5e807ddf-85b2-4256-8d3a-24d8fc1a19d7-size-400x400](https://github.com/user-attachments/assets/5170d16e-5bab-4b28-8d9d-0c6cd18ad794)
+![envato-labs-ai-824f8b97-7b6e-4f61-a172-de73a77dbb39](https://github.com/user-attachments/assets/481b09ef-e885-4b01-89d5-f799e7cc8250)
+![envato-labs-ai-50e67bbc-def5-4d90-bcff-4f0a4e6a079b](https://github.com/user-attachments/assets/4b37a85b-8f50-4d1f-ba26-0648a36f4f98)
+![envato-labs-ai-3509a51d-93c7-4fa9-b347-8a8ff16b7b62](https://github.com/user-attachments/assets/eb426bf6-83c8-47fc-b49e-db78f8245824)
 
-
+![envato-labs-ai-6a5150be-21a9-4096![envato-labs-ai-c3225a1c-19ab-4758-a2ef-36b1e59e6690](https://github.com/user-attachments/assets/99a26c3c-4902-425c-8423-6837a2b1c900)
+-a3f7-0411c8db32bd](https://github.com/user-attachments/assets/7dc0d178-7474-4fd0-b7df-bfba694fac2c)
+![envato-labs-ai-6c4a3171-de63-4f62-a292-0d97c61d6d61](https://github.com/user-attachments/assets/8722f738-99ee-4965-89fd-700962aeb8b2)
+![envato-labs-ai-846ef6d0-ce84-4653-9488-022b78c78176](https://github.com/user-attachments/assets/f36fa0a3-bafe-44a8-b5df-c7f6f4387c09)
+![envato-labs-ai-65ec8b80-6b39-4e10-bf41-2d95c9b87e05](https://github.com/user-attachments/assets/077c2045-302c-4118-a549-46cd440d921d)
+![envato-labs-ai-53c6c7ae-8b10-4f19-93a1-01f48b476fc4](https://github.com/user-attachments/assets/5ac1c074-f57a-44ee-8224-199f77ee42a1)
+![envato-labs-ai-12f7d7c5-bf16-4f43-b9d6-d57cd5329807](https://github.com/user-attachments/assets/856065d2-c464-4b70-8686-41d8ccf05710)
+![envato-labs-ai-e221a8ce-75c5-4edb-8208-a8d53be89b16](https://github.com/user-attachments/assets/c0cc46fa-ef3c-4cf0-a1f1-72e953695b6b)
+![image](https://github.com/user-attachments/assets/5e93417c-d1c3-4cce-9a4c-717865c0482a)
+![envato-labs-ai-e2688f42-ee00-403e-bf0a-8cdf1506933c](https://github.com/user-attachments/assets/0c13377a-1e66-450a-92e8-3dfb2c420942)
+![envato-labs-ai-e2f27e4f-3c64-4b96-89d8-c134f4fc1b5e](https://github.com/user-attachments/assets/3f356f41-7b7f-4774-adf7-468b1643d67f)
+![envato-labs-ai-66c0f464-9938-4a4b-bd6d-ab3b6395a480](https://github.com/user-attachments/assets/1d02d719-cc03-4a0b-8a23-5e15dfae9c2f)
+![envato-labs-ai-43bc82f4-33fe-4ef1-93af-8214982b4233](https://github.com/user-attachments/assets/71ed9b3a-2146-4948-8f2b-70cb48fa6144)
+![envato-labs-ai-93fae550-134a-4![a6f3247c-27b6-4d7a-a357-e41adf72a913-size-400x400](https://github.com/user-attachments/assets/24c90cf6-7be7-4519-bf2e-786aee8592c9)
+4d0-baf8-3c001c1fd58c](https://github.com/user-attachments/assets/8038b9a4-2b74-4fb9-91dc-5ceb7d04039a)
+![Complex digital core featuring flowing data streams, interconnected geometric patterns, and detailed microcircuitry enabling energy transfer  Set against a deep black background  High-tech aesthetic wit (1)](https://github.com/user-attachments/assets/0c502b6a-4edf-4dfe-b390-b0885887bb79)
+![envato-labs-ai-282d4f76-2b9e-41a4-97e1-c1954ca52b76](https://github.com/user-attachments/assets/e0f93272-8d68-4e90-aca3-7d3706f31ae8)
+![envato-labs-ai-282d4f76-2b9e-41a4-97e1-c1954ca52b76](https://github.com/user-attachments/assets/1d5d0827-cd47-4daa-aae9-27e4436ef07c)
+![envato-labs-ai-a7004f42-7de5-449f-a2ee-35dde156cbfa](https://github.com/user-attachments/assets/5b89e815-4ff8-4962-bdcd-def3f03a83b2)
 
 ![computer network and peripherals star technology logo colorful world with broken meteor rocks and planets in the middle of the colorful star inside the world (22)](https://github.com/user-attachments/assets/3d278891-70da-4818-ae3f-82c632fa8d32)
+
 
 
 ![a computer network and peripherals with a colorful world with a colorful triangle in the middle of the broken meteor rocks and planets, the star technology logo, people watching from the world in space seeing  (11)](https://github.com/user-attachments/assets/3ea6fdbd-706c-44a4-b71b-ccccf19a4126)
