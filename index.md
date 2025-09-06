@@ -30,7 +30,7 @@
 4d0-baf8-3c001c1fd58c](https://github.com/user-attachments/assets/8038b9a4-2b74-4fb9-91dc-5ceb7d04039a)
 ![Complex digital core featuring flowing data streams, interconnected geometric patterns, and detailed microcircuitry enabling energy transfer  Set against a deep black background  High-tech aesthetic wit (1)](https://github.com/user-attachments/assets/0c502b6a-4edf-4dfe-b390-b0885887bb79)
 ![envato-labs-ai-282d4f76-2b9e-41a4-97e1-c1954ca52b76](https://github.com/user-attachments/assets/e0f93272-8d68-4e90-aca3-7d3706f31ae8)
-![envato-labs-ai-282d4f76-2b9e-41a4-97e1-c1954ca52b76](https://github.com/user-attachments/assets/1d5d0827-cd47-4daa-aae9-27e4436ef07c)
+
 
 
 ![computer network and peripherals star technology logo colorful world with broken meteor rocks and planets in the middle of the colorful star inside the world (22)](https://github.com/user-attachments/assets/3d278891-70da-4818-ae3f-82c632fa8d32)
