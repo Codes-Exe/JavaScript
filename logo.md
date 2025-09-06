@@ -1,6 +1,6 @@
 
-<img width="1200" height="606" alt="tablo v3 1200px" src="https://github.com/user-attachments/assets/dc8eb030-e168-4b1b-9d43-5f1d347614f2" />
 
+<img width="1200" height="606" alt="tablo v3 1200px" src="https://github.com/user-attachments/assets/d91d8846-956e-421b-a1c4-e49e84863cf3" />
 
 ![envato-labs-ai-75771724-d907-490a-8fd0-f0ae0b807f54](https://github.com/user-attachments/assets/020785f6-f3be-4863-8c78-331590d4c27e)
 ![envato-labs-ai-dcc621a1-d622-4060-bd1f-428436765208](https://github.com/user-attachments/assets/32d712aa-ccb4-4810-a558-79aa94335fc6)
