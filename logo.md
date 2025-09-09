@@ -1,5 +1,69 @@
 <img width="1200" height="606" alt="tablo v3 1200px" src="https://github.com/user-attachments/assets/f73d5c3e-64bf-43fa-8b6d-66d2042a62d7" />
 
+<video width="260" height="220" autoplay="autoplay">
+  <source src="[OGTAL](https://github.com/user-attachments/assets/3ac0efde-6e48-4042-8ce2-3b3b50e8f988
+)" type="video/mp4" />
+  <source src="video.ogg" type="video/ogg" />
+  Tarayıcınız video etiketini desteklemiyor.
+</video>
+
+<video width="260" height="220" autoplay="autoplay">
+  <source src="[OGTAL](https://github.com/user-attachments/assets/1688d6e6-3d95-455c-a244-272b67a43db5
+)" type="video/mp4" />
+  <source src="video.ogg" type="video/ogg" />
+  Tarayıcınız video etiketini desteklemiyor.
+</video>
+<video width="260" height="220" autoplay="autoplay">
+  <source src="[OGTAL](https://github.com/user-attachments/assets/aebdb8dd-40f5-43a4-98a2-a0c2c544a74d)" type="video/mp4" />
+  <source src="video.ogg" type="video/ogg" />
+  Tarayıcınız video etiketini desteklemiyor.
+</video>
+<video width="260" height="220" autoplay="autoplay">
+  <source src="[OGTAL](https://github.com/user-attachments/assets/92601668-5372-44d7-95aa-3070a349f866)" type="video/mp4" />
+  <source src="video.ogg" type="video/ogg" />
+  Tarayıcınız video etiketini desteklemiyor.
+</video>
+<video width="260" height="220" autoplay="autoplay">
+  <source src="[OGTAL](https://github.com/user-attachments/assets/2a690b1e-8d83-4b6c-b7a7-8f265f14aed6
+)" type="video/mp4" />
+  <source src="video.ogg" type="video/ogg" />
+  Tarayıcınız video etiketini desteklemiyor.
+</video>
+<video width="260" height="220" autoplay="autoplay">
+  <source src="[OGTAL](https://github.com/user-attachments/assets/9d9ae9a0-4607-461a-b70d-07ce5268dd90
+)" type="video/mp4" />
+  <source src="video.ogg" type="video/ogg" />
+  Tarayıcınız video etiketini desteklemiyor.
+</video>
+<video width="260" height="220" autoplay="autoplay">
+  <source src="[OGTAL](https://github.com/user-attachments/assets/09319d13-4197-4715-b6ef-517dd5acbac9
+)" type="video/mp4" />
+  <source src="video.ogg" type="video/ogg" />
+  Tarayıcınız video etiketini desteklemiyor.
+</video>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ![envato-labs-ai-75771724-d907-490a-8fd0-f0ae0b807f54](https://github.com/user-attachments/assets/020785f6-f3be-4863-8c78-331590d4c27e)
