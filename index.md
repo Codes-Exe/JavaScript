@@ -262,11 +262,8 @@ NOT; Projelrimizi hazırlamamızda Lütfen katkıda bulunun.# Beğendiysen Rekla
 ### [My Computer Digital](https://mycomputer.digital)
 <iframe src="https://mycomputer.digital" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
-### [Satış Mağazası](https://starteknoloji.github.io/Starnet/)
-<iframe src="https://starteknoloji.github.io/Starnet/" title="Planet" height="400" width="1000" style="border:10;"></iframe>
-
-### [Proje YerliCins](https://yerlicins.com) 
-<iframe src="https://yerlicins.com" title="Planet" height="400" width="1000" style="border:10;"></iframe>
+### [Satış Mağazası](https://starcomputer.shop)
+<iframe src="https://starcomputer.shop" title="Planet" height="400" width="1000" style="border:10;"></iframe>
 
 <iframe src="https://github.com/sponsors/StarTeknoloji/card" title="Sponsor StarTeknoloji" height="200" width="1000" style="border: 10;"></iframe>
 <iframe src="https://github.com/sponsors/Codes-Exe/card" title="Sponsor Codes-Exe" height="200" width="1000" style="border: 10;"></iframe>
