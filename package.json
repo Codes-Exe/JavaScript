@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/actions/javascript-action#readme",
   "dependencies": {
-    "@actions/core": "^2.0.2",
+    "@actions/core": "^3.0.0",
     "gatsby-plugin-disqus": "^1.2.6"
   },
   "devDependencies": {
