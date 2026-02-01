@@ -1237,7 +1237,896 @@
                    <section id="domain-site-network" class="py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">   
-       <a href="
+       <a href="<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futuristic Code Management Interface</title>
+  <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e6ed;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(64, 224, 255, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+            animation: backgroundPulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes backgroundPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(64, 224, 255, 0.3);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #40e0ff, #8a2be2, #40e0ff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(64, 224, 255, 0.8)) 
+                    drop-shadow(0 0 30px rgba(138, 43, 226, 0.6))
+                    drop-shadow(0 0 45px rgba(64, 224, 255, 0.4));
+            animation: logoGlow 4s ease-in-out infinite, gradientShift 3s linear infinite;
+        }
+        
+        @keyframes logoGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 15px rgba(64, 224, 255, 0.8)) 
+                        drop-shadow(0 0 30px rgba(138, 43, 226, 0.6))
+                        drop-shadow(0 0 45px rgba(64, 224, 255, 0.4));
+            }
+            50% { 
+                filter: drop-shadow(0 0 25px rgba(64, 224, 255, 1)) 
+                        drop-shadow(0 0 50px rgba(138, 43, 226, 0.8))
+                        drop-shadow(0 0 75px rgba(64, 224, 255, 0.6));
+            }
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        .stats {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px 25px;
+            background: rgba(64, 224, 255, 0.08);
+            border: 2px solid rgba(64, 224, 255, 0.4);
+            border-radius: 12px;
+            backdrop-filter: blur(15px);
+            transition: all 0.4s ease;
+            box-shadow: 0 0 20px rgba(64, 224, 255, 0.2);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 0 30px rgba(64, 224, 255, 0.4), 0 0 60px rgba(138, 43, 226, 0.2);
+            border-color: rgba(64, 224, 255, 0.6);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #40e0ff;
+            text-shadow: 0 0 20px rgba(64, 224, 255, 0.9), 
+                         0 0 40px rgba(64, 224, 255, 0.6),
+                         0 0 60px rgba(138, 43, 226, 0.4);
+            animation: statGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes statGlow {
+            0% { 
+                text-shadow: 0 0 20px rgba(64, 224, 255, 0.9), 
+                             0 0 40px rgba(64, 224, 255, 0.6),
+                             0 0 60px rgba(138, 43, 226, 0.4);
+                transform: scale(1);
+            }
+            100% { 
+                text-shadow: 0 0 30px rgba(64, 224, 255, 1), 
+                             0 0 60px rgba(64, 224, 255, 0.8),
+                             0 0 90px rgba(138, 43, 226, 0.6);
+                transform: scale(1.05);
+            }
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #b0b6c3;
+            margin-top: 5px;
+        }
+        
+        .filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 14px 28px;
+            background: rgba(138, 43, 226, 0.25);
+            border: 2px solid rgba(138, 43, 226, 0.6);
+            border-radius: 30px;
+            color: #e0e6ed;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Orbitron', monospace;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(64, 224, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+        
+        .filter-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(138, 43, 226, 0.6);
+            box-shadow: 0 0 30px rgba(138, 43, 226, 1), 
+                        0 0 60px rgba(64, 224, 255, 0.6),
+                        0 0 90px rgba(138, 43, 226, 0.4);
+            transform: translateY(-4px) scale(1.08);
+            border-color: rgba(64, 224, 255, 0.8);
+        }
+        
+        .filter-btn.active {
+            background: rgba(64, 224, 255, 0.3);
+            border-color: rgba(64, 224, 255, 0.9);
+        }
+        
+        .code-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .code-card {
+            background: rgba(26, 26, 46, 0.85);
+            border: 2px solid rgba(64, 224, 255, 0.4);
+            border-radius: 18px;
+            padding: 28px;
+            backdrop-filter: blur(15px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .code-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(64, 224, 255, 0.15), transparent);
+            transition: left 0.7s ease;
+        }
+        
+        .code-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(64, 224, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .code-card:hover::after {
+            opacity: 1;
+        }
+        
+        .code-card:hover::before {
+            left: 100%;
+        }
+        
+        .code-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(64, 224, 255, 0.5), 
+                        0 0 40px rgba(138, 43, 226, 0.4),
+                        inset 0 0 30px rgba(64, 224, 255, 0.1);
+            border-color: rgba(64, 224, 255, 0.9);
+            background: rgba(26, 26, 46, 0.95);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .category-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, #40e0ff, #8a2be2);
+            box-shadow: 0 0 25px rgba(64, 224, 255, 0.7), 
+                        0 0 50px rgba(138, 43, 226, 0.5),
+                        inset 0 0 15px rgba(255, 255, 255, 0.2);
+            animation: iconPulse 4s ease-in-out infinite;
+            position: relative;
+        }
+        
+        .category-icon::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #40e0ff, #8a2be2);
+            opacity: 0;
+            filter: blur(8px);
+            transition: opacity 0.4s ease;
+        }
+        
+        .code-card:hover .category-icon::before {
+            opacity: 0.6;
+        }
+        
+        @keyframes iconPulse {
+            0%, 100% { 
+                box-shadow: 0 0 25px rgba(64, 224, 255, 0.7), 
+                            0 0 50px rgba(138, 43, 226, 0.5),
+                            inset 0 0 15px rgba(255, 255, 255, 0.2);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 35px rgba(64, 224, 255, 0.9), 
+                            0 0 70px rgba(138, 43, 226, 0.7),
+                            inset 0 0 20px rgba(255, 255, 255, 0.3);
+                transform: scale(1.05);
+            }
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #40e0ff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(64, 224, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .code-card:hover .card-title {
+            text-shadow: 0 0 20px rgba(64, 224, 255, 0.8), 0 0 40px rgba(64, 224, 255, 0.4);
+            transform: translateX(5px);
+        }
+        
+        .card-description {
+            color: #b0b6c3;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+        
+        .code-preview {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(64, 224, 255, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: #40e0ff;
+            margin-bottom: 15px;
+            overflow-x: auto;
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-tags {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .tag {
+            padding: 4px 12px;
+            background: rgba(138, 43, 226, 0.3);
+            border-radius: 12px;
+            font-size: 0.7rem;
+            color: #e0e6ed;
+        }
+        
+        .card-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            width: 38px;
+            height: 38px;
+            border: 2px solid rgba(64, 224, 255, 0.5);
+            background: rgba(64, 224, 255, 0.12);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            color: #40e0ff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(64, 224, 255, 0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .action-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .action-btn:hover {
+            background: rgba(64, 224, 255, 0.25);
+            box-shadow: 0 0 20px rgba(64, 224, 255, 0.6), 0 0 40px rgba(64, 224, 255, 0.3);
+            transform: scale(1.15) rotate(5deg);
+            border-color: rgba(64, 224, 255, 0.8);
+        }
+        
+        .floating-panel {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(26, 26, 46, 0.92);
+            border: 2px solid rgba(64, 224, 255, 0.6);
+            border-radius: 18px;
+            padding: 25px;
+            backdrop-filter: blur(20px);
+            width: 280px;
+            box-shadow: 0 0 35px rgba(64, 224, 255, 0.4), 
+                        0 0 70px rgba(138, 43, 226, 0.3),
+                        inset 0 0 25px rgba(64, 224, 255, 0.05);
+            animation: panelGlow 5s ease-in-out infinite alternate;
+            z-index: 10;
+        }
+        
+        @keyframes panelGlow {
+            0% { 
+                box-shadow: 0 0 35px rgba(64, 224, 255, 0.4), 
+                            0 0 70px rgba(138, 43, 226, 0.3),
+                            inset 0 0 25px rgba(64, 224, 255, 0.05);
+                border-color: rgba(64, 224, 255, 0.6);
+            }
+            100% { 
+                box-shadow: 0 0 45px rgba(64, 224, 255, 0.6), 
+                            0 0 90px rgba(138, 43, 226, 0.4),
+                            inset 0 0 35px rgba(64, 224, 255, 0.08);
+                border-color: rgba(64, 224, 255, 0.8);
+            }
+        }
+        
+        .panel-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #40e0ff;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(64, 224, 255, 0.6), 0 0 30px rgba(64, 224, 255, 0.3);
+            letter-spacing: 1px;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(64, 224, 255, 0.1);
+        }
+        
+        .activity-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #40e0ff;
+            box-shadow: 0 0 15px rgba(64, 224, 255, 0.8), 0 0 30px rgba(64, 224, 255, 0.4);
+            position: relative;
+        }
+        
+        .activity-dot::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: rgba(64, 224, 255, 0.3);
+            filter: blur(5px);
+        }
+        
+        .activity-text {
+            font-size: 0.8rem;
+            color: #b0b6c3;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { 
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.4;
+                transform: scale(0.9);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .stats {
+                gap: 15px;
+            }
+            
+            .floating-panel {
+                position: static;
+                transform: none;
+                width: 100%;
+                margin-top: 30px;
+            }
+            
+            .code-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="container">
+   <header class="header">
+    <div class="logo pulse">
+     CodeNexus
+    </div>
+    <div class="stats">
+     <div class="stat-item">
+      <div class="stat-number" id="totalCodes">
+       247
+      </div>
+      <div class="stat-label">
+       Total Codes
+      </div>
+     </div>
+     <div class="stat-item">
+      <div class="stat-number" id="activeCodes">
+       18
+      </div>
+      <div class="stat-label">
+       Active
+      </div>
+     </div>
+     <div class="stat-item">
+      <div class="stat-number" id="categories">
+       12
+      </div>
+      <div class="stat-label">
+       Categories
+      </div>
+     </div>
+    </div>
+   </header>
+   <div class="filters"><button class="filter-btn active" data-filter="all">All</button> <button class="filter-btn" data-filter="frontend">Frontend</button> <button class="filter-btn" data-filter="backend">Backend</button> <button class="filter-btn" data-filter="ai">AI/ML</button> <button class="filter-btn" data-filter="mobile">Mobile</button> <button class="filter-btn" data-filter="database">Database</button>
+   </div>
+   <div class="code-grid" id="codeGrid">
+    <div class="code-card float" data-category="frontend">
+     <div class="card-header">
+      <div class="category-icon">
+       🎨
+      </div>
+      <div class="card-actions">
+       <div class="action-btn" onclick="viewCode(1)">
+        👁️
+       </div>
+       <div class="action-btn" onclick="editCode(1)">
+        ✏️
+       </div>
+       <div class="action-btn" onclick="shareCode(1)">
+        🔗
+       </div>
+      </div>
+     </div>
+     <div class="card-title">
+      Neural UI Components
+     </div>
+     <div class="card-description">
+      Advanced React components with AI-powered animations and adaptive layouts
+     </div>
+     <div class="code-preview">
+      const NeuralButton = ({ children, ...props }) =&gt; { const [isActive, setActive] = useState(false); return ( &lt;button className="neural-btn" {...props}&gt; {children} &lt;/button&gt; ); };
+     </div>
+     <div class="card-footer">
+      <div class="card-tags"><span class="tag">React</span> <span class="tag">TypeScript</span>
+      </div>
+     </div>
+    </div>
+    <div class="code-card" data-category="ai">
+     <div class="card-header">
+      <div class="category-icon">
+       🧠
+      </div>
+      <div class="card-actions">
+       <div class="action-btn" onclick="viewCode(2)">
+        👁️
+       </div>
+       <div class="action-btn" onclick="editCode(2)">
+        ✏️
+       </div>
+       <div class="action-btn" onclick="shareCode(2)">
+        🔗
+       </div>
+      </div>
+     </div>
+     <div class="card-title">
+      Quantum Learning Algorithm
+     </div>
+     <div class="card-description">
+      Next-gen machine learning model with quantum-inspired optimization
+     </div>
+     <div class="code-preview">
+      class QuantumNeuralNet: def __init__(self, qubits=8): self.qubits = qubits self.circuit = QuantumCircuit(qubits) def forward(self, x): return self.quantum_transform(x)
+     </div>
+     <div class="card-footer">
+      <div class="card-tags"><span class="tag">Python</span> <span class="tag">Qiskit</span>
+      </div>
+     </div>
+    </div>
+    <div class="code-card" data-category="backend">
+     <div class="card-header">
+      <div class="category-icon">
+       ⚡
+      </div>
+      <div class="card-actions">
+       <div class="action-btn" onclick="viewCode(3)">
+        👁️
+       </div>
+       <div class="action-btn" onclick="editCode(3)">
+        ✏️
+       </div>
+       <div class="action-btn" onclick="shareCode(3)">
+        🔗
+       </div>
+      </div>
+     </div>
+     <div class="card-title">
+      Hyperspace API Gateway
+     </div>
+     <div class="card-description">
+      Ultra-fast API gateway with real-time load balancing and auto-scaling
+     </div>
+     <div class="code-preview">
+      app.use('/api', hyperspaceGateway({ routes: dynamicRoutes, loadBalancer: 'quantum', autoScale: true, metrics: realTimeMetrics }));
+     </div>
+     <div class="card-footer">
+      <div class="card-tags"><span class="tag">Node.js</span> <span class="tag">GraphQL</span>
+      </div>
+     </div>
+    </div>
+    <div class="code-card" data-category="mobile">
+     <div class="card-header">
+      <div class="category-icon">
+       📱
+      </div>
+      <div class="card-actions">
+       <div class="action-btn" onclick="viewCode(4)">
+        👁️
+       </div>
+       <div class="action-btn" onclick="editCode(4)">
+        ✏️
+       </div>
+       <div class="action-btn" onclick="shareCode(4)">
+        🔗
+       </div>
+      </div>
+     </div>
+     <div class="card-title">
+      Holographic Interface
+     </div>
+     <div class="card-description">
+      AR/VR mobile interface with gesture recognition and spatial computing
+     </div>
+     <div class="code-preview">
+      struct HolographicView: View { @State private var gestureState = GestureState() var body: some View { ARViewContainer() .gesture(spatialGesture) } }
+     </div>
+     <div class="card-footer">
+      <div class="card-tags"><span class="tag">SwiftUI</span> <span class="tag">ARKit</span>
+      </div>
+     </div>
+    </div>
+    <div class="code-card" data-category="database">
+     <div class="card-header">
+      <div class="category-icon">
+       🗄️
+      </div>
+      <div class="card-actions">
+       <div class="action-btn" onclick="viewCode(5)">
+        👁️
+       </div>
+       <div class="action-btn" onclick="editCode(5)">
+        ✏️
+       </div>
+       <div class="action-btn" onclick="shareCode(5)">
+        🔗
+       </div>
+      </div>
+     </div>
+     <div class="card-title">
+      Temporal Database Engine
+     </div>
+     <div class="card-description">
+      Time-series database with predictive caching and quantum encryption
+     </div>
+     <div class="code-preview">
+      CREATE TEMPORAL TABLE user_events ( id UUID PRIMARY KEY, event_data JSONB, timestamp TIMESTAMPTZ, TEMPORAL PERIOD FOR SYSTEM_TIME ) WITH QUANTUM_ENCRYPTION;
+     </div>
+     <div class="card-footer">
+      <div class="card-tags"><span class="tag">PostgreSQL</span> <span class="tag">TimescaleDB</span>
+      </div>
+     </div>
+    </div>
+    <div class="code-card" data-category="frontend">
+     <div class="card-header">
+      <div class="category-icon">
+       🌐
+      </div>
+      <div class="card-actions">
+       <div class="action-btn" onclick="viewCode(6)">
+        👁️
+       </div>
+       <div class="action-btn" onclick="editCode(6)">
+        ✏️
+       </div>
+       <div class="action-btn" onclick="shareCode(6)">
+        🔗
+       </div>
+      </div>
+     </div>
+     <div class="card-title">
+      Quantum CSS Framework
+     </div>
+     <div class="card-description">
+      Next-generation CSS framework with AI-powered responsive design
+     </div>
+     <div class="code-preview">
+      .quantum-grid { display: quantum-flex; quantum-adapt: viewport-aware; neural-spacing: auto-optimize; @quantum-media (mind-reading) { layout: user-preference; } }
+     </div>
+     <div class="card-footer">
+      <div class="card-tags"><span class="tag">CSS</span> <span class="tag">Sass</span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="floating-panel">
+   <div class="panel-title">
+    Live Activity
+   </div>
+   <div class="activity-item">
+    <div class="activity-dot pulse"></div>
+    <div class="activity-text">
+     Neural UI deployed
+    </div>
+   </div>
+   <div class="activity-item">
+    <div class="activity-dot"></div>
+    <div class="activity-text">
+     API Gateway updated
+    </div>
+   </div>
+   <div class="activity-item">
+    <div class="activity-dot pulse"></div>
+    <div class="activity-text">
+     New quantum model trained
+    </div>
+   </div>
+   <div class="activity-item">
+    <div class="activity-dot"></div>
+    <div class="activity-text">
+     Database optimized
+    </div>
+   </div>
+   <div class="activity-item">
+    <div class="activity-dot pulse"></div>
+    <div class="activity-text">
+     Holographic UI tested
+    </div>
+   </div>
+  </div>
+  <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const codeCards = document.querySelectorAll('.code-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.dataset.filter;
+                
+                codeCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.5s ease';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Real-time stats animation
+        function updateStats() {
+            const totalCodes = document.getElementById('totalCodes');
+            const activeCodes = document.getElementById('activeCodes');
+            const categories = document.getElementById('categories');
+            
+            // Simulate real-time updates
+            setInterval(() => {
+                const currentTotal = parseInt(totalCodes.textContent);
+                if (Math.random() > 0.7) {
+                    totalCodes.textContent = currentTotal + 1;
+                    totalCodes.style.animation = 'pulse 0.5s ease';
+                }
+                
+                const currentActive = parseInt(activeCodes.textContent);
+                if (Math.random() > 0.8) {
+                    activeCodes.textContent = Math.max(1, currentActive + (Math.random() > 0.5 ? 1 : -1));
+                    activeCodes.style.animation = 'pulse 0.5s ease';
+                }
+            }, 3000);
+        }
+        
+        // Code card interactions
+        function viewCode(id) {
+            console.log(`Viewing code ${id}`);
+            // Simulate code viewer opening
+            alert(`Opening code viewer for project ${id}...`);
+        }
+        
+        function editCode(id) {
+            console.log(`Editing code ${id}`);
+            // Simulate code editor opening
+            alert(`Opening code editor for project ${id}...`);
+        }
+        
+        function shareCode(id) {
+            console.log(`Sharing code ${id}`);
+            // Simulate sharing functionality
+            alert(`Generating share link for project ${id}...`);
+        }
+        
+        // Add floating animation to cards
+        function addFloatingAnimation() {
+            const cards = document.querySelectorAll('.code-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            updateStats();
+            addFloatingAnimation();
+            
+            // Add CSS animation keyframes
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+        
+        // Smooth scroll and parallax effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.floating-panel');
+            if (parallax) {
+                parallax.style.transform = `translateY(calc(-50% + ${scrolled * 0.1}px))`;
+            }
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c6f4ad9534fde3c',t:'MTc2OTkyNjI5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>">
                                      
    <!-- Footer -->
     <footer class="bg-black/80 border-t border-cyan-500/30 py-12 relative overflow-hidden">
