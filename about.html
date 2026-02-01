@@ -1224,7 +1224,729 @@
     </section>
 
    </section>  
- 
+       <!-- app -->                            
+         <section id="services" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="cyber-font text-3xl md:text-5xl font-bold mb-4 glow-text">Pay</h2>
+                <p class="text-xl text-gray-400">App</p>
+                <div class="w-32 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto mt-4"></div>
+        <h3 class="cyber-font text-2xl font-bold text-cyan-400 mb-6 glow-text">Denklem Hesaplama/h3>
+                   <section id="domain-site-network" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">   
+       <a href="<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Ogtal Core System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Orbitron', monospace;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1629 100%);
+      color: #00ff88;
+      overflow-x: hidden;
+    }
+    
+    .circuit-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .glow-text {
+      text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+    }
+    
+    .cyber-border {
+      border: 2px solid;
+      border-image: linear-gradient(135deg, #00ff88, #00d4ff, #7b2ff7) 1;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cyber-border::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+      animation: scan 4s linear infinite;
+    }
+    
+    @keyframes scan {
+      0% { transform: translateY(-100%) translateX(-100%); }
+      100% { transform: translateY(100%) translateX(100%); }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 5px currentColor, 0 0 10px currentColor; }
+      50% { box-shadow: 0 0 20px currentColor, 0 0 30px currentColor, 0 0 40px currentColor; }
+    }
+    
+    .pulse-btn {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .float-anim {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .input-cyber {
+      background: rgba(10, 14, 39, 0.8);
+      border: 1px solid #00ff88;
+      color: #00ff88;
+      transition: all 0.3s ease;
+    }
+    
+    .input-cyber:focus {
+      outline: none;
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+    }
+    
+    .result-box {
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(123, 47, 247, 0.05));
+      border-left: 4px solid #00ff88;
+    }
+    
+    .step-item {
+      background: rgba(0, 212, 255, 0.05);
+      border-left: 3px solid #00d4ff;
+      transition: all 0.3s ease;
+    }
+    
+    .step-item:hover {
+      background: rgba(0, 212, 255, 0.1);
+      transform: translateX(5px);
+    }
+    
+    .module-card {
+      background: linear-gradient(135deg, rgba(10, 14, 39, 0.9), rgba(26, 31, 58, 0.9));
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+    }
+    
+    .module-card.active {
+      border-color: #00ff88;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+    }
+    
+    .symbol-decoration {
+      font-size: 1.5rem;
+      opacity: 0.3;
+      display: inline-block;
+      margin: 0 8px;
+    }
+    
+    @keyframes rotate-symbol {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .rotating-symbol {
+      animation: rotate-symbol 10s linear infinite;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div class="circuit-bg">
+   <svg width="100%" height="100%"><defs>
+     <pattern id="circuit" x="0" y="0" width="100" height="100" patternunits="userSpaceOnUse">
+      <path d="M 10 10 L 90 10 M 50 10 L 50 90 M 10 50 L 90 50" stroke="#00ff88" stroke-width="1" fill="none" />
+      <circle cx="10" cy="10" r="3" fill="#00ff88" />
+      <circle cx="90" cy="10" r="3" fill="#00d4ff" />
+      <circle cx="50" cy="50" r="3" fill="#7b2ff7" />
+     </pattern>
+    </defs> <rect width="100%" height="100%" fill="url(#circuit)" />
+   </svg>
+  </div>
+  <div class="main-wrapper relative z-10 w-full h-full overflow-auto">
+   <div class="min-h-full px-4 py-8"><!-- Header -->
+    <header class="text-center mb-12 float-anim">
+     <div class="mb-4"><span class="symbol-decoration rotating-symbol">⍟</span> <span class="symbol-decoration">⌘</span> <span class="symbol-decoration rotating-symbol">⍣</span> <span class="symbol-decoration">⎕</span> <span class="symbol-decoration rotating-symbol">⏣</span>
+     </div>
+     <h1 id="system-title" class="text-5xl md:text-6xl font-black glow-text mb-3" style="color: #00ff88;">DIGITAL OGTAL CORE SYSTEM</h1>
+     <p id="system-subtitle" class="text-xl md:text-2xl" style="color: #00d4ff;">⎔ Advanced Mathematical Computing ⎕</p>
+     <div class="mt-4"><span class="symbol-decoration">⍜</span> <span class="symbol-decoration rotating-symbol">⍤</span> <span class="symbol-decoration">⍥</span> <span class="symbol-decoration rotating-symbol">⍨</span> <span class="symbol-decoration">⍩</span>
+     </div>
+    </header><!-- Module Selection -->
+    <div class="max-w-7xl mx-auto mb-8">
+     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4"><!-- Quadratic Module -->
+      <div class="module-card cyber-border p-4 rounded-lg" data-module="quadratic">
+       <div class="text-center">
+        <div class="text-4xl mb-2">
+         📐
+        </div>
+        <h3 class="text-sm font-bold mb-1" style="color: #00ff88;">QUADRATIC</h3>
+        <p class="text-xs opacity-70">ax² + bx + c = 0</p>
+       </div>
+      </div><!-- Octal Module -->
+      <div class="module-card cyber-border p-4 rounded-lg" data-module="octal">
+       <div class="text-center">
+        <div class="text-4xl mb-2">
+         🔢
+        </div>
+        <h3 class="text-sm font-bold mb-1" style="color: #00d4ff;">OCTAL</h3>
+        <p class="text-xs opacity-70">Base-8 Convert</p>
+       </div>
+      </div><!-- Linear Module -->
+      <div class="module-card cyber-border p-4 rounded-lg" data-module="linear">
+       <div class="text-center">
+        <div class="text-4xl mb-2">
+         📊
+        </div>
+        <h3 class="text-sm font-bold mb-1" style="color: #7b2ff7;">LINEAR</h3>
+        <p class="text-xs opacity-70">ax + b = 0</p>
+       </div>
+      </div><!-- Percentage Module -->
+      <div class="module-card cyber-border p-4 rounded-lg" data-module="percentage">
+       <div class="text-center">
+        <div class="text-4xl mb-2">
+         📈
+        </div>
+        <h3 class="text-sm font-bold mb-1" style="color: #ff6b9d;">PERCENTAGE</h3>
+        <p class="text-xs opacity-70">% Calculations</p>
+       </div>
+      </div><!-- Factorial Module -->
+      <div class="module-card cyber-border p-4 rounded-lg" data-module="factorial">
+       <div class="text-center">
+        <div class="text-4xl mb-2">
+         🔬
+        </div>
+        <h3 class="text-sm font-bold mb-1" style="color: #ffd700;">FACTORIAL</h3>
+        <p class="text-xs opacity-70">n!</p>
+       </div>
+      </div>
+     </div>
+    </div><!-- Content Area -->
+    <div class="max-w-6xl mx-auto"><!-- Quadratic Module Content -->
+     <div id="quadratic-content" class="module-content hidden">
+      <div class="cyber-border p-6 rounded-lg mb-6" style="background: rgba(10, 14, 39, 0.9);">
+       <h2 class="text-2xl font-bold mb-4 glow-text" style="color: #00ff88;">⍟ QUADRATIC EQUATION SOLVER ⍟</h2>
+       <p class="mb-4 opacity-80">Solve ax² + bx + c = 0 with three methods: Quadratic Formula, Completing the Square, and Factoring</p>
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div><label class="block text-sm mb-2">Coefficient a:</label> <input type="number" id="quad-a" class="input-cyber w-full px-4 py-2 rounded" placeholder="1" step="any">
+        </div>
+        <div><label class="block text-sm mb-2">Coefficient b:</label> <input type="number" id="quad-b" class="input-cyber w-full px-4 py-2 rounded" placeholder="0" step="any">
+        </div>
+        <div><label class="block text-sm mb-2">Coefficient c:</label> <input type="number" id="quad-c" class="input-cyber w-full px-4 py-2 rounded" placeholder="0" step="any">
+        </div>
+       </div><button id="solve-quadratic" class="pulse-btn w-full py-3 rounded font-bold text-lg" style="background: #00ff88; color: #0a0e27;"> ⎔ EXECUTE CALCULATION ⎕ </button>
+      </div>
+      <div id="quadratic-results" class="hidden"><!-- Results will be inserted here -->
+      </div>
+     </div><!-- Octal Module Content -->
+     <div id="octal-content" class="module-content hidden">
+      <div class="cyber-border p-6 rounded-lg mb-6" style="background: rgba(10, 14, 39, 0.9);">
+       <h2 class="text-2xl font-bold mb-4 glow-text" style="color: #00d4ff;">⍣ OCTAL CONVERSION SYSTEM ⍣</h2>
+       <div class="mb-6"><label class="block text-sm mb-2">Decimal Number:</label> <input type="number" id="octal-input" class="input-cyber w-full px-4 py-2 rounded" placeholder="Enter decimal number" min="0">
+       </div><button id="convert-octal" class="pulse-btn w-full py-3 rounded font-bold text-lg" style="background: #00d4ff; color: #0a0e27;"> ⎔ CONVERT TO OCTAL ⎕ </button>
+      </div>
+      <div id="octal-results" class="hidden"></div>
+     </div><!-- Linear Module Content -->
+     <div id="linear-content" class="module-content hidden">
+      <div class="cyber-border p-6 rounded-lg mb-6" style="background: rgba(10, 14, 39, 0.9);">
+       <h2 class="text-2xl font-bold mb-4 glow-text" style="color: #7b2ff7;">⍤ LINEAR EQUATION SOLVER ⍤</h2>
+       <p class="mb-4 opacity-80">Solve ax + b = 0</p>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div><label class="block text-sm mb-2">Coefficient a:</label> <input type="number" id="linear-a" class="input-cyber w-full px-4 py-2 rounded" placeholder="1" step="any">
+        </div>
+        <div><label class="block text-sm mb-2">Coefficient b:</label> <input type="number" id="linear-b" class="input-cyber w-full px-4 py-2 rounded" placeholder="0" step="any">
+        </div>
+       </div><button id="solve-linear" class="pulse-btn w-full py-3 rounded font-bold text-lg" style="background: #7b2ff7; color: #fff;"> ⎔ EXECUTE CALCULATION ⎕ </button>
+      </div>
+      <div id="linear-results" class="hidden"></div>
+     </div><!-- Percentage Module Content -->
+     <div id="percentage-content" class="module-content hidden">
+      <div class="cyber-border p-6 rounded-lg mb-6" style="background: rgba(10, 14, 39, 0.9);">
+       <h2 class="text-2xl font-bold mb-4 glow-text" style="color: #ff6b9d;">⍥ PERCENTAGE CALCULATOR ⍥</h2>
+       <div class="mb-6"><label class="block text-sm mb-2">What is</label> <input type="number" id="percent-value" class="input-cyber w-full px-4 py-2 rounded mb-4" placeholder="Percentage %" step="any"> <label class="block text-sm mb-2">of</label> <input type="number" id="percent-total" class="input-cyber w-full px-4 py-2 rounded" placeholder="Total value" step="any">
+       </div><button id="calculate-percent" class="pulse-btn w-full py-3 rounded font-bold text-lg" style="background: #ff6b9d; color: #fff;"> ⎔ CALCULATE ⎕ </button>
+      </div>
+      <div id="percent-results" class="hidden"></div>
+     </div><!-- Factorial Module Content -->
+     <div id="factorial-content" class="module-content hidden">
+      <div class="cyber-border p-6 rounded-lg mb-6" style="background: rgba(10, 14, 39, 0.9);">
+       <h2 class="text-2xl font-bold mb-4 glow-text" style="color: #ffd700;">⍨ FACTORIAL CALCULATOR ⍨</h2>
+       <div class="mb-6"><label class="block text-sm mb-2">Enter n (0-170):</label> <input type="number" id="factorial-input" class="input-cyber w-full px-4 py-2 rounded" placeholder="Enter number" min="0" max="170">
+       </div><button id="calculate-factorial" class="pulse-btn w-full py-3 rounded font-bold text-lg" style="background: #ffd700; color: #0a0e27;"> ⎔ CALCULATE n! ⎕ </button>
+      </div>
+      <div id="factorial-results" class="hidden"></div>
+     </div>
+    </div><!-- Footer -->
+    <footer class="text-center mt-12 pb-8 opacity-60">
+     <div class="mb-2"><span class="symbol-decoration">⌥</span> <span class="symbol-decoration">⍜</span> <span class="symbol-decoration">⎔</span>
+     </div>
+     <p class="text-sm">⎕ Quantum Computing Protocol Established ⎕</p>
+     <p class="text-xs mt-1">Distributed Architecture • Cloud Integration • Advanced Analytics</p>
+    </footer>
+   </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      system_title: "DIGITAL OGTAL CORE SYSTEM",
+      subtitle: "⎔ Advanced Mathematical Computing ⎕"
+    };
+
+    async function onConfigChange(config) {
+      const titleElement = document.getElementById('system-title');
+      const subtitleElement = document.getElementById('system-subtitle');
+      
+      if (titleElement) {
+        titleElement.textContent = config.system_title || defaultConfig.system_title;
+      }
+      if (subtitleElement) {
+        subtitleElement.textContent = config.subtitle || defaultConfig.subtitle;
+      }
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["system_title", config.system_title || defaultConfig.system_title],
+        ["subtitle", config.subtitle || defaultConfig.subtitle]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    // Module switching
+    let currentModule = null;
+
+    document.querySelectorAll('.module-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const module = this.dataset.module;
+        
+        // Update active states
+        document.querySelectorAll('.module-card').forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Hide all content
+        document.querySelectorAll('.module-content').forEach(content => {
+          content.classList.add('hidden');
+        });
+        
+        // Show selected module
+        const content = document.getElementById(`${module}-content`);
+        if (content) {
+          content.classList.remove('hidden');
+          currentModule = module;
+        }
+      });
+    });
+
+    // Quadratic Solver
+    document.getElementById('solve-quadratic').addEventListener('click', function() {
+      const a = parseFloat(document.getElementById('quad-a').value) || 0;
+      const b = parseFloat(document.getElementById('quad-b').value) || 0;
+      const c = parseFloat(document.getElementById('quad-c').value) || 0;
+
+      if (a === 0) {
+        showMessage('quadratic-results', 'Error: Coefficient "a" cannot be zero for a quadratic equation.', '#ff6b9d');
+        return;
+      }
+
+      const resultsDiv = document.getElementById('quadratic-results');
+      resultsDiv.classList.remove('hidden');
+
+      const discriminant = b * b - 4 * a * c;
+      
+      let html = `
+        <div class="cyber-border p-6 rounded-lg mb-6" style="background: rgba(10, 14, 39, 0.9);">
+          <h3 class="text-xl font-bold mb-4" style="color: #00ff88;">⎕ Equation: ${a}x² + ${b}x + ${c} = 0</h3>
+          
+          <div class="result-box p-4 rounded mb-4">
+            <h4 class="font-bold mb-2" style="color: #00d4ff;">Discriminant Analysis:</h4>
+            <p class="mb-2">Δ = b² - 4ac = ${b}² - 4(${a})(${c}) = ${discriminant.toFixed(4)}</p>
+      `;
+
+      if (discriminant > 0) {
+        html += `<p style="color: #00ff88;">✓ Δ > 0: Two distinct real roots</p>`;
+      } else if (discriminant === 0) {
+        html += `<p style="color: #ffd700;">✓ Δ = 0: One repeated real root</p>`;
+      } else {
+        html += `<p style="color: #ff6b9d;">✓ Δ < 0: Two complex conjugate roots</p>`;
+      }
+
+      html += `</div>`;
+
+      // Method 1: Quadratic Formula
+      html += `
+        <div class="mb-6">
+          <h4 class="text-lg font-bold mb-3" style="color: #00ff88;">⍟ Method 1: Quadratic Formula</h4>
+          <div class="space-y-2">
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #00d4ff;">Step 1:</span> Use formula x = (-b ± √Δ) / (2a)
+            </div>
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #00d4ff;">Step 2:</span> x = (${-b} ± √${discriminant.toFixed(4)}) / ${2 * a}
+            </div>
+      `;
+
+      if (discriminant >= 0) {
+        const x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        const x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        html += `
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #00d4ff;">Step 3:</span> x₁ = ${x1.toFixed(4)}, x₂ = ${x2.toFixed(4)}
+            </div>
+        `;
+      } else {
+        const realPart = (-b / (2 * a)).toFixed(4);
+        const imagPart = (Math.sqrt(-discriminant) / (2 * a)).toFixed(4);
+        html += `
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #00d4ff;">Step 3:</span> x₁ = ${realPart} + ${imagPart}i, x₂ = ${realPart} - ${imagPart}i
+            </div>
+        `;
+      }
+
+      html += `</div></div>`;
+
+      // Method 2: Completing the Square
+      html += `
+        <div class="mb-6">
+          <h4 class="text-lg font-bold mb-3" style="color: #00d4ff;">⍣ Method 2: Completing the Square</h4>
+          <div class="space-y-2">
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #7b2ff7;">Step 1:</span> Divide by a: x² + ${(b/a).toFixed(4)}x + ${(c/a).toFixed(4)} = 0
+            </div>
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #7b2ff7;">Step 2:</span> Move constant: x² + ${(b/a).toFixed(4)}x = ${(-c/a).toFixed(4)}
+            </div>
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #7b2ff7;">Step 3:</span> Complete square: (x + ${(b/(2*a)).toFixed(4)})² = ${((b*b - 4*a*c)/(4*a*a)).toFixed(4)}
+            </div>
+      `;
+
+      if (discriminant >= 0) {
+        const x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        const x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        html += `
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #7b2ff7;">Step 4:</span> x₁ = ${x1.toFixed(4)}, x₂ = ${x2.toFixed(4)}
+            </div>
+        `;
+      } else {
+        const realPart = (-b / (2 * a)).toFixed(4);
+        const imagPart = (Math.sqrt(-discriminant) / (2 * a)).toFixed(4);
+        html += `
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #7b2ff7;">Step 4:</span> x₁ = ${realPart} + ${imagPart}i, x₂ = ${realPart} - ${imagPart}i
+            </div>
+        `;
+      }
+
+      html += `</div></div>`;
+
+      // Method 3: Factoring (when applicable)
+      html += `
+        <div class="mb-6">
+          <h4 class="text-lg font-bold mb-3" style="color: #ff6b9d;">⍤ Method 3: Factoring</h4>
+      `;
+
+      if (discriminant >= 0 && Number.isInteger(discriminant) && Math.sqrt(discriminant) % 1 === 0) {
+        const x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        const x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        html += `
+          <div class="space-y-2">
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #ffd700;">Step 1:</span> Factor form: ${a}(x - ${x1.toFixed(4)})(x - ${x2.toFixed(4)}) = 0
+            </div>
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #ffd700;">Step 2:</span> Solutions: x₁ = ${x1.toFixed(4)}, x₂ = ${x2.toFixed(4)}
+            </div>
+          </div>
+        `;
+      } else {
+        html += `
+          <div class="step-item p-3 rounded">
+            <p style="color: #ff6b9d;">⚠ Factoring not applicable for this equation (non-rational roots)</p>
+          </div>
+        `;
+      }
+
+      html += `</div>`;
+
+      // Verification
+      if (discriminant >= 0) {
+        const x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        const verify1 = a * x1 * x1 + b * x1 + c;
+        html += `
+          <div class="result-box p-4 rounded">
+            <h4 class="font-bold mb-2" style="color: #00ff88;">✓ Verification:</h4>
+            <p>For x₁ = ${x1.toFixed(4)}: ${a}(${x1.toFixed(4)})² + ${b}(${x1.toFixed(4)}) + ${c} = ${verify1.toFixed(6)} ≈ 0</p>
+          </div>
+        `;
+      }
+
+      html += `</div>`;
+      resultsDiv.innerHTML = html;
+    });
+
+    // Octal Converter
+    document.getElementById('convert-octal').addEventListener('click', function() {
+      const decimal = parseInt(document.getElementById('octal-input').value);
+      
+      if (isNaN(decimal) || decimal < 0) {
+        showMessage('octal-results', 'Please enter a valid positive number.', '#ff6b9d');
+        return;
+      }
+
+      const resultsDiv = document.getElementById('octal-results');
+      resultsDiv.classList.remove('hidden');
+
+      let html = `
+        <div class="cyber-border p-6 rounded-lg" style="background: rgba(10, 14, 39, 0.9);">
+          <h3 class="text-xl font-bold mb-4" style="color: #00d4ff;">⎕ Decimal to Octal Conversion</h3>
+          
+          <div class="result-box p-4 rounded mb-4">
+            <p class="text-2xl font-bold mb-2">Decimal: ${decimal} → Octal: ${decimal.toString(8)}</p>
+          </div>
+
+          <h4 class="text-lg font-bold mb-3" style="color: #00d4ff;">Step-by-Step Process:</h4>
+          <div class="space-y-2">
+      `;
+
+      let num = decimal;
+      let step = 1;
+      const steps = [];
+
+      while (num > 0) {
+        const remainder = num % 8;
+        steps.push({ quotient: Math.floor(num / 8), remainder });
+        num = Math.floor(num / 8);
+      }
+
+      steps.forEach((s, i) => {
+        const currentNum = i === 0 ? decimal : steps[i-1].quotient;
+        html += `
+          <div class="step-item p-3 rounded">
+            <span class="font-bold" style="color: #00d4ff;">Step ${i + 1}:</span> 
+            ${currentNum} ÷ 8 = ${s.quotient} remainder ${s.remainder}
+          </div>
+        `;
+      });
+
+      html += `
+          </div>
+          <div class="result-box p-4 rounded mt-4">
+            <p class="font-bold">Read remainders from bottom to top: ${decimal.toString(8)}</p>
+          </div>
+        </div>
+      `;
+
+      resultsDiv.innerHTML = html;
+    });
+
+    // Linear Solver
+    document.getElementById('solve-linear').addEventListener('click', function() {
+      const a = parseFloat(document.getElementById('linear-a').value) || 0;
+      const b = parseFloat(document.getElementById('linear-b').value) || 0;
+
+      const resultsDiv = document.getElementById('linear-results');
+      resultsDiv.classList.remove('hidden');
+
+      if (a === 0) {
+        if (b === 0) {
+          showMessage('linear-results', 'Infinite solutions (0 = 0)', '#00ff88');
+        } else {
+          showMessage('linear-results', 'No solution (contradiction)', '#ff6b9d');
+        }
+        return;
+      }
+
+      const solution = -b / a;
+
+      let html = `
+        <div class="cyber-border p-6 rounded-lg" style="background: rgba(10, 14, 39, 0.9);">
+          <h3 class="text-xl font-bold mb-4" style="color: #7b2ff7;">⎕ Linear Equation Solution</h3>
+          
+          <div class="result-box p-4 rounded mb-4">
+            <p class="text-2xl font-bold">x = ${solution.toFixed(4)}</p>
+          </div>
+
+          <h4 class="text-lg font-bold mb-3" style="color: #7b2ff7;">Solution Steps:</h4>
+          <div class="space-y-2">
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #00d4ff;">Step 1:</span> Equation: ${a}x + ${b} = 0
+            </div>
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #00d4ff;">Step 2:</span> Isolate x: ${a}x = ${-b}
+            </div>
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #00d4ff;">Step 3:</span> Divide by ${a}: x = ${-b}/${a} = ${solution.toFixed(4)}
+            </div>
+          </div>
+
+          <div class="result-box p-4 rounded mt-4">
+            <h4 class="font-bold mb-2" style="color: #00ff88;">✓ Verification:</h4>
+            <p>${a}(${solution.toFixed(4)}) + ${b} = ${(a * solution + b).toFixed(6)} ≈ 0</p>
+          </div>
+        </div>
+      `;
+
+      resultsDiv.innerHTML = html;
+    });
+
+    // Percentage Calculator
+    document.getElementById('calculate-percent').addEventListener('click', function() {
+      const percent = parseFloat(document.getElementById('percent-value').value);
+      const total = parseFloat(document.getElementById('percent-total').value);
+
+      if (isNaN(percent) || isNaN(total)) {
+        showMessage('percent-results', 'Please enter valid numbers.', '#ff6b9d');
+        return;
+      }
+
+      const result = (percent / 100) * total;
+
+      const resultsDiv = document.getElementById('percent-results');
+      resultsDiv.classList.remove('hidden');
+
+      let html = `
+        <div class="cyber-border p-6 rounded-lg" style="background: rgba(10, 14, 39, 0.9);">
+          <h3 class="text-xl font-bold mb-4" style="color: #ff6b9d;">⎕ Percentage Calculation</h3>
+          
+          <div class="result-box p-4 rounded mb-4">
+            <p class="text-2xl font-bold">${percent}% of ${total} = ${result.toFixed(4)}</p>
+          </div>
+
+          <h4 class="text-lg font-bold mb-3" style="color: #ff6b9d;">Calculation Steps:</h4>
+          <div class="space-y-2">
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #00d4ff;">Step 1:</span> Convert percentage to decimal: ${percent}% = ${(percent/100).toFixed(4)}
+            </div>
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #00d4ff;">Step 2:</span> Multiply: ${(percent/100).toFixed(4)} × ${total} = ${result.toFixed(4)}
+            </div>
+          </div>
+        </div>
+      `;
+
+      resultsDiv.innerHTML = html;
+    });
+
+    // Factorial Calculator
+    document.getElementById('calculate-factorial').addEventListener('click', function() {
+      const n = parseInt(document.getElementById('factorial-input').value);
+
+      if (isNaN(n) || n < 0 || n > 170) {
+        showMessage('factorial-results', 'Please enter a number between 0 and 170.', '#ff6b9d');
+        return;
+      }
+
+      const resultsDiv = document.getElementById('factorial-results');
+      resultsDiv.classList.remove('hidden');
+
+      let factorial = 1;
+      const steps = [];
+
+      for (let i = 1; i <= n; i++) {
+        factorial *= i;
+        if (i <= 10 || i === n) {
+          steps.push({ step: i, value: factorial });
+        }
+      }
+
+      let html = `
+        <div class="cyber-border p-6 rounded-lg" style="background: rgba(10, 14, 39, 0.9);">
+          <h3 class="text-xl font-bold mb-4" style="color: #ffd700;">⎕ Factorial Calculation</h3>
+          
+          <div class="result-box p-4 rounded mb-4">
+            <p class="text-2xl font-bold">${n}! = ${factorial.toExponential(4)}</p>
+          </div>
+
+          <h4 class="text-lg font-bold mb-3" style="color: #ffd700;">Calculation Process:</h4>
+          <div class="space-y-2">
+            <div class="step-item p-3 rounded">
+              <span class="font-bold" style="color: #00d4ff;">Definition:</span> ${n}! = ${n} × ${n-1} × ${n-2} × ... × 2 × 1
+            </div>
+      `;
+
+      steps.forEach(s => {
+        html += `
+          <div class="step-item p-3 rounded">
+            <span class="font-bold" style="color: #00d4ff;">${s.step}!:</span> ${s.value.toExponential(4)}
+          </div>
+        `;
+      });
+
+      html += `
+          </div>
+        </div>
+      `;
+
+      resultsDiv.innerHTML = html;
+    });
+
+    function showMessage(divId, message, color) {
+      const div = document.getElementById(divId);
+      div.classList.remove('hidden');
+      div.innerHTML = `
+        <div class="cyber-border p-6 rounded-lg" style="background: rgba(10, 14, 39, 0.9);">
+          <p class="text-lg" style="color: ${color};">${message}</p>
+        </div>
+      `;
+    }
+
+    // Auto-select first module on load
+    setTimeout(() => {
+      document.querySelector('[data-module="quadratic"]').click();
+    }, 100);
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c6f90cfb067f4ed',t:'MTc2OTkyOTE2Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
              <!-- Pay -->                            
          <section id="services" class="py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
